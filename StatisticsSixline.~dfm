@@ -1,8 +1,8 @@
 object FormStatisticsSixline: TFormStatisticsSixline
-  Left = 1258
-  Top = 151
-  Width = 299
-  Height = 266
+  Left = 192
+  Top = 813
+  Width = 301
+  Height = 270
   Caption = 'Statistics Sixline'
   Color = 14732732
   Font.Charset = DEFAULT_CHARSET
@@ -20,7 +20,7 @@ object FormStatisticsSixline: TFormStatisticsSixline
     Height = 225
     Color = 5483007
     TabOrder = 0
-    object Panel4: TPanel
+    object PanelDelemiter2: TPanel
       Left = 57
       Top = 0
       Width = 8
@@ -28,7 +28,7 @@ object FormStatisticsSixline: TFormStatisticsSixline
       Color = 13284405
       TabOrder = 0
     end
-    object Panel5: TPanel
+    object PanelDelemiter3: TPanel
       Left = 105
       Top = 0
       Width = 7
@@ -548,7 +548,7 @@ object FormStatisticsSixline: TFormStatisticsSixline
       Color = 8421631
       TabOrder = 63
     end
-    object Panel3: TPanel
+    object PanelDelemiter4: TPanel
       Left = 161
       Top = 0
       Width = 7
@@ -556,7 +556,7 @@ object FormStatisticsSixline: TFormStatisticsSixline
       Color = 13284405
       TabOrder = 64
     end
-    object Panel2: TPanel
+    object PanelDelemiter1: TPanel
       Left = 1
       Top = 0
       Width = 7

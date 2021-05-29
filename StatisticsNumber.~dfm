@@ -1,8 +1,8 @@
 object FormStatisticsNumber: TFormStatisticsNumber
-  Left = 1571
-  Top = 152
-  Width = 304
-  Height = 700
+  Left = 1161
+  Top = 158
+  Width = 298
+  Height = 686
   Caption = 'Statistics number'
   Color = 14732732
   Font.Charset = DEFAULT_CHARSET

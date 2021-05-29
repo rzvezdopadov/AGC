@@ -9,8 +9,8 @@ uses
 type
   TFormStatisticsSixline = class(TForm)
     PanelBack: TPanel;
-    Panel4: TPanel;
-    Panel5: TPanel;
+    PanelDelemiter2: TPanel;
+    PanelDelemiter3: TPanel;
     PanelDelemiter5: TPanel;
     StatGridPos: TPanel;
     StatGridLast: TPanel;
@@ -73,8 +73,8 @@ type
     StatGridS11Perc1: TPanel;
     StatGridS11Perc2: TPanel;
     StatGridS11Perc3: TPanel;
-    Panel3: TPanel;
-    Panel2: TPanel;
+    PanelDelemiter4: TPanel;
+    PanelDelemiter1: TPanel;
     PanelSixline: TPanel;
   private
     { Private declarations }

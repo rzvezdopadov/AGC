@@ -1,6 +1,6 @@
 object FormStatisticsPCD: TFormStatisticsPCD
-  Left = 1612
-  Top = 129
+  Left = 891
+  Top = 379
   Width = 306
   Height = 317
   Caption = 'Statistics PCD'
@@ -13,14 +13,14 @@ object FormStatisticsPCD: TFormStatisticsPCD
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Panel1: TPanel
+  object PanelBack: TPanel
     Left = 0
     Top = 0
     Width = 281
     Height = 273
     Color = 5483007
     TabOrder = 0
-    object Panel4: TPanel
+    object PanelDelemiter2: TPanel
       Left = 57
       Top = 0
       Width = 8
@@ -28,7 +28,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 13284405
       TabOrder = 0
     end
-    object Panel7: TPanel
+    object StatGridPos: TPanel
       Left = 8
       Top = 8
       Width = 49
@@ -37,7 +37,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8713438
       TabOrder = 1
     end
-    object Panel8: TPanel
+    object StatGridLast: TPanel
       Left = 64
       Top = 8
       Width = 41
@@ -46,7 +46,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8713438
       TabOrder = 2
     end
-    object Panel9: TPanel
+    object StatGridPerc1: TPanel
       Left = 112
       Top = 8
       Width = 49
@@ -55,7 +55,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8713438
       TabOrder = 3
     end
-    object Panel10: TPanel
+    object StatGridPerc2: TPanel
       Left = 168
       Top = 8
       Width = 49
@@ -64,7 +64,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8713438
       TabOrder = 4
     end
-    object Panel11: TPanel
+    object StatGridPerc3: TPanel
       Left = 224
       Top = 8
       Width = 49
@@ -73,7 +73,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8713438
       TabOrder = 5
     end
-    object Panel12: TPanel
+    object PanelDelemiter6: TPanel
       Left = 273
       Top = 0
       Width = 7
@@ -81,7 +81,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 13284405
       TabOrder = 6
     end
-    object Panel18: TPanel
+    object StatGridPairLowPos: TPanel
       Left = 8
       Top = 40
       Width = 49
@@ -90,7 +90,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 7
     end
-    object Panel19: TPanel
+    object PanelPairLowLast: TPanel
       Left = 64
       Top = 40
       Width = 41
@@ -98,7 +98,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 8
     end
-    object Panel20: TPanel
+    object PanelPairLowPerc1: TPanel
       Left = 112
       Top = 40
       Width = 49
@@ -106,7 +106,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 9
     end
-    object Panel21: TPanel
+    object PanelPairLowPerc2: TPanel
       Left = 168
       Top = 40
       Width = 49
@@ -114,7 +114,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 10
     end
-    object Panel22: TPanel
+    object PanelPairLowPerc3: TPanel
       Left = 224
       Top = 40
       Width = 49
@@ -122,7 +122,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 11
     end
-    object Panel23: TPanel
+    object StatGridPairHighPos: TPanel
       Left = 8
       Top = 56
       Width = 49
@@ -131,7 +131,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 12
     end
-    object Panel24: TPanel
+    object PanelPairHighLast: TPanel
       Left = 64
       Top = 56
       Width = 41
@@ -139,7 +139,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 13
     end
-    object Panel25: TPanel
+    object PanelPairHighPerc1: TPanel
       Left = 112
       Top = 56
       Width = 49
@@ -147,7 +147,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 14
     end
-    object Panel26: TPanel
+    object PanelPairHighPerc2: TPanel
       Left = 168
       Top = 56
       Width = 49
@@ -155,7 +155,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 15
     end
-    object Panel27: TPanel
+    object PanelPairHighPerc3: TPanel
       Left = 224
       Top = 56
       Width = 49
@@ -163,7 +163,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 16
     end
-    object Panel28: TPanel
+    object StatGridPairOddPos: TPanel
       Left = 8
       Top = 72
       Width = 49
@@ -172,7 +172,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 17
     end
-    object Panel29: TPanel
+    object PanelPairOddLast: TPanel
       Left = 64
       Top = 72
       Width = 41
@@ -180,7 +180,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 18
     end
-    object Panel30: TPanel
+    object PanelPairOddPerc1: TPanel
       Left = 112
       Top = 72
       Width = 49
@@ -188,7 +188,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 19
     end
-    object Panel31: TPanel
+    object PanelPairOddPerc2: TPanel
       Left = 168
       Top = 72
       Width = 49
@@ -196,7 +196,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 20
     end
-    object Panel32: TPanel
+    object PanelPairOddPerc3: TPanel
       Left = 224
       Top = 72
       Width = 49
@@ -204,7 +204,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 21
     end
-    object Panel33: TPanel
+    object StatGridPairEvenPos: TPanel
       Left = 8
       Top = 88
       Width = 49
@@ -213,7 +213,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 22
     end
-    object Panel34: TPanel
+    object PanelPairEvenLast: TPanel
       Left = 64
       Top = 88
       Width = 41
@@ -221,7 +221,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 23
     end
-    object Panel35: TPanel
+    object PanelPairEvenPerc1: TPanel
       Left = 112
       Top = 88
       Width = 49
@@ -229,7 +229,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 24
     end
-    object Panel36: TPanel
+    object PanelPairEvenPerc2: TPanel
       Left = 168
       Top = 88
       Width = 49
@@ -237,7 +237,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 25
     end
-    object Panel37: TPanel
+    object PanelPairEvenPerc3: TPanel
       Left = 224
       Top = 88
       Width = 49
@@ -245,7 +245,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 26
     end
-    object Panel38: TPanel
+    object StatGridPairBlackPos: TPanel
       Left = 8
       Top = 104
       Width = 49
@@ -254,7 +254,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 27
     end
-    object Panel39: TPanel
+    object PanelPairBlackLast: TPanel
       Left = 64
       Top = 104
       Width = 41
@@ -262,7 +262,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 28
     end
-    object Panel40: TPanel
+    object PanelPairBlackPerc1: TPanel
       Left = 112
       Top = 104
       Width = 49
@@ -270,7 +270,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 29
     end
-    object Panel41: TPanel
+    object PanelPairBlackPerc2: TPanel
       Left = 168
       Top = 104
       Width = 49
@@ -278,7 +278,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 30
     end
-    object Panel42: TPanel
+    object PanelPairBlackPerc3: TPanel
       Left = 224
       Top = 104
       Width = 49
@@ -286,7 +286,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 31
     end
-    object Panel43: TPanel
+    object StatGridPairRedPos: TPanel
       Left = 8
       Top = 120
       Width = 49
@@ -295,7 +295,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 32
     end
-    object Panel44: TPanel
+    object PanelPairRedLast: TPanel
       Left = 64
       Top = 120
       Width = 41
@@ -303,7 +303,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 33
     end
-    object Panel45: TPanel
+    object PanelPairRedPerc1: TPanel
       Left = 112
       Top = 120
       Width = 49
@@ -311,7 +311,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 34
     end
-    object Panel46: TPanel
+    object PanelPairRedPerc2: TPanel
       Left = 168
       Top = 120
       Width = 49
@@ -319,7 +319,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 35
     end
-    object Panel47: TPanel
+    object PanelPairRedPerc3: TPanel
       Left = 224
       Top = 120
       Width = 49
@@ -327,7 +327,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 36
     end
-    object Panel53: TPanel
+    object StatGridDozenLowPos: TPanel
       Left = 8
       Top = 152
       Width = 49
@@ -336,7 +336,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 37
     end
-    object Panel54: TPanel
+    object PanelDozenLowLast: TPanel
       Left = 64
       Top = 152
       Width = 41
@@ -344,7 +344,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 38
     end
-    object Panel55: TPanel
+    object PanelDozenLowPerc1: TPanel
       Left = 112
       Top = 152
       Width = 49
@@ -352,7 +352,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 39
     end
-    object Panel56: TPanel
+    object PanelDozenLowPerc2: TPanel
       Left = 168
       Top = 152
       Width = 49
@@ -360,7 +360,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 40
     end
-    object Panel57: TPanel
+    object PanelDozenLowPerc3: TPanel
       Left = 224
       Top = 152
       Width = 49
@@ -368,7 +368,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 41
     end
-    object Panel58: TPanel
+    object PanelDozenMediumPos: TPanel
       Left = 8
       Top = 168
       Width = 49
@@ -377,7 +377,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 42
     end
-    object Panel59: TPanel
+    object PanelDozenMediumLast: TPanel
       Left = 64
       Top = 168
       Width = 41
@@ -385,7 +385,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 43
     end
-    object Panel60: TPanel
+    object PanelDozenMediumPerc1: TPanel
       Left = 112
       Top = 168
       Width = 49
@@ -393,7 +393,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 44
     end
-    object Panel61: TPanel
+    object PanelDozenMediumPerc2: TPanel
       Left = 168
       Top = 168
       Width = 49
@@ -401,7 +401,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 45
     end
-    object Panel62: TPanel
+    object PanelDozenMediumPerc3: TPanel
       Left = 224
       Top = 168
       Width = 49
@@ -409,7 +409,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 46
     end
-    object Panel63: TPanel
+    object PanelDozenHighPos: TPanel
       Left = 8
       Top = 184
       Width = 49
@@ -418,7 +418,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 47
     end
-    object Panel64: TPanel
+    object PanelDozenHighLast: TPanel
       Left = 64
       Top = 184
       Width = 41
@@ -426,7 +426,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 48
     end
-    object Panel65: TPanel
+    object PanelDozenHighPerc1: TPanel
       Left = 112
       Top = 184
       Width = 49
@@ -434,7 +434,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 49
     end
-    object Panel66: TPanel
+    object PanelDozenHighPerc2: TPanel
       Left = 168
       Top = 184
       Width = 49
@@ -442,7 +442,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 50
     end
-    object Panel67: TPanel
+    object PanelDozenHighPerc3: TPanel
       Left = 224
       Top = 184
       Width = 49
@@ -450,7 +450,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 51
     end
-    object Panel73: TPanel
+    object PanelColumnLowPos: TPanel
       Left = 8
       Top = 216
       Width = 49
@@ -459,7 +459,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 52
     end
-    object Panel74: TPanel
+    object PanelColumnLowLast: TPanel
       Left = 64
       Top = 216
       Width = 41
@@ -467,7 +467,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 53
     end
-    object Panel75: TPanel
+    object PanelColumnLowPerc1: TPanel
       Left = 112
       Top = 216
       Width = 49
@@ -475,7 +475,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 54
     end
-    object Panel76: TPanel
+    object PanelColumnLowPerc2: TPanel
       Left = 168
       Top = 216
       Width = 49
@@ -483,7 +483,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 55
     end
-    object Panel77: TPanel
+    object PanelColumnLowPerc3: TPanel
       Left = 224
       Top = 216
       Width = 49
@@ -491,7 +491,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 56
     end
-    object Panel78: TPanel
+    object PanelColumnMediumPos: TPanel
       Left = 8
       Top = 232
       Width = 49
@@ -500,7 +500,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 57
     end
-    object Panel79: TPanel
+    object PanelColumnMediumLast: TPanel
       Left = 64
       Top = 232
       Width = 41
@@ -508,7 +508,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 58
     end
-    object Panel80: TPanel
+    object PanelColumnMediumPerc1: TPanel
       Left = 112
       Top = 232
       Width = 49
@@ -516,7 +516,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 59
     end
-    object Panel81: TPanel
+    object PanelColumnMediumPerc2: TPanel
       Left = 168
       Top = 232
       Width = 49
@@ -524,7 +524,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 60
     end
-    object Panel82: TPanel
+    object PanelColumnMediumPerc3: TPanel
       Left = 224
       Top = 232
       Width = 49
@@ -532,7 +532,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 7864183
       TabOrder = 61
     end
-    object Panel83: TPanel
+    object PanelColumnHighPos: TPanel
       Left = 8
       Top = 248
       Width = 49
@@ -541,7 +541,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 62
     end
-    object Panel84: TPanel
+    object PanelColumnHighLast: TPanel
       Left = 64
       Top = 248
       Width = 41
@@ -549,7 +549,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 63
     end
-    object Panel85: TPanel
+    object PanelColumnHighPerc1: TPanel
       Left = 112
       Top = 248
       Width = 49
@@ -557,7 +557,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 64
     end
-    object Panel86: TPanel
+    object PanelColumnHighPerc2: TPanel
       Left = 168
       Top = 248
       Width = 49
@@ -565,7 +565,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 65
     end
-    object Panel87: TPanel
+    object PanelColumnHighPerc3: TPanel
       Left = 224
       Top = 248
       Width = 49
@@ -573,7 +573,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 8421631
       TabOrder = 66
     end
-    object Panel2: TPanel
+    object PanelDelemiter1: TPanel
       Left = 1
       Top = 0
       Width = 7
@@ -581,7 +581,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 13284405
       TabOrder = 67
     end
-    object Panel5: TPanel
+    object PanelDelemiter3: TPanel
       Left = 105
       Top = 0
       Width = 7
@@ -589,7 +589,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 13284405
       TabOrder = 68
     end
-    object Panel6: TPanel
+    object PanelDelemiter5: TPanel
       Left = 217
       Top = 0
       Width = 7
@@ -597,7 +597,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 13284405
       TabOrder = 69
     end
-    object Panel3: TPanel
+    object PanelDelemiter4: TPanel
       Left = 160
       Top = 0
       Width = 8
@@ -605,7 +605,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 13284405
       TabOrder = 70
     end
-    object Panel13: TPanel
+    object PanelPair: TPanel
       Left = 8
       Top = 24
       Width = 265
@@ -614,7 +614,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 16752543
       TabOrder = 71
     end
-    object Panel48: TPanel
+    object PanelDozen: TPanel
       Left = 8
       Top = 136
       Width = 265
@@ -623,7 +623,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
       Color = 16752543
       TabOrder = 72
     end
-    object Panel68: TPanel
+    object PanelColumn: TPanel
       Left = 8
       Top = 200
       Width = 265

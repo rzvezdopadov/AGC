@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 286
-  Top = 137
+  Left = 226
+  Top = 275
   Width = 617
   Height = 668
   AlphaBlend = True
@@ -220,9 +220,9 @@ object FormMain: TFormMain
     object LabelBallance: TLabel
       Left = 32
       Top = 8
-      Width = 48
+      Width = 54
       Height = 13
-      Caption = 'Number:'
+      Caption = 'Ballance:'
     end
     object EditBallance: TEdit
       Left = 8

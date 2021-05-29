@@ -42,6 +42,7 @@ begin
   if FormStatistics.CheckBoxStatSixline.Checked = true then FormStatisticsSixline.Visible := true else FormStatisticsSixline.Visible := false;
   if FormStatistics.CheckBoxStatStreet.Checked = true  then FormStatisticsStreet.Visible := true  else FormStatisticsStreet.Visible := false;
   if FormStatistics.CheckBoxStatAngle.Checked = true   then FormStatisticsAngle.Visible := true   else FormStatisticsAngle.Visible := false;
+  result := 0;
 end;
 
 procedure TFormStatistics.CheckBoxStatNumberClick(Sender: TObject);

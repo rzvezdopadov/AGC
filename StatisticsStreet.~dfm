@@ -1,6 +1,6 @@
 object FormStatisticsStreet: TFormStatisticsStreet
-  Left = 1582
-  Top = 155
+  Left = 890
+  Top = 52
   Width = 300
   Height = 316
   Caption = 'Statistics street'
@@ -13,14 +13,14 @@ object FormStatisticsStreet: TFormStatisticsStreet
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Panel1: TPanel
+  object PanelBack: TPanel
     Left = 0
     Top = 0
     Width = 281
     Height = 273
     Color = 5483007
     TabOrder = 0
-    object Panel4: TPanel
+    object PanelDelemiter2: TPanel
       Left = 57
       Top = 0
       Width = 8
@@ -28,7 +28,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 13284405
       TabOrder = 0
     end
-    object Panel5: TPanel
+    object PanelDelemiter3: TPanel
       Left = 105
       Top = 0
       Width = 7
@@ -36,7 +36,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 13284405
       TabOrder = 1
     end
-    object Panel6: TPanel
+    object PanelDelemiter5: TPanel
       Left = 217
       Top = 0
       Width = 7
@@ -44,7 +44,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 13284405
       TabOrder = 2
     end
-    object Panel7: TPanel
+    object StatGridPos: TPanel
       Left = 8
       Top = 8
       Width = 49
@@ -62,7 +62,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8713438
       TabOrder = 4
     end
-    object Panel9: TPanel
+    object StatGridPerc1: TPanel
       Left = 112
       Top = 8
       Width = 49
@@ -71,7 +71,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8713438
       TabOrder = 5
     end
-    object Panel10: TPanel
+    object StatGridPerc2: TPanel
       Left = 168
       Top = 8
       Width = 49
@@ -80,7 +80,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8713438
       TabOrder = 6
     end
-    object Panel11: TPanel
+    object StatGridPerc3: TPanel
       Left = 224
       Top = 8
       Width = 49
@@ -89,7 +89,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8713438
       TabOrder = 7
     end
-    object Panel12: TPanel
+    object PanelDelemiter6: TPanel
       Left = 273
       Top = 0
       Width = 7
@@ -114,7 +114,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 10
     end
-    object Panel15: TPanel
+    object StatGridST0Perc1: TPanel
       Left = 112
       Top = 40
       Width = 49
@@ -122,7 +122,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 11
     end
-    object Panel16: TPanel
+    object StatGridST0Perc2: TPanel
       Left = 168
       Top = 40
       Width = 49
@@ -130,7 +130,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 12
     end
-    object Panel17: TPanel
+    object StatGridST0Perc3: TPanel
       Left = 224
       Top = 40
       Width = 49
@@ -155,7 +155,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 15
     end
-    object Panel20: TPanel
+    object StatGridST1Perc1: TPanel
       Left = 112
       Top = 56
       Width = 49
@@ -163,7 +163,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 16
     end
-    object Panel21: TPanel
+    object StatGridST1Perc2: TPanel
       Left = 168
       Top = 56
       Width = 49
@@ -171,7 +171,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 17
     end
-    object Panel22: TPanel
+    object StatGridST1Perc3: TPanel
       Left = 224
       Top = 56
       Width = 49
@@ -196,7 +196,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 20
     end
-    object Panel25: TPanel
+    object StatGridST2Perc1: TPanel
       Left = 112
       Top = 72
       Width = 49
@@ -204,7 +204,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 21
     end
-    object Panel26: TPanel
+    object StatGridST2Perc2: TPanel
       Left = 168
       Top = 72
       Width = 49
@@ -212,7 +212,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 22
     end
-    object Panel27: TPanel
+    object StatGridST2Perc3: TPanel
       Left = 224
       Top = 72
       Width = 49
@@ -237,7 +237,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 25
     end
-    object Panel30: TPanel
+    object StatGridST3Perc1: TPanel
       Left = 112
       Top = 88
       Width = 49
@@ -245,7 +245,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 26
     end
-    object Panel31: TPanel
+    object StatGridST3Perc2: TPanel
       Left = 168
       Top = 88
       Width = 49
@@ -253,7 +253,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 27
     end
-    object Panel32: TPanel
+    object StatGridST3Perc3: TPanel
       Left = 224
       Top = 88
       Width = 49
@@ -278,7 +278,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 30
     end
-    object Panel35: TPanel
+    object StatGridST4Perc1: TPanel
       Left = 112
       Top = 104
       Width = 49
@@ -286,7 +286,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 31
     end
-    object Panel36: TPanel
+    object StatGridST4Perc2: TPanel
       Left = 168
       Top = 104
       Width = 49
@@ -294,7 +294,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 32
     end
-    object Panel37: TPanel
+    object StatGridST4Perc3: TPanel
       Left = 224
       Top = 104
       Width = 49
@@ -319,7 +319,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 35
     end
-    object Panel40: TPanel
+    object StatGridST5Perc1: TPanel
       Left = 112
       Top = 120
       Width = 49
@@ -327,7 +327,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 36
     end
-    object Panel41: TPanel
+    object StatGridST5Perc2: TPanel
       Left = 168
       Top = 120
       Width = 49
@@ -335,7 +335,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 37
     end
-    object Panel42: TPanel
+    object StatGridST5Perc3: TPanel
       Left = 224
       Top = 120
       Width = 49
@@ -360,7 +360,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 40
     end
-    object Panel45: TPanel
+    object StatGridST6Perc1: TPanel
       Left = 112
       Top = 136
       Width = 49
@@ -368,7 +368,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 41
     end
-    object Panel46: TPanel
+    object StatGridST6Perc2: TPanel
       Left = 168
       Top = 136
       Width = 49
@@ -376,7 +376,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 42
     end
-    object Panel47: TPanel
+    object StatGridST6Perc3: TPanel
       Left = 224
       Top = 136
       Width = 49
@@ -401,7 +401,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 45
     end
-    object Panel50: TPanel
+    object StatGridST7Perc1: TPanel
       Left = 112
       Top = 152
       Width = 49
@@ -409,7 +409,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 46
     end
-    object Panel51: TPanel
+    object StatGridST7Perc2: TPanel
       Left = 168
       Top = 152
       Width = 49
@@ -417,7 +417,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 47
     end
-    object Panel52: TPanel
+    object StatGridST7Perc3: TPanel
       Left = 224
       Top = 152
       Width = 49
@@ -442,7 +442,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 50
     end
-    object Panel55: TPanel
+    object StatGridST8Perc1: TPanel
       Left = 112
       Top = 168
       Width = 49
@@ -450,7 +450,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 51
     end
-    object Panel56: TPanel
+    object StatGridST8Perc2: TPanel
       Left = 168
       Top = 168
       Width = 49
@@ -458,7 +458,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 52
     end
-    object Panel57: TPanel
+    object StatGridST8Perc3: TPanel
       Left = 224
       Top = 168
       Width = 49
@@ -483,7 +483,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 55
     end
-    object Panel60: TPanel
+    object StatGridST9Perc1: TPanel
       Left = 112
       Top = 184
       Width = 49
@@ -491,7 +491,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 56
     end
-    object Panel61: TPanel
+    object StatGridST9Perc2: TPanel
       Left = 168
       Top = 184
       Width = 49
@@ -499,7 +499,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 57
     end
-    object Panel62: TPanel
+    object StatGridST9Perc3: TPanel
       Left = 224
       Top = 184
       Width = 49
@@ -524,7 +524,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 60
     end
-    object Panel65: TPanel
+    object StatGridST10Perc1: TPanel
       Left = 112
       Top = 200
       Width = 49
@@ -532,7 +532,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 61
     end
-    object Panel66: TPanel
+    object StatGridST10Perc2: TPanel
       Left = 168
       Top = 200
       Width = 49
@@ -540,7 +540,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 62
     end
-    object Panel67: TPanel
+    object StatGridST10Perc3: TPanel
       Left = 224
       Top = 200
       Width = 49
@@ -565,7 +565,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 65
     end
-    object Panel70: TPanel
+    object StatGridST11Perc1: TPanel
       Left = 112
       Top = 216
       Width = 49
@@ -573,7 +573,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 66
     end
-    object Panel71: TPanel
+    object StatGridST11Perc2: TPanel
       Left = 168
       Top = 216
       Width = 49
@@ -581,7 +581,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 67
     end
-    object Panel72: TPanel
+    object StatGridST11Perc3: TPanel
       Left = 224
       Top = 216
       Width = 49
@@ -606,7 +606,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 70
     end
-    object Panel75: TPanel
+    object StatGridST12Perc1: TPanel
       Left = 112
       Top = 232
       Width = 49
@@ -614,7 +614,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 71
     end
-    object Panel76: TPanel
+    object StatGridST12Perc2: TPanel
       Left = 168
       Top = 232
       Width = 49
@@ -622,7 +622,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 8421631
       TabOrder = 72
     end
-    object Panel77: TPanel
+    object StatGridST12Perc3: TPanel
       Left = 224
       Top = 232
       Width = 49
@@ -639,7 +639,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 74
     end
-    object Panel79: TPanel
+    object StatGridST13Last: TPanel
       Left = 64
       Top = 248
       Width = 41
@@ -647,7 +647,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 75
     end
-    object Panel80: TPanel
+    object StatGridST13Perc1: TPanel
       Left = 112
       Top = 248
       Width = 49
@@ -655,7 +655,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 76
     end
-    object Panel81: TPanel
+    object StatGridST13Perc2: TPanel
       Left = 168
       Top = 248
       Width = 49
@@ -663,7 +663,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 77
     end
-    object Panel82: TPanel
+    object StatGridST13Perc3: TPanel
       Left = 224
       Top = 248
       Width = 49
@@ -671,7 +671,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 7864183
       TabOrder = 78
     end
-    object Panel3: TPanel
+    object PanelDelemiter4: TPanel
       Left = 161
       Top = 0
       Width = 7
@@ -679,7 +679,7 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 13284405
       TabOrder = 79
     end
-    object Panel2: TPanel
+    object PanelDelemiter1: TPanel
       Left = 1
       Top = 0
       Width = 7
@@ -687,12 +687,12 @@ object FormStatisticsStreet: TFormStatisticsStreet
       Color = 13284405
       TabOrder = 80
     end
-    object Panel198: TPanel
+    object PanelStreet: TPanel
       Left = 8
       Top = 24
       Width = 265
       Height = 17
-      Caption = 'Number'
+      Caption = 'Street'
       Color = 16752543
       TabOrder = 81
     end
