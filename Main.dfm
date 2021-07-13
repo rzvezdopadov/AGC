@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 226
-  Top = 275
+  Left = 350
+  Top = 260
   Width = 617
   Height = 668
   AlphaBlend = True
@@ -1993,5 +1993,8 @@ object FormMain: TFormMain
         Caption = 'About'
       end
     end
+  end
+  object Timer1: TTimer
+    Left = 32
   end
 end

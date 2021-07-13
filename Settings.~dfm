@@ -1,8 +1,9 @@
 object FormSettings: TFormSettings
-  Left = 325
-  Top = 228
-  Width = 692
-  Height = 635
+  Left = 413
+  Top = 331
+  Width = 681
+  Height = 628
+  AutoSize = True
   Caption = 'Settings'
   Color = 14732732
   Font.Charset = DEFAULT_CHARSET
@@ -256,7 +257,7 @@ object FormSettings: TFormSettings
         Top = 0
         Width = 657
         Height = 545
-        ActivePage = TabAngle
+        ActivePage = TabColumn
         TabOrder = 0
         object TabAlghotitmGlobal: TTabSheet
           Caption = 'Global'
@@ -307,35 +308,35 @@ object FormSettings: TFormSettings
               Text = '128'
             end
           end
-          object Panel18: TPanel
+          object PanelGlobalNeuNet: TPanel
             Left = 112
             Top = 8
             Width = 225
             Height = 129
             Color = 33023
             TabOrder = 1
-            object Label27: TLabel
+            object LabelGlobalNeuNetNumOfIntSynapse: TLabel
               Left = 8
               Top = 40
               Width = 165
               Height = 13
               Caption = 'Number of internal synapses:'
             end
-            object Label28: TLabel
+            object LabelGlobalNeuNetNumOfLayers: TLabel
               Left = 8
               Top = 72
               Width = 100
               Height = 13
               Caption = 'Number of layers:'
             end
-            object Label29: TLabel
+            object LabelGlobalNeuNetOutNum: TLabel
               Left = 8
               Top = 104
               Width = 94
               Height = 13
               Caption = 'Output numbers:'
             end
-            object CheckBox29: TCheckBox
+            object CheckGlobalNeuNet: TCheckBox
               Left = 56
               Top = 8
               Width = 113
@@ -343,7 +344,7 @@ object FormSettings: TFormSettings
               Caption = 'Neural Network'
               TabOrder = 0
             end
-            object Edit19: TEdit
+            object EditGlobalNeuNetNumOfIntSynapse: TEdit
               Left = 176
               Top = 32
               Width = 41
@@ -352,7 +353,7 @@ object FormSettings: TFormSettings
               TabOrder = 1
               Text = '74'
             end
-            object Edit20: TEdit
+            object EditGlobalNeuNetNumOfLayers: TEdit
               Left = 176
               Top = 64
               Width = 41
@@ -360,7 +361,7 @@ object FormSettings: TFormSettings
               TabOrder = 2
               Text = '3'
             end
-            object Edit21: TEdit
+            object EditGlobalNeuNetOutNum: TEdit
               Left = 176
               Top = 96
               Width = 41
@@ -420,14 +421,14 @@ object FormSettings: TFormSettings
               Text = '128'
             end
           end
-          object PanelPairMartingeil: TPanel
+          object PanelPairMartin: TPanel
             Left = 112
             Top = 8
             Width = 217
             Height = 337
             Color = 33023
             TabOrder = 1
-            object LabelPairMultiplicationBets: TLabel
+            object LabelPairMartin: TLabel
               Left = 32
               Top = 8
               Width = 166
@@ -441,7 +442,7 @@ object FormSettings: TFormSettings
               Height = 13
               Caption = 'Space:'
             end
-            object Edit1: TEdit
+            object EditPairSpace: TEdit
               Left = 112
               Top = 24
               Width = 41
@@ -450,21 +451,21 @@ object FormSettings: TFormSettings
               TabOrder = 0
               Text = '1'
             end
-            object Panel1: TPanel
+            object PanelPairMartinClass: TPanel
               Left = 8
               Top = 56
               Width = 97
               Height = 81
               Color = 6487945
               TabOrder = 1
-              object Label1: TLabel
+              object LabelPairMartinClass: TLabel
                 Left = 24
                 Top = 8
                 Width = 45
                 Height = 13
                 Caption = 'Classic:'
               end
-              object CheckBox1: TCheckBox
+              object CheckPairMartinClassLH: TCheckBox
                 Left = 8
                 Top = 24
                 Width = 81
@@ -472,7 +473,7 @@ object FormSettings: TFormSettings
                 Caption = 'Low/High'
                 TabOrder = 0
               end
-              object CheckBox2: TCheckBox
+              object CheckPairMartinClassBR: TCheckBox
                 Left = 8
                 Top = 40
                 Width = 81
@@ -480,7 +481,7 @@ object FormSettings: TFormSettings
                 Caption = 'Black/Red'
                 TabOrder = 1
               end
-              object CheckBox3: TCheckBox
+              object CheckPairMartinClassOE: TCheckBox
                 Left = 8
                 Top = 56
                 Width = 81
@@ -489,21 +490,21 @@ object FormSettings: TFormSettings
                 TabOrder = 2
               end
             end
-            object Panel2: TPanel
+            object PanelPairMartinRand: TPanel
               Left = 112
               Top = 56
               Width = 97
               Height = 81
               Color = 6487945
               TabOrder = 2
-              object Label2: TLabel
+              object LabelPairMartinRand: TLabel
                 Left = 24
                 Top = 8
                 Width = 51
                 Height = 13
                 Caption = 'Random:'
               end
-              object CheckBox4: TCheckBox
+              object CheckPairMartinRandLH: TCheckBox
                 Left = 8
                 Top = 24
                 Width = 81
@@ -511,7 +512,7 @@ object FormSettings: TFormSettings
                 Caption = 'Low/High'
                 TabOrder = 0
               end
-              object CheckBox5: TCheckBox
+              object CheckPairMartinRandBL: TCheckBox
                 Left = 8
                 Top = 40
                 Width = 81
@@ -519,7 +520,7 @@ object FormSettings: TFormSettings
                 Caption = 'Black/Red'
                 TabOrder = 1
               end
-              object CheckBox6: TCheckBox
+              object CheckPairMartinRandOE: TCheckBox
                 Left = 8
                 Top = 56
                 Width = 81
@@ -528,21 +529,21 @@ object FormSettings: TFormSettings
                 TabOrder = 2
               end
             end
-            object Panel3: TPanel
+            object PanelPairMartinSeq: TPanel
               Left = 8
               Top = 144
               Width = 201
               Height = 105
               Color = 6487945
               TabOrder = 3
-              object Label3: TLabel
+              object LabelPairMartinSeq: TLabel
                 Left = 56
                 Top = 8
                 Width = 90
                 Height = 13
                 Caption = 'User sequence:'
               end
-              object CheckBox7: TCheckBox
+              object CheckPairMartinSeqLH: TCheckBox
                 Left = 8
                 Top = 28
                 Width = 81
@@ -550,7 +551,7 @@ object FormSettings: TFormSettings
                 Caption = 'Low/High'
                 TabOrder = 0
               end
-              object CheckBox8: TCheckBox
+              object CheckPairMartinSeqBR: TCheckBox
                 Left = 8
                 Top = 52
                 Width = 81
@@ -558,7 +559,7 @@ object FormSettings: TFormSettings
                 Caption = 'Black/Red'
                 TabOrder = 1
               end
-              object CheckBox9: TCheckBox
+              object CheckPairMartinSeqOE: TCheckBox
                 Left = 8
                 Top = 76
                 Width = 81
@@ -566,7 +567,7 @@ object FormSettings: TFormSettings
                 Caption = 'Odd/Even'
                 TabOrder = 2
               end
-              object Edit2: TEdit
+              object EditPairMartinSeqLH: TEdit
                 Left = 96
                 Top = 24
                 Width = 97
@@ -574,7 +575,7 @@ object FormSettings: TFormSettings
                 TabOrder = 3
                 Text = 'LHLHHLLLHHH'
               end
-              object Edit3: TEdit
+              object EditPairMartinSeqBR: TEdit
                 Left = 96
                 Top = 48
                 Width = 97
@@ -582,7 +583,7 @@ object FormSettings: TFormSettings
                 TabOrder = 4
                 Text = 'BRBBBRRB'
               end
-              object Edit4: TEdit
+              object EditPairMartinSeqOE: TEdit
                 Left = 96
                 Top = 72
                 Width = 97
@@ -591,21 +592,21 @@ object FormSettings: TFormSettings
                 Text = 'OEEEEEOOO'
               end
             end
-            object Panel4: TPanel
+            object PanelPairMul: TPanel
               Left = 8
               Top = 256
               Width = 201
               Height = 73
               Color = 14525282
               TabOrder = 4
-              object Label4: TLabel
+              object LabelPairMul: TLabel
                 Left = 64
                 Top = 32
                 Width = 73
                 Height = 13
                 Caption = 'Multiply into:'
               end
-              object CheckBox10: TCheckBox
+              object CheckPairRuleDouble: TCheckBox
                 Left = 48
                 Top = 8
                 Width = 105
@@ -613,7 +614,7 @@ object FormSettings: TFormSettings
                 Caption = 'Rule "Double"'
                 TabOrder = 0
               end
-              object CheckBox11: TCheckBox
+              object CheckPairMulX2: TCheckBox
                 Left = 16
                 Top = 48
                 Width = 33
@@ -621,7 +622,7 @@ object FormSettings: TFormSettings
                 Caption = 'x2'
                 TabOrder = 1
               end
-              object CheckBox12: TCheckBox
+              object CheckPairMulX3: TCheckBox
                 Left = 88
                 Top = 48
                 Width = 33
@@ -629,7 +630,7 @@ object FormSettings: TFormSettings
                 Caption = 'x3'
                 TabOrder = 2
               end
-              object CheckBox13: TCheckBox
+              object CheckPairMulX4: TCheckBox
                 Left = 152
                 Top = 48
                 Width = 33
@@ -690,28 +691,28 @@ object FormSettings: TFormSettings
               Text = '128'
             end
           end
-          object Panel5: TPanel
+          object PanelColumnMartin: TPanel
             Left = 8
             Top = 104
             Width = 113
             Height = 233
             Color = 33023
             TabOrder = 1
-            object Label5: TLabel
+            object LabelColumnMartin: TLabel
               Left = 24
               Top = 8
               Width = 60
               Height = 13
               Caption = 'Martingeil:'
             end
-            object Label6: TLabel
+            object LabelColumnSpace: TLabel
               Left = 8
               Top = 32
               Width = 41
               Height = 13
               Caption = 'Space:'
             end
-            object Edit5: TEdit
+            object EditColumnSpace: TEdit
               Left = 64
               Top = 24
               Width = 41
@@ -803,21 +804,21 @@ object FormSettings: TFormSettings
               end
             end
           end
-          object Panel9: TPanel
+          object PanelColumnMul: TPanel
             Left = 112
             Top = 8
             Width = 153
             Height = 73
             Color = 14525282
             TabOrder = 2
-            object Label10: TLabel
+            object LabelColumnMul: TLabel
               Left = 32
               Top = 32
               Width = 73
               Height = 13
               Caption = 'Multiply into:'
             end
-            object CheckBox23: TCheckBox
+            object CheckColumnRuleDouble: TCheckBox
               Left = 16
               Top = 8
               Width = 105
@@ -825,7 +826,7 @@ object FormSettings: TFormSettings
               Caption = 'Rule "Double"'
               TabOrder = 0
             end
-            object CheckBox24: TCheckBox
+            object CheckColumnMulX16: TCheckBox
               Left = 16
               Top = 48
               Width = 49
@@ -833,7 +834,7 @@ object FormSettings: TFormSettings
               Caption = 'x1.6'
               TabOrder = 1
             end
-            object CheckBox25: TCheckBox
+            object CheckColumnMulX2: TCheckBox
               Left = 64
               Top = 48
               Width = 33
@@ -841,7 +842,7 @@ object FormSettings: TFormSettings
               Caption = 'x2'
               TabOrder = 2
             end
-            object CheckBox26: TCheckBox
+            object CheckColumnMulX3: TCheckBox
               Left = 104
               Top = 48
               Width = 33
@@ -901,21 +902,21 @@ object FormSettings: TFormSettings
               Text = '128'
             end
           end
-          object Panel10: TPanel
+          object PanelDozenMul: TPanel
             Left = 112
             Top = 8
             Width = 153
             Height = 73
             Color = 14525282
             TabOrder = 1
-            object Label7: TLabel
+            object LabelDozenMul: TLabel
               Left = 32
               Top = 32
               Width = 73
               Height = 13
               Caption = 'Multiply into:'
             end
-            object CheckBox19: TCheckBox
+            object CheckDozenRuleDouble: TCheckBox
               Left = 16
               Top = 8
               Width = 105
@@ -923,7 +924,7 @@ object FormSettings: TFormSettings
               Caption = 'Rule "Double"'
               TabOrder = 0
             end
-            object CheckBox20: TCheckBox
+            object CheckDozenMulX16: TCheckBox
               Left = 16
               Top = 48
               Width = 49
@@ -931,7 +932,7 @@ object FormSettings: TFormSettings
               Caption = 'x1.6'
               TabOrder = 1
             end
-            object CheckBox21: TCheckBox
+            object CheckDozenMulX2: TCheckBox
               Left = 64
               Top = 48
               Width = 33
@@ -939,7 +940,7 @@ object FormSettings: TFormSettings
               Caption = 'x2'
               TabOrder = 2
             end
-            object CheckBox22: TCheckBox
+            object CheckDozenMulX3: TCheckBox
               Left = 104
               Top = 48
               Width = 33
@@ -948,14 +949,14 @@ object FormSettings: TFormSettings
               TabOrder = 3
             end
           end
-          object Panel11: TPanel
+          object PanelDozenMartin: TPanel
             Left = 8
             Top = 104
             Width = 113
             Height = 209
             Color = 33023
             TabOrder = 2
-            object Label8: TLabel
+            object LabelDozenMartin: TLabel
               Left = 24
               Top = 8
               Width = 60
@@ -969,7 +970,7 @@ object FormSettings: TFormSettings
               Height = 13
               Caption = 'Space:'
             end
-            object Edit8: TEdit
+            object EditDozenSpace: TEdit
               Left = 64
               Top = 24
               Width = 41
@@ -1104,21 +1105,21 @@ object FormSettings: TFormSettings
               Text = '128'
             end
           end
-          object Panel15: TPanel
+          object PanelNumberMul: TPanel
             Left = 112
             Top = 8
             Width = 153
             Height = 73
             Color = 14525282
             TabOrder = 1
-            object Label11: TLabel
+            object LabelNumberMul: TLabel
               Left = 32
               Top = 32
               Width = 73
               Height = 13
               Caption = 'Multiply into:'
             end
-            object CheckBox32: TCheckBox
+            object CheckNumberRuleDouble: TCheckBox
               Left = 16
               Top = 8
               Width = 105
@@ -1126,15 +1127,15 @@ object FormSettings: TFormSettings
               Caption = 'Rule "Double"'
               TabOrder = 0
             end
-            object CheckBox33: TCheckBox
+            object CheckNumberMulX2: TCheckBox
               Left = 16
               Top = 48
-              Width = 49
+              Width = 41
               Height = 17
               Caption = 'x2'
               TabOrder = 1
             end
-            object CheckBox34: TCheckBox
+            object CheckNumberMulX3: TCheckBox
               Left = 64
               Top = 48
               Width = 33
@@ -1142,7 +1143,7 @@ object FormSettings: TFormSettings
               Caption = 'x3'
               TabOrder = 2
             end
-            object CheckBox35: TCheckBox
+            object CheckNumberMulX4: TCheckBox
               Left = 104
               Top = 48
               Width = 33
@@ -1151,14 +1152,14 @@ object FormSettings: TFormSettings
               TabOrder = 3
             end
           end
-          object Panel16: TPanel
+          object PanelNumberMartin: TPanel
             Left = 8
             Top = 104
             Width = 113
             Height = 145
             Color = 33023
             TabOrder = 2
-            object Label12: TLabel
+            object LabelNumberMartin: TLabel
               Left = 24
               Top = 8
               Width = 60
@@ -1172,7 +1173,7 @@ object FormSettings: TFormSettings
               Height = 13
               Caption = 'Space:'
             end
-            object Edit11: TEdit
+            object EditNumberSpace: TEdit
               Left = 64
               Top = 24
               Width = 41
@@ -1265,21 +1266,21 @@ object FormSettings: TFormSettings
               Text = '128'
             end
           end
-          object Panel22: TPanel
+          object PanelSixlineMul: TPanel
             Left = 112
             Top = 8
             Width = 153
             Height = 73
             Color = 14525282
             TabOrder = 1
-            object Label18: TLabel
+            object LabelSixlineMul: TLabel
               Left = 32
               Top = 32
               Width = 73
               Height = 13
               Caption = 'Multiply into:'
             end
-            object CheckBox40: TCheckBox
+            object CheckSixlineRuleDouble: TCheckBox
               Left = 16
               Top = 8
               Width = 105
@@ -1287,15 +1288,15 @@ object FormSettings: TFormSettings
               Caption = 'Rule "Double"'
               TabOrder = 0
             end
-            object CheckBox41: TCheckBox
+            object CheckSixlineMulX2: TCheckBox
               Left = 16
               Top = 48
-              Width = 49
+              Width = 33
               Height = 17
               Caption = 'x2'
               TabOrder = 1
             end
-            object CheckBox42: TCheckBox
+            object CheckSixlineMulX3: TCheckBox
               Left = 64
               Top = 48
               Width = 33
@@ -1303,7 +1304,7 @@ object FormSettings: TFormSettings
               Caption = 'x3'
               TabOrder = 2
             end
-            object CheckBox43: TCheckBox
+            object CheckSixlineMulX4: TCheckBox
               Left = 104
               Top = 48
               Width = 33
@@ -1312,14 +1313,14 @@ object FormSettings: TFormSettings
               TabOrder = 3
             end
           end
-          object Panel19: TPanel
+          object PanelSixlineMartin: TPanel
             Left = 8
             Top = 104
             Width = 113
             Height = 145
             Color = 33023
             TabOrder = 2
-            object Label15: TLabel
+            object LabelSixlineMartin: TLabel
               Left = 24
               Top = 8
               Width = 60
@@ -1333,7 +1334,7 @@ object FormSettings: TFormSettings
               Height = 13
               Caption = 'Space:'
             end
-            object Edit13: TEdit
+            object EditSixlineSpace: TEdit
               Left = 64
               Top = 24
               Width = 41
@@ -1426,21 +1427,21 @@ object FormSettings: TFormSettings
               Text = '128'
             end
           end
-          object Panel26: TPanel
+          object PanelStreetMul: TPanel
             Left = 112
             Top = 8
             Width = 153
             Height = 73
             Color = 14525282
             TabOrder = 1
-            object Label22: TLabel
+            object LabelStreetMul: TLabel
               Left = 32
               Top = 32
               Width = 73
               Height = 13
               Caption = 'Multiply into:'
             end
-            object CheckBox46: TCheckBox
+            object CheckStreetRuleDouble: TCheckBox
               Left = 16
               Top = 8
               Width = 105
@@ -1448,15 +1449,15 @@ object FormSettings: TFormSettings
               Caption = 'Rule "Double"'
               TabOrder = 0
             end
-            object CheckBox47: TCheckBox
+            object CheckStreetMulX2: TCheckBox
               Left = 16
               Top = 48
-              Width = 49
+              Width = 33
               Height = 17
               Caption = 'x2'
               TabOrder = 1
             end
-            object CheckBox48: TCheckBox
+            object CheckStreetMulX3: TCheckBox
               Left = 64
               Top = 48
               Width = 33
@@ -1464,7 +1465,7 @@ object FormSettings: TFormSettings
               Caption = 'x3'
               TabOrder = 2
             end
-            object CheckBox49: TCheckBox
+            object CheckStreetMulX4: TCheckBox
               Left = 104
               Top = 48
               Width = 33
@@ -1473,14 +1474,14 @@ object FormSettings: TFormSettings
               TabOrder = 3
             end
           end
-          object Panel23: TPanel
+          object PanelStreetMartin: TPanel
             Left = 8
             Top = 104
             Width = 113
             Height = 145
             Color = 33023
             TabOrder = 2
-            object Label19: TLabel
+            object LabelStreetMartin: TLabel
               Left = 24
               Top = 8
               Width = 60
@@ -1494,7 +1495,7 @@ object FormSettings: TFormSettings
               Height = 13
               Caption = 'Space:'
             end
-            object Edit15: TEdit
+            object EditStreetSpace: TEdit
               Left = 64
               Top = 24
               Width = 41
@@ -1587,14 +1588,14 @@ object FormSettings: TFormSettings
               Text = '128'
             end
           end
-          object Panel27: TPanel
+          object PanelAngleMartin: TPanel
             Left = 8
             Top = 104
             Width = 113
             Height = 145
             Color = 33023
             TabOrder = 1
-            object Label23: TLabel
+            object LabeAngleMartin: TLabel
               Left = 24
               Top = 8
               Width = 60
@@ -1608,7 +1609,7 @@ object FormSettings: TFormSettings
               Height = 13
               Caption = 'Space:'
             end
-            object Edit17: TEdit
+            object EditAngleSpace: TEdit
               Left = 64
               Top = 24
               Width = 41
@@ -1650,21 +1651,21 @@ object FormSettings: TFormSettings
               end
             end
           end
-          object Panel30: TPanel
+          object PanelAngleMul: TPanel
             Left = 112
             Top = 8
             Width = 153
             Height = 73
             Color = 14525282
             TabOrder = 2
-            object Label26: TLabel
+            object LabelAngleMul: TLabel
               Left = 32
               Top = 32
               Width = 73
               Height = 13
               Caption = 'Multiply into:'
             end
-            object CheckBox52: TCheckBox
+            object CheckAngleRuleDouble: TCheckBox
               Left = 16
               Top = 8
               Width = 105
@@ -1672,7 +1673,7 @@ object FormSettings: TFormSettings
               Caption = 'Rule "Double"'
               TabOrder = 0
             end
-            object CheckBox53: TCheckBox
+            object CheckAngleMulX2: TCheckBox
               Left = 16
               Top = 48
               Width = 49
@@ -1680,7 +1681,7 @@ object FormSettings: TFormSettings
               Caption = 'x2'
               TabOrder = 1
             end
-            object CheckBox54: TCheckBox
+            object CheckAngleMulX3: TCheckBox
               Left = 64
               Top = 48
               Width = 33
@@ -1688,7 +1689,7 @@ object FormSettings: TFormSettings
               Caption = 'x3'
               TabOrder = 2
             end
-            object CheckBox55: TCheckBox
+            object CheckAngleMulX4: TCheckBox
               Left = 104
               Top = 48
               Width = 33

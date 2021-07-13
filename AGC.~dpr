@@ -10,7 +10,7 @@ uses
   StatisticsPCD in 'StatisticsPCD.pas' {FormStatisticsPCD},
   StatisticsSixline in 'StatisticsSixline.pas' {FormStatisticsSixline},
   StatisticsStreet in 'StatisticsStreet.pas' {FormStatisticsStreet},
-  StatisticsAngle in 'StatisticsAngle.pas' {FormStstisticsAngle};
+  StatisticsAngle in 'StatisticsAngle.pas' {FormStatisticsAngle};
 
 {$R *.res}
 
@@ -24,6 +24,6 @@ begin
   Application.CreateForm(TFormStatisticsPCD, FormStatisticsPCD);
   Application.CreateForm(TFormStatisticsSixline, FormStatisticsSixline);
   Application.CreateForm(TFormStatisticsStreet, FormStatisticsStreet);
-  Application.CreateForm(TFormStstisticsAngle, FormStstisticsAngle);
+  Application.CreateForm(TFormStatisticsAngle, FormStatisticsAngle);
   Application.Run;
 end.

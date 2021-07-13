@@ -10,7 +10,18 @@ object FormTester: TFormTester
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
+  Menu = MainMenu1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object MainMenu1: TMainMenu
+    object N1: TMenuItem
+      object Loadingfile1: TMenuItem
+        Caption = 'Load sample'
+      end
+      object SaveFile1: TMenuItem
+        Caption = 'Save sample'
+      end
+    end
+  end
 end

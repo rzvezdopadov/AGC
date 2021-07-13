@@ -238,6 +238,7 @@ type
     LabelNumberSeq: TLabel;
     PanelNumber0Phrase: TPanel;
     PanelNumber0Value: TPanel;
+    Timer1: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure CheckBoxASSTClick(Sender: TObject);
     procedure MenuFileSettingsClick(Sender: TObject);

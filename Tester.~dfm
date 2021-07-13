@@ -1,6 +1,6 @@
 object FormTester: TFormTester
-  Left = 1024
-  Top = 213
+  Left = 712
+  Top = 164
   Width = 421
   Height = 738
   Caption = 'Tester'

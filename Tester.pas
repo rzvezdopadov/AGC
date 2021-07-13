@@ -4,10 +4,14 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs;
+  Dialogs, Menus;
 
 type
   TFormTester = class(TForm)
+    MainMenu1: TMainMenu;
+    N1: TMenuItem;
+    Loadingfile1: TMenuItem;
+    SaveFile1: TMenuItem;
   private
     { Private declarations }
   public
