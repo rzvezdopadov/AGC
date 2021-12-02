@@ -232,6 +232,7 @@ type
     EditGlobalNeuNetNumOfIntSynapse: TEdit;
     EditGlobalNeuNetNumOfLayers: TEdit;
     EditGlobalNeuNetOutNum: TEdit;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -243,6 +244,13 @@ var
 
 implementation
 
+uses WindowUserLib, Main;
+
 {$R *.dfm}
+
+procedure TFormSettings.FormCreate(Sender: TObject);
+begin
+  FormCentered((Sender as TForm));
+end;
 
 end.

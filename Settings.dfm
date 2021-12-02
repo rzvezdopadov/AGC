@@ -1,8 +1,8 @@
 object FormSettings: TFormSettings
-  Left = 413
-  Top = 331
+  Left = 404
+  Top = 253
   Width = 681
-  Height = 628
+  Height = 627
   AutoSize = True
   Caption = 'Settings'
   Color = 14732732
@@ -13,6 +13,7 @@ object FormSettings: TFormSettings
   Font.Style = [fsBold]
   Menu = MenuSetting
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object PageControlSetting: TPageControl
@@ -29,7 +30,7 @@ object FormSettings: TFormSettings
         Top = 0
         Width = 657
         Height = 545
-        ActivePage = TabFinancial
+        ActivePage = TabMain
         TabOrder = 0
         object TabMain: TTabSheet
           Caption = 'Main'
@@ -257,7 +258,7 @@ object FormSettings: TFormSettings
         Top = 0
         Width = 657
         Height = 545
-        ActivePage = TabColumn
+        ActivePage = TabAlghotitmGlobal
         TabOrder = 0
         object TabAlghotitmGlobal: TTabSheet
           Caption = 'Global'
@@ -313,7 +314,7 @@ object FormSettings: TFormSettings
             Top = 8
             Width = 225
             Height = 129
-            Color = 33023
+            Color = 3644415
             TabOrder = 1
             object LabelGlobalNeuNetNumOfIntSynapse: TLabel
               Left = 8
@@ -426,7 +427,7 @@ object FormSettings: TFormSettings
             Top = 8
             Width = 217
             Height = 337
-            Color = 33023
+            Color = 3644415
             TabOrder = 1
             object LabelPairMartin: TLabel
               Left = 32
@@ -696,7 +697,7 @@ object FormSettings: TFormSettings
             Top = 104
             Width = 113
             Height = 233
-            Color = 33023
+            Color = 3644415
             TabOrder = 1
             object LabelColumnMartin: TLabel
               Left = 24
@@ -954,7 +955,7 @@ object FormSettings: TFormSettings
             Top = 104
             Width = 113
             Height = 209
-            Color = 33023
+            Color = 3644415
             TabOrder = 2
             object LabelDozenMartin: TLabel
               Left = 24
@@ -1157,7 +1158,7 @@ object FormSettings: TFormSettings
             Top = 104
             Width = 113
             Height = 145
-            Color = 33023
+            Color = 3644415
             TabOrder = 2
             object LabelNumberMartin: TLabel
               Left = 24
@@ -1318,7 +1319,7 @@ object FormSettings: TFormSettings
             Top = 104
             Width = 113
             Height = 145
-            Color = 33023
+            Color = 3644415
             TabOrder = 2
             object LabelSixlineMartin: TLabel
               Left = 24
@@ -1479,7 +1480,7 @@ object FormSettings: TFormSettings
             Top = 104
             Width = 113
             Height = 145
-            Color = 33023
+            Color = 3644415
             TabOrder = 2
             object LabelStreetMartin: TLabel
               Left = 24
@@ -1593,7 +1594,7 @@ object FormSettings: TFormSettings
             Top = 104
             Width = 113
             Height = 145
-            Color = 33023
+            Color = 3644415
             TabOrder = 1
             object LabeAngleMartin: TLabel
               Left = 24

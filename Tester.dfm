@@ -1,6 +1,6 @@
 object FormTester: TFormTester
-  Left = 712
-  Top = 164
+  Left = 540
+  Top = 124
   Width = 421
   Height = 738
   Caption = 'Tester'
@@ -12,6 +12,7 @@ object FormTester: TFormTester
   Font.Style = [fsBold]
   Menu = MainMenu1
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object MainMenu1: TMainMenu

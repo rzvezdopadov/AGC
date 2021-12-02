@@ -3,8 +3,8 @@ unit StatisticsAngle;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls;
+  Classes, Controls, ExtCtrls, Windows, Messages, SysUtils,
+  Variants, Graphics, Forms, Dialogs;
 
 type
   TFormStatisticsAngle = class(TForm)
@@ -136,6 +136,7 @@ type
     PanelDelemiter4: TPanel;
     PanelDelemiter1: TPanel;
     PaneAngle: TPanel;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -147,6 +148,13 @@ var
 
 implementation
 
+uses WindowUserLib, Main;
+
 {$R *.dfm}
+
+procedure TFormStatisticsAngle.FormCreate(Sender: TObject);
+begin
+  FormCentered((Sender as TForm));
+end;
 
 end.

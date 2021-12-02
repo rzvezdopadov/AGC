@@ -8,17 +8,19 @@ uses
 
 type
   TFormStatistics = class(TForm)
-    Label1: TLabel;
+    PanelStatistics: TPanel;
+    GroupBoxStatistics: TGroupBox;
     CheckBoxStatNumber: TCheckBox;
     CheckBoxStatPCD: TCheckBox;
     CheckBoxStatSixline: TCheckBox;
     CheckBoxStatStreet: TCheckBox;
     CheckBoxStatAngle: TCheckBox;
     PanelSetAll: TPanel;
-    Panel1: TPanel;
+    PanelClearAll: TPanel;
     procedure CheckBoxStatNumberClick(Sender: TObject);
     procedure PanelSetAllClick(Sender: TObject);
-    procedure Panel1Click(Sender: TObject);
+    procedure PanelClearAllClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,24 +32,30 @@ var
 
 implementation
 
-uses StatisticsNumber, StatisticsPCD, StatisticsSixline, StatisticsStreet,
-  StatisticsAngle;
+uses WindowUserLib, StatisticsNumber, StatisticsPCD, StatisticsSixline,
+  StatisticsStreet, StatisticsAngle;
 
 {$R *.dfm}
 
-function hideFormStatistics():integer;
+function HideFormStatistics():bool;
 begin
-  if FormStatistics.CheckBoxStatNumber.Checked = true  then FormStatisticsNumber.Visible := true  else FormStatisticsNumber.Visible := false;
-  if FormStatistics.CheckBoxStatPCD.Checked = true     then FormStatisticsPCD.Visible := true     else FormStatisticsPCD.Visible := false;
-  if FormStatistics.CheckBoxStatSixline.Checked = true then FormStatisticsSixline.Visible := true else FormStatisticsSixline.Visible := false;
-  if FormStatistics.CheckBoxStatStreet.Checked = true  then FormStatisticsStreet.Visible := true  else FormStatisticsStreet.Visible := false;
-  if FormStatistics.CheckBoxStatAngle.Checked = true   then FormStatisticsAngle.Visible := true   else FormStatisticsAngle.Visible := false;
-  result := 0;
+  FormVisIfCheck(FormStatistics.CheckBoxStatNumber, FormStatisticsNumber);
+  FormVisIfCheck(FormStatistics.CheckBoxStatPCD, FormStatisticsPCD);
+  FormVisIfCheck(FormStatistics.CheckBoxStatSixline, FormStatisticsSixline);
+  FormVisIfCheck(FormStatistics.CheckBoxStatStreet, FormStatisticsStreet);
+  FormVisIfCheck(FormStatistics.CheckBoxStatAngle, FormStatisticsAngle);
+
+  HideFormStatistics := true;
+end;
+
+procedure TFormStatistics.FormCreate(Sender: TObject);
+begin
+  FormCentered((Sender as TForm));
 end;
 
 procedure TFormStatistics.CheckBoxStatNumberClick(Sender: TObject);
 begin
-  hideFormStatistics();
+  HideFormStatistics();
 end;
 
 procedure TFormStatistics.PanelSetAllClick(Sender: TObject);
@@ -59,7 +67,7 @@ begin
   FormStatistics.CheckBoxStatAngle.Checked := true;
 end;
 
-procedure TFormStatistics.Panel1Click(Sender: TObject);
+procedure TFormStatistics.PanelClearAllClick(Sender: TObject);
 begin
   FormStatistics.CheckBoxStatNumber.Checked := false;
   FormStatistics.CheckBoxStatPCD.Checked := false;
@@ -67,5 +75,7 @@ begin
   FormStatistics.CheckBoxStatStreet.Checked := false;
   FormStatistics.CheckBoxStatAngle.Checked := false;
 end;
+
+
 
 end.

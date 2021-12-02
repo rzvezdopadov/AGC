@@ -12,6 +12,7 @@ type
     N1: TMenuItem;
     Loadingfile1: TMenuItem;
     SaveFile1: TMenuItem;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -23,6 +24,13 @@ var
 
 implementation
 
+uses WindowUserLib, Main;
+
 {$R *.dfm}
+
+procedure TFormTester.FormCreate(Sender: TObject);
+begin
+  FormCentered((Sender as TForm));
+end;
 
 end.

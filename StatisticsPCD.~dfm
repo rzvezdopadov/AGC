@@ -1,7 +1,7 @@
 object FormStatisticsPCD: TFormStatisticsPCD
   Left = 891
   Top = 379
-  Width = 306
+  Width = 299
   Height = 317
   Caption = 'Statistics PCD'
   Color = 14732732
@@ -11,6 +11,7 @@ object FormStatisticsPCD: TFormStatisticsPCD
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object PanelBack: TPanel

@@ -1,8 +1,8 @@
 object FormStatisticsNumber: TFormStatisticsNumber
-  Left = 1232
-  Top = 118
-  Width = 298
-  Height = 686
+  Left = 559
+  Top = 137
+  Width = 299
+  Height = 681
   Caption = 'Statistics number'
   Color = 14732732
   Font.Charset = DEFAULT_CHARSET
@@ -11,6 +11,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object PanelBack: TPanel
@@ -20,25 +21,28 @@ object FormStatisticsNumber: TFormStatisticsNumber
     Height = 641
     Color = 5483007
     TabOrder = 0
+    DesignSize = (
+      281
+      641)
     object PanelDelemiter2: TPanel
       Left = 57
-      Top = 0
+      Top = 1
       Width = 8
-      Height = 641
+      Height = 642
       Color = 13284405
       TabOrder = 0
     end
     object PanelDelemiter3: TPanel
       Left = 105
-      Top = 0
+      Top = 1
       Width = 7
-      Height = 641
+      Height = 642
       Color = 13284405
       TabOrder = 1
     end
     object PanelDelemiter5: TPanel
       Left = 217
-      Top = 0
+      Top = 1
       Width = 7
       Height = 641
       Color = 13284405
@@ -46,7 +50,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNumPos: TPanel
       Left = 8
-      Top = 8
+      Top = 9
       Width = 49
       Height = 17
       Caption = 'Pos'
@@ -55,7 +59,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNumLast: TPanel
       Left = 64
-      Top = 8
+      Top = 9
       Width = 41
       Height = 17
       Caption = 'Last'
@@ -64,7 +68,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNumPerc1: TPanel
       Left = 112
-      Top = 8
+      Top = 9
       Width = 49
       Height = 17
       Caption = '%100'
@@ -73,7 +77,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNumPerc2: TPanel
       Left = 168
-      Top = 8
+      Top = 9
       Width = 49
       Height = 17
       Caption = '%100'
@@ -82,7 +86,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNumPerc3: TPanel
       Left = 224
-      Top = 8
+      Top = 9
       Width = 49
       Height = 17
       Caption = '%100'
@@ -91,15 +95,16 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object PanelDelemiter6: TPanel
       Left = 273
-      Top = 0
+      Top = 1
       Width = 7
       Height = 641
+      Anchors = [akLeft, akTop, akRight, akBottom]
       Color = 13284405
       TabOrder = 8
     end
     object StatGridNum0Pos: TPanel
       Left = 8
-      Top = 40
+      Top = 41
       Width = 49
       Height = 17
       Caption = '0'
@@ -108,7 +113,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum0Last: TPanel
       Left = 64
-      Top = 40
+      Top = 41
       Width = 41
       Height = 17
       Color = 8421631
@@ -116,7 +121,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum0Perc1: TPanel
       Left = 112
-      Top = 40
+      Top = 41
       Width = 49
       Height = 17
       Color = 8421631
@@ -124,7 +129,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum0Perc2: TPanel
       Left = 168
-      Top = 40
+      Top = 41
       Width = 49
       Height = 17
       Color = 8421631
@@ -132,7 +137,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum0Perc3: TPanel
       Left = 224
-      Top = 40
+      Top = 41
       Width = 49
       Height = 17
       Color = 8421631
@@ -140,7 +145,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum1Pos: TPanel
       Left = 8
-      Top = 56
+      Top = 57
       Width = 49
       Height = 17
       Caption = '1'
@@ -149,7 +154,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum1Last: TPanel
       Left = 64
-      Top = 56
+      Top = 57
       Width = 41
       Height = 17
       Color = 7864183
@@ -157,7 +162,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum1Perc1: TPanel
       Left = 112
-      Top = 56
+      Top = 57
       Width = 49
       Height = 17
       Color = 7864183
@@ -165,7 +170,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum1Perc2: TPanel
       Left = 168
-      Top = 56
+      Top = 57
       Width = 49
       Height = 17
       Color = 7864183
@@ -173,7 +178,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum1Perc3: TPanel
       Left = 224
-      Top = 56
+      Top = 57
       Width = 49
       Height = 17
       Color = 7864183
@@ -181,7 +186,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum2Pos: TPanel
       Left = 8
-      Top = 72
+      Top = 73
       Width = 49
       Height = 17
       Caption = '2'
@@ -190,7 +195,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum2Last: TPanel
       Left = 64
-      Top = 72
+      Top = 73
       Width = 41
       Height = 17
       Color = 8421631
@@ -198,7 +203,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum2Perc1: TPanel
       Left = 112
-      Top = 72
+      Top = 73
       Width = 49
       Height = 17
       Color = 8421631
@@ -206,7 +211,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum2Perc2: TPanel
       Left = 168
-      Top = 72
+      Top = 73
       Width = 49
       Height = 17
       Color = 8421631
@@ -214,7 +219,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum2Perc3: TPanel
       Left = 224
-      Top = 72
+      Top = 73
       Width = 49
       Height = 17
       Color = 8421631
@@ -222,7 +227,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum3Pos: TPanel
       Left = 8
-      Top = 88
+      Top = 89
       Width = 49
       Height = 17
       Caption = '3'
@@ -231,7 +236,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum3Last: TPanel
       Left = 64
-      Top = 88
+      Top = 89
       Width = 41
       Height = 17
       Color = 7864183
@@ -239,7 +244,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum3Perc1: TPanel
       Left = 112
-      Top = 88
+      Top = 89
       Width = 49
       Height = 17
       Color = 7864183
@@ -247,7 +252,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum3Perc2: TPanel
       Left = 168
-      Top = 88
+      Top = 89
       Width = 49
       Height = 17
       Color = 7864183
@@ -255,7 +260,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum3Perc3: TPanel
       Left = 224
-      Top = 88
+      Top = 89
       Width = 49
       Height = 17
       Color = 7864183
@@ -263,7 +268,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum4Pos: TPanel
       Left = 8
-      Top = 104
+      Top = 105
       Width = 49
       Height = 17
       Caption = '4'
@@ -272,7 +277,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum4Last: TPanel
       Left = 64
-      Top = 104
+      Top = 105
       Width = 41
       Height = 17
       Color = 8421631
@@ -280,7 +285,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum4Perc1: TPanel
       Left = 112
-      Top = 104
+      Top = 105
       Width = 49
       Height = 17
       Color = 8421631
@@ -288,7 +293,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum4Perc2: TPanel
       Left = 168
-      Top = 104
+      Top = 105
       Width = 49
       Height = 17
       Color = 8421631
@@ -296,7 +301,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum4Perc3: TPanel
       Left = 224
-      Top = 104
+      Top = 105
       Width = 49
       Height = 17
       Color = 8421631
@@ -304,7 +309,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum5Pos: TPanel
       Left = 8
-      Top = 120
+      Top = 121
       Width = 49
       Height = 17
       Caption = '5'
@@ -313,7 +318,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum5Last: TPanel
       Left = 64
-      Top = 120
+      Top = 121
       Width = 41
       Height = 17
       Color = 7864183
@@ -321,7 +326,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum5Perc1: TPanel
       Left = 112
-      Top = 120
+      Top = 121
       Width = 49
       Height = 17
       Color = 7864183
@@ -329,7 +334,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum5Perc2: TPanel
       Left = 168
-      Top = 120
+      Top = 121
       Width = 49
       Height = 17
       Color = 7864183
@@ -337,7 +342,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum5Perc3: TPanel
       Left = 224
-      Top = 120
+      Top = 121
       Width = 49
       Height = 17
       Color = 7864183
@@ -345,7 +350,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum6Pos: TPanel
       Left = 8
-      Top = 136
+      Top = 137
       Width = 49
       Height = 17
       Caption = '6'
@@ -354,7 +359,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum6Last: TPanel
       Left = 64
-      Top = 136
+      Top = 137
       Width = 41
       Height = 17
       Color = 8421631
@@ -362,7 +367,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum6Perc1: TPanel
       Left = 112
-      Top = 136
+      Top = 137
       Width = 49
       Height = 17
       Color = 8421631
@@ -370,7 +375,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum6Perc2: TPanel
       Left = 168
-      Top = 136
+      Top = 137
       Width = 49
       Height = 17
       Color = 8421631
@@ -378,7 +383,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum6Perc3: TPanel
       Left = 224
-      Top = 136
+      Top = 137
       Width = 49
       Height = 17
       Color = 8421631
@@ -386,7 +391,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum7Pos: TPanel
       Left = 8
-      Top = 152
+      Top = 153
       Width = 49
       Height = 17
       Caption = '7'
@@ -395,7 +400,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum7Last: TPanel
       Left = 64
-      Top = 152
+      Top = 153
       Width = 41
       Height = 17
       Color = 7864183
@@ -403,7 +408,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum7Perc1: TPanel
       Left = 112
-      Top = 152
+      Top = 153
       Width = 49
       Height = 17
       Color = 7864183
@@ -411,7 +416,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum7Perc2: TPanel
       Left = 168
-      Top = 152
+      Top = 153
       Width = 49
       Height = 17
       Color = 7864183
@@ -419,7 +424,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum7Perc3: TPanel
       Left = 224
-      Top = 152
+      Top = 153
       Width = 49
       Height = 17
       Color = 7864183
@@ -427,7 +432,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum8Pos: TPanel
       Left = 8
-      Top = 168
+      Top = 169
       Width = 49
       Height = 17
       Caption = '8'
@@ -436,7 +441,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum8Last: TPanel
       Left = 64
-      Top = 168
+      Top = 169
       Width = 41
       Height = 17
       Color = 8421631
@@ -444,7 +449,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum8Perc1: TPanel
       Left = 112
-      Top = 168
+      Top = 169
       Width = 49
       Height = 17
       Color = 8421631
@@ -452,7 +457,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum8Perc2: TPanel
       Left = 168
-      Top = 168
+      Top = 169
       Width = 49
       Height = 17
       Color = 8421631
@@ -460,7 +465,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum8Perc3: TPanel
       Left = 224
-      Top = 168
+      Top = 169
       Width = 49
       Height = 17
       Color = 8421631
@@ -468,7 +473,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum9Pos: TPanel
       Left = 8
-      Top = 184
+      Top = 185
       Width = 49
       Height = 17
       Caption = '9'
@@ -477,7 +482,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum9Last: TPanel
       Left = 64
-      Top = 184
+      Top = 185
       Width = 41
       Height = 17
       Color = 7864183
@@ -485,7 +490,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum9Perc1: TPanel
       Left = 112
-      Top = 184
+      Top = 185
       Width = 49
       Height = 17
       Color = 7864183
@@ -493,7 +498,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum9Perc2: TPanel
       Left = 168
-      Top = 184
+      Top = 185
       Width = 49
       Height = 17
       Color = 7864183
@@ -501,7 +506,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum9Perc3: TPanel
       Left = 224
-      Top = 184
+      Top = 185
       Width = 49
       Height = 17
       Color = 7864183
@@ -509,7 +514,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum10Pos: TPanel
       Left = 8
-      Top = 200
+      Top = 201
       Width = 49
       Height = 17
       Caption = '10'
@@ -518,7 +523,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum10Last: TPanel
       Left = 64
-      Top = 200
+      Top = 201
       Width = 41
       Height = 17
       Color = 8421631
@@ -526,7 +531,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum10Perc1: TPanel
       Left = 112
-      Top = 200
+      Top = 201
       Width = 49
       Height = 17
       Color = 8421631
@@ -534,7 +539,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum10Perc2: TPanel
       Left = 168
-      Top = 200
+      Top = 201
       Width = 49
       Height = 17
       Color = 8421631
@@ -542,7 +547,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum10Perc3: TPanel
       Left = 224
-      Top = 200
+      Top = 201
       Width = 49
       Height = 17
       Color = 8421631
@@ -550,7 +555,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum11Pos: TPanel
       Left = 8
-      Top = 216
+      Top = 217
       Width = 49
       Height = 17
       Caption = '11'
@@ -559,7 +564,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum11Last: TPanel
       Left = 64
-      Top = 216
+      Top = 217
       Width = 41
       Height = 17
       Color = 7864183
@@ -567,7 +572,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum11Perc1: TPanel
       Left = 112
-      Top = 216
+      Top = 217
       Width = 49
       Height = 17
       Color = 7864183
@@ -575,7 +580,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum11Perc2: TPanel
       Left = 168
-      Top = 216
+      Top = 217
       Width = 49
       Height = 17
       Color = 7864183
@@ -583,7 +588,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum11Perc3: TPanel
       Left = 224
-      Top = 216
+      Top = 217
       Width = 49
       Height = 17
       Color = 7864183
@@ -591,7 +596,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum12Pos: TPanel
       Left = 8
-      Top = 232
+      Top = 233
       Width = 49
       Height = 17
       Caption = '12'
@@ -600,7 +605,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum12Last: TPanel
       Left = 64
-      Top = 232
+      Top = 233
       Width = 41
       Height = 17
       Color = 8421631
@@ -608,7 +613,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum12Perc1: TPanel
       Left = 112
-      Top = 232
+      Top = 233
       Width = 49
       Height = 17
       Color = 8421631
@@ -616,7 +621,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum12Perc2: TPanel
       Left = 168
-      Top = 232
+      Top = 233
       Width = 49
       Height = 17
       Color = 8421631
@@ -624,7 +629,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum12Perc3: TPanel
       Left = 224
-      Top = 232
+      Top = 233
       Width = 49
       Height = 17
       Color = 8421631
@@ -632,7 +637,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum13Pos: TPanel
       Left = 8
-      Top = 248
+      Top = 249
       Width = 49
       Height = 17
       Caption = '13'
@@ -641,7 +646,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum13Last: TPanel
       Left = 64
-      Top = 248
+      Top = 249
       Width = 41
       Height = 17
       Color = 7864183
@@ -649,7 +654,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum13Perc1: TPanel
       Left = 112
-      Top = 248
+      Top = 249
       Width = 49
       Height = 17
       Color = 7864183
@@ -657,7 +662,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum13Perc2: TPanel
       Left = 168
-      Top = 248
+      Top = 249
       Width = 49
       Height = 17
       Color = 7864183
@@ -665,7 +670,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum13Perc3: TPanel
       Left = 224
-      Top = 248
+      Top = 249
       Width = 49
       Height = 17
       Color = 7864183
@@ -673,7 +678,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum14Pos: TPanel
       Left = 8
-      Top = 264
+      Top = 265
       Width = 49
       Height = 17
       Caption = '14'
@@ -682,7 +687,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum14Last: TPanel
       Left = 64
-      Top = 264
+      Top = 265
       Width = 41
       Height = 17
       Color = 8421631
@@ -690,7 +695,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum14Perc1: TPanel
       Left = 112
-      Top = 264
+      Top = 265
       Width = 49
       Height = 17
       Color = 8421631
@@ -698,7 +703,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum14Perc2: TPanel
       Left = 168
-      Top = 264
+      Top = 265
       Width = 49
       Height = 17
       Color = 8421631
@@ -706,7 +711,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum14Perc3: TPanel
       Left = 224
-      Top = 264
+      Top = 265
       Width = 49
       Height = 17
       Color = 8421631
@@ -714,7 +719,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum15Pos: TPanel
       Left = 8
-      Top = 280
+      Top = 281
       Width = 49
       Height = 17
       Caption = '15'
@@ -723,7 +728,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum15Last: TPanel
       Left = 64
-      Top = 280
+      Top = 281
       Width = 41
       Height = 17
       Color = 7864183
@@ -731,7 +736,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum15Perc1: TPanel
       Left = 112
-      Top = 280
+      Top = 281
       Width = 49
       Height = 17
       Color = 7864183
@@ -739,7 +744,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum15Perc2: TPanel
       Left = 168
-      Top = 280
+      Top = 281
       Width = 49
       Height = 17
       Color = 7864183
@@ -747,7 +752,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum15Perc3: TPanel
       Left = 224
-      Top = 280
+      Top = 281
       Width = 49
       Height = 17
       Color = 7864183
@@ -755,7 +760,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum16Pos: TPanel
       Left = 8
-      Top = 296
+      Top = 297
       Width = 49
       Height = 17
       Caption = '16'
@@ -764,7 +769,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum16Last: TPanel
       Left = 64
-      Top = 296
+      Top = 297
       Width = 41
       Height = 17
       Color = 8421631
@@ -772,7 +777,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum16Perc1: TPanel
       Left = 112
-      Top = 296
+      Top = 297
       Width = 49
       Height = 17
       Color = 8421631
@@ -780,7 +785,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum16Perc2: TPanel
       Left = 168
-      Top = 296
+      Top = 297
       Width = 49
       Height = 17
       Color = 8421631
@@ -788,7 +793,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum16Perc3: TPanel
       Left = 224
-      Top = 296
+      Top = 297
       Width = 49
       Height = 17
       Color = 8421631
@@ -796,7 +801,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum17Pos: TPanel
       Left = 8
-      Top = 312
+      Top = 313
       Width = 49
       Height = 17
       Caption = '17'
@@ -805,7 +810,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum17Last: TPanel
       Left = 64
-      Top = 312
+      Top = 313
       Width = 41
       Height = 17
       Color = 7864183
@@ -813,7 +818,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum17Perc1: TPanel
       Left = 112
-      Top = 312
+      Top = 313
       Width = 49
       Height = 17
       Color = 7864183
@@ -821,7 +826,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum17Perc2: TPanel
       Left = 168
-      Top = 312
+      Top = 313
       Width = 49
       Height = 17
       Color = 7864183
@@ -829,7 +834,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum17Perc3: TPanel
       Left = 224
-      Top = 312
+      Top = 313
       Width = 49
       Height = 17
       Color = 7864183
@@ -837,7 +842,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum18Pos: TPanel
       Left = 8
-      Top = 328
+      Top = 329
       Width = 49
       Height = 17
       Caption = '18'
@@ -846,7 +851,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum18Last: TPanel
       Left = 64
-      Top = 328
+      Top = 329
       Width = 41
       Height = 17
       Color = 8421631
@@ -854,7 +859,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum18Perc1: TPanel
       Left = 112
-      Top = 328
+      Top = 329
       Width = 49
       Height = 17
       Color = 8421631
@@ -862,7 +867,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum18Perc2: TPanel
       Left = 168
-      Top = 328
+      Top = 329
       Width = 49
       Height = 17
       Color = 8421631
@@ -870,7 +875,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum18Perc3: TPanel
       Left = 224
-      Top = 328
+      Top = 329
       Width = 49
       Height = 17
       Color = 8421631
@@ -878,7 +883,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum19Pos: TPanel
       Left = 8
-      Top = 344
+      Top = 345
       Width = 49
       Height = 17
       Caption = '19'
@@ -887,7 +892,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum19Last: TPanel
       Left = 64
-      Top = 344
+      Top = 345
       Width = 41
       Height = 17
       Color = 7864183
@@ -895,7 +900,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum19Perc1: TPanel
       Left = 112
-      Top = 344
+      Top = 345
       Width = 49
       Height = 17
       Color = 7864183
@@ -903,7 +908,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum19Perc2: TPanel
       Left = 168
-      Top = 344
+      Top = 345
       Width = 49
       Height = 17
       Color = 7864183
@@ -911,7 +916,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum19Perc3: TPanel
       Left = 224
-      Top = 344
+      Top = 345
       Width = 49
       Height = 17
       Color = 7864183
@@ -919,7 +924,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum20Pos: TPanel
       Left = 8
-      Top = 360
+      Top = 361
       Width = 49
       Height = 17
       Caption = '20'
@@ -928,7 +933,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum20Last: TPanel
       Left = 64
-      Top = 360
+      Top = 361
       Width = 41
       Height = 17
       Color = 8421631
@@ -936,7 +941,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum20Perc1: TPanel
       Left = 112
-      Top = 360
+      Top = 361
       Width = 49
       Height = 17
       Color = 8421631
@@ -944,7 +949,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum20Perc2: TPanel
       Left = 168
-      Top = 360
+      Top = 361
       Width = 49
       Height = 17
       Color = 8421631
@@ -952,7 +957,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum20Perc3: TPanel
       Left = 224
-      Top = 360
+      Top = 361
       Width = 49
       Height = 17
       Color = 8421631
@@ -960,7 +965,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum21Pos: TPanel
       Left = 8
-      Top = 376
+      Top = 377
       Width = 49
       Height = 17
       Caption = '21'
@@ -969,7 +974,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum21Last: TPanel
       Left = 64
-      Top = 376
+      Top = 377
       Width = 41
       Height = 17
       Color = 7864183
@@ -977,7 +982,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum21Perc1: TPanel
       Left = 112
-      Top = 376
+      Top = 377
       Width = 49
       Height = 17
       Color = 7864183
@@ -985,7 +990,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum21Perc2: TPanel
       Left = 168
-      Top = 376
+      Top = 377
       Width = 49
       Height = 17
       Color = 7864183
@@ -993,7 +998,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum21Perc3: TPanel
       Left = 224
-      Top = 376
+      Top = 377
       Width = 49
       Height = 17
       Color = 7864183
@@ -1001,7 +1006,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum22Pos: TPanel
       Left = 8
-      Top = 392
+      Top = 393
       Width = 49
       Height = 17
       Caption = '22'
@@ -1010,7 +1015,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum22Last: TPanel
       Left = 64
-      Top = 392
+      Top = 393
       Width = 41
       Height = 17
       Color = 8421631
@@ -1018,7 +1023,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum22Perc1: TPanel
       Left = 112
-      Top = 392
+      Top = 393
       Width = 49
       Height = 17
       Color = 8421631
@@ -1026,7 +1031,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum22Perc2: TPanel
       Left = 168
-      Top = 392
+      Top = 393
       Width = 49
       Height = 17
       Color = 8421631
@@ -1034,7 +1039,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum22Perc3: TPanel
       Left = 224
-      Top = 392
+      Top = 393
       Width = 49
       Height = 17
       Color = 8421631
@@ -1042,7 +1047,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum23Pos: TPanel
       Left = 8
-      Top = 408
+      Top = 409
       Width = 49
       Height = 17
       Caption = '23'
@@ -1051,7 +1056,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum23Last: TPanel
       Left = 64
-      Top = 408
+      Top = 409
       Width = 41
       Height = 17
       Color = 7864183
@@ -1059,7 +1064,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum23Perc1: TPanel
       Left = 112
-      Top = 408
+      Top = 409
       Width = 49
       Height = 17
       Color = 7864183
@@ -1067,7 +1072,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum23Perc2: TPanel
       Left = 168
-      Top = 408
+      Top = 409
       Width = 49
       Height = 17
       Color = 7864183
@@ -1075,7 +1080,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum23Perc3: TPanel
       Left = 224
-      Top = 408
+      Top = 409
       Width = 49
       Height = 17
       Color = 7864183
@@ -1083,7 +1088,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum24Pos: TPanel
       Left = 8
-      Top = 424
+      Top = 425
       Width = 49
       Height = 17
       Caption = '24'
@@ -1092,7 +1097,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum24Last: TPanel
       Left = 64
-      Top = 424
+      Top = 425
       Width = 41
       Height = 17
       Color = 8421631
@@ -1100,7 +1105,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum24Perc1: TPanel
       Left = 112
-      Top = 424
+      Top = 425
       Width = 49
       Height = 17
       Color = 8421631
@@ -1108,7 +1113,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum24Perc2: TPanel
       Left = 168
-      Top = 424
+      Top = 425
       Width = 49
       Height = 17
       Color = 8421631
@@ -1116,7 +1121,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum24Perc3: TPanel
       Left = 224
-      Top = 424
+      Top = 425
       Width = 49
       Height = 17
       Color = 8421631
@@ -1124,7 +1129,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum25Pos: TPanel
       Left = 8
-      Top = 440
+      Top = 441
       Width = 49
       Height = 17
       Caption = '25'
@@ -1133,7 +1138,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum25Last: TPanel
       Left = 64
-      Top = 440
+      Top = 441
       Width = 41
       Height = 17
       Color = 7864183
@@ -1141,7 +1146,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum25Perc1: TPanel
       Left = 112
-      Top = 440
+      Top = 441
       Width = 49
       Height = 17
       Color = 7864183
@@ -1149,7 +1154,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum25Perc2: TPanel
       Left = 168
-      Top = 440
+      Top = 441
       Width = 49
       Height = 17
       Color = 7864183
@@ -1157,7 +1162,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum25Perc3: TPanel
       Left = 224
-      Top = 440
+      Top = 441
       Width = 49
       Height = 17
       Color = 7864183
@@ -1165,7 +1170,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum26Pos: TPanel
       Left = 8
-      Top = 456
+      Top = 457
       Width = 49
       Height = 17
       Caption = '26'
@@ -1174,7 +1179,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum26Last: TPanel
       Left = 64
-      Top = 456
+      Top = 457
       Width = 41
       Height = 17
       Color = 8421631
@@ -1182,7 +1187,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum26Perc1: TPanel
       Left = 112
-      Top = 456
+      Top = 457
       Width = 49
       Height = 17
       Color = 8421631
@@ -1190,7 +1195,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum26Perc2: TPanel
       Left = 168
-      Top = 456
+      Top = 457
       Width = 49
       Height = 17
       Color = 8421631
@@ -1198,7 +1203,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum26Perc3: TPanel
       Left = 224
-      Top = 456
+      Top = 457
       Width = 49
       Height = 17
       Color = 8421631
@@ -1206,7 +1211,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum27Pos: TPanel
       Left = 8
-      Top = 472
+      Top = 473
       Width = 49
       Height = 17
       Caption = '27'
@@ -1215,7 +1220,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum27Last: TPanel
       Left = 64
-      Top = 472
+      Top = 473
       Width = 41
       Height = 17
       Color = 7864183
@@ -1223,7 +1228,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum27Perc1: TPanel
       Left = 112
-      Top = 472
+      Top = 473
       Width = 49
       Height = 17
       Color = 7864183
@@ -1231,7 +1236,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum27Perc2: TPanel
       Left = 168
-      Top = 472
+      Top = 473
       Width = 49
       Height = 17
       Color = 7864183
@@ -1239,7 +1244,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum27Perc3: TPanel
       Left = 224
-      Top = 472
+      Top = 473
       Width = 49
       Height = 17
       Color = 7864183
@@ -1247,7 +1252,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum28Pos: TPanel
       Left = 8
-      Top = 488
+      Top = 489
       Width = 49
       Height = 17
       Caption = '28'
@@ -1256,7 +1261,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum28Last: TPanel
       Left = 64
-      Top = 488
+      Top = 489
       Width = 41
       Height = 17
       Color = 8421631
@@ -1264,7 +1269,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum28Perc1: TPanel
       Left = 112
-      Top = 488
+      Top = 489
       Width = 49
       Height = 17
       Color = 8421631
@@ -1272,7 +1277,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum28Perc2: TPanel
       Left = 168
-      Top = 488
+      Top = 489
       Width = 49
       Height = 17
       Color = 8421631
@@ -1280,7 +1285,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum28Perc3: TPanel
       Left = 224
-      Top = 488
+      Top = 489
       Width = 49
       Height = 17
       Color = 8421631
@@ -1288,7 +1293,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum29Pos: TPanel
       Left = 8
-      Top = 504
+      Top = 505
       Width = 49
       Height = 17
       Caption = '29'
@@ -1297,7 +1302,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum29Last: TPanel
       Left = 64
-      Top = 504
+      Top = 505
       Width = 41
       Height = 17
       Color = 7864183
@@ -1305,7 +1310,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum29Perc1: TPanel
       Left = 112
-      Top = 504
+      Top = 505
       Width = 49
       Height = 17
       Color = 7864183
@@ -1313,7 +1318,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum29Perc2: TPanel
       Left = 168
-      Top = 504
+      Top = 505
       Width = 49
       Height = 17
       Color = 7864183
@@ -1321,7 +1326,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum29Perc3: TPanel
       Left = 224
-      Top = 504
+      Top = 505
       Width = 49
       Height = 17
       Color = 7864183
@@ -1329,7 +1334,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum30Pos: TPanel
       Left = 8
-      Top = 520
+      Top = 521
       Width = 49
       Height = 17
       Caption = '30'
@@ -1338,7 +1343,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum30Last: TPanel
       Left = 64
-      Top = 520
+      Top = 521
       Width = 41
       Height = 17
       Color = 8421631
@@ -1346,7 +1351,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum30Perc1: TPanel
       Left = 112
-      Top = 520
+      Top = 521
       Width = 49
       Height = 17
       Color = 8421631
@@ -1354,7 +1359,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum30Perc2: TPanel
       Left = 168
-      Top = 520
+      Top = 521
       Width = 49
       Height = 17
       Color = 8421631
@@ -1362,7 +1367,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum30Perc3: TPanel
       Left = 224
-      Top = 520
+      Top = 521
       Width = 49
       Height = 17
       Color = 8421631
@@ -1370,7 +1375,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum31Pos: TPanel
       Left = 8
-      Top = 536
+      Top = 537
       Width = 49
       Height = 17
       Caption = '31'
@@ -1379,7 +1384,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum31Last: TPanel
       Left = 64
-      Top = 536
+      Top = 537
       Width = 41
       Height = 17
       Color = 7864183
@@ -1387,7 +1392,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum31Perc1: TPanel
       Left = 112
-      Top = 536
+      Top = 537
       Width = 49
       Height = 17
       Color = 7864183
@@ -1395,7 +1400,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum31Perc2: TPanel
       Left = 168
-      Top = 536
+      Top = 537
       Width = 49
       Height = 17
       Color = 7864183
@@ -1403,7 +1408,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum31Perc3: TPanel
       Left = 224
-      Top = 536
+      Top = 537
       Width = 49
       Height = 17
       Color = 7864183
@@ -1411,7 +1416,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum32Pos: TPanel
       Left = 8
-      Top = 552
+      Top = 553
       Width = 49
       Height = 17
       Caption = '32'
@@ -1420,7 +1425,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum32Last: TPanel
       Left = 64
-      Top = 552
+      Top = 553
       Width = 41
       Height = 17
       Color = 8421631
@@ -1428,7 +1433,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum32Perc1: TPanel
       Left = 112
-      Top = 552
+      Top = 553
       Width = 49
       Height = 17
       Color = 8421631
@@ -1436,7 +1441,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum32Perc2: TPanel
       Left = 168
-      Top = 552
+      Top = 553
       Width = 49
       Height = 17
       Color = 8421631
@@ -1444,7 +1449,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum32Perc3: TPanel
       Left = 224
-      Top = 552
+      Top = 553
       Width = 49
       Height = 17
       Color = 8421631
@@ -1452,7 +1457,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum33Pos: TPanel
       Left = 8
-      Top = 568
+      Top = 569
       Width = 49
       Height = 17
       Caption = '33'
@@ -1461,7 +1466,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum33Last: TPanel
       Left = 64
-      Top = 568
+      Top = 569
       Width = 41
       Height = 17
       Color = 7864183
@@ -1469,7 +1474,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum33Perc1: TPanel
       Left = 112
-      Top = 568
+      Top = 569
       Width = 49
       Height = 17
       Color = 7864183
@@ -1477,7 +1482,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum33Perc2: TPanel
       Left = 168
-      Top = 568
+      Top = 569
       Width = 49
       Height = 17
       Color = 7864183
@@ -1485,7 +1490,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum33Perc3: TPanel
       Left = 224
-      Top = 568
+      Top = 569
       Width = 49
       Height = 17
       Color = 7864183
@@ -1493,7 +1498,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum34Pos: TPanel
       Left = 8
-      Top = 584
+      Top = 585
       Width = 49
       Height = 17
       Caption = '34'
@@ -1502,7 +1507,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum34Last: TPanel
       Left = 64
-      Top = 584
+      Top = 585
       Width = 41
       Height = 17
       Color = 8421631
@@ -1510,7 +1515,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum34Perc1: TPanel
       Left = 112
-      Top = 584
+      Top = 585
       Width = 49
       Height = 17
       Color = 8421631
@@ -1518,7 +1523,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum34Perc2: TPanel
       Left = 168
-      Top = 584
+      Top = 585
       Width = 49
       Height = 17
       Color = 8421631
@@ -1526,7 +1531,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum34Perc3: TPanel
       Left = 224
-      Top = 584
+      Top = 585
       Width = 49
       Height = 17
       Color = 8421631
@@ -1534,7 +1539,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum35Pos: TPanel
       Left = 8
-      Top = 600
+      Top = 601
       Width = 49
       Height = 17
       Caption = '35'
@@ -1543,7 +1548,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum35Last: TPanel
       Left = 64
-      Top = 600
+      Top = 601
       Width = 41
       Height = 17
       Color = 7864183
@@ -1551,7 +1556,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum35Perc1: TPanel
       Left = 112
-      Top = 600
+      Top = 601
       Width = 49
       Height = 17
       Color = 7864183
@@ -1559,7 +1564,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum35Perc2: TPanel
       Left = 168
-      Top = 600
+      Top = 601
       Width = 49
       Height = 17
       Color = 7864183
@@ -1567,7 +1572,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum35Perc3: TPanel
       Left = 224
-      Top = 600
+      Top = 601
       Width = 49
       Height = 17
       Color = 7864183
@@ -1575,7 +1580,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum36Pos: TPanel
       Left = 8
-      Top = 616
+      Top = 617
       Width = 49
       Height = 17
       Caption = '36'
@@ -1584,7 +1589,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum36Last: TPanel
       Left = 64
-      Top = 616
+      Top = 617
       Width = 41
       Height = 17
       Color = 8421631
@@ -1592,7 +1597,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum36Perc1: TPanel
       Left = 112
-      Top = 616
+      Top = 617
       Width = 49
       Height = 17
       Color = 8421631
@@ -1600,7 +1605,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum36Perc2: TPanel
       Left = 168
-      Top = 616
+      Top = 617
       Width = 49
       Height = 17
       Color = 8421631
@@ -1608,7 +1613,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object StatGridNum36Perc3: TPanel
       Left = 224
-      Top = 616
+      Top = 617
       Width = 49
       Height = 17
       Color = 8421631
@@ -1616,7 +1621,7 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object PanelDelemiter4: TPanel
       Left = 161
-      Top = 0
+      Top = 1
       Width = 7
       Height = 641
       Color = 13284405
@@ -1624,15 +1629,15 @@ object FormStatisticsNumber: TFormStatisticsNumber
     end
     object PanelDelemiter1: TPanel
       Left = 1
-      Top = 0
+      Top = 1
       Width = 7
-      Height = 641
+      Height = 642
       Color = 13284405
       TabOrder = 195
     end
     object PanelNumber: TPanel
       Left = 8
-      Top = 24
+      Top = 25
       Width = 265
       Height = 17
       Caption = 'Number'

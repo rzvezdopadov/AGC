@@ -1,6 +1,6 @@
 object FormStatisticsSixline: TFormStatisticsSixline
-  Left = 192
-  Top = 813
+  Left = 879
+  Top = 719
   Width = 301
   Height = 270
   Caption = 'Statistics Sixline'
@@ -11,6 +11,7 @@ object FormStatisticsSixline: TFormStatisticsSixline
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object PanelBack: TPanel

@@ -11,6 +11,7 @@ object FormStatisticsAngle: TFormStatisticsAngle
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object PanelBack: TPanel

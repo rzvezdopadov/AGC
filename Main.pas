@@ -255,7 +255,7 @@ var
 
 implementation
 
-uses Settings, Statistics, Tester;
+uses WindowUserLib, Settings, Statistics, Tester;
 
 {$R *.dfm}
 
@@ -304,10 +304,23 @@ end;
 
 procedure TFormMain.FormCreate(Sender: TObject);
 begin
-  // Centred window
-  //FormMain.Top  := (Screen.Height shr 1) - (FormMain.Height shr 1);
-  //FormMain.Left := (Screen.Width  shr 1) - (FormMain.Width  shr 1);
+  FormCentered((Sender as TForm));
   hideAditionalRates();
+end;
+
+procedure TFormMain.MenuFileSettingsClick(Sender: TObject);
+begin
+  FormInvVisWithCentered(FormSettings);
+end;
+
+procedure TFormMain.MenuMainStatisticsClick(Sender: TObject);
+begin
+  FormInvVisWithCentered(FormStatistics);
+end;
+
+procedure TFormMain.MenuMainTesterClick(Sender: TObject);
+begin
+  FormInvVisWithCentered(FormTester);
 end;
 
 procedure TFormMain.CheckBoxASSTClick(Sender: TObject);
@@ -315,19 +328,6 @@ begin
   hideAditionalRates();
 end;
 
-procedure TFormMain.MenuFileSettingsClick(Sender: TObject);
-begin
-  if FormSettings.Visible = false then FormSettings.Visible := true else FormSettings.Visible := false;
-end;
 
-procedure TFormMain.MenuMainStatisticsClick(Sender: TObject);
-begin
-  if FormStatistics.Visible = false then FormStatistics.Visible := true else FormStatistics.Visible := false;
-end;
-
-procedure TFormMain.MenuMainTesterClick(Sender: TObject);
-begin
-  if FormTester.Visible = false then FormTester.Visible := true else FormTester.Visible := false;
-end;
 
 end.

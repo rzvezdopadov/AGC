@@ -1,10 +1,10 @@
 object FormMain: TFormMain
-  Left = 203
-  Top = 265
+  Left = 208
+  Top = 390
   Width = 617
-  Height = 668
+  Height = 667
   AlphaBlend = True
-  AlphaBlendValue = 240
+  AlphaBlendValue = 250
   AutoSize = True
   Caption = 'AGC'
   Color = 14732732
@@ -1960,6 +1960,7 @@ object FormMain: TFormMain
     end
   end
   object MainMenu: TMainMenu
+    Left = 24
     object MenuFile: TMenuItem
       Caption = 'File'
       object MenuFileSettings: TMenuItem
@@ -1995,6 +1996,6 @@ object FormMain: TFormMain
     end
   end
   object Timer1: TTimer
-    Left = 32
+    Left = 56
   end
 end

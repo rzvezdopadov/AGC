@@ -83,6 +83,7 @@ type
     PanelPair: TPanel;
     PanelDozen: TPanel;
     PanelColumn: TPanel;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -94,6 +95,13 @@ var
 
 implementation
 
+uses WindowUserLib, Main;
+
 {$R *.dfm}
+
+procedure TFormStatisticsPCD.FormCreate(Sender: TObject);
+begin
+  FormCentered((Sender as TForm));
+end;
 
 end.

@@ -1,6 +1,6 @@
 object FormTester: TFormTester
-  Left = 712
-  Top = 164
+  Left = 551
+  Top = 130
   Width = 421
   Height = 738
   Caption = 'Tester'
@@ -10,7 +10,19 @@ object FormTester: TFormTester
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
+  Menu = MainMenu1
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object MainMenu1: TMainMenu
+    object N1: TMenuItem
+      object Loadingfile1: TMenuItem
+        Caption = 'Load sample'
+      end
+      object SaveFile1: TMenuItem
+        Caption = 'Save sample'
+      end
+    end
+  end
 end
