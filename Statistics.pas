@@ -17,6 +17,8 @@ type
     CheckBoxStatAngle: TCheckBox;
     PanelSetAll: TPanel;
     PanelClearAll: TPanel;
+    CheckBox1: TCheckBox;
+    CheckBox2: TCheckBox;
     procedure CheckBoxStatNumberClick(Sender: TObject);
     procedure PanelSetAllClick(Sender: TObject);
     procedure PanelClearAllClick(Sender: TObject);

@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 208
-  Top = 390
+  Left = 172
+  Top = 149
   Width = 617
   Height = 667
   AlphaBlend = True
@@ -1948,6 +1948,7 @@ object FormMain: TFormMain
       Height = 17
       Caption = 'Clear'
       TabOrder = 1
+      OnClick = PanelNumberClearClick
     end
     object CheckBoxASST: TCheckBox
       Left = 16

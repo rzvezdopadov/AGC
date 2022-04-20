@@ -8,7 +8,7 @@ uses
 
 type
   TFormStatisticsStreet = class(TForm)
-    PanelStreet: TPanel;
+    PanelTitl: TPanel;
     StringGrid: TStringGrid;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -34,9 +34,16 @@ var
   i: integer;
 begin
   FormCentered((Sender as TForm));
+
   for i := 1 to 14 do begin
     StringGrid.Cells[0, i] := 'ST' + IntToStr(i-1);
   end;
+
+  StringGrid.Cells[0, 0] := 'Pos';
+  StringGrid.Cells[1, 0] := 'Last';
+  StringGrid.Cells[2, 0] := '%100';
+  StringGrid.Cells[3, 0] := '%100';
+  StringGrid.Cells[4, 0] := '%100';
 
 end;
 
@@ -45,18 +52,10 @@ begin
   StringGridResizeIntoSize(StringGrid, FormStatisticsStreet.ClientHeight - 25, FormStatisticsStreet.ClientWidth);
 end;
 
-
-
 procedure TFormStatisticsStreet.StringGridDrawCell(Sender: TObject; ACol,
   ARow: Integer; Rect: TRect; State: TGridDrawState);
-var
-   Format: Word;
-   C: array[0..255] of Char;
 begin
-   Format := DT_CENTER or DT_VCENTER;
-   FormStatisticsStreet.StringGrid.Canvas.FillRect(Rect); // перерисовка ячейки
-   StrPCopy(C, StringGrid.Cells[ACol, ARow]); // преобразование строки в формат PChar
-   WinProcs.DrawText(StringGrid.Canvas.Handle, C, StrLen(C), Rect, Format); // вывод текста
+   StringGridDrawCellCenter(Sender, ACol, ARow, Rect, State);
 end;
 
 end.

@@ -1,8 +1,8 @@
 object FormStatisticsStreet: TFormStatisticsStreet
-  Left = 226
-  Top = 116
-  Width = 263
-  Height = 318
+  Left = 1378
+  Top = 739
+  Width = 272
+  Height = 324
   Caption = 'Statistics street'
   Color = 14732732
   Font.Charset = DEFAULT_CHARSET
@@ -14,17 +14,14 @@ object FormStatisticsStreet: TFormStatisticsStreet
   Visible = True
   OnCreate = FormCreate
   OnResize = FormResize
-  DesignSize = (
-    247
-    280)
   PixelsPerInch = 96
   TextHeight = 13
-  object PanelStreet: TPanel
+  object PanelTitl: TPanel
     Left = 0
     Top = 0
-    Width = 247
+    Width = 256
     Height = 25
-    Anchors = [akLeft, akTop, akRight]
+    Align = alTop
     BorderWidth = 3
     BorderStyle = bsSingle
     Caption = 'Street'
@@ -34,8 +31,8 @@ object FormStatisticsStreet: TFormStatisticsStreet
   object StringGrid: TStringGrid
     Left = 0
     Top = 24
-    Width = 241
-    Height = 249
+    Width = 249
+    Height = 257
     DefaultColWidth = 46
     DefaultRowHeight = 15
     Enabled = False
@@ -44,5 +41,21 @@ object FormStatisticsStreet: TFormStatisticsStreet
     ScrollBars = ssNone
     TabOrder = 1
     OnDrawCell = StringGridDrawCell
+    RowHeights = (
+      15
+      15
+      15
+      15
+      15
+      15
+      15
+      15
+      15
+      15
+      15
+      15
+      15
+      15
+      15)
   end
 end

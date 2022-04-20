@@ -244,6 +244,7 @@ type
     procedure MenuFileSettingsClick(Sender: TObject);
     procedure MenuMainStatisticsClick(Sender: TObject);
     procedure MenuMainTesterClick(Sender: TObject);
+    procedure PanelNumberClearClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -259,7 +260,7 @@ uses WindowUserLib, Settings, Statistics, Tester;
 
 {$R *.dfm}
 
-function hideAditionalRates():integer;
+function HideAditionalRates():integer;
 begin
   if FormMain.CheckBoxASST.Checked = true then
   begin
@@ -305,7 +306,7 @@ end;
 procedure TFormMain.FormCreate(Sender: TObject);
 begin
   FormCentered((Sender as TForm));
-  hideAditionalRates();
+  HideAditionalRates();
 end;
 
 procedure TFormMain.MenuFileSettingsClick(Sender: TObject);
@@ -325,9 +326,14 @@ end;
 
 procedure TFormMain.CheckBoxASSTClick(Sender: TObject);
 begin
-  hideAditionalRates();
+  HideAditionalRates();
 end;
 
 
+
+procedure TFormMain.PanelNumberClearClick(Sender: TObject);
+begin
+  RichEditNumber.Clear;
+end;
 
 end.

@@ -1,8 +1,8 @@
 object FormStatistics: TFormStatistics
-  Left = 374
-  Top = 632
-  Width = 185
-  Height = 191
+  Left = 1256
+  Top = 555
+  Width = 201
+  Height = 207
   AlphaBlend = True
   AlphaBlendValue = 250
   AutoSize = True
@@ -20,22 +20,23 @@ object FormStatistics: TFormStatistics
   object PanelStatistics: TPanel
     Left = 0
     Top = 0
-    Width = 169
-    Height = 153
+    Width = 185
+    Height = 169
+    Alignment = taLeftJustify
     Color = 14732732
     TabOrder = 0
     object GroupBoxStatistics: TGroupBox
       Left = 8
       Top = 8
-      Width = 153
-      Height = 137
+      Width = 169
+      Height = 153
       Caption = 'Visible statistics'
       Color = 3644415
       ParentColor = False
       TabOrder = 0
       object CheckBoxStatNumber: TCheckBox
         Left = 80
-        Top = 24
+        Top = 56
         Width = 65
         Height = 17
         Caption = 'Number'
@@ -47,13 +48,13 @@ object FormStatistics: TFormStatistics
         Top = 24
         Width = 65
         Height = 17
-        Caption = 'PCD'
+        Caption = 'Pair'
         TabOrder = 1
         OnClick = CheckBoxStatNumberClick
       end
       object CheckBoxStatSixline: TCheckBox
-        Left = 8
-        Top = 48
+        Left = 80
+        Top = 24
         Width = 65
         Height = 17
         Caption = 'Sixline'
@@ -62,7 +63,7 @@ object FormStatistics: TFormStatistics
       end
       object CheckBoxStatStreet: TCheckBox
         Left = 80
-        Top = 48
+        Top = 72
         Width = 65
         Height = 17
         Caption = 'Street'
@@ -70,8 +71,8 @@ object FormStatistics: TFormStatistics
         OnClick = CheckBoxStatNumberClick
       end
       object CheckBoxStatAngle: TCheckBox
-        Left = 8
-        Top = 72
+        Left = 80
+        Top = 40
         Width = 65
         Height = 17
         Caption = 'Angle'
@@ -80,7 +81,7 @@ object FormStatistics: TFormStatistics
       end
       object PanelSetAll: TPanel
         Left = 8
-        Top = 96
+        Top = 120
         Width = 57
         Height = 25
         Caption = 'Set All'
@@ -89,14 +90,36 @@ object FormStatistics: TFormStatistics
         OnClick = PanelSetAllClick
       end
       object PanelClearAll: TPanel
-        Left = 72
-        Top = 96
+        Left = 80
+        Top = 120
         Width = 57
         Height = 25
         Caption = 'Clear All'
         Color = 8421631
         TabOrder = 6
         OnClick = PanelClearAllClick
+      end
+      object CheckBox1: TCheckBox
+        Left = 8
+        Top = 48
+        Width = 65
+        Height = 17
+        BiDiMode = bdRightToLeft
+        Caption = 'Dozen'
+        ParentBiDiMode = False
+        TabOrder = 7
+        OnClick = CheckBoxStatNumberClick
+      end
+      object CheckBox2: TCheckBox
+        Left = 8
+        Top = 72
+        Width = 65
+        Height = 17
+        BiDiMode = bdRightToLeft
+        Caption = 'Column'
+        ParentBiDiMode = False
+        TabOrder = 8
+        OnClick = CheckBoxStatNumberClick
       end
     end
   end

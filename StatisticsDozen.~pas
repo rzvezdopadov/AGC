@@ -1,4 +1,4 @@
-unit StatisticsSixline;
+unit StatisticsDozen;
 
 interface
 
@@ -7,9 +7,9 @@ uses
   Dialogs, ExtCtrls, Grids;
 
 type
-  TFormStatisticsSixline = class(TForm)
-    PanelTitl: TPanel;
+  TFormStatisticsDozen = class(TForm)
     StringGrid: TStringGrid;
+    PanelTitl: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure StringGridDrawCell(Sender: TObject; ACol, ARow: Integer;
@@ -21,7 +21,7 @@ type
   end;
 
 var
-  FormStatisticsSixline: TFormStatisticsSixline;
+  FormStatisticsDozen: TFormStatisticsDozen;
 
 implementation
 
@@ -29,15 +29,15 @@ uses WindowUserLib, Main;
 
 {$R *.dfm}
 
-procedure TFormStatisticsSixline.FormCreate(Sender: TObject);
+procedure TFormStatisticsDozen.FormCreate(Sender: TObject);
 var
   i: integer;
 begin
   FormCentered((Sender as TForm));
 
-  for i := 1 to 11 do begin
-    StringGrid.Cells[0, i] := 'S' + IntToStr(i);
-  end;
+  StringGrid.Cells[0, 1] := '2to1(1)';
+  StringGrid.Cells[0, 2] := '2to1(2)';
+  StringGrid.Cells[0, 3] := '2to1(3)';
 
   StringGrid.Cells[0, 0] := 'Pos';
   StringGrid.Cells[1, 0] := 'Last';
@@ -46,12 +46,12 @@ begin
   StringGrid.Cells[4, 0] := '%100';
 end;
 
-procedure TFormStatisticsSixline.FormResize(Sender: TObject);
+procedure TFormStatisticsDozen.FormResize(Sender: TObject);
 begin
-  StringGridResizeIntoSize(StringGrid, FormStatisticsSixline.ClientHeight - 24, FormStatisticsSixline.ClientWidth);
+StringGridResizeIntoSize(StringGrid, FormStatisticsDozen.ClientHeight - 25, FormStatisticsDozen.ClientWidth);
 end;
 
-procedure TFormStatisticsSixline.StringGridDrawCell(Sender: TObject; ACol,
+procedure TFormStatisticsDozen.StringGridDrawCell(Sender: TObject; ACol,
   ARow: Integer; Rect: TRect; State: TGridDrawState);
 begin
   StringGridDrawCellCenter(Sender, ACol, ARow, Rect, State);

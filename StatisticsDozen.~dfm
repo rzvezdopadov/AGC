@@ -1,9 +1,9 @@
-object FormStatisticsSixline: TFormStatisticsSixline
-  Left = 1574
-  Top = 526
+object FormStatisticsDozen: TFormStatisticsDozen
+  Left = 1647
+  Top = 122
   Width = 272
-  Height = 272
-  Caption = 'Statistics Sixline'
+  Height = 144
+  Caption = 'Statistics Dozen'
   Color = 14732732
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,11 +11,29 @@ object FormStatisticsSixline: TFormStatisticsSixline
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
   OldCreateOrder = False
-  Visible = True
   OnCreate = FormCreate
   OnResize = FormResize
   PixelsPerInch = 96
   TextHeight = 13
+  object StringGrid: TStringGrid
+    Left = -3
+    Top = 24
+    Width = 252
+    Height = 73
+    DefaultColWidth = 46
+    DefaultRowHeight = 15
+    Enabled = False
+    FixedColor = 3644415
+    RowCount = 4
+    ScrollBars = ssNone
+    TabOrder = 0
+    OnDrawCell = StringGridDrawCell
+    RowHeights = (
+      15
+      15
+      15
+      15)
+  end
   object PanelTitl: TPanel
     Left = 0
     Top = 0
@@ -24,35 +42,8 @@ object FormStatisticsSixline: TFormStatisticsSixline
     Align = alTop
     BorderWidth = 3
     BorderStyle = bsSingle
-    Caption = 'Sixline'
+    Caption = 'Dozen'
     Color = 16761281
-    TabOrder = 0
-  end
-  object StringGrid: TStringGrid
-    Left = 0
-    Top = 24
-    Width = 249
-    Height = 201
-    DefaultColWidth = 46
-    DefaultRowHeight = 15
-    Enabled = False
-    FixedColor = 3644415
-    RowCount = 12
-    ScrollBars = ssNone
     TabOrder = 1
-    OnDrawCell = StringGridDrawCell
-    RowHeights = (
-      15
-      15
-      15
-      15
-      15
-      15
-      15
-      15
-      15
-      15
-      15
-      15)
   end
 end

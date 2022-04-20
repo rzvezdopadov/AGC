@@ -3,7 +3,7 @@ unit WindowUserLib;
 interface // Define procedure & function, uses this is module
 
 uses
-  Windows, StdCtrls, ExtCtrls, Forms, Grids;
+  Windows, SysUtils, StdCtrls, ExtCtrls, Forms, Grids, WinProcs;
 
   function FormInvVis(Form: TForm):bool;
   function FormCentered(Form: TForm):bool;
@@ -11,7 +11,8 @@ uses
   function FormVisIfCheck(CheckBox: TCheckBox; Form: TForm):bool;
   function FormVisIfCheckWithCentered(CheckBox: TCheckBox; Form: TForm):bool;
   function StringGridResizeIntoSize(StringGrid: TStringGrid; HeightParent: integer; WidthParent: integer):bool;
-
+  function StringGridDrawCellCenter(Sender: TObject; ACol,
+    ARow: Integer; Rect: TRect; State: TGridDrawState):bool;
 implementation
 
 uses Controls;
@@ -70,6 +71,18 @@ uses Controls;
     StringGrid.DefaultRowHeight := RowH;
     StringGrid.DefaultColWidth := ColW;
     StringGrid.Font.Size := Round(Sqrt((RowH * RowH) + (ColW * ColW)) / 10);
+  end;
+
+  function StringGridDrawCellCenter(Sender: TObject; ACol,
+    ARow: Integer; Rect: TRect; State: TGridDrawState):bool;
+  var
+    Format: Word;
+    C: array[0..255] of Char;
+  begin
+    Format := DT_CENTER or DT_VCENTER;
+    (Sender as TStringGrid).Canvas.FillRect(Rect); // перерисовка ячейки
+    StrPCopy(C, (Sender as TStringGrid).Cells[ACol, ARow]); // преобразование строки в формат PChar
+    WinProcs.DrawText((Sender as TStringGrid).Canvas.Handle, C, StrLen(C), Rect, Format); // вывод текста
   end;
   
 end.

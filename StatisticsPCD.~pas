@@ -95,6 +95,8 @@ var
 
 implementation
 
+uses WindowUserLib, Main;
+
 {$R *.dfm}
 
 procedure TFormStatisticsPCD.FormCreate(Sender: TObject);

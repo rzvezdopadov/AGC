@@ -1,8 +1,8 @@
 object FormStatisticsPCD: TFormStatisticsPCD
-  Left = 891
-  Top = 379
-  Width = 299
-  Height = 317
+  Left = 1265
+  Top = 631
+  Width = 297
+  Height = 387
   Caption = 'Statistics PCD'
   Color = 14732732
   Font.Charset = DEFAULT_CHARSET
