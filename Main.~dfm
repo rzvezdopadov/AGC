@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 172
-  Top = 149
+  Left = 265
+  Top = 152
   Width = 617
   Height = 667
   AlphaBlend = True
@@ -1927,17 +1927,19 @@ object FormMain: TFormMain
     Color = 6487945
     TabOrder = 14
     object LabelNumberSeq: TLabel
-      Left = 8
+      Left = 6
       Top = 8
-      Width = 70
+      Width = 74
       Height = 13
-      Caption = 'Number Seq'
+      Caption = 'Number Seq:'
     end
     object RichEditNumber: TRichEdit
       Left = 8
       Top = 24
       Width = 73
       Height = 529
+      Color = clMoneyGreen
+      HideScrollBars = False
       ScrollBars = ssVertical
       TabOrder = 0
     end
@@ -1961,7 +1963,7 @@ object FormMain: TFormMain
     end
   end
   object MainMenu: TMainMenu
-    Left = 24
+    Left = 16
     object MenuFile: TMenuItem
       Caption = 'File'
       object MenuFileSettings: TMenuItem
@@ -1978,12 +1980,14 @@ object FormMain: TFormMain
       end
       object MenuMainAutogame: TMenuItem
         Caption = 'Autogame'
+        OnClick = MenuMainAutogameClick
       end
       object MenuMainSaveSample: TMenuItem
         Caption = 'Save sample'
       end
       object MenuMainExit: TMenuItem
         Caption = 'Exit'
+        OnClick = MenuMainExitClick
       end
     end
     object MenuHelp: TMenuItem
@@ -1997,6 +2001,6 @@ object FormMain: TFormMain
     end
   end
   object Timer1: TTimer
-    Left = 56
+    Left = 96
   end
 end

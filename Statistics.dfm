@@ -1,6 +1,6 @@
 object FormStatistics: TFormStatistics
-  Left = 1062
-  Top = 685
+  Left = 1288
+  Top = 447
   Width = 201
   Height = 207
   AlphaBlend = True
@@ -35,16 +35,16 @@ object FormStatistics: TFormStatistics
       ParentColor = False
       TabOrder = 0
       object CheckBoxStatNumber: TCheckBox
-        Left = 80
-        Top = 56
+        Left = 16
+        Top = 96
         Width = 65
         Height = 17
         Caption = 'Number'
         TabOrder = 0
         OnClick = CheckBoxStatNumberClick
       end
-      object CheckBoxStatPCD: TCheckBox
-        Left = 8
+      object CheckBoxStatPair: TCheckBox
+        Left = 16
         Top = 24
         Width = 65
         Height = 17
@@ -53,7 +53,7 @@ object FormStatistics: TFormStatistics
         OnClick = CheckBoxStatNumberClick
       end
       object CheckBoxStatSixline: TCheckBox
-        Left = 80
+        Left = 96
         Top = 24
         Width = 65
         Height = 17
@@ -62,7 +62,7 @@ object FormStatistics: TFormStatistics
         OnClick = CheckBoxStatNumberClick
       end
       object CheckBoxStatStreet: TCheckBox
-        Left = 80
+        Left = 96
         Top = 72
         Width = 65
         Height = 17
@@ -71,8 +71,8 @@ object FormStatistics: TFormStatistics
         OnClick = CheckBoxStatNumberClick
       end
       object CheckBoxStatAngle: TCheckBox
-        Left = 80
-        Top = 40
+        Left = 96
+        Top = 48
         Width = 65
         Height = 17
         Caption = 'Angle'
@@ -80,7 +80,7 @@ object FormStatistics: TFormStatistics
         OnClick = CheckBoxStatNumberClick
       end
       object PanelSetAll: TPanel
-        Left = 8
+        Left = 16
         Top = 120
         Width = 57
         Height = 25
@@ -90,7 +90,7 @@ object FormStatistics: TFormStatistics
         OnClick = PanelSetAllClick
       end
       object PanelClearAll: TPanel
-        Left = 80
+        Left = 96
         Top = 120
         Width = 57
         Height = 25
@@ -99,8 +99,8 @@ object FormStatistics: TFormStatistics
         TabOrder = 6
         OnClick = PanelClearAllClick
       end
-      object CheckBox1: TCheckBox
-        Left = 8
+      object CheckBoxStatDozen: TCheckBox
+        Left = 16
         Top = 48
         Width = 65
         Height = 17
@@ -110,8 +110,8 @@ object FormStatistics: TFormStatistics
         TabOrder = 7
         OnClick = CheckBoxStatNumberClick
       end
-      object CheckBox2: TCheckBox
-        Left = 8
+      object CheckBoxStatColumn: TCheckBox
+        Left = 16
         Top = 72
         Width = 65
         Height = 17

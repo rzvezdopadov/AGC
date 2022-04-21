@@ -13,7 +13,8 @@ uses
   StatisticsAngle in 'StatisticsAngle.pas' {FormStatisticsAngle},
   StatisticsPair in 'StatisticsPair.pas' {FormStatisticsPair},
   StatisticsDozen in 'StatisticsDozen.pas' {FormStatisticsDozen},
-  StatisticsColumn in 'StatisticsColumn.pas' {FormStatisticsColumn};
+  StatisticsColumn in 'StatisticsColumn.pas' {FormStatisticsColumn},
+  StatisticsState in 'StatisticsState.pas';
 
 {$R *.res}
 

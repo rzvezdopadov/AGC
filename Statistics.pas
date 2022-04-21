@@ -11,14 +11,14 @@ type
     PanelStatistics: TPanel;
     GroupBoxStatistics: TGroupBox;
     CheckBoxStatNumber: TCheckBox;
-    CheckBoxStatPCD: TCheckBox;
+    CheckBoxStatPair: TCheckBox;
     CheckBoxStatSixline: TCheckBox;
     CheckBoxStatStreet: TCheckBox;
     CheckBoxStatAngle: TCheckBox;
     PanelSetAll: TPanel;
     PanelClearAll: TPanel;
-    CheckBox1: TCheckBox;
-    CheckBox2: TCheckBox;
+    CheckBoxStatDozen: TCheckBox;
+    CheckBoxStatColumn: TCheckBox;
     procedure CheckBoxStatNumberClick(Sender: TObject);
     procedure PanelSetAllClick(Sender: TObject);
     procedure PanelClearAllClick(Sender: TObject);
@@ -34,18 +34,20 @@ var
 
 implementation
 
-uses WindowUserLib, StatisticsNumber, StatisticsPCD, StatisticsSixline,
-  StatisticsStreet, StatisticsAngle;
+uses WindowUserLib, StatisticsPair, StatisticsDozen, StatisticsColumn, 
+  StatisticsNumber, StatisticsSixline, StatisticsStreet, StatisticsAngle;
 
 {$R *.dfm}
 
 function HideFormStatistics():bool;
 begin
+  FormVisIfCheck(FormStatistics.CheckBoxStatPair, FormStatisticsPair);
+  FormVisIfCheck(FormStatistics.CheckBoxStatDozen, FormStatisticsDozen);
+  FormVisIfCheck(FormStatistics.CheckBoxStatColumn, FormStatisticsColumn);
   FormVisIfCheck(FormStatistics.CheckBoxStatNumber, FormStatisticsNumber);
-  FormVisIfCheck(FormStatistics.CheckBoxStatPCD, FormStatisticsPCD);
   FormVisIfCheck(FormStatistics.CheckBoxStatSixline, FormStatisticsSixline);
-  FormVisIfCheck(FormStatistics.CheckBoxStatStreet, FormStatisticsStreet);
   FormVisIfCheck(FormStatistics.CheckBoxStatAngle, FormStatisticsAngle);
+  FormVisIfCheck(FormStatistics.CheckBoxStatStreet, FormStatisticsStreet);
 
   HideFormStatistics := true;
 end;
@@ -62,20 +64,24 @@ end;
 
 procedure TFormStatistics.PanelSetAllClick(Sender: TObject);
 begin
-  FormStatistics.CheckBoxStatNumber.Checked := true;
-  FormStatistics.CheckBoxStatPCD.Checked := true;
-  FormStatistics.CheckBoxStatSixline.Checked := true;
-  FormStatistics.CheckBoxStatStreet.Checked := true;
-  FormStatistics.CheckBoxStatAngle.Checked := true;
+  FormStatistics.CheckBoxStatPair.Checked     := true;
+  FormStatistics.CheckBoxStatDozen.Checked    := true;
+  FormStatistics.CheckBoxStatColumn.Checked   := true;
+  FormStatistics.CheckBoxStatNumber.Checked   := true;
+  FormStatistics.CheckBoxStatSixline.Checked  := true;
+  FormStatistics.CheckBoxStatAngle.Checked    := true;
+  FormStatistics.CheckBoxStatStreet.Checked   := true;
 end;
 
 procedure TFormStatistics.PanelClearAllClick(Sender: TObject);
 begin
-  FormStatistics.CheckBoxStatNumber.Checked := false;
-  FormStatistics.CheckBoxStatPCD.Checked := false;
-  FormStatistics.CheckBoxStatSixline.Checked := false;
-  FormStatistics.CheckBoxStatStreet.Checked := false;
-  FormStatistics.CheckBoxStatAngle.Checked := false;
+  FormStatistics.CheckBoxStatPair.Checked     := false;
+  FormStatistics.CheckBoxStatDozen.Checked    := false;
+  FormStatistics.CheckBoxStatColumn.Checked   := false;
+  FormStatistics.CheckBoxStatNumber.Checked   := false;
+  FormStatistics.CheckBoxStatSixline.Checked  := false;
+  FormStatistics.CheckBoxStatAngle.Checked    := false;
+  FormStatistics.CheckBoxStatStreet.Checked   := false;
 end;
 
 

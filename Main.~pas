@@ -245,6 +245,8 @@ type
     procedure MenuMainStatisticsClick(Sender: TObject);
     procedure MenuMainTesterClick(Sender: TObject);
     procedure PanelNumberClearClick(Sender: TObject);
+    procedure MenuMainAutogameClick(Sender: TObject);
+    procedure MenuMainExitClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -259,6 +261,11 @@ implementation
 uses WindowUserLib, Settings, Statistics, Tester;
 
 {$R *.dfm}
+
+procedure TFormMain.MenuMainExitClick(Sender: TObject);
+begin
+  FormMain.Close;
+end;
 
 function HideAditionalRates():integer;
 begin
@@ -328,12 +335,16 @@ procedure TFormMain.CheckBoxASSTClick(Sender: TObject);
 begin
   HideAditionalRates();
 end;
-
-
-
+  
 procedure TFormMain.PanelNumberClearClick(Sender: TObject);
 begin
   RichEditNumber.Clear;
 end;
+
+procedure TFormMain.MenuMainAutogameClick(Sender: TObject);
+begin
+  InvertMenuItem(MenuMainAutogame);
+end;
+
 
 end.

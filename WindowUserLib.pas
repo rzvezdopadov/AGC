@@ -3,13 +3,15 @@ unit WindowUserLib;
 interface // Define procedure & function, uses this is module
 
 uses
-  Windows, SysUtils, StdCtrls, ExtCtrls, Forms, Grids, WinProcs;
+  Windows, SysUtils, StdCtrls, ExtCtrls, Menus, Forms, Grids, WinProcs;
 
   function FormInvVis(Form: TForm):bool;
   function FormCentered(Form: TForm):bool;
   function FormInvVisWithCentered(Form: TForm):bool;
   function FormVisIfCheck(CheckBox: TCheckBox; Form: TForm):bool;
   function FormVisIfCheckWithCentered(CheckBox: TCheckBox; Form: TForm):bool;
+  function InvertMenuItem(MenuItem: TMenuItem):bool;
+  function InvertCheckBox(CheckBox: TCheckBox):bool;
   function StringGridResizeIntoSize(StringGrid: TStringGrid; HeightParent: integer; WidthParent: integer):bool;
   function StringGridDrawCellCenter(Sender: TObject; ACol,
     ARow: Integer; Rect: TRect; State: TGridDrawState):bool;
@@ -39,6 +41,22 @@ uses Controls;
       FormCentered(Form);
     end;
     FormInvVis(Form);
+  end;
+
+  function InvertMenuItem(MenuItem: TMenuItem):bool;
+  begin
+    InvertMenuItem := true;
+    if MenuItem.Checked
+      then MenuItem.Checked := False
+        else MenuItem.Checked := True;
+  end;
+
+  function InvertCheckBox(CheckBox: TCheckBox):bool;
+  begin
+    InvertCheckBox := true;
+    if CheckBox.Checked
+      then CheckBox.Checked := False
+        else CheckBox.Checked := True;
   end;
 
   function FormVisIfCheck(CheckBox: TCheckBox; Form: TForm):bool;
@@ -79,10 +97,10 @@ uses Controls;
     Format: Word;
     C: array[0..255] of Char;
   begin
+    StringGridDrawCellCenter := true;
     Format := DT_CENTER or DT_VCENTER;
     (Sender as TStringGrid).Canvas.FillRect(Rect); // перерисовка ячейки
     StrPCopy(C, (Sender as TStringGrid).Cells[ACol, ARow]); // преобразование строки в формат PChar
     WinProcs.DrawText((Sender as TStringGrid).Canvas.Handle, C, StrLen(C), Rect, Format); // вывод текста
   end;
-  
 end.
