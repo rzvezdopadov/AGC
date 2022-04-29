@@ -1,8 +1,8 @@
 object FormStatisticsAngle: TFormStatisticsAngle
   Left = 1273
-  Top = 128
+  Top = 131
   Width = 272
-  Height = 469
+  Height = 466
   Caption = 'Ststistics angle'
   Color = 14732732
   Font.Charset = DEFAULT_CHARSET
@@ -11,7 +11,6 @@ object FormStatisticsAngle: TFormStatisticsAngle
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
   OldCreateOrder = False
-  Visible = True
   OnCreate = FormCreate
   OnResize = FormResize
   PixelsPerInch = 96

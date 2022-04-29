@@ -1,6 +1,6 @@
 object FormStatisticsSixline: TFormStatisticsSixline
-  Left = 1574
-  Top = 526
+  Left = 1377
+  Top = 464
   Width = 272
   Height = 272
   Caption = 'Statistics Sixline'

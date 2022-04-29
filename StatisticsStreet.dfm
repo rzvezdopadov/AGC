@@ -11,7 +11,6 @@ object FormStatisticsStreet: TFormStatisticsStreet
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
   OldCreateOrder = False
-  Visible = True
   OnCreate = FormCreate
   OnResize = FormResize
   PixelsPerInch = 96

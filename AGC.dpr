@@ -14,7 +14,8 @@ uses
   StatisticsPair in 'StatisticsPair.pas' {FormStatisticsPair},
   StatisticsDozen in 'StatisticsDozen.pas' {FormStatisticsDozen},
   StatisticsColumn in 'StatisticsColumn.pas' {FormStatisticsColumn},
-  StatisticsState in 'StatisticsState.pas';
+  StatisticsState in 'StatisticsState.pas',
+  State in 'State.pas';
 
 {$R *.res}
 

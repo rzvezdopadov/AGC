@@ -1,6 +1,6 @@
 object FormStatistics: TFormStatistics
-  Left = 1288
-  Top = 447
+  Left = 991
+  Top = 156
   Width = 201
   Height = 207
   AlphaBlend = True
@@ -22,7 +22,6 @@ object FormStatistics: TFormStatistics
     Top = 0
     Width = 185
     Height = 169
-    Alignment = taLeftJustify
     Color = 14732732
     TabOrder = 0
     object GroupBoxStatistics: TGroupBox

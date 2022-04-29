@@ -1,8 +1,8 @@
 object FormStatisticsStreet: TFormStatisticsStreet
-  Left = 1592
-  Top = 146
+  Left = 1378
+  Top = 739
   Width = 272
-  Height = 327
+  Height = 324
   Caption = 'Statistics street'
   Color = 14732732
   Font.Charset = DEFAULT_CHARSET
