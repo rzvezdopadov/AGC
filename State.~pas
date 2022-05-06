@@ -3,13 +3,20 @@ unit State;
 interface
 
 uses
-  Classes, Controls, ExtCtrls, Windows, Messages, SysUtils,
-  Variants, Graphics, Forms, Dialogs, Grids;
+  Main, Classes, SysUtils, Windows, ComCtrls, Graphics, ExtCtrls, StatisticsPair;
 
+  function clearSeqNum():bool;
   function addSeqNum(Value: Integer):bool;
   function calcStatistics():bool;
+  function numberSetUser(Value: Integer): bool;
+  function getClassNumberRedOrBlack(Value: Integer): string;
+  function getClassNumberOddOrEven(Value: Integer): string;
+  function replaceColorPanelRedBlack(Value:Integer; Panel:TPanel):bool;
 const
   longNumberArray = 1000;
+  colorPanelZero = $0041B50F;
+  colorPanelRed = $003333FF;
+  colorPanelBlack = $004F5150;
 var
 // Sequenced number
   sequencedNumber: array [0..longNumberArray] of Integer;
@@ -61,26 +68,119 @@ var
   statStreetPercThird: array [0..13] of Double;
 
 implementation
-  function addSeqNum(Value: Integer):bool;
-  var
-    i: Integer;
-  begin
-    for i:=0 to longNumberArray-1 do begin
-      sequencedNumber[longNumberArray-i] := sequencedNumber[longNumberArray-i+1];
+
+function clearSeqNum():bool;
+var
+  i: integer;
+begin
+  for i:=0 to longNumberArray do begin
+    sequencedNumber[i] := -1;
+  end;
+
+  clearSeqNum := true;
+end;
+
+function addSeqNum(Value: Integer):bool;
+var
+  i: Integer;
+begin
+  for i:=0 to longNumberArray-1 do begin
+    sequencedNumber[longNumberArray-i] := sequencedNumber[longNumberArray-i+1];
+  end;
+
+  sequencedNumber[0] := Value;
+
+  addSeqNum := True;
+end;
+
+function calcStatistics():bool;
+var
+  i, j, value: integer;
+begin
+  for i := 0 to 36 do begin
+    statNumberLast[i] := 0;
+
+    for j := 0 to longNumberArray do begin
+      if i = statNumberLast[longNumberArray - j]
+        then statNumberLast[i] := longNumberArray - j;
     end;
+  end;
+{
+    // Statistics number
+  statNumberLast: array [0..36] of Integer;
+  statNumberPercFirst: array [0..36] of Double;
+  statNumberPercSecond: array [0..36] of Double;
+  statNumberPercThird: array [0..36] of Double;
+}
+  calcStatistics := true;
+end;
 
-    sequencedNumber[0] := Value;
+function replaceColorPanelRedBlack(Value:Integer; Panel:TPanel):bool;
+var
+  str: string;
+begin
+  replaceColorPanelRedBlack := true;
 
-    addSeqNum := True;
+  if ((Value < 0) or (Value > 36)) then begin
+    Panel.Color := clLime;
+    exit;
   end;
 
-  function calcStatistics():bool;
-  var
-    i, j: integer;
-  begin
+  str := getClassNumberRedOrBlack(Value);
+  if str = 'Zero' then Panel.Color := colorPanelZero else
+  if str = 'Red' then Panel.Color := colorPanelRed else
+  if str = 'Black' then Panel.Color := colorPanelBlack;
+end;
 
-    calcStatistics := true;  
-  end;
+function getClassNumberRedOrBlack(Value: Integer): string;
+begin
+  getClassNumberRedOrBlack := 'Other';
+  if ((Value < 0) or (Value > 36)) then exit;
+
+  if Value = 0 then getClassNumberRedOrBlack := 'Zero' else
+  if (Value = 1) or (Value = 3) or (Value = 5) or (Value = 7) or
+      (Value = 9) or (Value = 12) or (Value = 14) or (Value = 16) or
+       (Value = 18) or (Value = 19) or (Value = 21) or (Value = 23) or
+        (Value = 25) or (Value = 27) or (Value = 30) or (Value = 32) or
+         (Value = 34) or (Value = 36) then getClassNumberRedOrBlack := 'Red' else
+  if (Value = 2) or (Value = 4) or (Value = 6) or (Value = 8) or
+      (Value = 10) or (Value = 11) or (Value = 13) or (Value = 15) or
+       (Value = 17) or (Value = 20) or (Value = 22) or (Value = 24) or
+        (Value = 26) or (Value = 28) or (Value = 29) or (Value = 31) or
+         (Value = 33) or (Value = 35) then getClassNumberRedOrBlack := 'Black'
+end;
+
+function getClassNumberOddOrEven(Value: Integer): string;
+begin
+  getClassNumberOddOrEven := 'Other';
+  if ((Value < 0) or (Value > 36)) then exit;
+
+  if Value = 0 then getClassNumberOddOrEven := 'Zero' else
+  if (Value and 1) = 1 then getClassNumberOddOrEven := 'Odd' else
+  getClassNumberOddOrEven := 'Even';
+end;
+
+function addNewNumberToRichEdit(Value: Integer; RichEdit: TRichEdit): bool;
+var
+  str: string;
+begin
+  str := getClassNumberRedOrBlack(Value);
+
+  if str = 'Zero' then RichEdit.SelAttributes.Color := clGreen else
+  if str = 'Red' then RichEdit.SelAttributes.Color := clRed else
+  RichEdit.SelAttributes.Color := clBlack;
+
+  RichEdit.Lines.Add(IntToStr(Value));
+
+  addNewNumberToRichEdit  := true;
+end;
+
+function numberSetUser(Value: Integer): bool;
+begin
+  addNewNumberToRichEdit(Value, FormMain.RichEditNumber);
+
+  numberSetUser := true;
+end;
 
 end.
  

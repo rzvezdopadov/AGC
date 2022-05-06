@@ -17,6 +17,7 @@ type
   private
     { Private declarations }
   public
+
     { Public declarations }
   end;
 
@@ -25,7 +26,7 @@ var
 
 implementation
 
-uses WindowUserLib, Main;
+uses WindowUserLib, Main, State;
 
 {$R *.dfm}
 
@@ -58,6 +59,24 @@ procedure TFormStatisticsPair.StringGridDrawCell(Sender: TObject; ACol,
   ARow: Integer; Rect: TRect; State: TGridDrawState);
 begin
   StringGridDrawCellCenter(Sender, ACol, ARow, Rect, State);
+end;
+
+function updateStatisticPairGrid(): bool;
+begin
+  FormStatisticsPair.StringGrid.Cells[1, 1] := inttostr(statLowHighLast[0]);
+  FormStatisticsPair.StringGrid.Cells[1, 2] := inttostr(statLowHighLast[1]);
+  FormStatisticsPair.StringGrid.Cells[1, 3] := inttostr(statOddEvenLast[0]);
+  FormStatisticsPair.StringGrid.Cells[1, 4] := inttostr(statOddEvenLast[1]);
+  FormStatisticsPair.StringGrid.Cells[1, 5] := inttostr(statRedBlackLast[0]);
+  FormStatisticsPair.StringGrid.Cells[1, 6] := inttostr(statRedBlackLast[1]);
+
+  FormStatisticsPair.StringGrid.Cells[0, 0] := 'Pos';
+  FormStatisticsPair.StringGrid.Cells[1, 0] := 'Last';
+  FormStatisticsPair.StringGrid.Cells[2, 0] := '%100';
+  FormStatisticsPair.StringGrid.Cells[3, 0] := '%100';
+  FormStatisticsPair.StringGrid.Cells[4, 0] := '%100';
+
+  updateStatisticPairGrid := true;
 end;
 
 end.

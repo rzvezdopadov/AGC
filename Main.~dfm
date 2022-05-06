@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 348
-  Top = 240
+  Left = 394
+  Top = 284
   Width = 617
   Height = 667
   AlphaBlend = True
@@ -770,6 +770,7 @@ object FormMain: TFormMain
       Caption = '34'
       Color = 9559022
       TabOrder = 0
+      OnClick = PanelNumber34PhraseClick
     end
     object PanelNumber34Value: TPanel
       Left = 8
@@ -788,6 +789,7 @@ object FormMain: TFormMain
       Caption = '4'
       Color = 9559022
       TabOrder = 2
+      OnClick = PanelNumber4PhraseClick
     end
     object PanelNumber4Value: TPanel
       Left = 8
@@ -806,6 +808,7 @@ object FormMain: TFormMain
       Caption = '7'
       Color = 9559022
       TabOrder = 4
+      OnClick = PanelNumber7PhraseClick
     end
     object PanelNumber7Value: TPanel
       Left = 8
@@ -824,6 +827,7 @@ object FormMain: TFormMain
       Caption = '10'
       Color = 9559022
       TabOrder = 6
+      OnClick = PanelNumber10PhraseClick
     end
     object PanelNumber10Value: TPanel
       Left = 8
@@ -842,6 +846,7 @@ object FormMain: TFormMain
       Caption = '13'
       Color = 9559022
       TabOrder = 8
+      OnClick = PanelNumber13PhraseClick
     end
     object PanelNumber13Value: TPanel
       Left = 8
@@ -860,6 +865,7 @@ object FormMain: TFormMain
       Caption = '16'
       Color = 9559022
       TabOrder = 10
+      OnClick = PanelNumber16PhraseClick
     end
     object PanelNumber16Value: TPanel
       Left = 8
@@ -878,6 +884,7 @@ object FormMain: TFormMain
       Caption = '19'
       Color = 9559022
       TabOrder = 12
+      OnClick = PanelNumber19PhraseClick
     end
     object PanelNumber19Value: TPanel
       Left = 8
@@ -896,6 +903,7 @@ object FormMain: TFormMain
       Caption = '22'
       Color = 9559022
       TabOrder = 14
+      OnClick = PanelNumber22PhraseClick
     end
     object PanelNumber22Value: TPanel
       Left = 8
@@ -914,6 +922,7 @@ object FormMain: TFormMain
       Caption = '25'
       Color = 9559022
       TabOrder = 16
+      OnClick = PanelNumber25PhraseClick
     end
     object PanelNumber25Value: TPanel
       Left = 8
@@ -932,6 +941,7 @@ object FormMain: TFormMain
       Caption = '28'
       Color = 9559022
       TabOrder = 18
+      OnClick = PanelNumber28PhraseClick
     end
     object PanelNumber28Value: TPanel
       Left = 8
@@ -950,6 +960,7 @@ object FormMain: TFormMain
       Caption = '31'
       Color = 9559022
       TabOrder = 20
+      OnClick = PanelNumber31PhraseClick
     end
     object PanelNumber31Value: TPanel
       Left = 8
@@ -968,6 +979,7 @@ object FormMain: TFormMain
       Caption = '1'
       Color = 9559022
       TabOrder = 22
+      OnClick = PanelNumber1PhraseClick
     end
     object PanelNumber1Value: TPanel
       Left = 8
@@ -1200,6 +1212,7 @@ object FormMain: TFormMain
       Caption = '35'
       Color = 9559022
       TabOrder = 0
+      OnClick = PanelNumber35PhraseClick
     end
     object PanelNumber35Value: TPanel
       Left = 8
@@ -1218,6 +1231,7 @@ object FormMain: TFormMain
       Caption = '5'
       Color = 9559022
       TabOrder = 2
+      OnClick = PanelNumber5PhraseClick
     end
     object PanelNumber5Value: TPanel
       Left = 8
@@ -1236,6 +1250,7 @@ object FormMain: TFormMain
       Caption = '8'
       Color = 9559022
       TabOrder = 4
+      OnClick = PanelNumber8PhraseClick
     end
     object PanelNumber8Value: TPanel
       Left = 8
@@ -1254,6 +1269,7 @@ object FormMain: TFormMain
       Caption = '11'
       Color = 9559022
       TabOrder = 6
+      OnClick = PanelNumber11PhraseClick
     end
     object PanelNumber11Value: TPanel
       Left = 8
@@ -1272,6 +1288,7 @@ object FormMain: TFormMain
       Caption = '14'
       Color = 9559022
       TabOrder = 8
+      OnClick = PanelNumber14PhraseClick
     end
     object PanelNumber14Value: TPanel
       Left = 8
@@ -1290,6 +1307,7 @@ object FormMain: TFormMain
       Caption = '17'
       Color = 9559022
       TabOrder = 10
+      OnClick = PanelNumber17PhraseClick
     end
     object PanelNumber17Value: TPanel
       Left = 8
@@ -1308,6 +1326,7 @@ object FormMain: TFormMain
       Caption = '20'
       Color = 9559022
       TabOrder = 12
+      OnClick = PanelNumber20PhraseClick
     end
     object PanelNumber20Value: TPanel
       Left = 8
@@ -1326,6 +1345,7 @@ object FormMain: TFormMain
       Caption = '23'
       Color = 9559022
       TabOrder = 14
+      OnClick = PanelNumber23PhraseClick
     end
     object PanelNumber23Value: TPanel
       Left = 8
@@ -1344,6 +1364,7 @@ object FormMain: TFormMain
       Caption = '26'
       Color = 9559022
       TabOrder = 16
+      OnClick = PanelNumber26PhraseClick
     end
     object PanelNumber26Value: TPanel
       Left = 8
@@ -1362,6 +1383,7 @@ object FormMain: TFormMain
       Caption = '29'
       Color = 9559022
       TabOrder = 18
+      OnClick = PanelNumber29PhraseClick
     end
     object PanelNumber29Value: TPanel
       Left = 8
@@ -1380,6 +1402,7 @@ object FormMain: TFormMain
       Caption = '32'
       Color = 9559022
       TabOrder = 20
+      OnClick = PanelNumber32PhraseClick
     end
     object PanelNumber32Value: TPanel
       Left = 8
@@ -1398,6 +1421,7 @@ object FormMain: TFormMain
       Caption = '2'
       Color = 9559022
       TabOrder = 22
+      OnClick = PanelNumber2PhraseClick
     end
     object PanelNumber2Value: TPanel
       Left = 8
@@ -1416,6 +1440,7 @@ object FormMain: TFormMain
       Caption = '0'
       Color = 9559022
       TabOrder = 24
+      OnClick = PanelNumber0PhraseClick
     end
     object PanelNumber0Value: TPanel
       Left = 8
@@ -1648,6 +1673,7 @@ object FormMain: TFormMain
       Caption = '36'
       Color = 9559022
       TabOrder = 0
+      OnClick = PanelNumber36PhraseClick
     end
     object PanelNumber36Value: TPanel
       Left = 8
@@ -1666,6 +1692,7 @@ object FormMain: TFormMain
       Caption = '6'
       Color = 9559022
       TabOrder = 2
+      OnClick = PanelNumber6PhraseClick
     end
     object PanelNumber6Value: TPanel
       Left = 8
@@ -1684,6 +1711,7 @@ object FormMain: TFormMain
       Caption = '9'
       Color = 9559022
       TabOrder = 4
+      OnClick = PanelNumber9PhraseClick
     end
     object PanelNumber9Value: TPanel
       Left = 8
@@ -1702,6 +1730,7 @@ object FormMain: TFormMain
       Caption = '12'
       Color = 9559022
       TabOrder = 6
+      OnClick = PanelNumber12PhraseClick
     end
     object PanelNumber12Value: TPanel
       Left = 8
@@ -1720,6 +1749,7 @@ object FormMain: TFormMain
       Caption = '15'
       Color = 9559022
       TabOrder = 8
+      OnClick = PanelNumber15PhraseClick
     end
     object PanelNumber15Value: TPanel
       Left = 8
@@ -1738,6 +1768,7 @@ object FormMain: TFormMain
       Caption = '18'
       Color = 9559022
       TabOrder = 10
+      OnClick = PanelNumber18PhraseClick
     end
     object PanelNumber18Value: TPanel
       Left = 8
@@ -1756,6 +1787,7 @@ object FormMain: TFormMain
       Caption = '21'
       Color = 9559022
       TabOrder = 12
+      OnClick = PanelNumber21PhraseClick
     end
     object PanelNumber21Value: TPanel
       Left = 8
@@ -1774,6 +1806,7 @@ object FormMain: TFormMain
       Caption = '24'
       Color = 9559022
       TabOrder = 14
+      OnClick = PanelNumber24PhraseClick
     end
     object PanelNumber24Value: TPanel
       Left = 8
@@ -1792,6 +1825,7 @@ object FormMain: TFormMain
       Caption = '27'
       Color = 9559022
       TabOrder = 16
+      OnClick = PanelNumber27PhraseClick
     end
     object PanelNumber27Value: TPanel
       Left = 8
@@ -1810,6 +1844,7 @@ object FormMain: TFormMain
       Caption = '30'
       Color = 9559022
       TabOrder = 18
+      OnClick = PanelNumber30PhraseClick
     end
     object PanelNumber30Value: TPanel
       Left = 8
@@ -1828,6 +1863,7 @@ object FormMain: TFormMain
       Caption = '33'
       Color = 9559022
       TabOrder = 20
+      OnClick = PanelNumber33PhraseClick
     end
     object PanelNumber33Value: TPanel
       Left = 8
@@ -1846,6 +1882,7 @@ object FormMain: TFormMain
       Caption = '3'
       Color = 9559022
       TabOrder = 22
+      OnClick = PanelNumber3PhraseClick
     end
     object PanelNumber3Value: TPanel
       Left = 8
@@ -2001,6 +2038,6 @@ object FormMain: TFormMain
     end
   end
   object Timer1: TTimer
-    Left = 96
+    Left = 48
   end
 end

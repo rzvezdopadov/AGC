@@ -247,9 +247,49 @@ type
     procedure PanelNumberClearClick(Sender: TObject);
     procedure MenuMainAutogameClick(Sender: TObject);
     procedure MenuMainExitClick(Sender: TObject);
+    procedure PanelNumber0PhraseClick(Sender: TObject);
+    procedure PanelNumber1PhraseClick(Sender: TObject);
+    procedure PanelNumber2PhraseClick(Sender: TObject);
+    procedure PanelNumber3PhraseClick(Sender: TObject);
+    procedure PanelNumber4PhraseClick(Sender: TObject);
+    procedure PanelNumber5PhraseClick(Sender: TObject);
+    procedure PanelNumber6PhraseClick(Sender: TObject);
+    procedure PanelNumber7PhraseClick(Sender: TObject);
+    procedure PanelNumber8PhraseClick(Sender: TObject);
+    procedure PanelNumber9PhraseClick(Sender: TObject);
+    procedure PanelNumber10PhraseClick(Sender: TObject);
+    procedure PanelNumber11PhraseClick(Sender: TObject);
+    procedure PanelNumber12PhraseClick(Sender: TObject);
+    procedure PanelNumber13PhraseClick(Sender: TObject);
+    procedure PanelNumber14PhraseClick(Sender: TObject);
+    procedure PanelNumber15PhraseClick(Sender: TObject);
+    procedure PanelNumber16PhraseClick(Sender: TObject);
+    procedure PanelNumber17PhraseClick(Sender: TObject);
+    procedure PanelNumber18PhraseClick(Sender: TObject);
+    procedure PanelNumber19PhraseClick(Sender: TObject);
+    procedure PanelNumber20PhraseClick(Sender: TObject);
+    procedure PanelNumber21PhraseClick(Sender: TObject);
+    procedure PanelNumber22PhraseClick(Sender: TObject);
+    procedure PanelNumber23PhraseClick(Sender: TObject);
+    procedure PanelNumber24PhraseClick(Sender: TObject);
+    procedure PanelNumber25PhraseClick(Sender: TObject);
+    procedure PanelNumber26PhraseClick(Sender: TObject);
+    procedure PanelNumber27PhraseClick(Sender: TObject);
+    procedure PanelNumber28PhraseClick(Sender: TObject);
+    procedure PanelNumber29PhraseClick(Sender: TObject);
+    procedure PanelNumber30PhraseClick(Sender: TObject);
+    procedure PanelNumber31PhraseClick(Sender: TObject);
+    procedure PanelNumber32PhraseClick(Sender: TObject);
+    procedure PanelNumber33PhraseClick(Sender: TObject);
+    procedure PanelNumber34PhraseClick(Sender: TObject);
+    procedure PanelNumber35PhraseClick(Sender: TObject);
+    procedure PanelNumber36PhraseClick(Sender: TObject);
+
   private
+
     { Private declarations }
   public
+
     { Public declarations }
   end;
 
@@ -258,7 +298,7 @@ var
 
 implementation
 
-uses WindowUserLib, Settings, Statistics, Tester;
+uses WindowUserLib, Settings, Statistics, Tester, State;
 
 {$R *.dfm}
 
@@ -310,10 +350,94 @@ begin
   result := 0;
 end;
 
+function replaceColorPanelsNumber():bool;
+begin
+  replaceColorPanelRedBlack(0, FormMain.PanelNumber0Phrase);
+  replaceColorPanelRedBlack(0, FormMain.PanelNumber0Value);
+  replaceColorPanelRedBlack(1, FormMain.PanelNumber1Phrase);
+  replaceColorPanelRedBlack(1, FormMain.PanelNumber1Value);
+  replaceColorPanelRedBlack(2, FormMain.PanelNumber2Phrase);
+  replaceColorPanelRedBlack(2, FormMain.PanelNumber2Value);
+  replaceColorPanelRedBlack(3, FormMain.PanelNumber3Phrase);
+  replaceColorPanelRedBlack(3, FormMain.PanelNumber3Value);
+  replaceColorPanelRedBlack(4, FormMain.PanelNumber4Phrase);
+  replaceColorPanelRedBlack(4, FormMain.PanelNumber4Value);
+  replaceColorPanelRedBlack(5, FormMain.PanelNumber5Phrase);
+  replaceColorPanelRedBlack(5, FormMain.PanelNumber5Value);
+  replaceColorPanelRedBlack(6, FormMain.PanelNumber6Phrase);
+  replaceColorPanelRedBlack(6, FormMain.PanelNumber6Value);
+  replaceColorPanelRedBlack(7, FormMain.PanelNumber7Phrase);
+  replaceColorPanelRedBlack(7, FormMain.PanelNumber7Value);
+  replaceColorPanelRedBlack(8, FormMain.PanelNumber8Phrase);
+  replaceColorPanelRedBlack(8, FormMain.PanelNumber8Value);
+  replaceColorPanelRedBlack(9, FormMain.PanelNumber9Phrase);
+  replaceColorPanelRedBlack(9, FormMain.PanelNumber9Value);
+
+  replaceColorPanelRedBlack(10, FormMain.PanelNumber10Phrase);
+  replaceColorPanelRedBlack(10, FormMain.PanelNumber10Value);
+  replaceColorPanelRedBlack(11, FormMain.PanelNumber11Phrase);
+  replaceColorPanelRedBlack(11, FormMain.PanelNumber11Value);
+  replaceColorPanelRedBlack(12, FormMain.PanelNumber12Phrase);
+  replaceColorPanelRedBlack(12, FormMain.PanelNumber12Value);
+  replaceColorPanelRedBlack(13, FormMain.PanelNumber13Phrase);
+  replaceColorPanelRedBlack(13, FormMain.PanelNumber13Value);
+  replaceColorPanelRedBlack(14, FormMain.PanelNumber14Phrase);
+  replaceColorPanelRedBlack(14, FormMain.PanelNumber14Value);
+  replaceColorPanelRedBlack(15, FormMain.PanelNumber15Phrase);
+  replaceColorPanelRedBlack(15, FormMain.PanelNumber15Value);
+  replaceColorPanelRedBlack(16, FormMain.PanelNumber16Phrase);
+  replaceColorPanelRedBlack(16, FormMain.PanelNumber16Value);
+  replaceColorPanelRedBlack(17, FormMain.PanelNumber17Phrase);
+  replaceColorPanelRedBlack(17, FormMain.PanelNumber17Value);
+  replaceColorPanelRedBlack(18, FormMain.PanelNumber18Phrase);
+  replaceColorPanelRedBlack(18, FormMain.PanelNumber18Value);
+  replaceColorPanelRedBlack(19, FormMain.PanelNumber19Phrase);
+  replaceColorPanelRedBlack(19, FormMain.PanelNumber19Value);
+
+  replaceColorPanelRedBlack(20, FormMain.PanelNumber20Phrase);
+  replaceColorPanelRedBlack(20, FormMain.PanelNumber20Value);
+  replaceColorPanelRedBlack(21, FormMain.PanelNumber21Phrase);
+  replaceColorPanelRedBlack(21, FormMain.PanelNumber21Value);
+  replaceColorPanelRedBlack(22, FormMain.PanelNumber22Phrase);
+  replaceColorPanelRedBlack(22, FormMain.PanelNumber22Value);
+  replaceColorPanelRedBlack(23, FormMain.PanelNumber23Phrase);
+  replaceColorPanelRedBlack(23, FormMain.PanelNumber23Value);
+  replaceColorPanelRedBlack(24, FormMain.PanelNumber24Phrase);
+  replaceColorPanelRedBlack(24, FormMain.PanelNumber24Value);
+  replaceColorPanelRedBlack(25, FormMain.PanelNumber25Phrase);
+  replaceColorPanelRedBlack(25, FormMain.PanelNumber25Value);
+  replaceColorPanelRedBlack(26, FormMain.PanelNumber26Phrase);
+  replaceColorPanelRedBlack(26, FormMain.PanelNumber26Value);
+  replaceColorPanelRedBlack(27, FormMain.PanelNumber27Phrase);
+  replaceColorPanelRedBlack(27, FormMain.PanelNumber27Value);
+  replaceColorPanelRedBlack(28, FormMain.PanelNumber28Phrase);
+  replaceColorPanelRedBlack(28, FormMain.PanelNumber28Value);
+  replaceColorPanelRedBlack(29, FormMain.PanelNumber29Phrase);
+  replaceColorPanelRedBlack(29, FormMain.PanelNumber29Value);
+
+  replaceColorPanelRedBlack(30, FormMain.PanelNumber30Phrase);
+  replaceColorPanelRedBlack(30, FormMain.PanelNumber30Value);
+  replaceColorPanelRedBlack(31, FormMain.PanelNumber31Phrase);
+  replaceColorPanelRedBlack(31, FormMain.PanelNumber31Value);
+  replaceColorPanelRedBlack(32, FormMain.PanelNumber32Phrase);
+  replaceColorPanelRedBlack(32, FormMain.PanelNumber32Value);
+  replaceColorPanelRedBlack(33, FormMain.PanelNumber33Phrase);
+  replaceColorPanelRedBlack(33, FormMain.PanelNumber33Value);
+  replaceColorPanelRedBlack(34, FormMain.PanelNumber34Phrase);
+  replaceColorPanelRedBlack(34, FormMain.PanelNumber34Value);
+  replaceColorPanelRedBlack(35, FormMain.PanelNumber35Phrase);
+  replaceColorPanelRedBlack(35, FormMain.PanelNumber35Value);
+  replaceColorPanelRedBlack(36, FormMain.PanelNumber36Phrase);
+  replaceColorPanelRedBlack(36, FormMain.PanelNumber36Value);
+
+  replaceColorPanelsNumber := true;
+end;
+
 procedure TFormMain.FormCreate(Sender: TObject);
 begin
   FormCentered((Sender as TForm));
   HideAditionalRates();
+  replaceColorPanelsNumber();
 end;
 
 procedure TFormMain.MenuFileSettingsClick(Sender: TObject);
@@ -346,5 +470,190 @@ begin
   InvertMenuItem(MenuMainAutogame);
 end;
 
+
+procedure TFormMain.PanelNumber0PhraseClick(Sender: TObject);
+begin
+  numberSetUser(0);
+end;
+
+procedure TFormMain.PanelNumber1PhraseClick(Sender: TObject);
+begin
+  numberSetUser(1);
+end;
+
+procedure TFormMain.PanelNumber2PhraseClick(Sender: TObject);
+begin
+  numberSetUser(2);
+end;
+
+procedure TFormMain.PanelNumber3PhraseClick(Sender: TObject);
+begin
+  numberSetUser(3);
+end;
+
+procedure TFormMain.PanelNumber4PhraseClick(Sender: TObject);
+begin
+  numberSetUser(4);
+end;
+
+procedure TFormMain.PanelNumber5PhraseClick(Sender: TObject);
+begin
+  numberSetUser(5);
+end;
+
+procedure TFormMain.PanelNumber6PhraseClick(Sender: TObject);
+begin
+  numberSetUser(6);
+end;
+
+procedure TFormMain.PanelNumber7PhraseClick(Sender: TObject);
+begin
+  numberSetUser(7);
+end;
+
+procedure TFormMain.PanelNumber8PhraseClick(Sender: TObject);
+begin
+  numberSetUser(8);
+end;
+
+procedure TFormMain.PanelNumber9PhraseClick(Sender: TObject);
+begin
+  numberSetUser(9);
+end;
+
+procedure TFormMain.PanelNumber10PhraseClick(Sender: TObject);
+begin
+  numberSetUser(10);
+end;
+
+procedure TFormMain.PanelNumber11PhraseClick(Sender: TObject);
+begin
+  numberSetUser(11);
+end;
+
+procedure TFormMain.PanelNumber12PhraseClick(Sender: TObject);
+begin
+  numberSetUser(12);
+end;
+
+procedure TFormMain.PanelNumber13PhraseClick(Sender: TObject);
+begin
+  numberSetUser(13);
+end;
+
+procedure TFormMain.PanelNumber14PhraseClick(Sender: TObject);
+begin
+  numberSetUser(14);
+end;
+
+procedure TFormMain.PanelNumber15PhraseClick(Sender: TObject);
+begin
+  numberSetUser(15);
+end;
+
+procedure TFormMain.PanelNumber16PhraseClick(Sender: TObject);
+begin
+  numberSetUser(16);
+end;
+
+procedure TFormMain.PanelNumber17PhraseClick(Sender: TObject);
+begin
+  numberSetUser(17);
+end;
+
+procedure TFormMain.PanelNumber18PhraseClick(Sender: TObject);
+begin
+  numberSetUser(18);
+end;
+
+procedure TFormMain.PanelNumber19PhraseClick(Sender: TObject);
+begin
+  numberSetUser(19);
+end;
+
+procedure TFormMain.PanelNumber20PhraseClick(Sender: TObject);
+begin
+  numberSetUser(20);
+end;
+
+procedure TFormMain.PanelNumber21PhraseClick(Sender: TObject);
+begin
+  numberSetUser(21);
+end;
+
+procedure TFormMain.PanelNumber22PhraseClick(Sender: TObject);
+begin
+  numberSetUser(22);
+end;
+
+procedure TFormMain.PanelNumber23PhraseClick(Sender: TObject);
+begin
+  numberSetUser(23);
+end;
+
+procedure TFormMain.PanelNumber24PhraseClick(Sender: TObject);
+begin
+  numberSetUser(24);
+end;
+
+procedure TFormMain.PanelNumber25PhraseClick(Sender: TObject);
+begin
+  numberSetUser(25);
+end;
+
+procedure TFormMain.PanelNumber26PhraseClick(Sender: TObject);
+begin
+  numberSetUser(26);
+end;
+
+procedure TFormMain.PanelNumber27PhraseClick(Sender: TObject);
+begin
+  numberSetUser(27);
+end;
+
+procedure TFormMain.PanelNumber28PhraseClick(Sender: TObject);
+begin
+  numberSetUser(28);
+end;
+
+procedure TFormMain.PanelNumber29PhraseClick(Sender: TObject);
+begin
+  numberSetUser(29);
+end;
+
+procedure TFormMain.PanelNumber30PhraseClick(Sender: TObject);
+begin
+  numberSetUser(30);
+end;
+
+procedure TFormMain.PanelNumber31PhraseClick(Sender: TObject);
+begin
+  numberSetUser(31);
+end;
+
+procedure TFormMain.PanelNumber32PhraseClick(Sender: TObject);
+begin
+  numberSetUser(32);
+end;
+
+procedure TFormMain.PanelNumber33PhraseClick(Sender: TObject);
+begin
+  numberSetUser(33);
+end;
+
+procedure TFormMain.PanelNumber34PhraseClick(Sender: TObject);
+begin
+  numberSetUser(34);
+end;
+
+procedure TFormMain.PanelNumber35PhraseClick(Sender: TObject);
+begin
+  numberSetUser(35);
+end;
+
+procedure TFormMain.PanelNumber36PhraseClick(Sender: TObject);
+begin
+  numberSetUser(36);
+end;
 
 end.
