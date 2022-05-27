@@ -5,15 +5,17 @@ interface
 uses
   Main, Classes, SysUtils, Windows, ComCtrls, Graphics, ExtCtrls, StatisticsPair;
 
+  function clearState(): bool;
   function clearSeqNum():bool;
   function addSeqNum(Value: Integer):bool;
   function calcStatistics():bool;
   function numberSetUser(Value: Integer): bool;
+  function numberSetTester(Value: Integer): bool;
   function getClassNumberRedOrBlack(Value: Integer): string;
   function getClassNumberOddOrEven(Value: Integer): string;
   function replaceColorPanelRedBlack(Value:Integer; Panel:TPanel):bool;
 const
-  longNumberArray = 1000;
+  longNumberArray = 3;
   colorPanelZero = $0041B50F;
   colorPanelRed = $003333FF;
   colorPanelBlack = $004F5150;
@@ -84,8 +86,8 @@ function addSeqNum(Value: Integer):bool;
 var
   i: Integer;
 begin
-  for i:=0 to longNumberArray-1 do begin
-    sequencedNumber[longNumberArray-i] := sequencedNumber[longNumberArray-i+1];
+  for i:=0 to longNumberArray do begin
+     sequencedNumber[(longNumberArray-i)] := sequencedNumber[(longNumberArray-i)-1];
   end;
 
   sequencedNumber[0] := Value;
@@ -93,25 +95,31 @@ begin
   addSeqNum := True;
 end;
 
-function calcStatistics():bool;
+function calcStatisticsNumber():bool;
 var
   i, j, value: integer;
 begin
   for i := 0 to 36 do begin
-    statNumberLast[i] := 0;
+    statNumberLast[i] := -1;
 
     for j := 0 to longNumberArray do begin
-      if i = statNumberLast[longNumberArray - j]
+      if i = sequencedNumber[longNumberArray - j]
         then statNumberLast[i] := longNumberArray - j;
     end;
   end;
-{
-    // Statistics number
+
   statNumberLast: array [0..36] of Integer;
   statNumberPercFirst: array [0..36] of Double;
   statNumberPercSecond: array [0..36] of Double;
   statNumberPercThird: array [0..36] of Double;
-}
+
+end;
+
+
+function calcStatistics():bool;
+begin
+  calcStatisticsNumber();
+
   calcStatistics := true;
 end;
 
@@ -178,9 +186,26 @@ end;
 function numberSetUser(Value: Integer): bool;
 begin
   addNewNumberToRichEdit(Value, FormMain.RichEditNumber);
+  addSeqNum(Value);
+  calcStatistics();
 
   numberSetUser := true;
 end;
+
+function numberSetTester(Value: Integer): bool;
+begin
+  addNewNumberToRichEdit(Value, FormMain.RichEditNumber);
+
+  numberSetTester := true;
+end;
+
+function clearState(): bool;
+begin
+  clearSeqNum();
+
+  clearState := true;
+end;
+
 
 end.
  

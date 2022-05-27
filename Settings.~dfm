@@ -1,8 +1,8 @@
 object FormSettings: TFormSettings
-  Left = 413
-  Top = 331
+  Left = 404
+  Top = 253
   Width = 681
-  Height = 627
+  Height = 628
   AutoSize = True
   Caption = 'Settings'
   Color = 14732732
@@ -21,7 +21,7 @@ object FormSettings: TFormSettings
     Top = 0
     Width = 665
     Height = 569
-    ActivePage = TabGeneral
+    ActivePage = TabAlghoritm
     TabOrder = 0
     object TabGeneral: TTabSheet
       Caption = 'General'

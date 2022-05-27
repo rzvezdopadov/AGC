@@ -1,6 +1,6 @@
 object FormStatistics: TFormStatistics
-  Left = 887
-  Top = 307
+  Left = 991
+  Top = 156
   Width = 201
   Height = 207
   AlphaBlend = True

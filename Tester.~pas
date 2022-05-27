@@ -79,14 +79,21 @@ end;
 procedure TFormTester.MenuLoadSampleClick(Sender: TObject);
 begin
   if OpenSampleDialog.Execute then begin
-    RichEditNumber.Lines.LoadFromFile(OpenSampleDialog.FileName);
+    try
+      RichEditNumber.Lines.LoadFromFile(OpenSampleDialog.FileName);
+      ShowMessage('File loading succesfull!');
+    except
+      On E : Exception do
+      begin
+        ShowMessage('Error with message: "' + E.Message+'"');
+      end;
+    end;
   end;
 end;
 
 procedure TFormTester.MenuSaveSampleClick(Sender: TObject);
 begin
   if SaveSampleDialog.Execute then begin
-    ShowMessage(SaveSampleDialog.FileName);
     RichEditNumber.Lines.SaveToFile(SaveSampleDialog.FileName);
   end;
 end;

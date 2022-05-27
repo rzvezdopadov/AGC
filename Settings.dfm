@@ -2,7 +2,7 @@ object FormSettings: TFormSettings
   Left = 404
   Top = 253
   Width = 681
-  Height = 627
+  Height = 628
   AutoSize = True
   Caption = 'Settings'
   Color = 14732732
@@ -21,7 +21,7 @@ object FormSettings: TFormSettings
     Top = 0
     Width = 665
     Height = 569
-    ActivePage = TabAlghoritm
+    ActivePage = TabGeneral
     TabOrder = 0
     object TabGeneral: TTabSheet
       Caption = 'General'
@@ -30,7 +30,7 @@ object FormSettings: TFormSettings
         Top = 0
         Width = 657
         Height = 545
-        ActivePage = TabMain
+        ActivePage = TabFinancial
         TabOrder = 0
         object TabMain: TTabSheet
           Caption = 'Main'
@@ -258,7 +258,7 @@ object FormSettings: TFormSettings
         Top = 0
         Width = 657
         Height = 545
-        ActivePage = TabAlghotitmGlobal
+        ActivePage = TabPair
         TabOrder = 0
         object TabAlghotitmGlobal: TTabSheet
           Caption = 'Global'
