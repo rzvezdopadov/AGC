@@ -1,6 +1,6 @@
 object FormSettings: TFormSettings
-  Left = 404
-  Top = 253
+  Left = 821
+  Top = 292
   Width = 681
   Height = 628
   AutoSize = True
@@ -30,7 +30,7 @@ object FormSettings: TFormSettings
         Top = 0
         Width = 657
         Height = 545
-        ActivePage = TabFinancial
+        ActivePage = TabMain
         TabOrder = 0
         object TabMain: TTabSheet
           Caption = 'Main'

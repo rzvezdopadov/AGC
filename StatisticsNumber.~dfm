@@ -1,6 +1,6 @@
 object FormStatisticsNumber: TFormStatisticsNumber
-  Left = 1653
-  Top = 269
+  Left = 1092
+  Top = 263
   Width = 267
   Height = 708
   Caption = 'Statistics number'
@@ -11,7 +11,6 @@ object FormStatisticsNumber: TFormStatisticsNumber
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
   OldCreateOrder = False
-  Visible = True
   OnCreate = FormCreate
   OnResize = FormResize
   PixelsPerInch = 96

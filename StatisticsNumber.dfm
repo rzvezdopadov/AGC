@@ -1,6 +1,6 @@
 object FormStatisticsNumber: TFormStatisticsNumber
-  Left = 1653
-  Top = 269
+  Left = 1032
+  Top = 255
   Width = 267
   Height = 708
   Caption = 'Statistics number'

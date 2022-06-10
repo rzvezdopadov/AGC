@@ -3,7 +3,8 @@ unit State;
 interface
 
 uses
-  Main, Classes, SysUtils, Windows, ComCtrls, Graphics, ExtCtrls, StatisticsPair;
+  Main, Classes, SysUtils, Windows, ComCtrls, Graphics, ExtCtrls, Settings,
+  StatisticsNumber, StatisticsPair;
 
   function clearState(): bool;
   function clearSeqNum():bool;
@@ -20,6 +21,7 @@ const
   colorPanelRed = $003333FF;
   colorPanelBlack = $004F5150;
 var
+  countNumber: Integer;
 // Sequenced number
   sequencedNumber: array [0..longNumberArray] of Integer;
 // Statistics number
@@ -71,7 +73,7 @@ var
 
 implementation
 
-function clearSeqNum():bool;
+function clearSeqNum():BOOL;
 var
   i: integer;
 begin
@@ -82,10 +84,12 @@ begin
   clearSeqNum := true;
 end;
 
-function addSeqNum(Value: Integer):bool;
+function addSeqNum(Value: Integer):BOOL;
 var
   i: Integer;
 begin
+  countNumber := countNumber + 1;
+
   for i:=0 to longNumberArray do begin
      sequencedNumber[(longNumberArray-i)] := sequencedNumber[(longNumberArray-i)-1];
   end;
@@ -95,9 +99,47 @@ begin
   addSeqNum := True;
 end;
 
-function calcStatisticsNumber():bool;
+function getFirstPercCount(): Integer;
+begin
+  getFirstPercCount := StrToInt(FormSettings.EditSettingStatisticsCount1.Text);
+end;
+
+function getSecondPercCount(): Integer;
+begin
+  getSecondPercCount := StrToInt(FormSettings.EditSettingStatisticsCount2.Text);
+end;
+
+function getThirdPercCount(): Integer;
+begin
+  getThirdPercCount := StrToInt(FormSettings.EditSettingStatisticsCount3.Text);
+end;
+
+function calcPercNumber(var statNumberPerc: array of Double; LastNumber, PercCount: Integer):BOOL;
 var
-  i, j, value: integer;
+  i, count, count2, count3: Integer;
+begin
+   Count := 0;
+
+  if (countNumber <= PercCount) then begin
+    for i := 0 to countNumber do begin
+      if LastNumber = sequencedNumber[longNumberArray - i] then inc(Count);
+    end;
+
+    statNumberPerc[LastNumber] := (Count * 100) / countNumber;
+  end else begin
+    for i := 0 to PercCount do begin
+      if LastNumber = sequencedNumber[longNumberArray - i] then inc(Count);
+    end;
+
+    statNumberPerc[LastNumber] := (Count * 100) / PercCount;
+  end;
+  
+  calcPercNumber := true;
+end;
+
+function calcStatisticsNumber():BOOL;
+var
+  i, j: Integer;
 begin
   for i := 0 to 36 do begin
     statNumberLast[i] := -1;
@@ -106,24 +148,45 @@ begin
       if i = sequencedNumber[longNumberArray - j]
         then statNumberLast[i] := longNumberArray - j;
     end;
+
+    calcPercNumber(statNumberPercFirst, i, getFirstPercCount);
+    calcPercNumber(statNumberPercSecond, i, getSecondPercCount);
+    calcPercNumber(statNumberPercThird, i, getThirdPercCount);
   end;
-
-  statNumberLast: array [0..36] of Integer;
-  statNumberPercFirst: array [0..36] of Double;
-  statNumberPercSecond: array [0..36] of Double;
-  statNumberPercThird: array [0..36] of Double;
-
 end;
-
 
 function calcStatistics():bool;
 begin
-  calcStatisticsNumber();
+  calcStatisticsNumber;
 
   calcStatistics := true;
 end;
 
-function replaceColorPanelRedBlack(Value:Integer; Panel:TPanel):bool;
+function displayStatisticsNumber():BOOL;
+var
+  i: Integer;
+begin
+  for i := 0 to 36 do begin
+    FormStatisticsNumber.StringGrid.Cells[1, i+1] := IntToStr(statNumberLast[i]);
+    FormStatisticsNumber.StringGrid.Cells[2, i+1] :=
+      FormatFloat('0.###', statNumberPercFirst[i]);
+    FormStatisticsNumber.StringGrid.Cells[3, i+1] :=
+      FormatFloat('0.###', statNumberPercSecond[i]);
+    FormStatisticsNumber.StringGrid.Cells[4, i+1] :=
+      FormatFloat('0.###', statNumberPercThird[i]);
+  end;
+
+  displayStatisticsNumber := true;
+end;
+
+function displayStatistics():BOOL;
+begin
+  displayStatisticsNumber;
+
+  displayStatistics := true;
+end;
+
+function replaceColorPanelRedBlack(Value:Integer; Panel:TPanel):BOOL;
 var
   str: string;
 begin
@@ -168,7 +231,7 @@ begin
   getClassNumberOddOrEven := 'Even';
 end;
 
-function addNewNumberToRichEdit(Value: Integer; RichEdit: TRichEdit): bool;
+function addNewNumberToRichEdit(Value: Integer; RichEdit: TRichEdit): BOOL;
 var
   str: string;
 begin
@@ -183,24 +246,26 @@ begin
   addNewNumberToRichEdit  := true;
 end;
 
-function numberSetUser(Value: Integer): bool;
+function numberSetUser(Value: Integer): BOOL;
 begin
   addNewNumberToRichEdit(Value, FormMain.RichEditNumber);
   addSeqNum(Value);
   calcStatistics();
+  displayStatistics();
 
   numberSetUser := true;
 end;
 
-function numberSetTester(Value: Integer): bool;
+function numberSetTester(Value: Integer): BOOL;
 begin
   addNewNumberToRichEdit(Value, FormMain.RichEditNumber);
 
   numberSetTester := true;
 end;
 
-function clearState(): bool;
+function clearState(): BOOL;
 begin
+  countNumber := 0;
   clearSeqNum();
 
   clearState := true;
