@@ -1,6 +1,6 @@
 object FormStatisticsPair: TFormStatisticsPair
-  Left = 1377
-  Top = 272
+  Left = 1161
+  Top = 358
   Width = 272
   Height = 189
   Caption = 'Statistics Pair'
@@ -11,6 +11,7 @@ object FormStatisticsPair: TFormStatisticsPair
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
   OldCreateOrder = False
+  Visible = True
   OnCreate = FormCreate
   OnResize = FormResize
   PixelsPerInch = 96

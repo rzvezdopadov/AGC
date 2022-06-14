@@ -438,7 +438,7 @@ begin
   FormCentered((Sender as TForm));
   HideAditionalRates();
   replaceColorPanelsNumber();
-  ClearState();
+  clearState();
 end;
 
 procedure TFormMain.MenuFileSettingsClick(Sender: TObject);

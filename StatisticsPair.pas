@@ -40,14 +40,12 @@ begin
   StringGrid.Cells[0, 2] := 'High';
   StringGrid.Cells[0, 3] := 'Odd';
   StringGrid.Cells[0, 4] := 'Even';
-  StringGrid.Cells[0, 5] := 'Black';
-  StringGrid.Cells[0, 6] := 'Red';
+  StringGrid.Cells[0, 5] := 'Red';
+  StringGrid.Cells[0, 6] := 'Black';
 
   StringGrid.Cells[0, 0] := 'Pos';
   StringGrid.Cells[1, 0] := 'Last';
-  StringGrid.Cells[2, 0] := '%100';
-  StringGrid.Cells[3, 0] := '%100';
-  StringGrid.Cells[4, 0] := '%100';
+  updatePercentToHeaderGridAll();
 end;
 
 procedure TFormStatisticsPair.FormResize(Sender: TObject);
@@ -72,9 +70,7 @@ begin
 
   FormStatisticsPair.StringGrid.Cells[0, 0] := 'Pos';
   FormStatisticsPair.StringGrid.Cells[1, 0] := 'Last';
-  FormStatisticsPair.StringGrid.Cells[2, 0] := '%100';
-  FormStatisticsPair.StringGrid.Cells[3, 0] := '%100';
-  FormStatisticsPair.StringGrid.Cells[4, 0] := '%100';
+
 
   updateStatisticPairGrid := true;
 end;

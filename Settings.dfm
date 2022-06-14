@@ -99,26 +99,35 @@ object FormSettings: TFormSettings
             object EditSettingStatisticsCount1: TEdit
               Left = 144
               Top = 32
-              Width = 41
+              Width = 57
               Height = 21
+              MaxLength = 5
               TabOrder = 0
               Text = '10'
+              OnKeyPress = EditSettingStatisticsCountKeyPress
+              OnKeyUp = EditSettingStatisticsCountKeyUp
             end
             object EditSettingStatisticsCount2: TEdit
               Left = 336
               Top = 32
-              Width = 41
+              Width = 57
               Height = 21
+              MaxLength = 5
               TabOrder = 1
               Text = '50'
+              OnKeyPress = EditSettingStatisticsCountKeyPress
+              OnKeyUp = EditSettingStatisticsCountKeyUp
             end
             object EditSettingStatisticsCount3: TEdit
               Left = 536
               Top = 32
-              Width = 41
+              Width = 57
               Height = 21
+              MaxLength = 5
               TabOrder = 2
               Text = '100'
+              OnKeyPress = EditSettingStatisticsCountKeyPress
+              OnKeyUp = EditSettingStatisticsCountKeyUp
             end
           end
         end

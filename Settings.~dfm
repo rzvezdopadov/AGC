@@ -1,6 +1,6 @@
 object FormSettings: TFormSettings
-  Left = 404
-  Top = 253
+  Left = 821
+  Top = 292
   Width = 681
   Height = 628
   AutoSize = True
@@ -30,7 +30,7 @@ object FormSettings: TFormSettings
         Top = 0
         Width = 657
         Height = 545
-        ActivePage = TabFinancial
+        ActivePage = TabMain
         TabOrder = 0
         object TabMain: TTabSheet
           Caption = 'Main'
@@ -99,26 +99,32 @@ object FormSettings: TFormSettings
             object EditSettingStatisticsCount1: TEdit
               Left = 144
               Top = 32
-              Width = 41
+              Width = 57
               Height = 21
+              MaxLength = 5
               TabOrder = 0
               Text = '10'
+              OnKeyUp = EditSettingStatisticsCountKeyUp
             end
             object EditSettingStatisticsCount2: TEdit
               Left = 336
               Top = 32
-              Width = 41
+              Width = 57
               Height = 21
+              MaxLength = 5
               TabOrder = 1
               Text = '50'
+              OnKeyUp = EditSettingStatisticsCountKeyUp
             end
             object EditSettingStatisticsCount3: TEdit
               Left = 536
               Top = 32
-              Width = 41
+              Width = 57
               Height = 21
+              MaxLength = 5
               TabOrder = 2
               Text = '100'
+              OnKeyUp = EditSettingStatisticsCountKeyUp
             end
           end
         end

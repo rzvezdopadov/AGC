@@ -25,13 +25,11 @@ var
 
 implementation
 
-uses WindowUserLib, Main;
+uses WindowUserLib, Main, State;
 
 {$R *.dfm}
 
 procedure TFormStatisticsDozen.FormCreate(Sender: TObject);
-var
-  i: integer;
 begin
   FormCentered((Sender as TForm));
 
@@ -41,9 +39,7 @@ begin
 
   StringGrid.Cells[0, 0] := 'Pos';
   StringGrid.Cells[1, 0] := 'Last';
-  StringGrid.Cells[2, 0] := '%100';
-  StringGrid.Cells[3, 0] := '%100';
-  StringGrid.Cells[4, 0] := '%100';
+  updatePercentToHeaderGridAll();
 end;
 
 procedure TFormStatisticsDozen.FormResize(Sender: TObject);

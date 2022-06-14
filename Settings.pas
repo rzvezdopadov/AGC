@@ -233,6 +233,10 @@ type
     EditGlobalNeuNetNumOfLayers: TEdit;
     EditGlobalNeuNetOutNum: TEdit;
     procedure FormCreate(Sender: TObject);
+    procedure EditSettingStatisticsCountKeyUp(Sender: TObject;
+      var Key: Word; Shift: TShiftState);
+    procedure EditSettingStatisticsCountKeyPress(Sender: TObject;
+      var Key: Char);
   private
     { Private declarations }
   public
@@ -244,13 +248,26 @@ var
 
 implementation
 
-uses WindowUserLib, Main;
+uses WindowUserLib, Main, State;
 
 {$R *.dfm}
 
 procedure TFormSettings.FormCreate(Sender: TObject);
 begin
   FormCentered((Sender as TForm));
+end;
+
+procedure TFormSettings.EditSettingStatisticsCountKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+
+  updatePercentToHeaderGridAll();
+end;
+
+procedure TFormSettings.EditSettingStatisticsCountKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  Key := testKeyOnNumber(Key);
 end;
 
 end.

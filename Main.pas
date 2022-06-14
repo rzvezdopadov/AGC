@@ -471,7 +471,6 @@ begin
   InvertMenuItem(MenuMainAutogame);
 end;
 
-
 procedure TFormMain.PanelNumber0PhraseClick(Sender: TObject);
 begin
   numberSetUser(0);

@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 390
-  Top = 320
+  Left = 206
+  Top = 274
   Width = 617
   Height = 668
   AlphaBlend = True
@@ -139,7 +139,7 @@ object FormMain: TFormMain
     end
     object PanelPairBlackPhrase: TPanel
       Left = 8
-      Top = 185
+      Top = 265
       Width = 41
       Height = 57
       Caption = 'Black'
@@ -148,7 +148,7 @@ object FormMain: TFormMain
     end
     object PanelPairBlackValue: TPanel
       Left = 8
-      Top = 241
+      Top = 321
       Width = 41
       Height = 16
       Caption = '0'
@@ -157,7 +157,7 @@ object FormMain: TFormMain
     end
     object PanelPairRedPhrase: TPanel
       Left = 8
-      Top = 265
+      Top = 185
       Width = 41
       Height = 57
       Caption = 'Red'
@@ -166,7 +166,7 @@ object FormMain: TFormMain
     end
     object PanelPairRedValue: TPanel
       Left = 8
-      Top = 321
+      Top = 241
       Width = 41
       Height = 16
       Caption = '0'
