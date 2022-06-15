@@ -31,12 +31,14 @@ const
   NUM_OTHER = -2;
   NUM_LONG = -1;
   NUM_ZERO = -1;
-  NUM_RED = 0;
-  NUM_BLACK = 1;
-  NUM_ODD = 0;
-  NUM_EVEN = 1;
   NUM_LOW = 0;
   NUM_HIGH = 1;
+  NUM_ODD = 0;
+  NUM_EVEN = 1;
+  NUM_RED = 0;
+  NUM_BLACK = 1;
+
+
   PHRASE_LONG = 'Long';
 var
   countNumber: Integer;
@@ -241,19 +243,54 @@ begin
   calcStatisticsPairLast := True;
 end;
 
+function calcPercPair(var statPairPerc: array of Double; PercCount, typePair: Integer):BOOL;
+var
+  i, Count: Integer;
+begin
+  Count := 0;
+
+  if (countNumber <= PercCount-1) then begin
+    for i := 0 to countNumber-1 do begin
+      if NUM_LOW = getClassNumberFromArr(typePair, (longNumberArray - i)) then inc(Count);
+    end;
+
+    statPairPerc[0] := (Count * 100) / countNumber;
+  end else begin
+    for i := 0 to PercCount-1 do begin
+      if NUM_LOW = getClassNumberFromArr(typePair, (longNumberArray - i)) then inc(Count);
+    end;
+
+    statPairPerc[0] := (Count * 100) / PercCount;
+  end;
+////////////////
+  Count := 0;
+
+  if (countNumber <= PercCount-1) then begin
+    for i := 0 to countNumber-1 do begin
+      if NUM_HIGH = getClassNumberFromArr(typePair, (longNumberArray - i)) then inc(Count);
+    end;
+
+    statPairPerc[1] := (Count * 100) / countNumber;
+  end else begin
+    for i := 0 to PercCount-1 do begin
+      if NUM_HIGH = getClassNumberFromArr(typePair, (longNumberArray - i)) then inc(Count);
+    end;
+
+    statPairPerc[1] := (Count * 100) / PercCount;
+  end;
+  
+  calcPercPair := True;
+end;
+
 function calcStatisticsPair():BOOL;
 begin
   calcStatisticsPairLast(statLowHighLast, STAT_LOWHIGH);
   calcStatisticsPairLast(statOddEvenLast, STAT_ODDEVEN);
   calcStatisticsPairLast(statRedBlackLast, STAT_REDBLACK);
 
-
-
-{
-    calcPercNumber(statNumberPercFirst, i, getFirstPercCount);
-    calcPercNumber(statNumberPercSecond, i, getSecondPercCount);
-    calcPercNumber(statNumberPercThird, i, getThirdPercCount);
-}
+  calcPercPair(statNumberPercFirst, getFirstPercCount, STAT_LOWHIGH);
+  calcPercPair(statNumberPercSecond, getSecondPercCount, STAT_ODDEVEN);
+  calcPercPair(statNumberPercThird, getThirdPercCount, STAT_REDBLACK);
 
   calcStatisticsPair := True;
 end;
@@ -319,7 +356,7 @@ begin
       FormatFloat('0.###', statOddEvenPercSecond[i]);
     FormStatisticsPair.StringGrid.Cells[4, i+3] :=
       FormatFloat('0.###', statOddEvenPercThird[i]);
-//////////////////// Odd / Even
+//////////////////// Red / Black
     if statRedBlackLast[i] = NUM_LONG then begin
       FormStatisticsPair.StringGrid.Cells[1, i+5] := PHRASE_LONG;
     end else begin
