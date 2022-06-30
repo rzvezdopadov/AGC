@@ -14,6 +14,7 @@ type
     procedure FormResize(Sender: TObject);
     procedure StringGridDrawCell(Sender: TObject; ACol, ARow: Integer;
       Rect: TRect; State: TGridDrawState);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -25,7 +26,7 @@ var
 
 implementation
 
-uses WindowUserLib, Main;
+uses WindowUserLib, Main, Statistics;
 
 {$R *.dfm}
 
@@ -55,6 +56,12 @@ procedure TFormStatisticsAngle.StringGridDrawCell(Sender: TObject; ACol,
   ARow: Integer; Rect: TRect; State: TGridDrawState);
 begin
   StringGridDrawCellCenter(Sender, ACol, ARow, Rect, State);
+end;
+
+procedure TFormStatisticsAngle.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  FormStatistics.CheckBoxStatAngle.Checked := false;
 end;
 
 end.

@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 206
-  Top = 274
+  Left = 204
+  Top = 184
   Width = 617
   Height = 668
   AlphaBlend = True
@@ -1998,6 +1998,16 @@ object FormMain: TFormMain
       TabOrder = 2
       OnClick = CheckBoxASSTClick
     end
+  end
+  object PanelStartAutoGame: TPanel
+    Left = 136
+    Top = 0
+    Width = 113
+    Height = 25
+    Caption = 'Start Auto Game'
+    Color = 7768565
+    TabOrder = 15
+    OnClick = PanelStartAutoGameClick
   end
   object MainMenu: TMainMenu
     Left = 16

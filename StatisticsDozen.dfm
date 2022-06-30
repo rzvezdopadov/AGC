@@ -1,6 +1,6 @@
 object FormStatisticsDozen: TFormStatisticsDozen
-  Left = 1647
-  Top = 122
+  Left = 1588
+  Top = 217
   Width = 272
   Height = 144
   Caption = 'Statistics Dozen'
@@ -11,6 +11,7 @@ object FormStatisticsDozen: TFormStatisticsDozen
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
   OldCreateOrder = False
+  OnClose = FormClose
   OnCreate = FormCreate
   OnResize = FormResize
   PixelsPerInch = 96

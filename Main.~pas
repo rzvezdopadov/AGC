@@ -239,6 +239,7 @@ type
     PanelNumber0Phrase: TPanel;
     PanelNumber0Value: TPanel;
     Timer1: TTimer;
+    PanelStartAutoGame: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure CheckBoxASSTClick(Sender: TObject);
     procedure MenuFileSettingsClick(Sender: TObject);
@@ -284,6 +285,7 @@ type
     procedure PanelNumber34PhraseClick(Sender: TObject);
     procedure PanelNumber35PhraseClick(Sender: TObject);
     procedure PanelNumber36PhraseClick(Sender: TObject);
+    procedure PanelStartAutoGameClick(Sender: TObject);
 
   private
 
@@ -328,6 +330,7 @@ begin
     FormMain.PanelColumnMediumValue.Left  := 120;
     FormMain.PanelColumnHighPhrase.Left   := 224;
     FormMain.PanelColumnHighValue.Left    := 224;
+    FormMain.PanelStartAutoGame.Left      := 304;
   end else begin
     FormMain.PanelSixline.Visible         := false;
     FormMain.PanelStreet0.Visible         := false;
@@ -346,6 +349,7 @@ begin
     FormMain.PanelColumnMediumValue.Left  := 64;
     FormMain.PanelColumnHighPhrase.Left   := 112;
     FormMain.PanelColumnHighValue.Left    := 112;
+    FormMain.PanelStartAutoGame.Left      := 136;
   end;
   result := 0;
 end;
@@ -470,7 +474,6 @@ procedure TFormMain.MenuMainAutogameClick(Sender: TObject);
 begin
   InvertMenuItem(MenuMainAutogame);
 end;
-
 
 procedure TFormMain.PanelNumber0PhraseClick(Sender: TObject);
 begin
@@ -655,6 +658,20 @@ end;
 procedure TFormMain.PanelNumber36PhraseClick(Sender: TObject);
 begin
   numberSetUser(36);
+end;
+
+procedure TFormMain.PanelStartAutoGameClick(Sender: TObject);
+begin
+  if FormMain.PanelStartAutoGame.Color = clLime then begin
+    FormMain.PanelStartAutoGame.Color := $007689F5;  
+  end else begin
+    if FormMain.MenuMainAutogame.Checked then begin
+      FormMain.PanelStartAutoGame.Color := clLime;
+    end else begin
+      FormMain.PanelStartAutoGame.Color := $007689F5;
+      ShowMessage('Autogame not allowed, press check "File -> Autogame"');
+    end;
+  end;
 end;
 
 end.

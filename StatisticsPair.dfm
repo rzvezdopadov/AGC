@@ -11,7 +11,7 @@ object FormStatisticsPair: TFormStatisticsPair
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
   OldCreateOrder = False
-  Visible = True
+  OnClose = FormClose
   OnCreate = FormCreate
   OnResize = FormResize
   PixelsPerInch = 96

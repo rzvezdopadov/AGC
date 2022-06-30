@@ -30,8 +30,6 @@ uses WindowUserLib, Main, State;
 {$R *.dfm}
 
 procedure TFormStatisticsColumn.FormCreate(Sender: TObject);
-var
-  i: integer;
 begin
   FormCentered((Sender as TForm));
 

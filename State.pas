@@ -76,10 +76,10 @@ var
   statColumnPercSecond: array [0..2] of Double;
   statColumnPercThird: array [0..2] of Double;
 // Statistics Sixline
-  statSixlineLast: array [1..11] of Integer;
-  statSixlinePercFirst: array [1..11] of Double;
-  statSixlinePercSecond: array [1..11] of Double;
-  statSixlinePercThird: array [1..11] of Double;
+  statSixlineLast: array [0..10] of Integer;
+  statSixlinePercFirst: array [0..10] of Double;
+  statSixlinePercSecond: array [0..10] of Double;
+  statSixlinePercThird: array [0..10] of Double;
 // Statistics Angle
   statAngleLast: array [0..22] of Integer;
   statAnglePercFirst: array [0..22] of Double;
@@ -106,32 +106,29 @@ begin
   clearSeqNum := True;
 end;
 
+function clearArrayLast(var statLast: array of Integer; Count: Integer):BOOL;
+var
+  i: integer;
+begin
+  for i:=0 to Count-1 do begin
+    statLast[i] := NUM_LONG;
+  end;
+
+  clearArrayLast := True;
+end;
+
 function clearStatistics():BOOL;
 var
   i: integer;
 begin
-  for i:=0 to 1 do begin
-    statLowHighLast[i] := NUM_LONG;
-    statOddEvenLast[i] := NUM_LONG;
-    statRedBlackLast[i] := NUM_LONG;
-  end;
-
-  for i:=0 to 2 do begin
-    statDozenLast[i] := NUM_LONG;
-    statColumnLast[i] := NUM_LONG;
-  end;
-
-  for i:=1 to 11 do begin
-    statSixlineLast[i] := NUM_LONG;
-  end;
-
-  for i:=0 to 22 do begin
-    statAngleLast[i] := NUM_LONG;
-  end;
-
-  for i:=0 to 13 do begin
-    statStreetLast[i] := NUM_LONG;
-  end;
+  clearArrayLast(statLowHighLast, 2);
+  clearArrayLast(statOddEvenLast, 2);
+  clearArrayLast(statRedBlackLast, 2);
+  clearArrayLast(statDozenLast, 3);
+  clearArrayLast(statColumnLast, 3);
+  clearArrayLast(statSixlineLast, 11);
+  clearArrayLast(statAngleLast, 23);
+  clearArrayLast(statStreetLast, 14);
 
   clearStatistics := True;
 end;
@@ -288,9 +285,17 @@ begin
   calcStatisticsPairLast(statOddEvenLast, STAT_ODDEVEN);
   calcStatisticsPairLast(statRedBlackLast, STAT_REDBLACK);
 
-  calcPercPair(statNumberPercFirst, getFirstPercCount, STAT_LOWHIGH);
-  calcPercPair(statNumberPercSecond, getSecondPercCount, STAT_ODDEVEN);
-  calcPercPair(statNumberPercThird, getThirdPercCount, STAT_REDBLACK);
+  calcPercPair(statLowHighPercFirst, getFirstPercCount, STAT_LOWHIGH);
+  calcPercPair(statLowHighPercSecond, getSecondPercCount, STAT_LOWHIGH);
+  calcPercPair(statLowHighPercThird, getThirdPercCount, STAT_LOWHIGH);
+
+  calcPercPair(statOddEvenPercFirst, getFirstPercCount, STAT_ODDEVEN);
+  calcPercPair(statOddEvenPercSecond, getSecondPercCount, STAT_ODDEVEN);
+  calcPercPair(statOddEvenPercThird, getThirdPercCount, STAT_ODDEVEN);
+
+  calcPercPair(statRedBlackPercFirst, getFirstPercCount, STAT_REDBLACK);
+  calcPercPair(statRedBlackPercSecond, getSecondPercCount, STAT_REDBLACK);
+  calcPercPair(statRedBlackPercThird, getThirdPercCount, STAT_REDBLACK);
 
   calcStatisticsPair := True;
 end;
@@ -303,81 +308,101 @@ begin
   calcStatistics := True;
 end;
 
-function displayStatisticsNumber():BOOL;
+
+function displayStatisticsFromArray(
+  StringGrid: TStringGrid; var Last: array of Integer;
+  var PercFirst, PercSecond, PercThird: array of Double;
+  StartPosGrid, Count: Integer):BOOL;
 var
   i: Integer;
 begin
-  for i := 0 to 36 do begin
-    if statNumberLast[i] = NUM_LONG then begin
-      FormStatisticsNumber.StringGrid.Cells[1, i+1] := PHRASE_LONG;
+  for i := 0 to Count - 1 do begin
+    if Last[i] = NUM_LONG then begin
+      StringGrid.Cells[1, StartPosGrid+i] := PHRASE_LONG;
     end else begin
-      FormStatisticsNumber.StringGrid.Cells[1, i+1] := IntToStr(statNumberLast[i]);
+      StringGrid.Cells[1, StartPosGrid+i] := IntToStr(Last[i]);
     end;
 
-    FormStatisticsNumber.StringGrid.Cells[2, i+1] :=
-      FormatFloat('0.###', statNumberPercFirst[i]);
-    FormStatisticsNumber.StringGrid.Cells[3, i+1] :=
-      FormatFloat('0.###', statNumberPercSecond[i]);
-    FormStatisticsNumber.StringGrid.Cells[4, i+1] :=
-      FormatFloat('0.###', statNumberPercThird[i]);
+    StringGrid.Cells[2, StartPosGrid+i] := FormatFloat('0.#', PercFirst[i]);
+    StringGrid.Cells[3, StartPosGrid+i] := FormatFloat('0.#', PercSecond[i]);
+    StringGrid.Cells[4, StartPosGrid+i] := FormatFloat('0.#', PercThird[i]);
   end;
+
+  displayStatisticsFromArray := True;
+end;
+
+function displayStatisticsNumber():BOOL;
+begin
+  displayStatisticsFromArray(FormStatisticsNumber.StringGrid, statNumberLast,
+    statNumberPercFirst, statNumberPercSecond, statNumberPercThird, 1, 37);
 
   displayStatisticsNumber := True;
 end;
 
 function displayStatisticsPair():BOOL;
-var
-  i: Integer;
 begin
-  for i := 0 to 1 do begin
 //////////////////// Low / High
-    if statLowHighLast[i] = NUM_LONG then begin
-      FormStatisticsPair.StringGrid.Cells[1, i+1] := PHRASE_LONG;
-    end else begin
-      FormStatisticsPair.StringGrid.Cells[1, i+1] := IntToStr(statLowHighLast[i]);
-    end;
-
-    FormStatisticsPair.StringGrid.Cells[2, i+1] :=
-      FormatFloat('0.###', statLowHighPercFirst[i]);
-    FormStatisticsPair.StringGrid.Cells[3, i+1] :=
-      FormatFloat('0.###', statLowHighPercSecond[i]);
-    FormStatisticsPair.StringGrid.Cells[4, i+1] :=
-      FormatFloat('0.###', statLowHighPercThird[i]);
+  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statLowHighLast,
+    statLowHighPercFirst, statLowHighPercSecond, statLowHighPercThird, 1, 2);
 //////////////////// Odd / Even
-    if statOddEvenLast[i] = NUM_LONG then begin
-      FormStatisticsPair.StringGrid.Cells[1, i+3] := PHRASE_LONG;
-    end else begin
-      FormStatisticsPair.StringGrid.Cells[1, i+3] := IntToStr(statOddEvenLast[i]);
-    end;
-
-    FormStatisticsPair.StringGrid.Cells[2, i+3] :=
-      FormatFloat('0.###', statOddEvenPercFirst[i]);
-    FormStatisticsPair.StringGrid.Cells[3, i+3] :=
-      FormatFloat('0.###', statOddEvenPercSecond[i]);
-    FormStatisticsPair.StringGrid.Cells[4, i+3] :=
-      FormatFloat('0.###', statOddEvenPercThird[i]);
+  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statOddEvenLast,
+    statOddEvenPercFirst, statOddEvenPercSecond, statOddEvenPercThird, 3, 2);
 //////////////////// Red / Black
-    if statRedBlackLast[i] = NUM_LONG then begin
-      FormStatisticsPair.StringGrid.Cells[1, i+5] := PHRASE_LONG;
-    end else begin
-      FormStatisticsPair.StringGrid.Cells[1, i+5] := IntToStr(statRedBlackLast[i]);
-    end;
-
-    FormStatisticsPair.StringGrid.Cells[2, i+5] :=
-      FormatFloat('0.###', statRedBlackPercFirst[i]);
-    FormStatisticsPair.StringGrid.Cells[3, i+5] :=
-      FormatFloat('0.###', statRedBlackPercSecond[i]);
-    FormStatisticsPair.StringGrid.Cells[4, i+5] :=
-      FormatFloat('0.###', statRedBlackPercThird[i]);
-  end;
+  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statRedBlackLast,
+    statRedBlackPercFirst, statRedBlackPercSecond, statRedBlackPercThird, 5, 2);
 
   displayStatisticsPair := True;
+end;
+
+function displayStatisticsDozen():BOOL;
+begin
+  displayStatisticsFromArray(FormStatisticsDozen.StringGrid, statDozenLast,
+    statDozenPercFirst, statDozenPercSecond, statDozenPercThird, 1, 3);
+
+  displayStatisticsDozen := True;
+end;
+
+function displayStatisticsColumn():BOOL;
+begin
+  displayStatisticsFromArray(FormStatisticsColumn.StringGrid, statColumnLast,
+    statColumnPercFirst, statColumnPercSecond, statColumnPercThird, 1, 3);
+
+  displayStatisticsColumn := True;
+end;
+
+function displayStatisticsSixline():BOOL;
+begin
+  displayStatisticsFromArray(FormStatisticsSixline.StringGrid, statSixlineLast,
+    statSixlinePercFirst, statSixlinePercSecond, statSixlinePercThird, 1, 11);
+
+  displayStatisticsSixline := True;
+end;
+
+function displayStatisticsAngle():BOOL;
+begin
+  displayStatisticsFromArray(FormStatisticsAngle.StringGrid, statAngleLast,
+    statAnglePercFirst, statAnglePercSecond, statAnglePercThird, 1, 23);
+
+  displayStatisticsAngle := True;
+end;
+
+function displayStatisticsStreet():BOOL;
+begin
+  displayStatisticsFromArray(FormStatisticsStreet.StringGrid, statStreetLast,
+    statStreetPercFirst, statStreetPercSecond, statStreetPercThird, 1, 14);
+
+  displayStatisticsStreet := True;
 end;
 
 function displayStatistics():BOOL;
 begin
   displayStatisticsNumber;
   displayStatisticsPair;
+  displayStatisticsDozen;
+  displayStatisticsColumn;
+  displayStatisticsSixline;
+  displayStatisticsAngle;
+  displayStatisticsStreet;
 
   displayStatistics := True;
 end;

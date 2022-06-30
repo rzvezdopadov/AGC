@@ -14,6 +14,7 @@ type
     procedure FormResize(Sender: TObject);
     procedure StringGridDrawCell(Sender: TObject; ACol, ARow: Integer;
       Rect: TRect; State: TGridDrawState);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -26,7 +27,7 @@ var
 
 implementation
 
-uses WindowUserLib, Main, State;
+uses WindowUserLib, Main, State, Statistics;
 
 {$R *.dfm}
 
@@ -73,6 +74,12 @@ begin
 
 
   updateStatisticPairGrid := true;
+end;
+
+procedure TFormStatisticsPair.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  FormStatistics.CheckBoxStatPair.Checked := false;
 end;
 
 end.
