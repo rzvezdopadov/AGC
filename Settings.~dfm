@@ -1,6 +1,6 @@
 object FormSettings: TFormSettings
-  Left = 821
-  Top = 292
+  Left = 370
+  Top = 295
   Width = 681
   Height = 628
   AutoSize = True
@@ -104,6 +104,7 @@ object FormSettings: TFormSettings
               MaxLength = 5
               TabOrder = 0
               Text = '10'
+              OnKeyPress = EditSettingStatisticsCountKeyPress
               OnKeyUp = EditSettingStatisticsCountKeyUp
             end
             object EditSettingStatisticsCount2: TEdit
@@ -114,6 +115,7 @@ object FormSettings: TFormSettings
               MaxLength = 5
               TabOrder = 1
               Text = '50'
+              OnKeyPress = EditSettingStatisticsCountKeyPress
               OnKeyUp = EditSettingStatisticsCountKeyUp
             end
             object EditSettingStatisticsCount3: TEdit
@@ -124,6 +126,7 @@ object FormSettings: TFormSettings
               MaxLength = 5
               TabOrder = 2
               Text = '100'
+              OnKeyPress = EditSettingStatisticsCountKeyPress
               OnKeyUp = EditSettingStatisticsCountKeyUp
             end
           end

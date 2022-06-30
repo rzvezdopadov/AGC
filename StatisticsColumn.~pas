@@ -6,6 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, Grids;
 
+  function displayStatisticsColumn():BOOL;
+
 type
   TFormStatisticsColumn = class(TForm)
     StringGrid: TStringGrid;
@@ -14,6 +16,7 @@ type
     procedure FormResize(Sender: TObject);
     procedure StringGridDrawCell(Sender: TObject; ACol, ARow: Integer;
       Rect: TRect; State: TGridDrawState);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -25,7 +28,7 @@ var
 
 implementation
 
-uses WindowUserLib, Main, State;
+uses WindowUserLib, Main, State, Statistics;
 
 {$R *.dfm}
 
@@ -51,6 +54,28 @@ procedure TFormStatisticsColumn.StringGridDrawCell(Sender: TObject; ACol,
   ARow: Integer; Rect: TRect; State: TGridDrawState);
 begin
   StringGridDrawCellCenter(Sender, ACol, ARow, Rect, State);
+end;
+
+procedure TFormStatisticsColumn.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  FormStatistics.CheckBoxStatColumn.Checked := false;
+end;
+
+function updatePercentToHeaderGridColumn(): BOOL;
+begin
+  if FormStatisticsColumn <> nil
+    then updatePercentToHeaderGrid(FormStatisticsColumn.StringGrid);
+
+  updatePercentToHeaderGridColumn := True;
+end;
+
+function displayStatisticsColumn():BOOL;
+begin
+  displayStatisticsFromArray(FormStatisticsColumn.StringGrid, statColumnLast,
+    statColumnPercFirst, statColumnPercSecond, statColumnPercThird, 1, 3);
+
+  displayStatisticsColumn := True;
 end;
 
 end.

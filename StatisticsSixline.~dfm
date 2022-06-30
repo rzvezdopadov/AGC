@@ -11,6 +11,7 @@ object FormStatisticsSixline: TFormStatisticsSixline
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
   OldCreateOrder = False
+  OnClose = FormClose
   OnCreate = FormCreate
   OnResize = FormResize
   PixelsPerInch = 96

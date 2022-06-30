@@ -6,6 +6,9 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Menus, ExtCtrls, ComCtrls;
 
+  function replaceColorPanelRedBlack(Value:Integer; Panel:TPanel):BOOL;
+  function addNewNumberToRichEdit(Value: Integer; RichEdit: TRichEdit): BOOL;
+
 type
   TFormMain = class(TForm)
     PanelBallance: TPanel;
@@ -300,7 +303,9 @@ var
 
 implementation
 
-uses WindowUserLib, Settings, Statistics, Tester, State;
+uses WindowUserLib, Settings, Statistics, Tester, ConstItems, State,
+  StatisticsPairBL
+;
 
 {$R *.dfm}
 
@@ -674,6 +679,36 @@ begin
   numberSetUser(36);
 end;
 
+function replaceColorPanelRedBlack(Value:Integer; Panel:TPanel):BOOL;
+var
+  int: Integer;
+begin
+  replaceColorPanelRedBlack := True;
 
+  if ((Value < 0) or (Value > 36)) then begin
+    Panel.Color := clLime;
+    Exit;
+  end;
+
+  int := getClassNumberRedOrBlack(Value);
+  if int = NUM_ZERO then Panel.Color := colorPanelZero else
+  if int = NUM_RED then Panel.Color := colorPanelRed else
+  if int = NUM_BLACK then Panel.Color := colorPanelBlack;
+end;
+
+function addNewNumberToRichEdit(Value: Integer; RichEdit: TRichEdit): BOOL;
+var
+  int: Integer;
+begin
+  int := getClassNumberRedOrBlack(Value);
+
+  if int = NUM_ZERO then RichEdit.SelAttributes.Color := clGreen else
+  if int = NUM_RED then RichEdit.SelAttributes.Color := clRed else
+  RichEdit.SelAttributes.Color := clBlack;
+
+  RichEdit.Lines.Add(IntToStr(Value));
+
+  addNewNumberToRichEdit  := True;
+end;
 
 end.

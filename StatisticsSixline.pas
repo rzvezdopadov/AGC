@@ -6,6 +6,9 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, Grids;
 
+  function updatePercentToHeaderGridSixline(): BOOL;
+  function displayStatisticsSixline():BOOL;
+
 type
   TFormStatisticsSixline = class(TForm)
     PanelTitl: TPanel;
@@ -60,6 +63,22 @@ procedure TFormStatisticsSixline.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   FormStatistics.CheckBoxStatSixline.Checked := false;
+end;
+
+function updatePercentToHeaderGridSixline(): BOOL;
+begin
+  if FormStatisticsSixline <> nil
+    then updatePercentToHeaderGrid(FormStatisticsSixline.StringGrid);
+
+  updatePercentToHeaderGridSixline := True;
+end;
+
+function displayStatisticsSixline():BOOL;
+begin
+  displayStatisticsFromArray(FormStatisticsSixline.StringGrid, statSixlineLast,
+    statSixlinePercFirst, statSixlinePercSecond, statSixlinePercThird, 1, 11);
+
+  displayStatisticsSixline := True;
 end;
 
 end.

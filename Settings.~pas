@@ -248,7 +248,7 @@ var
 
 implementation
 
-uses WindowUserLib, Main, State;
+uses WindowUserLib, Main, State, KeyFilter, StatisticsBL;
 
 {$R *.dfm}
 

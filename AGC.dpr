@@ -15,7 +15,13 @@ uses
   StatisticsDozen in 'StatisticsDozen.pas' {FormStatisticsDozen},
   StatisticsColumn in 'StatisticsColumn.pas' {FormStatisticsColumn},
   StatisticsState in 'StatisticsState.pas',
-  State in 'State.pas';
+  State in 'State.pas',
+  KeyFilter in 'KeyFilter.pas',
+  ConstItems in 'ConstItems.pas',
+  StatisticsBL in 'StatisticsBL.pas',
+  StatisticsNumberBL in 'StatisticsNumberBL.pas',
+  SettGeneralMain in 'SettGeneralMain.pas',
+  StatisticsPairBL in 'StatisticsPairBL.pas';
 
 {$R *.res}
 

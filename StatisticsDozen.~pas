@@ -6,6 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, Grids;
 
+  function displayStatisticsDozen():BOOL;
+  
 type
   TFormStatisticsDozen = class(TForm)
     StringGrid: TStringGrid;
@@ -14,6 +16,7 @@ type
     procedure FormResize(Sender: TObject);
     procedure StringGridDrawCell(Sender: TObject; ACol, ARow: Integer;
       Rect: TRect; State: TGridDrawState);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -25,7 +28,7 @@ var
 
 implementation
 
-uses WindowUserLib, Main, State;
+uses WindowUserLib, Main, State, Statistics;
 
 {$R *.dfm}
 
@@ -51,6 +54,20 @@ procedure TFormStatisticsDozen.StringGridDrawCell(Sender: TObject; ACol,
   ARow: Integer; Rect: TRect; State: TGridDrawState);
 begin
   StringGridDrawCellCenter(Sender, ACol, ARow, Rect, State);
+end;
+
+procedure TFormStatisticsDozen.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  FormStatistics.CheckBoxStatDozen.Checked := false;
+end;
+
+function displayStatisticsDozen():BOOL;
+begin
+  displayStatisticsFromArray(FormStatisticsDozen.StringGrid, statDozenLast,
+    statDozenPercFirst, statDozenPercSecond, statDozenPercThird, 1, 3);
+
+  displayStatisticsDozen := True;
 end;
 
 end.

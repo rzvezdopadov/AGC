@@ -6,6 +6,10 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, Grids;
 
+  function updateStatisticPairGrid(): bool;
+  function updatePercentToHeaderGridPair(): BOOL;
+  function displayStatisticsPair():BOOL;
+
 type
   TFormStatisticsPair = class(TForm)
     StringGrid: TStringGrid;
@@ -27,7 +31,7 @@ var
 
 implementation
 
-uses WindowUserLib, Main, State, Statistics;
+uses WindowUserLib, ConstItems, Main, State, Statistics;
 
 {$R *.dfm}
 
@@ -60,6 +64,20 @@ begin
   StringGridDrawCellCenter(Sender, ACol, ARow, Rect, State);
 end;
 
+procedure TFormStatisticsPair.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  FormStatistics.CheckBoxStatPair.Checked := false;
+end;
+
+function updatePercentToHeaderGridPair(): BOOL;
+begin
+  if FormStatisticsPair <> nil
+    then updatePercentToHeaderGrid(FormStatisticsPair.StringGrid);
+
+  updatePercentToHeaderGridPair := True;
+end;
+
 function updateStatisticPairGrid(): bool;
 begin
   FormStatisticsPair.StringGrid.Cells[1, 1] := inttostr(statLowHighLast[0]);
@@ -76,10 +94,21 @@ begin
   updateStatisticPairGrid := true;
 end;
 
-procedure TFormStatisticsPair.FormClose(Sender: TObject;
-  var Action: TCloseAction);
+function displayStatisticsPair():BOOL;
 begin
-  FormStatistics.CheckBoxStatPair.Checked := false;
+//////////////////// Low / High
+  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statLowHighLast,
+    statLowHighPercFirst, statLowHighPercSecond, statLowHighPercThird, 1, 2);
+//////////////////// Odd / Even
+  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statOddEvenLast,
+    statOddEvenPercFirst, statOddEvenPercSecond, statOddEvenPercThird, 3, 2);
+//////////////////// Red / Black
+  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statRedBlackLast,
+    statRedBlackPercFirst, statRedBlackPercSecond, statRedBlackPercThird, 5, 2);
+
+  displayStatisticsPair := True;
 end;
 
+
 end.
+

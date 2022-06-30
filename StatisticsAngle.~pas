@@ -6,6 +6,9 @@ uses
   Classes, Controls, ExtCtrls, Windows, Messages, SysUtils,
   Variants, Graphics, Forms, Dialogs, Grids;
 
+  function updatePercentToHeaderGridAngle(): BOOL;
+  function displayStatisticsAngle():BOOL;
+
 type
   TFormStatisticsAngle = class(TForm)
     PanelNumber: TPanel;
@@ -14,6 +17,7 @@ type
     procedure FormResize(Sender: TObject);
     procedure StringGridDrawCell(Sender: TObject; ACol, ARow: Integer;
       Rect: TRect; State: TGridDrawState);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -25,7 +29,7 @@ var
 
 implementation
 
-uses WindowUserLib, Main;
+uses WindowUserLib, Main, State, Statistics;
 
 {$R *.dfm}
 
@@ -55,6 +59,28 @@ procedure TFormStatisticsAngle.StringGridDrawCell(Sender: TObject; ACol,
   ARow: Integer; Rect: TRect; State: TGridDrawState);
 begin
   StringGridDrawCellCenter(Sender, ACol, ARow, Rect, State);
+end;
+
+procedure TFormStatisticsAngle.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  FormStatistics.CheckBoxStatAngle.Checked := false;
+end;
+
+function updatePercentToHeaderGridAngle(): BOOL;
+begin
+  if FormStatisticsAngle <> nil
+    then updatePercentToHeaderGrid(FormStatisticsAngle.StringGrid);
+
+  updatePercentToHeaderGridAngle := True;
+end;
+
+function displayStatisticsAngle():BOOL;
+begin
+  displayStatisticsFromArray(FormStatisticsAngle.StringGrid, statAngleLast,
+    statAnglePercFirst, statAnglePercSecond, statAnglePercThird, 1, 23);
+
+  displayStatisticsAngle := True;
 end;
 
 end.

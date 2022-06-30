@@ -5,6 +5,9 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, Grids;
+  
+  function updatePercentToHeaderGridColumn(): BOOL;
+  function displayStatisticsColumn():BOOL;
 
 type
   TFormStatisticsColumn = class(TForm)
@@ -58,6 +61,22 @@ procedure TFormStatisticsColumn.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   FormStatistics.CheckBoxStatColumn.Checked := false;
+end;
+
+function updatePercentToHeaderGridColumn(): BOOL;
+begin
+  if FormStatisticsColumn <> nil
+    then updatePercentToHeaderGrid(FormStatisticsColumn.StringGrid);
+
+  updatePercentToHeaderGridColumn := True;
+end;
+
+function displayStatisticsColumn():BOOL;
+begin
+  displayStatisticsFromArray(FormStatisticsColumn.StringGrid, statColumnLast,
+    statColumnPercFirst, statColumnPercSecond, statColumnPercThird, 1, 3);
+
+  displayStatisticsColumn := True;
 end;
 
 end.

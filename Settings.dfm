@@ -1,6 +1,6 @@
 object FormSettings: TFormSettings
-  Left = 821
-  Top = 292
+  Left = 370
+  Top = 295
   Width = 681
   Height = 628
   AutoSize = True

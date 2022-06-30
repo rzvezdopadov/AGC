@@ -6,6 +6,9 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls,
   Forms, Dialogs, ExtCtrls, Grids, WinProcs;
 
+  function updatePercentToHeaderGridNumber(): BOOL;
+  function displayStatisticsNumber():BOOL;
+
 type
   TFormStatisticsNumber = class(TForm)
     PanelNumber: TPanel;
@@ -26,7 +29,7 @@ var
 
 implementation
 
-uses WindowUserLib, Main, StatisticsStreet, State, Statistics;
+uses WindowUserLib, Main, State, Statistics;
 
 {$R *.dfm}
 
@@ -60,6 +63,22 @@ procedure TFormStatisticsNumber.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   FormStatistics.CheckBoxStatNumber.Checked := false;
+end;
+
+function updatePercentToHeaderGridNumber(): BOOL;
+begin
+  if FormStatisticsNumber <> nil
+    then updatePercentToHeaderGrid(FormStatisticsNumber.StringGrid);
+
+  updatePercentToHeaderGridNumber := True;
+end;
+
+function displayStatisticsNumber():BOOL;
+begin
+  displayStatisticsFromArray(FormStatisticsNumber.StringGrid, statNumberLast,
+    statNumberPercFirst, statNumberPercSecond, statNumberPercThird, 1, 37);
+
+  displayStatisticsNumber := True;
 end;
 
 end.

@@ -6,6 +6,9 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, Grids;
 
+  function updatePercentToHeaderGridDozen(): BOOL;
+  function displayStatisticsDozen():BOOL;
+  
 type
   TFormStatisticsDozen = class(TForm)
     StringGrid: TStringGrid;
@@ -58,6 +61,22 @@ procedure TFormStatisticsDozen.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   FormStatistics.CheckBoxStatDozen.Checked := false;
+end;
+
+function updatePercentToHeaderGridDozen(): BOOL;
+begin
+  if FormStatisticsDozen <> nil
+    then updatePercentToHeaderGrid(FormStatisticsDozen.StringGrid);
+
+  updatePercentToHeaderGridDozen := True;
+end;
+
+function displayStatisticsDozen():BOOL;
+begin
+  displayStatisticsFromArray(FormStatisticsDozen.StringGrid, statDozenLast,
+    statDozenPercFirst, statDozenPercSecond, statDozenPercThird, 1, 3);
+
+  displayStatisticsDozen := True;
 end;
 
 end.

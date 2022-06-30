@@ -6,6 +6,9 @@ uses
   Classes, Controls, ExtCtrls, Windows, Messages, SysUtils,
   Variants, Graphics, Forms, Dialogs, Grids;
 
+  function updatePercentToHeaderGridAngle(): BOOL;
+  function displayStatisticsAngle():BOOL;
+
 type
   TFormStatisticsAngle = class(TForm)
     PanelNumber: TPanel;
@@ -26,7 +29,7 @@ var
 
 implementation
 
-uses WindowUserLib, Main, Statistics;
+uses WindowUserLib, Main, State, Statistics;
 
 {$R *.dfm}
 
@@ -62,6 +65,22 @@ procedure TFormStatisticsAngle.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   FormStatistics.CheckBoxStatAngle.Checked := false;
+end;
+
+function updatePercentToHeaderGridAngle(): BOOL;
+begin
+  if FormStatisticsAngle <> nil
+    then updatePercentToHeaderGrid(FormStatisticsAngle.StringGrid);
+
+  updatePercentToHeaderGridAngle := True;
+end;
+
+function displayStatisticsAngle():BOOL;
+begin
+  displayStatisticsFromArray(FormStatisticsAngle.StringGrid, statAngleLast,
+    statAnglePercFirst, statAnglePercSecond, statAnglePercThird, 1, 23);
+
+  displayStatisticsAngle := True;
 end;
 
 end.
