@@ -22,6 +22,18 @@ const
   NUM_RED = 0;
   NUM_BLACK = 1;
 
+  NUM_1ST12 = 0;
+  NUM_2ST12 = 1;
+  NUM_3ST12 = 2;
+
+  NUM_2TO1_1 = 0;
+  NUM_2TO1_2 = 1;
+  NUM_2TO1_3 = 2;
+
+  NUM_STREET1 = 0;
+  NUM_STREET1 = 1;
+  NUM_STREET1 = 2;
+
   PHRASE_LONG = 'Long';
 
 implementation

@@ -37,10 +37,10 @@ procedure TFormStatisticsColumn.FormCreate(Sender: TObject);
 begin
   FormCentered((Sender as TForm));
 
-  StringGrid.Cells[0, 1] := '1st12';
-  StringGrid.Cells[0, 2] := '2st12';
-  StringGrid.Cells[0, 3] := '3st12';
-
+  StringGrid.Cells[0, 1] := '2to1(1)';
+  StringGrid.Cells[0, 2] := '2to1(2)';
+  StringGrid.Cells[0, 3] := '2to1(3)';
+  
   StringGrid.Cells[0, 0] := 'Pos';
   StringGrid.Cells[1, 0] := 'Last';
   updatePercentToHeaderGridAll();

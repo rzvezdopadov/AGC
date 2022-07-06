@@ -21,7 +21,12 @@ uses
   StatisticsBL in 'StatisticsBL.pas',
   StatisticsNumberBL in 'StatisticsNumberBL.pas',
   SettGeneralMain in 'SettGeneralMain.pas',
-  StatisticsPairBL in 'StatisticsPairBL.pas';
+  StatisticsPairBL in 'StatisticsPairBL.pas',
+  StatisticsColumnBL in 'StatisticsColumnBL.pas',
+  StatisticsDozenBL in 'StatisticsDozenBL.pas',
+  StatisticsSixlineBL in 'StatisticsSixlineBL.pas',
+  StatisticsAngleBL in 'StatisticsAngleBL.pas',
+  StatisticsStreetBL in 'StatisticsStreetBL.pas';
 
 {$R *.res}
 
