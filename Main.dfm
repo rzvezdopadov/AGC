@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 241
-  Top = 190
+  Left = 205
+  Top = 262
   Width = 617
   Height = 668
   AlphaBlend = True
@@ -2020,6 +2020,10 @@ object FormMain: TFormMain
       object MenuMainStatistics: TMenuItem
         Caption = 'Statistics'
         OnClick = MenuMainStatisticsClick
+      end
+      object MenuMainClearStatistics: TMenuItem
+        Caption = 'Clear statistics'
+        OnClick = MenuMainClearStatisticsClick
       end
       object MenuMainTester: TMenuItem
         Caption = 'Tester'

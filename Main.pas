@@ -243,6 +243,7 @@ type
     PanelNumber0Value: TPanel;
     Timer1: TTimer;
     PanelStartAutoGame: TPanel;
+    MenuMainClearStatistics: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure CheckBoxASSTClick(Sender: TObject);
     procedure MenuFileSettingsClick(Sender: TObject);
@@ -289,6 +290,7 @@ type
     procedure PanelNumber35PhraseClick(Sender: TObject);
     procedure PanelNumber36PhraseClick(Sender: TObject);
     procedure PanelStartAutoGameClick(Sender: TObject);
+    procedure MenuMainClearStatisticsClick(Sender: TObject);
 
   private
 
@@ -487,6 +489,7 @@ end;
 procedure TFormMain.PanelNumberClearClick(Sender: TObject);
 begin
   RichEditNumber.Clear;
+  
 end;
 
 procedure TFormMain.MenuMainAutogameClick(Sender: TObject);
@@ -709,6 +712,11 @@ begin
   RichEdit.Lines.Add(IntToStr(Value));
 
   addNewNumberToRichEdit  := True;
+end;
+
+procedure TFormMain.MenuMainClearStatisticsClick(Sender: TObject);
+begin
+  clearState;  
 end;
 
 end.

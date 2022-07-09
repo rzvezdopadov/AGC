@@ -10,8 +10,257 @@ implementation
 
 uses State, ConstItems, SettGeneralMain;
 
+function isClassAngleFromArr(classAngle, i: Integer):BOOL;
+var
+  count: BOOL;
+  number: integer;
+begin
+  count := false;
+
+  number := sequencedNumber[longNumberArray - i];
+
+  if (((number = 0) or (number = 1) or (number = 2) or (number = 3)) and
+    (classAngle = NUM_ANGLE0)
+  ) then count := true else
+  if (((number = 1) or (number = 2) or (number = 4) or (number = 5)) and
+    (classAngle = NUM_ANGLE1)
+  ) then count := true else
+  if (((number = 2) or (number = 3) or (number = 5) or (number = 6)) and
+    (classAngle = NUM_ANGLE2)
+  ) then count := true else
+  if (((number = 4) or (number = 5) or (number = 7) or (number = 8)) and
+    (classAngle = NUM_ANGLE3)
+  ) then count := true else
+  if (((number = 5) or (number = 6) or (number = 8) or (number = 9)) and
+    (classAngle = NUM_ANGLE4)
+  ) then count := true else
+  if (((number = 7) or (number = 8) or (number = 10) or (number = 11)) and
+    (classAngle = NUM_ANGLE5)
+  ) then count := true else
+  if (((number = 8) or (number = 9) or (number = 11) or (number = 12)) and
+    (classAngle = NUM_ANGLE6)
+  ) then count := true else
+  if (((number = 10) or (number = 11) or (number = 13) or (number = 14)) and
+    (classAngle = NUM_ANGLE7)
+  ) then count := true else
+  if (((number = 11) or (number = 12) or (number = 14) or (number = 15)) and
+    (classAngle = NUM_ANGLE8)
+  ) then count := true else
+  if (((number = 13) or (number = 14) or (number = 16) or (number = 17)) and
+    (classAngle = NUM_ANGLE9)
+  ) then count := true else
+  if (((number = 14) or (number = 15) or (number = 17) or (number = 18)) and
+    (classAngle = NUM_ANGLE10)
+  ) then count := true else
+  if (((number = 16) or (number = 17) or (number = 19) or (number = 20)) and
+    (classAngle = NUM_ANGLE11)
+  ) then count := true else
+  if (((number = 17) or (number = 18) or (number = 20) or (number = 21)) and
+    (classAngle = NUM_ANGLE12)
+  ) then count := true else
+  if (((number = 19) or (number = 20) or (number = 22) or (number = 23)) and
+    (classAngle = NUM_ANGLE13)
+  ) then count := true else
+  if (((number = 20) or (number = 21) or (number = 23) or (number = 24)) and
+    (classAngle = NUM_ANGLE14)
+  ) then count := true else
+  if (((number = 22) or (number = 23) or (number = 25) or (number = 26)) and
+    (classAngle = NUM_ANGLE15)
+  ) then count := true else
+  if (((number = 23) or (number = 24) or (number = 26) or (number = 27)) and
+    (classAngle = NUM_ANGLE16)
+  ) then count := true else
+  if (((number = 25) or (number = 26) or (number = 28) or (number = 29)) and
+    (classAngle = NUM_ANGLE17)
+  ) then count := true else
+  if (((number = 26) or (number = 27) or (number = 29) or (number = 30)) and
+    (classAngle = NUM_ANGLE18)
+  ) then count := true else
+  if (((number = 28) or (number = 29) or (number = 31) or (number = 32)) and
+    (classAngle = NUM_ANGLE19)
+  ) then count := true else
+  if (((number = 29) or (number = 30) or (number = 32) or (number = 33)) and
+    (classAngle = NUM_ANGLE20)
+  ) then count := true else
+  if (((number = 31) or (number = 32) or (number = 34) or (number = 35)) and
+    (classAngle = NUM_ANGLE21)
+  ) then count := true else
+  if (((number = 32) or (number = 33) or (number = 35) or (number = 36)) and
+    (classAngle = NUM_ANGLE22)
+  ) then count := true;
+
+  isClassAngleFromArr := count;
+end;
+
+
+function getNumOfCoincidenceAngleFromArr(i: Integer):Integer;
+var
+  count, number: integer;
+begin
+  count := 0;
+
+  number := sequencedNumber[longNumberArray - i];
+
+  if ((number = 0)
+  )  then
+    count := 1 else
+  if ((number = 1)
+  )  then
+    count := 2 else
+  if ((number = 2)
+  )  then
+    count := 3 else
+  if ((number = 3) or (number = 4)
+  )  then
+    count := 2 else
+  if ((number = 5)
+  )  then
+    count := 4 else
+  if ((number = 6) or (number = 7)
+  )  then
+    count := 2 else
+  if ((number = 8)
+  )  then
+    count := 4 else
+  if ((number = 9) or (number = 10)
+  )  then
+    count := 2 else
+  if ((number = 11)
+  )  then
+    count := 4 else
+  if ((number = 12) or (number = 13)
+  )  then
+    count := 2 else
+  if ((number = 14)
+  )  then
+    count := 4 else
+  if ((number = 15) or (number = 16)
+  )  then
+    count := 2 else
+  if ((number = 17)
+  )  then
+    count := 4 else
+  if ((number = 18) or (number = 19)
+  )  then
+    count := 2 else
+  if ((number = 20)
+  )  then
+    count := 4 else
+  if ((number = 21) or (number = 22)
+  )  then
+    count := 2 else
+  if ((number = 23)
+  )  then
+    count := 4 else
+  if ((number = 24) or (number = 25)
+  )  then
+    count := 2 else
+  if ((number = 26)
+  )  then
+    count := 4 else
+  if ((number = 27) or (number = 28)
+  )  then
+    count := 2 else
+  if ((number = 29)
+  )  then
+    count := 4 else
+  if ((number = 30) or (number = 31)
+  )  then
+    count := 2 else
+  if ((number = 32)
+  )  then
+    count := 4 else
+  if ((number = 33) or (number = 34)
+  )  then
+    count := 1 else
+  if ((number = 35)
+  )  then
+    count := 2 else
+  if ((number = 36)
+  )  then
+    count := 1;
+
+  getNumOfCoincidenceAngleFromArr := count;
+end;
+
+function calcStatisticsAngleLast(var statArrLast: array of Integer):BOOL;
+var
+  countAngle, i, j: Integer;
+begin
+  for i := 0 to 22 do begin
+    statArrLast[i] := NUM_LONG;
+  end;
+
+  for i := 0 to longNumberArray do begin
+    countAngle := getNumOfCoincidenceAngleFromArr(i);
+    for j := 0 to 22 do begin
+    if ((countAngle > 0) and (isClassAngleFromArr(j, i)))
+      then statArrLast[j] := longNumberArray - i;
+    end;
+  end;
+
+  calcStatisticsAngleLast := True;
+end;
+
+function calcPercAngleLocal(var statAnglePerc: array of Double;
+                              ConstNum, Divide, PercCount: Integer):BOOL;
+var
+  i, Count: Integer;
+begin
+  Count := 0;
+
+  if (countNumber <= PercCount-1) then begin
+    for i := 0 to countNumber-1 do begin
+      if isClassAngleFromArr(ConstNum, longNumberArray - i) then begin
+        Count := Count + 1;
+      end;
+    end;
+
+    if (Divide = 0) then Divide := 1;  
+
+    statAnglePerc[ConstNum] := (Count * 100) / Divide;
+  end else begin
+    for i := 0 to PercCount-1 do begin
+      if isClassAngleFromArr(ConstNum, longNumberArray - i) then  begin
+        Count := Count + 1;
+      end;
+    end;
+
+    statAnglePerc[ConstNum] := (Count * 100) / Divide;
+  end;
+////////////////
+  calcPercAngleLocal := True;
+end;
+
+function calcPercAngle(var statAnglePerc: array of Double; PercCount: Integer):BOOL;
+var
+  i, Divide: integer;
+begin
+  Divide := 0;
+
+  if (countNumber <= PercCount-1) then begin
+    for i := 0 to countNumber-1 do begin
+      Divide := Divide + getNumOfCoincidenceAngleFromArr(longNumberArray - i);
+    end;
+  end else begin
+    for i := 0 to PercCount-1 do begin
+      Divide := Divide + getNumOfCoincidenceAngleFromArr(longNumberArray - i);
+    end;
+  end;
+
+  for i := 0 to 22 do begin
+    calcPercAngleLocal(statAnglePerc, i, Divide, PercCount);
+  end;
+  calcPercAngle := True;
+end;
+
 function calcStatisticsAngle():BOOL;
 begin
+  calcStatisticsAngleLast(statAngleLast);
+
+  calcPercAngle(statAnglePercFirst, getFirstPercCount);
+  calcPercAngle(statAnglePercSecond, getSecondPercCount);
+  calcPercAngle(statAnglePercThird, getThirdPercCount);
 
   calcStatisticsAngle := true;
 end;
