@@ -27,30 +27,30 @@ begin
 end;
 
 
-function calcStatisticsDozenLast(var statArrLast: array of Integer):BOOL;
+function calcStatisticsDozenLast(var stat: array of TStat):BOOL;
 var
   typeDozen, i: Integer;
 begin
-  statArrLast[0] := NUM_LONG;
-  statArrLast[1] := NUM_LONG;
-  statArrLast[2] := NUM_LONG;
+  stat[0].Last := NUM_LONG;
+  stat[1].Last := NUM_LONG;
+  stat[2].Last := NUM_LONG;
 
   for i := 0 to longNumberArray do begin
     typeDozen := getClassDozenFromArr(i);
     
     if typeDozen = NUM_1ST12
-      then statArrLast[0] := longNumberArray - i else
+      then stat[0].Last := longNumberArray - i else
     if typeDozen = NUM_2ST12
-      then statArrLast[1] := longNumberArray - i else
+      then stat[1].Last := longNumberArray - i else
     if typeDozen = NUM_3ST12
-      then statArrLast[2] := longNumberArray - i
+      then stat[2].Last := longNumberArray - i
   end;
 
   calcStatisticsDozenLast := True;
 end;
 
-function calcPercDozenLocal(var statDozenPerc: array of Double;
-                              ConstNum, Position, PercCount: Integer):BOOL;
+function calcPercDozenLocal(var stat: array of TStat;
+                              percPos, ConstNum, Position, PercCount: Integer):BOOL;
 var
   i, Count: Integer;
 begin
@@ -61,35 +61,35 @@ begin
       if ConstNum = getClassDozenFromArr(longNumberArray - i) then inc(Count);
     end;
 
-    statDozenPerc[Position] := (Count * 100) / countNumber;
+    stat[Position].Perc[percPos] := (Count * 100) / countNumber;
   end else begin
     for i := 0 to PercCount-1 do begin
       if ConstNum = getClassDozenFromArr(longNumberArray - i) then inc(Count);
     end;
 
-    statDozenPerc[Position] := (Count * 100) / PercCount;
+    stat[Position].Perc[percPos] := (Count * 100) / PercCount;
   end;
 ////////////////
 
   calcPercDozenLocal := True;
 end;
 
-function calcPercDozen(var statDozenPerc: array of Double; PercCount: Integer):BOOL;
+function calcPercDozen(var stat: array of TStat; percPos, PercCount: Integer):BOOL;
 begin
-  calcPercDozenLocal(statDozenPerc, NUM_1ST12, 0, PercCount);
-  calcPercDozenLocal(statDozenPerc, NUM_2ST12, 1, PercCount);
-  calcPercDozenLocal(statDozenPerc, NUM_3ST12, 2, PercCount);
+  calcPercDozenLocal(stat, percPos, NUM_1ST12, 0, PercCount);
+  calcPercDozenLocal(stat, percPos, NUM_2ST12, 1, PercCount);
+  calcPercDozenLocal(stat, percPos, NUM_3ST12, 2, PercCount);
 
   calcPercDozen := True;
 end;
 
 function calcStatisticsDozen():BOOL;
 begin
-  calcStatisticsDozenLast(statDozenLast);
+  calcStatisticsDozenLast(stateDozen);
 
-  calcPercDozen(statDozenPercFirst, getFirstPercCount);
-  calcPercDozen(statDozenPercSecond, getSecondPercCount);
-  calcPercDozen(statDozenPercThird, getThirdPercCount);
+  calcPercDozen(stateDozen, PERC_FIRST, getFirstPercCount);
+  calcPercDozen(stateDozen, PERC_SECOND, getSecondPercCount);
+  calcPercDozen(stateDozen, PERC_THIRD, getThirdPercCount);
 
   calcStatisticsDozen := true; 
 end;

@@ -126,19 +126,19 @@ begin
   getNumOfCoincidenceStreetFromArr := count;
 end;
 
-function calcStatisticsStreetLast(var statArrLast: array of Integer):BOOL;
+function calcStatisticsStreetLast(var stat: array of TStat):BOOL;
 var
   countStreet, i, j: Integer;
 begin
   for i := 0 to 13 do begin
-    statArrLast[i] := NUM_LONG;
+    stat[i].Last := NUM_LONG;
   end;
 
   for i := 0 to longNumberArray do begin
     countStreet := getNumOfCoincidenceStreetFromArr(i);
     for j := 0 to 13 do begin
     if ((countStreet > 0) and (isClassStreetFromArr(j, i)))
-      then statArrLast[j] := longNumberArray - i;
+      then stat[j].Last := longNumberArray - i;
     end;
   end;
 
@@ -197,7 +197,7 @@ end;
 
 function calcStatisticsStreet():BOOL;
 begin
-  calcStatisticsStreetLast(statStreetLast);
+  calcStatisticsStreetLast(stateStreet);
 
   calcPercStreet(statStreetPercFirst, getFirstPercCount);
   calcPercStreet(statStreetPercSecond, getSecondPercCount);

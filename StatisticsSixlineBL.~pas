@@ -47,7 +47,7 @@ begin
     ((classSixline = NUM_SIXLINE8) or (classSixline = NUM_SIXLINE9))
   ) then count := true else
   if (((number = 28) or (number = 29) or (number = 30)) and
-    ((classSixline = NUM_STREET9) or (classSixline = NUM_SIXLINE10))
+    ((classSixline = NUM_SIXLINE9) or (classSixline = NUM_SIXLINE10))
   ) then count := true else
   if (((number = 31) or (number = 32) or (number = 33)) and
     ((classSixline = NUM_SIXLINE10) or (classSixline = NUM_SIXLINE11))
@@ -108,27 +108,27 @@ begin
   getNumOfCoincidenceSixlineFromArr := count;
 end;
 
-function calcStatisticsSixlineLast(var statArrLast: array of Integer):BOOL;
+function calcStatisticsSixlineLast(var stat: array of TStat):BOOL;
 var
   countSixline, i, j: Integer;
 begin
   for i := 0 to 10 do begin
-    statArrLast[i] := NUM_LONG;
+    stat[i].Last := NUM_LONG;
   end;
 
   for i := 0 to longNumberArray do begin
     countSixline := getNumOfCoincidenceSixlineFromArr(i);
     for j := 0 to 10 do begin
     if ((countSixline > 0) and (isClassSixlineFromArr(j, i)))
-      then statArrLast[j] := longNumberArray - i;
+      then stat[j].Last := longNumberArray - i;
     end;
   end;
 
   calcStatisticsSixlineLast := True;
 end;
 
-function calcPercSixlineLocal(var statSixlinePerc: array of Double;
-                              ConstNum, Divide, PercCount: Integer):BOOL;
+function calcPercSixlineLocal(var stat: array of TStat;
+                               percPos, ConstNum, Divide, PercCount: Integer):BOOL;
 var
   i, Count: Integer;
 begin
@@ -143,7 +143,7 @@ begin
 
     if (Divide = 0) then Divide := 1;  
 
-    statSixlinePerc[ConstNum] := (Count * 100) / Divide;
+    stat[ConstNum].Perc[percPos] := (Count * 100) / Divide;
   end else begin
     for i := 0 to PercCount-1 do begin
       if isClassSixlineFromArr(ConstNum, longNumberArray - i) then  begin
@@ -151,13 +151,13 @@ begin
       end;
     end;
 
-    statSixlinePerc[ConstNum] := (Count * 100) / Divide;
+    stat[ConstNum].Perc[percPos] := (Count * 100) / Divide;
   end;
 ////////////////
   calcPercSixlineLocal := True;
 end;
 
-function calcPercSixline(var statSixlinePerc: array of Double; PercCount: Integer):BOOL;
+function calcPercSixline(var stat: array of TStat; percPos, PercCount: Integer):BOOL;
 var
   i, Divide: integer;
 begin
@@ -174,18 +174,18 @@ begin
   end;
 
   for i := 0 to 10 do begin
-    calcPercSixlineLocal(statSixlinePerc, i, Divide, PercCount);
+    calcPercSixlineLocal(stat, percPos, i, Divide, PercCount);
   end;
   calcPercSixline := True;
 end;
 
 function calcStatisticsSixline():BOOL;
 begin
-  calcStatisticsSixlineLast(statSixlineLast);
+  calcStatisticsSixlineLast(stateSixline);
 
-  calcPercSixline(statSixlinePercFirst, getFirstPercCount);
-  calcPercSixline(statSixlinePercSecond, getSecondPercCount);
-  calcPercSixline(statSixlinePercThird, getThirdPercCount);
+  calcPercSixline(stateSixline, PERC_FIRST, percPos, getFirstPercCount);
+  calcPercSixline(stateSixline, PERC_SECOND, percPos, getSecondPercCount);
+  calcPercSixline(stateSixline, PERC_THIRD, percPos, getThirdPercCount);
 
   calcStatisticsSixline := true;
 end;

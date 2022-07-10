@@ -1,0 +1,19 @@
+unit TesterBL;
+
+interface
+
+uses Windows, SysUtils;
+
+type TBet = record
+  Enabled: BOOL
+  Amount: Integer;
+end;
+
+var MyAddr: TAddress;
+
+implementation
+
+uses Settings;
+
+
+end.

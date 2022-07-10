@@ -4,14 +4,13 @@ interface
 
 uses Windows;
 
-  function calcPercNumber(var statNumberPerc: array of Double; LastNumber, PercCount: Integer):BOOL;
   function calcStatisticsNumber():BOOL;
 
 implementation
 
 uses State, ConstItems, SettGeneralMain;
 
-function calcPercNumber(var statNumberPerc: array of Double; LastNumber, PercCount: Integer):BOOL;
+function calcPercNumber(var stat: array of TStat; percPos, LastNumber, PercCount: Integer):BOOL;
 var
   i, Count: Integer;
 begin
@@ -22,13 +21,13 @@ begin
       if LastNumber = sequencedNumber[i] then inc(Count);
     end;
 
-    statNumberPerc[LastNumber] := (Count * 100) / countNumber;
+    stat[LastNumber].Perc[percPos] := (Count * 100) / countNumber;
   end else begin
     for i := 0 to PercCount-1 do begin
       if LastNumber = sequencedNumber[i] then inc(Count);
     end;
 
-    statNumberPerc[LastNumber] := (Count * 100) / PercCount;
+    stat[LastNumber].Perc[percPos] := (Count * 100) / PercCount;
   end;
   
   calcPercNumber := True;
@@ -39,16 +38,16 @@ var
   i, j: Integer;
 begin
   for i := 0 to 36 do begin
-    statNumberLast[i] := NUM_LONG;
+    stateNumber[i].Last := NUM_LONG;
 
     for j := 0 to longNumberArray do begin
       if i = sequencedNumber[longNumberArray - j]
-        then statNumberLast[i] := longNumberArray - j;
+        then stateNumber[i].Last := longNumberArray - j;
     end;
 
-    calcPercNumber(statNumberPercFirst, i, getFirstPercCount);
-    calcPercNumber(statNumberPercSecond, i, getSecondPercCount);
-    calcPercNumber(statNumberPercThird, i, getThirdPercCount);
+    calcPercNumber(stateNumber, PERC_FIRST, i, getFirstPercCount);
+    calcPercNumber(stateNumber, PERC_SECOND, i, getSecondPercCount);
+    calcPercNumber(stateNumber, PERC_SECOND, i, getThirdPercCount);
   end;
 
   calcStatisticsNumber := True;

@@ -75,8 +75,7 @@ end;
 
 function displayStatisticsSixline():BOOL;
 begin
-  displayStatisticsFromArray(FormStatisticsSixline.StringGrid, statSixlineLast,
-    statSixlinePercFirst, statSixlinePercSecond, statSixlinePercThird, 1, 11);
+  displayStatisticsFromArray(FormStatisticsSixline.StringGrid, stateSixline, 1, 11);
 
   displayStatisticsSixline := True;
 end;

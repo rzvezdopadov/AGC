@@ -172,38 +172,38 @@ begin
     count := 4 else
   if ((number = 33) or (number = 34)
   )  then
-    count := 2 else
+    count := 1 else
   if ((number = 35)
   )  then
-    count := 4 else
+    count := 2 else
   if ((number = 36)
   )  then
-    count := 2;
+    count := 1;
 
   getNumOfCoincidenceAngleFromArr := count;
 end;
 
-function calcStatisticsAngleLast(var statArrLast: array of Integer):BOOL;
+function calcStatisticsAngleLast(var stat: array of TStat):BOOL;
 var
   countAngle, i, j: Integer;
 begin
   for i := 0 to 22 do begin
-    statArrLast[i] := NUM_LONG;
+    stat[i].Last := NUM_LONG;
   end;
 
   for i := 0 to longNumberArray do begin
     countAngle := getNumOfCoincidenceAngleFromArr(i);
     for j := 0 to 22 do begin
     if ((countAngle > 0) and (isClassAngleFromArr(j, i)))
-      then statArrLast[j] := longNumberArray - i;
+      then stat[j].Last := longNumberArray - i;
     end;
   end;
 
   calcStatisticsAngleLast := True;
 end;
 
-function calcPercAngleLocal(var statAnglePerc: array of Double;
-                              ConstNum, Divide, PercCount: Integer):BOOL;
+function calcPercAngleLocal(var stat: array of TStat;
+                               percPos, ConstNum, Divide, PercCount: Integer):BOOL;
 var
   i, Count: Integer;
 begin
@@ -218,7 +218,7 @@ begin
 
     if (Divide = 0) then Divide := 1;  
 
-    statAnglePerc[ConstNum] := (Count * 100) / Divide;
+    stat[ConstNum].Perc[percPos] := (Count * 100) / Divide;
   end else begin
     for i := 0 to PercCount-1 do begin
       if isClassAngleFromArr(ConstNum, longNumberArray - i) then  begin
@@ -226,13 +226,13 @@ begin
       end;
     end;
 
-    statAnglePerc[ConstNum] := (Count * 100) / Divide;
+    stat[ConstNum].Perc[percPos] := (Count * 100) / Divide;
   end;
 ////////////////
   calcPercAngleLocal := True;
 end;
 
-function calcPercAngle(var statAnglePerc: array of Double; PercCount: Integer):BOOL;
+function calcPercAngle(var stat: array of TStat; percPos, PercCount: Integer):BOOL;
 var
   i, Divide: integer;
 begin
@@ -249,18 +249,18 @@ begin
   end;
 
   for i := 0 to 22 do begin
-    calcPercAngleLocal(statAnglePerc, i, Divide, PercCount);
+    calcPercAngleLocal(stat, percPos, i, Divide, PercCount);
   end;
   calcPercAngle := True;
 end;
 
 function calcStatisticsAngle():BOOL;
 begin
-  calcStatisticsAngleLast(statAngleLast);
+  calcStatisticsAngleLast(stateAngle);
 
-  calcPercAngle(statAnglePercFirst, getFirstPercCount);
-  calcPercAngle(statAnglePercSecond, getSecondPercCount);
-  calcPercAngle(statAnglePercThird, getThirdPercCount);
+  calcPercAngle(statAnglePercFirst, PERC_FIRST, getFirstPercCount);
+  calcPercAngle(statAnglePercSecond, PERC_SECOND, getSecondPercCount);
+  calcPercAngle(statAnglePercThird, PERC_THIRD, getThirdPercCount);
 
   calcStatisticsAngle := true;
 end;

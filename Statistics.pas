@@ -4,13 +4,12 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, Grids;
+  Dialogs, StdCtrls, ExtCtrls, Grids, State;
 
   function HideFormStatistics():bool;
   function displayStatisticsFromArray(
-    StringGrid: TStringGrid; var Last: array of Integer;
-      var PercFirst, PercSecond, PercThird: array of Double;
-        StartPosGrid, Count: Integer):BOOL;
+      StringGrid: TStringGrid; var stat: array of TStat;
+      StartPosGrid, Count: Integer):BOOL;
   function updatePercentToHeaderGrid(Grid: TStringGrid): BOOL;
   function updatePercentToHeaderGridAll(): BOOL;
   function displayStatistics():BOOL;
@@ -96,22 +95,21 @@ begin
 end;
 
 function displayStatisticsFromArray(
-  StringGrid: TStringGrid; var Last: array of Integer;
-  var PercFirst, PercSecond, PercThird: array of Double;
+  StringGrid: TStringGrid; var stat: array of TStat;
   StartPosGrid, Count: Integer):BOOL;
 var
   i: Integer;
 begin
   for i := 0 to Count - 1 do begin
-    if Last[i] = NUM_LONG then begin
+    if Stat[i].Last = NUM_LONG then begin
       StringGrid.Cells[1, StartPosGrid+i] := PHRASE_LONG;
     end else begin
-      StringGrid.Cells[1, StartPosGrid+i] := IntToStr(Last[i]);
+      StringGrid.Cells[1, StartPosGrid+i] := IntToStr(stat[i].Last);
     end;
 
-    StringGrid.Cells[2, StartPosGrid+i] := FormatFloat('0.#', PercFirst[i]);
-    StringGrid.Cells[3, StartPosGrid+i] := FormatFloat('0.#', PercSecond[i]);
-    StringGrid.Cells[4, StartPosGrid+i] := FormatFloat('0.#', PercThird[i]);
+    StringGrid.Cells[2, StartPosGrid+i] := FormatFloat('0.#', Stat[i].Perc[0]);
+    StringGrid.Cells[3, StartPosGrid+i] := FormatFloat('0.#', Stat[i].Perc[1]);
+    StringGrid.Cells[4, StartPosGrid+i] := FormatFloat('0.#', Stat[i].Perc[2]);
   end;
 
   displayStatisticsFromArray := True;

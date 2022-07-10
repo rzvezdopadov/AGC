@@ -4,110 +4,12 @@ interface
 
 uses Windows;
 
-  function calcStatisticsPairLast(var statArrLast: array of Integer; typePair: Integer):BOOL;
-  function calcPercPair(var statPairPerc: array of Double; PercCount, typePair: Integer):BOOL;
-  function getClassNumberFromArr(typePair, i: Integer):Integer;
-  function calcStatisticsPair():BOOL;
   function getClassNumberRedOrBlack(Value: Integer): Integer;
-  function getClassNumberOddOrEven(Value: Integer): Integer;
-  function getClassNumberLowOrHigh(Value: Integer): Integer;
+  function calcStatisticsPair():BOOL;
 
 implementation
 
 uses State, ConstItems, SettGeneralMain;
-
-function calcStatisticsPairLast(var statArrLast: array of Integer; typePair: Integer):BOOL;
-var
-  i: Integer;
-begin
-  statArrLast[0] := NUM_LONG;
-
-  for i := 0 to longNumberArray do begin
-    if getClassNumberFromArr(typePair, i) = NUM_LOW
-      then statArrLast[0] := longNumberArray - i;
-  end;
-
-  statArrLast[1] := NUM_LONG;
-
-  for i := 0 to longNumberArray do begin
-    if getClassNumberFromArr(typePair, i) = NUM_HIGH
-      then statArrLast[1] := longNumberArray - i;
-  end;
-
-  calcStatisticsPairLast := True;
-end;
-
-function calcPercPair(var statPairPerc: array of Double; PercCount, typePair: Integer):BOOL;
-var
-  i, Count: Integer;
-begin
-  Count := 0;
-
-  if (countNumber <= PercCount-1) then begin
-    for i := 0 to countNumber-1 do begin
-      if NUM_LOW = getClassNumberFromArr(typePair, (longNumberArray - i)) then inc(Count);
-    end;
-
-    statPairPerc[0] := (Count * 100) / countNumber;
-  end else begin
-    for i := 0 to PercCount-1 do begin
-      if NUM_LOW = getClassNumberFromArr(typePair, (longNumberArray - i)) then inc(Count);
-    end;
-
-    statPairPerc[0] := (Count * 100) / PercCount;
-  end;
-////////////////
-  Count := 0;
-
-  if (countNumber <= PercCount-1) then begin
-    for i := 0 to countNumber-1 do begin
-      if NUM_HIGH = getClassNumberFromArr(typePair, (longNumberArray - i)) then inc(Count);
-    end;
-
-    statPairPerc[1] := (Count * 100) / countNumber;
-  end else begin
-    for i := 0 to PercCount-1 do begin
-      if NUM_HIGH = getClassNumberFromArr(typePair, (longNumberArray - i)) then inc(Count);
-    end;
-
-    statPairPerc[1] := (Count * 100) / PercCount;
-  end;
-
-  calcPercPair := True;
-end;
-
-function getClassNumberFromArr(typePair, i: Integer):Integer;
-begin
-  getClassNumberFromArr := 0;
-
-  if typePair = STAT_LOWHIGH then
-    getClassNumberFromArr := getClassNumberLowOrHigh(sequencedNumber[longNumberArray - i]) else
-  if typePair = STAT_ODDEVEN then
-    getClassNumberFromArr := getClassNumberOddOrEven(sequencedNumber[longNumberArray - i]) else
-  if typePair = STAT_REDBLACK then
-    getClassNumberFromArr := getClassNumberRedOrBlack(sequencedNumber[longNumberArray - i]);
-end;
-
-function calcStatisticsPair():BOOL;
-begin
-  calcStatisticsPairLast(statLowHighLast, STAT_LOWHIGH);
-  calcStatisticsPairLast(statOddEvenLast, STAT_ODDEVEN);
-  calcStatisticsPairLast(statRedBlackLast, STAT_REDBLACK);
-
-  calcPercPair(statLowHighPercFirst, getFirstPercCount, STAT_LOWHIGH);
-  calcPercPair(statLowHighPercSecond, getSecondPercCount, STAT_LOWHIGH);
-  calcPercPair(statLowHighPercThird, getThirdPercCount, STAT_LOWHIGH);
-
-  calcPercPair(statOddEvenPercFirst, getFirstPercCount, STAT_ODDEVEN);
-  calcPercPair(statOddEvenPercSecond, getSecondPercCount, STAT_ODDEVEN);
-  calcPercPair(statOddEvenPercThird, getThirdPercCount, STAT_ODDEVEN);
-
-  calcPercPair(statRedBlackPercFirst, getFirstPercCount, STAT_REDBLACK);
-  calcPercPair(statRedBlackPercSecond, getSecondPercCount, STAT_REDBLACK);
-  calcPercPair(statRedBlackPercThird, getThirdPercCount, STAT_REDBLACK);
-
-  calcStatisticsPair := True;
-end;
 
 function getClassNumberRedOrBlack(Value: Integer): Integer;
 begin
@@ -146,5 +48,104 @@ begin
   if Value < 19 then getClassNumberLowOrHigh := NUM_LOW else
   getClassNumberLowOrHigh := NUM_HIGH;
 end;
+
+function getClassNumberFromArr(typePair, i: Integer):Integer;
+begin
+  getClassNumberFromArr := 0;
+
+  if typePair = STAT_LOWHIGH then
+    getClassNumberFromArr := getClassNumberLowOrHigh(sequencedNumber[longNumberArray - i]) else
+  if typePair = STAT_ODDEVEN then
+    getClassNumberFromArr := getClassNumberOddOrEven(sequencedNumber[longNumberArray - i]) else
+  if typePair = STAT_REDBLACK then
+    getClassNumberFromArr := getClassNumberRedOrBlack(sequencedNumber[longNumberArray - i]);
+end;
+
+function calcStatisticsPairLast(var stat: array of TStat; typePair: Integer):BOOL;
+var
+  i: Integer;
+begin
+  stat[0].Last := NUM_LONG;
+
+  for i := 0 to longNumberArray do begin
+    if getClassNumberFromArr(typePair, i) = NUM_LOW
+      then stat[0].Last := longNumberArray - i;
+  end;
+
+  stat[1].Last := NUM_LONG;
+
+  for i := 0 to longNumberArray do begin
+    if getClassNumberFromArr(typePair, i) = NUM_HIGH
+      then stat[1].Last := longNumberArray - i;
+  end;
+
+  calcStatisticsPairLast := True;
+end;
+
+function calcPercPair(var stat: array of TStat; percPos, PercCount, typePair: Integer):BOOL;
+var
+  i, Count: Integer;
+begin
+  Count := 0;
+
+  if (countNumber <= PercCount-1) then begin
+    for i := 0 to countNumber-1 do begin
+      if NUM_LOW = getClassNumberFromArr(typePair, (longNumberArray - i)) then inc(Count);
+    end;
+
+    stat[0].Perc[percPos] := (Count * 100) / countNumber;
+  end else begin
+    for i := 0 to PercCount-1 do begin
+      if NUM_LOW = getClassNumberFromArr(typePair, (longNumberArray - i)) then inc(Count);
+    end;
+
+    stat[0].Perc[percPos] := (Count * 100) / PercCount;
+  end;
+////////////////
+  Count := 0;
+
+  if (countNumber <= PercCount-1) then begin
+    for i := 0 to countNumber-1 do begin
+      if NUM_HIGH = getClassNumberFromArr(typePair, (longNumberArray - i)) then inc(Count);
+    end;
+
+    stat[1].Perc[percPos] := (Count * 100) / countNumber;
+  end else begin
+    for i := 0 to PercCount-1 do begin
+      if NUM_HIGH = getClassNumberFromArr(typePair, (longNumberArray - i)) then inc(Count);
+    end;
+
+    stat[1].Perc[percPos] := (Count * 100) / PercCount;
+  end;
+
+  calcPercPair := True;
+end;
+
+
+
+function calcStatisticsPair():BOOL;
+begin
+  calcStatisticsPairLast(stateLowHigh, STAT_LOWHIGH);
+  calcStatisticsPairLast(stateOddEven, STAT_ODDEVEN);
+  calcStatisticsPairLast(stateRedBlack, STAT_REDBLACK);
+
+  calcPercPair(stateLowHigh, PERC_FIRST, getFirstPercCount, STAT_LOWHIGH);
+  calcPercPair(stateLowHigh, PERC_SECOND getSecondPercCount, STAT_LOWHIGH);
+  calcPercPair(stateLowHigh, PERC_THIRD getThirdPercCount, STAT_LOWHIGH);
+
+  calcPercPair(stateOddEven, PERC_FIRST, getFirstPercCount, STAT_ODDEVEN);
+  calcPercPair(stateOddEven, PERC_SECOND getSecondPercCount, STAT_ODDEVEN);
+  calcPercPair(stateOddEven, PERC_THIRD getThirdPercCount, STAT_ODDEVEN);
+
+  calcPercPair(stateRedBlack, PERC_FIRST, getFirstPercCount, STAT_REDBLACK);
+  calcPercPair(stateRedBlack, PERC_SECOND, getSecondPercCount, STAT_REDBLACK);
+  calcPercPair(stateRedBlack, PERC_THIRD, getThirdPercCount, STAT_REDBLACK);
+
+  calcStatisticsPair := True;
+end;
+
+
+
+
 
 end.

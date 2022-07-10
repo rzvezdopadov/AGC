@@ -73,8 +73,7 @@ end;
 
 function displayStatisticsDozen():BOOL;
 begin
-  displayStatisticsFromArray(FormStatisticsDozen.StringGrid, statDozenLast,
-    statDozenPercFirst, statDozenPercSecond, statDozenPercThird, 1, 3);
+  displayStatisticsFromArray(FormStatisticsDozen.StringGrid, stateDozen, 1, 3);
 
   displayStatisticsDozen := True;
 end;

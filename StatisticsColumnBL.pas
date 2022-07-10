@@ -39,30 +39,30 @@ begin
 end;
 
 
-function calcStatisticsColumnLast(var statArrLast: array of Integer):BOOL;
+function calcStatisticsColumnLast(var stat: array of TStat):BOOL;
 var
   typeColumn, i: Integer;
 begin
-  statArrLast[0] := NUM_LONG;
-  statArrLast[1] := NUM_LONG;
-  statArrLast[2] := NUM_LONG;
+  stat[0].Last := NUM_LONG;
+  stat[1].Last := NUM_LONG;
+  stat[2].Last := NUM_LONG;
 
   for i := 0 to longNumberArray do begin
     typeColumn := getClassColumnFromArr(i);
     
     if typeColumn = NUM_2TO1_1
-      then statArrLast[0] := longNumberArray - i else
+      then stat[0].Last := longNumberArray - i else
     if typeColumn = NUM_2TO1_2
-      then statArrLast[1] := longNumberArray - i else
+      then stat[1].Last := longNumberArray - i else
     if typeColumn = NUM_2TO1_3
-      then statArrLast[2] := longNumberArray - i
+      then stat[2].Last := longNumberArray - i
   end;
 
   calcStatisticsColumnLast := True;
 end;
 
-function calcPercColumnLocal(var statColumnPerc: array of Double;
-                              ConstNum, Position, PercCount: Integer):BOOL;
+function calcPercColumnLocal(var stat: array of TStat;
+                               percPos, ConstNum, Position, PercCount: Integer):BOOL;
 var
   i, Count: Integer;
 begin
@@ -73,35 +73,35 @@ begin
       if ConstNum = getClassColumnFromArr(longNumberArray - i) then inc(Count);
     end;
 
-    statColumnPerc[Position] := (Count * 100) / countNumber;
+    stat[Position].Perc[percPos] := (Count * 100) / countNumber;
   end else begin
     for i := 0 to PercCount-1 do begin
       if ConstNum = getClassColumnFromArr(longNumberArray - i) then inc(Count);
     end;
 
-    statColumnPerc[Position] := (Count * 100) / PercCount;
+    stat[Position].Perc[percPos] := (Count * 100) / PercCount;
   end;
 ////////////////
 
   calcPercColumnLocal := True;
 end;
 
-function calcPercColumn(var statColumnPerc: array of Double; PercCount: Integer):BOOL;
+function calcPercColumn(var stat: array of TStat; percPos, PercCount: Integer):BOOL;
 begin
-  calcPercColumnLocal(statColumnPerc, NUM_2TO1_1, 0, PercCount);
-  calcPercColumnLocal(statColumnPerc, NUM_2TO1_2, 1, PercCount);
-  calcPercColumnLocal(statColumnPerc, NUM_2TO1_3, 2, PercCount);
+  calcPercColumnLocal(stat, percPos, NUM_2TO1_1, 0, PercCount);
+  calcPercColumnLocal(stat, percPos, NUM_2TO1_2, 1, PercCount);
+  calcPercColumnLocal(stat, percPos, NUM_2TO1_3, 2, PercCount);
 
   calcPercColumn := True;
 end;
 
 function calcStatisticsColumn():BOOL;
 begin
-  calcStatisticsColumnLast(statColumnLast);
+  calcStatisticsColumnLast(stateColumn);
 
-  calcPercColumn(statColumnPercFirst, getFirstPercCount);
-  calcPercColumn(statColumnPercSecond, getSecondPercCount);
-  calcPercColumn(statColumnPercThird, getThirdPercCount);
+  calcPercColumn(stateColumn, PERC_FIRST, getFirstPercCount);
+  calcPercColumn(stateColumn, PERC_SECOND, getSecondPercCount);
+  calcPercColumn(stateColumn, PERC_THIRD, getThirdPercCount);
 
   calcStatisticsColumn := true; 
 end;

@@ -75,8 +75,7 @@ end;
 
 function displayStatisticsNumber():BOOL;
 begin
-  displayStatisticsFromArray(FormStatisticsNumber.StringGrid, statNumberLast,
-    statNumberPercFirst, statNumberPercSecond, statNumberPercThird, 1, 37);
+  displayStatisticsFromArray(FormStatisticsNumber.StringGrid, stateNumber, 1, 37);
 
   displayStatisticsNumber := True;
 end;

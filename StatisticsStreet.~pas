@@ -6,6 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, Grids, WinProcs;
 
+  function updatePercentToHeaderGridStreet(): BOOL;
   function displayStatisticsStreet():BOOL;
 
 type
@@ -62,6 +63,14 @@ procedure TFormStatisticsStreet.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   FormStatistics.CheckBoxStatStreet.Checked := false;
+end;
+
+function updatePercentToHeaderGridStreet(): BOOL;
+begin
+  if FormStatisticsStreet <> nil
+    then updatePercentToHeaderGrid(FormStatisticsStreet.StringGrid);
+
+  updatePercentToHeaderGridStreet := True;
 end;
 
 function displayStatisticsStreet():BOOL;

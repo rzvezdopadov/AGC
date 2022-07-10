@@ -75,8 +75,7 @@ end;
 
 function displayStatisticsStreet():BOOL;
 begin
-  displayStatisticsFromArray(FormStatisticsStreet.StringGrid, statStreetLast,
-    statStreetPercFirst, statStreetPercSecond, statStreetPercThird, 1, 14);
+  displayStatisticsFromArray(FormStatisticsStreet.StringGrid, stateStreet, 1, 14);
 
   displayStatisticsStreet := True;
 end;

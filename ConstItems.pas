@@ -8,6 +8,10 @@ const
   colorPanelRed = $003333FF;
   colorPanelBlack = $004F5150;
 
+  PERC_FIRST = 0;
+  PERC_SECOND = 1;
+  PERC_THIRD = 2;
+
   STAT_LOWHIGH = 1;
   STAT_ODDEVEN = 2;
   STAT_REDBLACK = 3;

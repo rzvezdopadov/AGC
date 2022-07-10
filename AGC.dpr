@@ -26,7 +26,8 @@ uses
   StatisticsDozenBL in 'StatisticsDozenBL.pas',
   StatisticsSixlineBL in 'StatisticsSixlineBL.pas',
   StatisticsAngleBL in 'StatisticsAngleBL.pas',
-  StatisticsStreetBL in 'StatisticsStreetBL.pas';
+  StatisticsStreetBL in 'StatisticsStreetBL.pas',
+  TesterBL in 'TesterBL.pas';
 
 {$R *.res}
 

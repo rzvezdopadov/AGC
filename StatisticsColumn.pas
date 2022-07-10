@@ -73,8 +73,7 @@ end;
 
 function displayStatisticsColumn():BOOL;
 begin
-  displayStatisticsFromArray(FormStatisticsColumn.StringGrid, statColumnLast,
-    statColumnPercFirst, statColumnPercSecond, statColumnPercThird, 1, 3);
+  displayStatisticsFromArray(FormStatisticsColumn.StringGrid, stateColumn, 1, 3);
 
   displayStatisticsColumn := True;
 end;

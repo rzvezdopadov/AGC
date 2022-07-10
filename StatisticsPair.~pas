@@ -80,12 +80,12 @@ end;
 
 function updateStatisticPairGrid(): bool;
 begin
-  FormStatisticsPair.StringGrid.Cells[1, 1] := inttostr(statLowHighLast[0]);
-  FormStatisticsPair.StringGrid.Cells[1, 2] := inttostr(statLowHighLast[1]);
-  FormStatisticsPair.StringGrid.Cells[1, 3] := inttostr(statOddEvenLast[0]);
-  FormStatisticsPair.StringGrid.Cells[1, 4] := inttostr(statOddEvenLast[1]);
-  FormStatisticsPair.StringGrid.Cells[1, 5] := inttostr(statRedBlackLast[0]);
-  FormStatisticsPair.StringGrid.Cells[1, 6] := inttostr(statRedBlackLast[1]);
+  FormStatisticsPair.StringGrid.Cells[1, 1] := inttostr(stateLowHigh[0].Last);
+  FormStatisticsPair.StringGrid.Cells[1, 2] := inttostr(stateLowHigh[1].Last);
+  FormStatisticsPair.StringGrid.Cells[1, 3] := inttostr(stateOddEven[0].Last);
+  FormStatisticsPair.StringGrid.Cells[1, 4] := inttostr(stateOddEven[1].Last);
+  FormStatisticsPair.StringGrid.Cells[1, 5] := inttostr(stateRedBlack[0].Last);
+  FormStatisticsPair.StringGrid.Cells[1, 6] := inttostr(stateRedBlack[1].Last);
 
   FormStatisticsPair.StringGrid.Cells[0, 0] := 'Pos';
   FormStatisticsPair.StringGrid.Cells[1, 0] := 'Last';
@@ -97,14 +97,11 @@ end;
 function displayStatisticsPair():BOOL;
 begin
 //////////////////// Low / High
-  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statLowHighLast,
-    statLowHighPercFirst, statLowHighPercSecond, statLowHighPercThird, 1, 2);
+  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statLowHigh, 1, 2);
 //////////////////// Odd / Even
-  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statOddEvenLast,
-    statOddEvenPercFirst, statOddEvenPercSecond, statOddEvenPercThird, 3, 2);
+  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statOddEven, 3, 2);
 //////////////////// Red / Black
-  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statRedBlackLast,
-    statRedBlackPercFirst, statRedBlackPercSecond, statRedBlackPercThird, 5, 2);
+  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statRedBlack, 5, 2);
 
   displayStatisticsPair := True;
 end;

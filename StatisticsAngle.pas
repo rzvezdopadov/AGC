@@ -77,8 +77,7 @@ end;
 
 function displayStatisticsAngle():BOOL;
 begin
-  displayStatisticsFromArray(FormStatisticsAngle.StringGrid, statAngleLast,
-    statAnglePercFirst, statAnglePercSecond, statAnglePercThird, 1, 23);
+  displayStatisticsFromArray(FormStatisticsAngle.StringGrid, stateAngle, 1, 23);
 
   displayStatisticsAngle := True;
 end;
