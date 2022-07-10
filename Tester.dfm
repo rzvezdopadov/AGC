@@ -63,6 +63,7 @@ object FormTester: TFormTester
       HideScrollBars = False
       ScrollBars = ssVertical
       TabOrder = 0
+      OnKeyPress = RichEditNumberKeyPress
     end
     object PanelNumberCalc: TPanel
       Left = 8
@@ -70,6 +71,7 @@ object FormTester: TFormTester
       Width = 81
       Height = 17
       Caption = 'Calculate'
+      Color = 3644415
       TabOrder = 1
     end
     object EditBallance: TEdit
@@ -79,6 +81,7 @@ object FormTester: TFormTester
       Height = 21
       TabOrder = 2
       Text = '1000'
+      OnKeyPress = EditKeyPressNumber
     end
     object PanelNumberClear: TPanel
       Left = 8
@@ -86,6 +89,7 @@ object FormTester: TFormTester
       Width = 81
       Height = 17
       Caption = 'Clear'
+      Color = 3644415
       TabOrder = 3
       OnClick = PanelNumberClearClick
     end

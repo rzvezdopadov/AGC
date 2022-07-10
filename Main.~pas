@@ -244,6 +244,7 @@ type
     Timer1: TTimer;
     PanelStartAutoGame: TPanel;
     MenuMainClearStatistics: TMenuItem;
+    SaveSampleDialog: TSaveDialog;
     procedure FormCreate(Sender: TObject);
     procedure CheckBoxASSTClick(Sender: TObject);
     procedure MenuFileSettingsClick(Sender: TObject);
@@ -291,6 +292,9 @@ type
     procedure PanelNumber36PhraseClick(Sender: TObject);
     procedure PanelStartAutoGameClick(Sender: TObject);
     procedure MenuMainClearStatisticsClick(Sender: TObject);
+    procedure EditKeyPressNumber(Sender: TObject; var Key: Char);
+    procedure RichEditNumberKeyPress(Sender: TObject; var Key: Char);
+    procedure MenuMainSaveSampleClick(Sender: TObject);
 
   private
 
@@ -305,7 +309,7 @@ var
 
 implementation
 
-uses WindowUserLib, Settings, Statistics, Tester, ConstItems, State,
+uses WindowUserLib, Settings, Statistics, Tester, ConstItems, State, KeyFilter,
   StatisticsPairBL
 ;
 
@@ -316,7 +320,7 @@ begin
   FormMain.Close;
 end;
 
-function HideAditionalRates():integer;
+function HideAditionalRates():BOOL;
 begin
   if FormMain.CheckBoxASST.Checked = true then
   begin
@@ -358,97 +362,318 @@ begin
     FormMain.PanelColumnHighValue.Left    := 112;
     FormMain.PanelStartAutoGame.Left      := 136;
   end;
-  result := 0;
+
+  HideAditionalRates := True;
 end;
 
-function replaceColorPanelsNumber():bool;
+function replaceColorPanels():bool;
 begin
+  FormMain.PanelPairLowPhrase.Color := clNoneBet;
+  FormMain.PanelPairLowValue.Color := clNoneBet;
+  FormMain.PanelPairLowValue.Caption := IntToStr(0);
+  FormMain.PanelPairOddPhrase.Color := clNoneBet;
+  FormMain.PanelPairOddValue.Color := clNoneBet;
+  FormMain.PanelPairOddValue.Caption := IntToStr(0);
+  FormMain.PanelPairRedPhrase.Color := clNoneBet;
+  FormMain.PanelPairRedValue.Color := clNoneBet;
+  FormMain.PanelPairRedValue.Caption := IntToStr(0);
+  FormMain.PanelPairBlackPhrase.Color := clNoneBet;
+  FormMain.PanelPairBlackValue.Color := clNoneBet;
+  FormMain.PanelPairBlackValue.Caption := IntToStr(0);
+  FormMain.PanelPairEvenPhrase.Color := clNoneBet;
+  FormMain.PanelPairEvenValue.Color := clNoneBet;
+  FormMain.PanelPairEvenValue.Caption := IntToStr(0);
+  FormMain.PanelPairHighPhrase.Color := clNoneBet;
+  FormMain.PanelPairHighValue.Color := clNoneBet;
+  FormMain.PanelPairHighValue.Caption := IntToStr(0);
+  
+  FormMain.PanelDozenLowPhrase.Color := clNoneBet;
+  FormMain.PanelDozenLowValue.Color := clNoneBet;
+  FormMain.PanelDozenLowValue.Caption := IntToStr(0);
+  FormMain.PanelDozenMediumPhrase.Color := clNoneBet;
+  FormMain.PanelDozenMediumValue.Color := clNoneBet;
+  FormMain.PanelDozenMediumValue.Caption := IntToStr(0);
+  FormMain.PanelDozenHighPhrase.Color := clNoneBet;
+  FormMain.PanelDozenHighValue.Color := clNoneBet;
+  FormMain.PanelDozenHighValue.Caption := IntToStr(0);
+  
+  FormMain.PanelColumnLowPhrase.Color := clNoneBet;
+  FormMain.PanelColumnLowValue.Color := clNoneBet;
+  FormMain.PanelColumnLowValue.Caption := IntToStr(0);
+  FormMain.PanelColumnMediumPhrase.Color := clNoneBet;
+  FormMain.PanelColumnMediumValue.Color := clNoneBet;
+  FormMain.PanelColumnMediumValue.Caption := IntToStr(0);
+  FormMain.PanelColumnHighPhrase.Color := clNoneBet;
+  FormMain.PanelColumnHighValue.Color := clNoneBet;
+  FormMain.PanelColumnHighValue.Caption := IntToStr(0);
+  
+  FormMain.PanelSixlineS1Phrase.Color := clNoneBet;
+  FormMain.PanelSixlineS1Value.Color := clNoneBet;
+  FormMain.PanelSixlineS1Value.Caption := IntToStr(0);
+  FormMain.PanelSixlineS2Phrase.Color := clNoneBet;
+  FormMain.PanelSixlineS2Value.Color := clNoneBet;
+  FormMain.PanelSixlineS2Value.Caption := IntToStr(0);
+  FormMain.PanelSixlineS3Phrase.Color := clNoneBet;
+  FormMain.PanelSixlineS3Value.Color := clNoneBet;
+  FormMain.PanelSixlineS3Value.Caption := IntToStr(0);
+  FormMain.PanelSixlineS4Phrase.Color := clNoneBet;
+  FormMain.PanelSixlineS4Value.Color := clNoneBet;
+  FormMain.PanelSixlineS4Value.Caption := IntToStr(0);
+  FormMain.PanelSixlineS5Phrase.Color := clNoneBet;
+  FormMain.PanelSixlineS5Value.Color := clNoneBet;
+  FormMain.PanelSixlineS5Value.Caption := IntToStr(0);
+  FormMain.PanelSixlineS6Phrase.Color := clNoneBet;
+  FormMain.PanelSixlineS6Value.Color := clNoneBet;
+  FormMain.PanelSixlineS6Value.Caption := IntToStr(0);
+  FormMain.PanelSixlineS7Phrase.Color := clNoneBet;
+  FormMain.PanelSixlineS7Value.Color := clNoneBet;
+  FormMain.PanelSixlineS7Value.Caption := IntToStr(0);
+  FormMain.PanelSixlineS8Phrase.Color := clNoneBet;
+  FormMain.PanelSixlineS8Value.Color := clNoneBet;
+  FormMain.PanelSixlineS8Value.Caption := IntToStr(0);
+  FormMain.PanelSixlineS9Phrase.Color := clNoneBet;
+  FormMain.PanelSixlineS9Value.Color := clNoneBet;
+  FormMain.PanelSixlineS9Value.Caption := IntToStr(0);
+  FormMain.PanelSixlineS10Phrase.Color := clNoneBet;
+  FormMain.PanelSixlineS10Value.Color := clNoneBet;
+  FormMain.PanelSixlineS10Value.Caption := IntToStr(0);
+  FormMain.PanelSixlineS11Phrase.Color := clNoneBet;
+  FormMain.PanelSixlineS11Value.Color := clNoneBet;
+  FormMain.PanelSixlineS11Value.Caption := IntToStr(0);
+  
+  FormMain.PanelStreetST0Phrase.Color := clNoneBet;
+  FormMain.PanelStreetST0Value.Color := clNoneBet;
+  FormMain.PanelStreetST0Value.Caption := IntToStr(0);
+  FormMain.PanelStreetST1Phrase.Color := clNoneBet;
+  FormMain.PanelStreetST1Value.Color := clNoneBet;
+  FormMain.PanelStreetST1Value.Caption := IntToStr(0);
+  FormMain.PanelStreetST2Phrase.Color := clNoneBet;
+  FormMain.PanelStreetST2Value.Color := clNoneBet;
+  FormMain.PanelStreetST2Value.Caption := IntToStr(0);
+  FormMain.PanelStreetST3Phrase.Color := clNoneBet;
+  FormMain.PanelStreetST3Value.Color := clNoneBet;
+  FormMain.PanelStreetST3Value.Caption := IntToStr(0);
+  FormMain.PanelStreetST4Phrase.Color := clNoneBet;
+  FormMain.PanelStreetST4Value.Color := clNoneBet;
+  FormMain.PanelStreetST4Value.Caption := IntToStr(0);
+  FormMain.PanelStreetST5Phrase.Color := clNoneBet;
+  FormMain.PanelStreetST5Value.Color := clNoneBet;
+  FormMain.PanelStreetST5Value.Caption := IntToStr(0);
+  FormMain.PanelStreetST6Phrase.Color := clNoneBet;
+  FormMain.PanelStreetST6Value.Color := clNoneBet;
+  FormMain.PanelStreetST6Value.Caption := IntToStr(0);
+  FormMain.PanelStreetST7Phrase.Color := clNoneBet;
+  FormMain.PanelStreetST7Value.Color := clNoneBet;
+  FormMain.PanelStreetST7Value.Caption := IntToStr(0);
+  FormMain.PanelStreetST8Phrase.Color := clNoneBet;
+  FormMain.PanelStreetST8Value.Color := clNoneBet;
+  FormMain.PanelStreetST8Value.Caption := IntToStr(0);
+  FormMain.PanelStreetST9Phrase.Color := clNoneBet;
+  FormMain.PanelStreetST9Value.Color := clNoneBet;
+  FormMain.PanelStreetST9Value.Caption := IntToStr(0);
+  FormMain.PanelStreetST10Phrase.Color := clNoneBet;
+  FormMain.PanelStreetST10Value.Color := clNoneBet;
+  FormMain.PanelStreetST10Value.Caption := IntToStr(0);
+  FormMain.PanelStreetST11Phrase.Color := clNoneBet;
+  FormMain.PanelStreetST11Value.Color := clNoneBet;
+  FormMain.PanelStreetST11Value.Caption := IntToStr(0);
+  FormMain.PanelStreetST12Phrase.Color := clNoneBet;
+  FormMain.PanelStreetST12Value.Color := clNoneBet;
+  FormMain.PanelStreetST12Value.Caption := IntToStr(0);
+  FormMain.PanelStreetST13Phrase.Color := clNoneBet;
+  FormMain.PanelStreetST13Value.Color := clNoneBet;
+  FormMain.PanelStreetST13Value.Caption := IntToStr(0);
+  
+  FormMain.PanelAngleA0Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA0Value.Color := clNoneBet;
+  FormMain.PanelAngleA0Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA1Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA1Value.Color := clNoneBet;
+  FormMain.PanelAngleA1Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA2Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA2Value.Color := clNoneBet;
+  FormMain.PanelAngleA2Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA3Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA3Value.Color := clNoneBet;
+  FormMain.PanelAngleA3Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA4Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA4Value.Color := clNoneBet;
+  FormMain.PanelAngleA4Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA5Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA5Value.Color := clNoneBet;
+  FormMain.PanelAngleA5Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA6Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA6Value.Color := clNoneBet;
+  FormMain.PanelAngleA6Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA7Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA7Value.Color := clNoneBet;
+  FormMain.PanelAngleA7Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA8Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA8Value.Color := clNoneBet;
+  FormMain.PanelAngleA8Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA9Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA9Value.Color := clNoneBet;
+  FormMain.PanelAngleA9Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA10Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA10Value.Color := clNoneBet;
+  FormMain.PanelAngleA10Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA11Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA11Value.Color := clNoneBet;
+  FormMain.PanelAngleA11Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA12Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA12Value.Color := clNoneBet;
+  FormMain.PanelAngleA12Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA13Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA13Value.Color := clNoneBet;
+  FormMain.PanelAngleA13Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA14Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA14Value.Color := clNoneBet;
+  FormMain.PanelAngleA14Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA15Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA15Value.Color := clNoneBet;
+  FormMain.PanelAngleA15Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA16Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA16Value.Color := clNoneBet;
+  FormMain.PanelAngleA16Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA17Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA17Value.Color := clNoneBet;
+  FormMain.PanelAngleA17Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA18Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA18Value.Color := clNoneBet;
+  FormMain.PanelAngleA18Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA19Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA19Value.Color := clNoneBet;
+  FormMain.PanelAngleA19Phrase.Caption := IntToStr(0);
+  FormMain.PanelAngleA20Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA20Value.Color := clNoneBet;
+  FormMain.PanelAngleA20Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA21Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA21Value.Color := clNoneBet;
+  FormMain.PanelAngleA21Value.Caption := IntToStr(0);
+  FormMain.PanelAngleA22Phrase.Color := clNoneBet;
+  FormMain.PanelAngleA22Value.Color := clNoneBet;
+  FormMain.PanelAngleA22Value.Caption := IntToStr(0);
+ 
   replaceColorPanelRedBlack(0, FormMain.PanelNumber0Phrase);
   replaceColorPanelRedBlack(0, FormMain.PanelNumber0Value);
+  FormMain.PanelNumber0Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(1, FormMain.PanelNumber1Phrase);
   replaceColorPanelRedBlack(1, FormMain.PanelNumber1Value);
+  FormMain.PanelNumber1Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(2, FormMain.PanelNumber2Phrase);
   replaceColorPanelRedBlack(2, FormMain.PanelNumber2Value);
+  FormMain.PanelNumber2Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(3, FormMain.PanelNumber3Phrase);
   replaceColorPanelRedBlack(3, FormMain.PanelNumber3Value);
+  FormMain.PanelNumber3Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(4, FormMain.PanelNumber4Phrase);
   replaceColorPanelRedBlack(4, FormMain.PanelNumber4Value);
+  FormMain.PanelNumber4Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(5, FormMain.PanelNumber5Phrase);
   replaceColorPanelRedBlack(5, FormMain.PanelNumber5Value);
+  FormMain.PanelNumber5Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(6, FormMain.PanelNumber6Phrase);
   replaceColorPanelRedBlack(6, FormMain.PanelNumber6Value);
+  FormMain.PanelNumber6Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(7, FormMain.PanelNumber7Phrase);
   replaceColorPanelRedBlack(7, FormMain.PanelNumber7Value);
+  FormMain.PanelNumber7Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(8, FormMain.PanelNumber8Phrase);
   replaceColorPanelRedBlack(8, FormMain.PanelNumber8Value);
+  FormMain.PanelNumber8Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(9, FormMain.PanelNumber9Phrase);
   replaceColorPanelRedBlack(9, FormMain.PanelNumber9Value);
-
+  FormMain.PanelNumber9Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(10, FormMain.PanelNumber10Phrase);
   replaceColorPanelRedBlack(10, FormMain.PanelNumber10Value);
+  FormMain.PanelNumber10Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(11, FormMain.PanelNumber11Phrase);
   replaceColorPanelRedBlack(11, FormMain.PanelNumber11Value);
+  FormMain.PanelNumber11Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(12, FormMain.PanelNumber12Phrase);
   replaceColorPanelRedBlack(12, FormMain.PanelNumber12Value);
+  FormMain.PanelNumber12Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(13, FormMain.PanelNumber13Phrase);
   replaceColorPanelRedBlack(13, FormMain.PanelNumber13Value);
+  FormMain.PanelNumber13Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(14, FormMain.PanelNumber14Phrase);
   replaceColorPanelRedBlack(14, FormMain.PanelNumber14Value);
+  FormMain.PanelNumber14Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(15, FormMain.PanelNumber15Phrase);
   replaceColorPanelRedBlack(15, FormMain.PanelNumber15Value);
+  FormMain.PanelNumber15Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(16, FormMain.PanelNumber16Phrase);
   replaceColorPanelRedBlack(16, FormMain.PanelNumber16Value);
+  FormMain.PanelNumber16Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(17, FormMain.PanelNumber17Phrase);
   replaceColorPanelRedBlack(17, FormMain.PanelNumber17Value);
+  FormMain.PanelNumber17Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(18, FormMain.PanelNumber18Phrase);
   replaceColorPanelRedBlack(18, FormMain.PanelNumber18Value);
+  FormMain.PanelNumber18Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(19, FormMain.PanelNumber19Phrase);
   replaceColorPanelRedBlack(19, FormMain.PanelNumber19Value);
-
+  FormMain.PanelNumber19Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(20, FormMain.PanelNumber20Phrase);
   replaceColorPanelRedBlack(20, FormMain.PanelNumber20Value);
+  FormMain.PanelNumber20Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(21, FormMain.PanelNumber21Phrase);
   replaceColorPanelRedBlack(21, FormMain.PanelNumber21Value);
+  FormMain.PanelNumber21Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(22, FormMain.PanelNumber22Phrase);
   replaceColorPanelRedBlack(22, FormMain.PanelNumber22Value);
+  FormMain.PanelNumber22Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(23, FormMain.PanelNumber23Phrase);
   replaceColorPanelRedBlack(23, FormMain.PanelNumber23Value);
+  FormMain.PanelNumber23Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(24, FormMain.PanelNumber24Phrase);
   replaceColorPanelRedBlack(24, FormMain.PanelNumber24Value);
+  FormMain.PanelNumber24Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(25, FormMain.PanelNumber25Phrase);
   replaceColorPanelRedBlack(25, FormMain.PanelNumber25Value);
+  FormMain.PanelNumber25Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(26, FormMain.PanelNumber26Phrase);
   replaceColorPanelRedBlack(26, FormMain.PanelNumber26Value);
+  FormMain.PanelNumber26Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(27, FormMain.PanelNumber27Phrase);
   replaceColorPanelRedBlack(27, FormMain.PanelNumber27Value);
+  FormMain.PanelNumber27Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(28, FormMain.PanelNumber28Phrase);
   replaceColorPanelRedBlack(28, FormMain.PanelNumber28Value);
+  FormMain.PanelNumber28Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(29, FormMain.PanelNumber29Phrase);
   replaceColorPanelRedBlack(29, FormMain.PanelNumber29Value);
-
+  FormMain.PanelNumber29Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(30, FormMain.PanelNumber30Phrase);
   replaceColorPanelRedBlack(30, FormMain.PanelNumber30Value);
+  FormMain.PanelNumber30Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(31, FormMain.PanelNumber31Phrase);
   replaceColorPanelRedBlack(31, FormMain.PanelNumber31Value);
+  FormMain.PanelNumber31Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(32, FormMain.PanelNumber32Phrase);
   replaceColorPanelRedBlack(32, FormMain.PanelNumber32Value);
+  FormMain.PanelNumber32Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(33, FormMain.PanelNumber33Phrase);
   replaceColorPanelRedBlack(33, FormMain.PanelNumber33Value);
+  FormMain.PanelNumber33Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(34, FormMain.PanelNumber34Phrase);
   replaceColorPanelRedBlack(34, FormMain.PanelNumber34Value);
+  FormMain.PanelNumber34Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(35, FormMain.PanelNumber35Phrase);
   replaceColorPanelRedBlack(35, FormMain.PanelNumber35Value);
+  FormMain.PanelNumber35Value.Caption := IntToStr(0);
   replaceColorPanelRedBlack(36, FormMain.PanelNumber36Phrase);
   replaceColorPanelRedBlack(36, FormMain.PanelNumber36Value);
+  FormMain.PanelNumber36Value.Caption := IntToStr(0);
 
-  replaceColorPanelsNumber := true;
+  replaceColorPanels := true;
 end;
 
 procedure TFormMain.FormCreate(Sender: TObject);
 begin
   FormCentered((Sender as TForm));
   HideAditionalRates();
-  replaceColorPanelsNumber();
+  replaceColorPanels();
   clearState();
 end;
 
@@ -717,6 +942,219 @@ end;
 procedure TFormMain.MenuMainClearStatisticsClick(Sender: TObject);
 begin
   clearState;  
+end;
+
+procedure TFormMain.EditKeyPressNumber(Sender: TObject; var Key: Char);
+begin
+  Key := testKeyOnNumber(Key);
+end;
+
+procedure TFormMain.RichEditNumberKeyPress(Sender: TObject; var Key: Char);
+begin
+  Key := testKeyOnNumberForMemo(Key);
+end;
+
+procedure TFormMain.MenuMainSaveSampleClick(Sender: TObject);
+begin
+  if SaveSampleDialog.Execute then begin
+    RichEditNumber.Lines.SaveToFile(SaveSampleDialog.FileName);
+  end;
+end;
+
+function placeColorPanel(var bet: TBet; PanelPhrase, PanelValue: TPanel):BOOL;
+begin
+  if bet.Enabled then begin
+    PanelPhrase.Color := clLime;
+    PanelValue.Color := clLime;
+    PanelValue.Caption := FloatToStr(bet.Amount);
+  end;
+
+  placeColorPanel := true;
+end;
+
+function placeColorPanelsFromState():BOOL;
+begin
+  placeColorPanel(stateLowHigh[0].Bet, FormMain.PanelPairLowPhrase, FormMain.PanelPairLowValue);
+  placeColorPanel(stateLowHigh[1].Bet, FormMain.PanelPairHighPhrase, FormMain.PanelPairHighValue);
+  placeColorPanel(stateOddEven[0].Bet, FormMain.PanelPairOddPhrase, FormMain.PanelPairOddValue);
+  placeColorPanel(stateOddEven[1].Bet, FormMain.PanelPairEvenPhrase, FormMain.PanelPairEvenValue);
+  placeColorPanel(stateRedBlack[0].Bet, FormMain.PanelPairRedPhrase, FormMain.PanelPairRedValue);
+  placeColorPanel(stateRedBlack[1].Bet, FormMain.PanelPairBlackPhrase, FormMain.PanelPairBlackValue);
+
+  placeColorPanel(stateDozen[0].Bet, FormMain.PanelDozenLowPhrase, FormMain.PanelDozenLowValue);
+  placeColorPanel(stateDozen[1].Bet, FormMain.PanelDozenMediumPhrase, FormMain.PanelDozenMediumValue);
+  placeColorPanel(stateDozen[2].Bet, FormMain.PanelDozenHighPhrase, FormMain.PanelDozenHighValue);
+
+  placeColorPanel(stateColumn[0].Bet, FormMain.PanelColumnLowPhrase, FormMain.PanelColumnLowValue);
+  placeColorPanel(stateColumn[1].Bet, FormMain.PanelColumnMediumPhrase, FormMain.PanelColumnMediumValue);
+  placeColorPanel(stateColumn[2].Bet, FormMain.PanelColumnHighPhrase, FormMain.PanelColumnHighValue);
+
+  placeColorPanel(stateSixline[0].Bet, FormMain.PanelSixlineS1Phrase, FormMain.PanelSixlineS1Value);
+  placeColorPanel(stateSixline[1].Bet, FormMain.PanelSixlineS2Phrase, FormMain.PanelSixlineS2Value);
+  placeColorPanel(stateSixline[2].Bet, FormMain.PanelSixlineS3Phrase, FormMain.PanelSixlineS3Value);
+  placeColorPanel(stateSixline[3].Bet, FormMain.PanelSixlineS4Phrase, FormMain.PanelSixlineS4Value);
+  placeColorPanel(stateSixline[4].Bet, FormMain.PanelSixlineS5Phrase, FormMain.PanelSixlineS5Value);
+  placeColorPanel(stateSixline[5].Bet, FormMain.PanelSixlineS6Phrase, FormMain.PanelSixlineS6Value);
+  placeColorPanel(stateSixline[6].Bet, FormMain.PanelSixlineS7Phrase, FormMain.PanelSixlineS7Value);
+  placeColorPanel(stateSixline[7].Bet, FormMain.PanelSixlineS8Phrase, FormMain.PanelSixlineS8Value);
+  placeColorPanel(stateSixline[8].Bet, FormMain.PanelSixlineS9Phrase, FormMain.PanelSixlineS9Value);
+  placeColorPanel(stateSixline[9].Bet, FormMain.PanelSixlineS10Phrase, FormMain.PanelSixlineS10Value);
+  placeColorPanel(stateSixline[10].Bet, FormMain.PanelSixlineS11Phrase, FormMain.PanelSixlineS11Value);
+
+  placeColorPanel(stateStreet[0].Bet, FormMain.PanelStreetST0Phrase, FormMain.PanelStreetST0Value);
+  placeColorPanel(stateStreet[1].Bet, FormMain.PanelStreetST1Phrase, FormMain.PanelStreetST1Value);
+  placeColorPanel(stateStreet[2].Bet, FormMain.PanelStreetST2Phrase, FormMain.PanelStreetST2Value);
+  placeColorPanel(stateStreet[3].Bet, FormMain.PanelStreetST3Phrase, FormMain.PanelStreetST3Value);
+  placeColorPanel(stateStreet[4].Bet, FormMain.PanelStreetST4Phrase, FormMain.PanelStreetST4Value);
+  placeColorPanel(stateStreet[5].Bet, FormMain.PanelStreetST5Phrase, FormMain.PanelStreetST5Value);
+  placeColorPanel(stateStreet[6].Bet, FormMain.PanelStreetST6Phrase, FormMain.PanelStreetST6Value);
+  placeColorPanel(stateStreet[7].Bet, FormMain.PanelStreetST7Phrase, FormMain.PanelStreetST7Value);
+  placeColorPanel(stateStreet[8].Bet, FormMain.PanelStreetST8Phrase, FormMain.PanelStreetST8Value);
+  placeColorPanel(stateStreet[9].Bet, FormMain.PanelStreetST9Phrase, FormMain.PanelStreetST9Value);
+  placeColorPanel(stateStreet[10].Bet, FormMain.PanelStreetST10Phrase, FormMain.PanelStreetST10Value);
+  placeColorPanel(stateStreet[11].Bet, FormMain.PanelStreetST11Phrase, FormMain.PanelStreetST11Value);
+  placeColorPanel(stateStreet[12].Bet, FormMain.PanelStreetST12Phrase, FormMain.PanelStreetST12Value);
+  placeColorPanel(stateStreet[13].Bet, FormMain.PanelStreetST13Phrase, FormMain.PanelStreetST13Value);          
+
+  placeColorPanel(stateAngle[0].Bet, FormMain.PanelAngleA0Phrase, FormMain.PanelAngleA0Value);
+  placeColorPanel(stateAngle[1].Bet, FormMain.PanelAngleA1Phrase, FormMain.PanelAngleA1Value);
+  placeColorPanel(stateAngle[2].Bet, FormMain.PanelAngleA2Phrase, FormMain.PanelAngleA2Value);
+  placeColorPanel(stateAngle[3].Bet, FormMain.PanelAngleA3Phrase, FormMain.PanelAngleA3Value);
+  placeColorPanel(stateAngle[4].Bet, FormMain.PanelAngleA4Phrase, FormMain.PanelAngleA4Value);
+  placeColorPanel(stateAngle[5].Bet, FormMain.PanelAngleA5Phrase, FormMain.PanelAngleA5Value);
+  placeColorPanel(stateAngle[6].Bet, FormMain.PanelAngleA6Phrase, FormMain.PanelAngleA6Value);
+  placeColorPanel(stateAngle[7].Bet, FormMain.PanelAngleA7Phrase, FormMain.PanelAngleA7Value);
+  placeColorPanel(stateAngle[8].Bet, FormMain.PanelAngleA8Phrase, FormMain.PanelAngleA8Value);
+  placeColorPanel(stateAngle[9].Bet, FormMain.PanelAngleA9Phrase, FormMain.PanelAngleA9Value);
+  placeColorPanel(stateAngle[10].Bet, FormMain.PanelAngleA10Phrase, FormMain.PanelAngleA10Value);
+  placeColorPanel(stateAngle[11].Bet, FormMain.PanelAngleA11Phrase, FormMain.PanelAngleA11Value);
+  placeColorPanel(stateAngle[12].Bet, FormMain.PanelAngleA12Phrase, FormMain.PanelAngleA12Value);
+  placeColorPanel(stateAngle[13].Bet, FormMain.PanelAngleA13Phrase, FormMain.PanelAngleA13Value);
+  placeColorPanel(stateAngle[14].Bet, FormMain.PanelAngleA14Phrase, FormMain.PanelAngleA14Value);
+  placeColorPanel(stateAngle[15].Bet, FormMain.PanelAngleA15Phrase, FormMain.PanelAngleA15Value);
+  placeColorPanel(stateAngle[16].Bet, FormMain.PanelAngleA16Phrase, FormMain.PanelAngleA16Value);
+  placeColorPanel(stateAngle[17].Bet, FormMain.PanelAngleA17Phrase, FormMain.PanelAngleA17Value);
+  placeColorPanel(stateAngle[18].Bet, FormMain.PanelAngleA18Phrase, FormMain.PanelAngleA18Value);
+  placeColorPanel(stateAngle[19].Bet, FormMain.PanelAngleA19Phrase, FormMain.PanelAngleA19Value);
+  placeColorPanel(stateAngle[20].Bet, FormMain.PanelAngleA20Phrase, FormMain.PanelAngleA20Value);
+  placeColorPanel(stateAngle[21].Bet, FormMain.PanelAngleA21Phrase, FormMain.PanelAngleA21Value);
+  placeColorPanel(stateAngle[22].Bet, FormMain.PanelAngleA22Phrase, FormMain.PanelAngleA22Value);
+
+  placeColorPanel(stateNumber[0].Bet, FormMain.PanelNumber0Phrase, FormMain.PanelNumber0Value);
+  placeColorPanel(stateNumber[1].Bet, FormMain.PanelNumber1Phrase, FormMain.PanelNumber1Value);
+  placeColorPanel(stateNumber[2].Bet, FormMain.PanelNumber2Phrase, FormMain.PanelNumber2Value);
+  placeColorPanel(stateNumber[3].Bet, FormMain.PanelNumber3Phrase, FormMain.PanelNumber3Value);
+  placeColorPanel(stateNumber[4].Bet, FormMain.PanelNumber4Phrase, FormMain.PanelNumber4Value);
+  placeColorPanel(stateNumber[5].Bet, FormMain.PanelNumber5Phrase, FormMain.PanelNumber5Value);
+  placeColorPanel(stateNumber[6].Bet, FormMain.PanelNumber6Phrase, FormMain.PanelNumber6Value);
+  placeColorPanel(stateNumber[7].Bet, FormMain.PanelNumber7Phrase, FormMain.PanelNumber7Value);
+  placeColorPanel(stateNumber[8].Bet, FormMain.PanelNumber8Phrase, FormMain.PanelNumber8Value);
+  placeColorPanel(stateNumber[9].Bet, FormMain.PanelNumber9Phrase, FormMain.PanelNumber9Value);
+  placeColorPanel(stateNumber[10].Bet, FormMain.PanelNumber0Phrase, FormMain.PanelNumber10Value);
+  placeColorPanel(stateNumber[11].Bet, FormMain.PanelNumber1Phrase, FormMain.PanelNumber11Value);
+  placeColorPanel(stateNumber[12].Bet, FormMain.PanelNumber2Phrase, FormMain.PanelNumber12Value);
+  placeColorPanel(stateNumber[13].Bet, FormMain.PanelNumber3Phrase, FormMain.PanelNumber13Value);
+  placeColorPanel(stateNumber[14].Bet, FormMain.PanelNumber4Phrase, FormMain.PanelNumber14Value);
+  placeColorPanel(stateNumber[15].Bet, FormMain.PanelNumber5Phrase, FormMain.PanelNumber15Value);
+  placeColorPanel(stateNumber[16].Bet, FormMain.PanelNumber6Phrase, FormMain.PanelNumber16Value);
+  placeColorPanel(stateNumber[17].Bet, FormMain.PanelNumber7Phrase, FormMain.PanelNumber17Value);
+  placeColorPanel(stateNumber[18].Bet, FormMain.PanelNumber8Phrase, FormMain.PanelNumber18Value);
+  placeColorPanel(stateNumber[19].Bet, FormMain.PanelNumber9Phrase, FormMain.PanelNumber19Value);
+  placeColorPanel(stateNumber[20].Bet, FormMain.PanelNumber0Phrase, FormMain.PanelNumber20Value);
+  placeColorPanel(stateNumber[21].Bet, FormMain.PanelNumber1Phrase, FormMain.PanelNumber21Value);
+  placeColorPanel(stateNumber[22].Bet, FormMain.PanelNumber2Phrase, FormMain.PanelNumber22Value);
+  placeColorPanel(stateNumber[23].Bet, FormMain.PanelNumber3Phrase, FormMain.PanelNumber23Value);
+  placeColorPanel(stateNumber[24].Bet, FormMain.PanelNumber4Phrase, FormMain.PanelNumber24Value);
+  placeColorPanel(stateNumber[25].Bet, FormMain.PanelNumber5Phrase, FormMain.PanelNumber25Value);
+  placeColorPanel(stateNumber[26].Bet, FormMain.PanelNumber6Phrase, FormMain.PanelNumber26Value);
+  placeColorPanel(stateNumber[27].Bet, FormMain.PanelNumber7Phrase, FormMain.PanelNumber27Value);
+  placeColorPanel(stateNumber[28].Bet, FormMain.PanelNumber8Phrase, FormMain.PanelNumber28Value);
+  placeColorPanel(stateNumber[29].Bet, FormMain.PanelNumber9Phrase, FormMain.PanelNumber29Value);
+  placeColorPanel(stateNumber[30].Bet, FormMain.PanelNumber0Phrase, FormMain.PanelNumber30Value);
+  placeColorPanel(stateNumber[31].Bet, FormMain.PanelNumber1Phrase, FormMain.PanelNumber31Value);
+  placeColorPanel(stateNumber[32].Bet, FormMain.PanelNumber2Phrase, FormMain.PanelNumber32Value);
+  placeColorPanel(stateNumber[33].Bet, FormMain.PanelNumber3Phrase, FormMain.PanelNumber33Value);
+  placeColorPanel(stateNumber[34].Bet, FormMain.PanelNumber4Phrase, FormMain.PanelNumber34Value);
+  placeColorPanel(stateNumber[35].Bet, FormMain.PanelNumber5Phrase, FormMain.PanelNumber35Value);
+  placeColorPanel(stateNumber[36].Bet, FormMain.PanelNumber6Phrase, FormMain.PanelNumber36Value);
+
+
+  FormMain.PanelNumber0Phrase.Color := clLime;
+  FormMain.PanelNumber0Value.Color := clLime;
+  FormMain.PanelNumber1Phrase.Color := clLime;
+  FormMain.PanelNumber1Value.Color := clLime;
+  FormMain.PanelNumber2Phrase.Color := clLime;
+  FormMain.PanelNumber2Value.Color := clLime;
+  FormMain.PanelNumber3Phrase.Color := clLime;
+  FormMain.PanelNumber3Value.Color := clLime;
+  FormMain.PanelNumber4Phrase.Color := clLime;
+  FormMain.PanelNumber4Value.Color := clLime;
+  FormMain.PanelNumber5Phrase.Color := clLime;
+  FormMain.PanelNumber5Value.Color := clLime;
+  FormMain.PanelNumber6Phrase.Color := clLime;
+  FormMain.PanelNumber6Value.Color := clLime;
+  FormMain.PanelNumber7Phrase.Color := clLime;
+  FormMain.PanelNumber7Value.Color := clLime;
+  FormMain.PanelNumber8Phrase.Color := clLime;
+  FormMain.PanelNumber8Value.Color := clLime;
+  FormMain.PanelNumber9Phrase.Color := clLime;
+  FormMain.PanelNumber9Value.Color := clLime;
+  FormMain.PanelNumber10Phrase.Color := clLime;
+  FormMain.PanelNumber10Value.Color := clLime;
+  FormMain.PanelNumber11Phrase.Color := clLime;
+  FormMain.PanelNumber11Value.Color := clLime;
+  FormMain.PanelNumber12Phrase.Color := clLime;
+  FormMain.PanelNumber12Value.Color := clLime;
+  FormMain.PanelNumber13Phrase.Color := clLime;
+  FormMain.PanelNumber13Value.Color := clLime;
+  FormMain.PanelNumber14Phrase.Color := clLime;
+  FormMain.PanelNumber14Value.Color := clLime;
+  FormMain.PanelNumber15Phrase.Color := clLime;
+  FormMain.PanelNumber15Value.Color := clLime;
+  FormMain.PanelNumber16Phrase.Color := clLime;
+  FormMain.PanelNumber16Value.Color := clLime;
+  FormMain.PanelNumber17Phrase.Color := clLime;
+  FormMain.PanelNumber17Value.Color := clLime;
+  FormMain.PanelNumber18Phrase.Color := clLime;
+  FormMain.PanelNumber18Value.Color := clLime;
+  FormMain.PanelNumber19Phrase.Color := clLime;
+  FormMain.PanelNumber19Value.Color := clLime;
+  FormMain.PanelNumber20Phrase.Color := clLime;
+  FormMain.PanelNumber20Value.Color := clLime;
+  FormMain.PanelNumber21Phrase.Color := clLime;
+  FormMain.PanelNumber21Value.Color := clLime;
+  FormMain.PanelNumber22Phrase.Color := clLime;
+  FormMain.PanelNumber22Value.Color := clLime;
+  FormMain.PanelNumber23Phrase.Color := clLime;
+  FormMain.PanelNumber23Value.Color := clLime;
+  FormMain.PanelNumber24Phrase.Color := clLime;
+  FormMain.PanelNumber24Value.Color := clLime;
+  FormMain.PanelNumber25Phrase.Color := clLime;
+  FormMain.PanelNumber25Value.Color := clLime;
+  FormMain.PanelNumber26Phrase.Color := clLime;
+  FormMain.PanelNumber26Value.Color := clLime;
+  FormMain.PanelNumber27Phrase.Color := clLime;
+  FormMain.PanelNumber27Value.Color := clLime;
+  FormMain.PanelNumber28Phrase.Color := clLime;
+  FormMain.PanelNumber28Value.Color := clLime;
+  FormMain.PanelNumber29Phrase.Color := clLime;
+  FormMain.PanelNumber29Value.Color := clLime;
+  FormMain.PanelNumber30Phrase.Color := clLime;
+  FormMain.PanelNumber30Value.Color := clLime;
+  FormMain.PanelNumber31Phrase.Color := clLime;
+  FormMain.PanelNumber31Value.Color := clLime;
+  FormMain.PanelNumber32Phrase.Color := clLime;
+  FormMain.PanelNumber32Value.Color := clLime;
+  FormMain.PanelNumber33Phrase.Color := clLime;
+  FormMain.PanelNumber33Value.Color := clLime;
+  FormMain.PanelNumber34Phrase.Color := clLime;
+  FormMain.PanelNumber34Value.Color := clLime;
+  FormMain.PanelNumber35Phrase.Color := clLime;
+  FormMain.PanelNumber35Value.Color := clLime;
+  FormMain.PanelNumber36Phrase.Color := clLime;
+  FormMain.PanelNumber36Value.Color := clLime;
+
+  placeColorPanelsFromState := True;
 end;
 
 end.

@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 205
-  Top = 262
+  Left = 213
+  Top = 319
   Width = 617
   Height = 668
   AlphaBlend = True
@@ -231,6 +231,7 @@ object FormMain: TFormMain
       Height = 21
       TabOrder = 0
       Text = '1000'
+      OnKeyPress = EditKeyPressNumber
     end
   end
   object PanelSixline: TPanel
@@ -1979,6 +1980,7 @@ object FormMain: TFormMain
       HideScrollBars = False
       ScrollBars = ssVertical
       TabOrder = 0
+      OnKeyPress = RichEditNumberKeyPress
     end
     object PanelNumberClear: TPanel
       Left = 16
@@ -1986,6 +1988,7 @@ object FormMain: TFormMain
       Width = 57
       Height = 17
       Caption = 'Clear'
+      Color = 3644415
       TabOrder = 1
       OnClick = PanelNumberClearClick
     end
@@ -2035,6 +2038,7 @@ object FormMain: TFormMain
       end
       object MenuMainSaveSample: TMenuItem
         Caption = 'Save sample'
+        OnClick = MenuMainSaveSampleClick
       end
       object MenuMainExit: TMenuItem
         Caption = 'Exit'
@@ -2053,5 +2057,10 @@ object FormMain: TFormMain
   end
   object Timer1: TTimer
     Left = 48
+  end
+  object SaveSampleDialog: TSaveDialog
+    DefaultExt = 'rtf'
+    Filter = '*.rtf|*.rtf'
+    Left = 80
   end
 end

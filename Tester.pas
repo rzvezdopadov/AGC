@@ -32,6 +32,8 @@ type
     procedure PanelNumberClearClick(Sender: TObject);
     procedure MenuLoadSampleClick(Sender: TObject);
     procedure MenuSaveSampleClick(Sender: TObject);
+    procedure EditKeyPressNumber(Sender: TObject; var Key: Char);
+    procedure RichEditNumberKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -43,7 +45,7 @@ var
 
 implementation
 
-uses WindowUserLib, Main;
+uses WindowUserLib, Main, KeyFilter;
 
 {$R *.dfm}
 
@@ -96,6 +98,17 @@ begin
   if SaveSampleDialog.Execute then begin
     RichEditNumber.Lines.SaveToFile(SaveSampleDialog.FileName);
   end;
+end;
+
+procedure TFormTester.EditKeyPressNumber(Sender: TObject; var Key: Char);
+begin
+  Key := testKeyOnNumber(Key);
+end;
+
+procedure TFormTester.RichEditNumberKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  Key := testKeyOnNumberForMemo(Key);
 end;
 
 end.

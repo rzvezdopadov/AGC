@@ -145,8 +145,8 @@ begin
   calcStatisticsStreetLast := True;
 end;
 
-function calcPercStreetLocal(var statStreetPerc: array of Double;
-                              ConstNum, Divide, PercCount: Integer):BOOL;
+function calcPercStreetLocal(var stat: array of TStat;
+                              percPos, ConstNum, Divide, PercCount: Integer):BOOL;
 var
   i, Count: Integer;
 begin
@@ -159,7 +159,7 @@ begin
       end;
     end;
 
-    statStreetPerc[ConstNum] := (Count * 100) / Divide;
+    stat[ConstNum].Perc[percPos] := (Count * 100) / Divide;
   end else begin
     for i := 0 to PercCount-1 do begin
       if isClassStreetFromArr(ConstNum, longNumberArray - i) then  begin
@@ -167,13 +167,13 @@ begin
       end;
     end;
 
-    statStreetPerc[ConstNum] := (Count * 100) / Divide;
+    stat[ConstNum].Perc[percPos] := (Count * 100) / Divide;
   end;
 ////////////////
   calcPercStreetLocal := True;
 end;
 
-function calcPercStreet(var statStreetPerc: array of Double; PercCount: Integer):BOOL;
+function calcPercStreet(var stat: array of TStat; percPos, PercCount: Integer):BOOL;
 var
   i, Divide: integer;
 begin
@@ -190,7 +190,7 @@ begin
   end;
 
   for i := 0 to 13 do begin
-    calcPercStreetLocal(statStreetPerc, i, Divide, PercCount);
+    calcPercStreetLocal(stat, percPos, i, Divide, PercCount);
   end;
   calcPercStreet := True;
 end;
@@ -199,9 +199,9 @@ function calcStatisticsStreet():BOOL;
 begin
   calcStatisticsStreetLast(stateStreet);
 
-  calcPercStreet(statStreetPercFirst, getFirstPercCount);
-  calcPercStreet(statStreetPercSecond, getSecondPercCount);
-  calcPercStreet(statStreetPercThird, getThirdPercCount);
+  calcPercStreet(stateStreet, PERC_FIRST, getFirstPercCount);
+  calcPercStreet(stateStreet, PERC_SECOND, getSecondPercCount);
+  calcPercStreet(stateStreet, PERC_THIRD, getThirdPercCount);
 
   calcStatisticsStreet := true;
 end;

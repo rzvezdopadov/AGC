@@ -21,13 +21,6 @@ type
 end;
 
 type
-  TPerc = record
-    First: Double;
-    Second: Double;
-    Third: Double;
-end;
-
-type
   TStat = record
     Last: Integer;
     Perc: array [0..2] of Double;

@@ -9,8 +9,8 @@ const
   colorPanelBlack = $004F5150;
 
   PERC_FIRST = 0;
-  STAT_SECOND = 1;
-  STAT_THIRD = 2;
+  PERC_SECOND = 1;
+  PERC_THIRD = 2;
 
   STAT_LOWHIGH = 1;
   STAT_ODDEVEN = 2;
@@ -86,6 +86,9 @@ const
   NUM_ANGLE22 = 22;
 
   PHRASE_LONG = 'Long';
+
+  clNoneBet = $0091DBEE;
+
 
 implementation
 
