@@ -36,8 +36,6 @@ uses WindowUserLib, ConstItems, Main, State, Statistics;
 {$R *.dfm}
 
 procedure TFormStatisticsPair.FormCreate(Sender: TObject);
-var
-  i: integer;
 begin
   FormCentered((Sender as TForm));
 

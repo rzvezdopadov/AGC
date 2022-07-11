@@ -45,9 +45,16 @@ var
 
 implementation
 
-uses WindowUserLib, Main, KeyFilter;
+uses WindowUserLib, Main, State, KeyFilter;
 
 {$R *.dfm}
+
+function getBalanceFromTester():Double;
+begin
+  ballance := StrToFloat(FormTester.EditBallance.Text);
+
+  getBalanceFromTester := ballance;
+end;
 
 procedure TFormTester.FormCreate(Sender: TObject);
 begin
@@ -108,7 +115,6 @@ end;
 procedure TFormTester.RichEditNumberKeyPress(Sender: TObject;
   var Key: Char);
 begin
-  ShowMessage(IntToStr(Byte(Key)));
   Key := testKeyOnNumberForMemo(Key);
 end;
 

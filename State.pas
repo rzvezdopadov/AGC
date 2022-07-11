@@ -16,7 +16,9 @@ uses
 type
   TBet = record
     Enabled: BOOL;
+    Blocked: BOOL;
     Count: Integer;
+    MulLossCount: Integer;
     Amount: Double;
 end;
 
@@ -44,10 +46,11 @@ var
   stateSixline: array [0..10] of TStat;
   stateAngle: array [0..22] of TStat;
   stateStreet: array [0..13] of TStat;
+  ballance: Double;
 
 implementation
 
-uses ConstItems, Statistics, StatisticsBL;
+uses ConstItems, Statistics, StatisticsBL, BetsBL;
 
 function clearSeqNum():BOOL;
 var
@@ -62,10 +65,16 @@ end;
 
 function clearArrayLast(var stat: array of TStat; Count: Integer):BOOL;
 var
-  i: integer;
+  i, j: integer;
 begin
   for i:=0 to Count-1 do begin
     stat[i].Last := NUM_LONG;
+    for j := 0 to 2 do stat[i].Perc[j] := 0;
+    stat[i].Bet.Enabled := False;
+    stat[i].Bet.Blocked := False;
+    stat[i].Bet.Count := 0;
+    stat[i].Bet.MulLossCount := 0;
+    stat[i].Bet.Amount := 0;
   end;
 
   clearArrayLast := True;
@@ -105,7 +114,11 @@ begin
   addNewNumberToRichEdit(Value, FormMain.RichEditNumber);
   addSeqNum(Value);
   calcStatistics();
+  getBalanceFromMain();
+  Bets();
+  setBalanceToMain;
   displayStatistics();
+  placeColorPanelsFromState();
 
   numberSetUser := True;
 end;

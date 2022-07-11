@@ -6,8 +6,11 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Menus, ExtCtrls, ComCtrls;
 
+  function getBalanceFromMain():Double;
+  function setBalanceToMain():Double;
   function replaceColorPanelRedBlack(Value:Integer; Panel:TPanel):BOOL;
   function addNewNumberToRichEdit(Value: Integer; RichEdit: TRichEdit): BOOL;
+  function placeColorPanelsFromState():BOOL;
 
 type
   TFormMain = class(TForm)
@@ -318,6 +321,20 @@ uses WindowUserLib, Settings, Statistics, Tester, ConstItems, State, KeyFilter,
 procedure TFormMain.MenuMainExitClick(Sender: TObject);
 begin
   FormMain.Close;
+end;
+
+function getBalanceFromMain():Double;
+begin
+  ballance := StrToFloat(FormMain.EditBallance.Text);
+
+  getBalanceFromMain := ballance;
+end;
+
+function setBalanceToMain():Double;
+begin
+  FormMain.EditBallance.Text := FloatToStr(ballance);
+
+  setBalanceToMain := ballance;
 end;
 
 function HideAditionalRates():BOOL;
@@ -974,6 +991,8 @@ end;
 
 function placeColorPanelsFromState():BOOL;
 begin
+  replaceColorPanels;
+
   placeColorPanel(stateLowHigh[0].Bet, FormMain.PanelPairLowPhrase, FormMain.PanelPairLowValue);
   placeColorPanel(stateLowHigh[1].Bet, FormMain.PanelPairHighPhrase, FormMain.PanelPairHighValue);
   placeColorPanel(stateOddEven[0].Bet, FormMain.PanelPairOddPhrase, FormMain.PanelPairOddValue);
@@ -1050,33 +1069,33 @@ begin
   placeColorPanel(stateNumber[7].Bet, FormMain.PanelNumber7Phrase, FormMain.PanelNumber7Value);
   placeColorPanel(stateNumber[8].Bet, FormMain.PanelNumber8Phrase, FormMain.PanelNumber8Value);
   placeColorPanel(stateNumber[9].Bet, FormMain.PanelNumber9Phrase, FormMain.PanelNumber9Value);
-  placeColorPanel(stateNumber[10].Bet, FormMain.PanelNumber0Phrase, FormMain.PanelNumber10Value);
-  placeColorPanel(stateNumber[11].Bet, FormMain.PanelNumber1Phrase, FormMain.PanelNumber11Value);
-  placeColorPanel(stateNumber[12].Bet, FormMain.PanelNumber2Phrase, FormMain.PanelNumber12Value);
-  placeColorPanel(stateNumber[13].Bet, FormMain.PanelNumber3Phrase, FormMain.PanelNumber13Value);
-  placeColorPanel(stateNumber[14].Bet, FormMain.PanelNumber4Phrase, FormMain.PanelNumber14Value);
-  placeColorPanel(stateNumber[15].Bet, FormMain.PanelNumber5Phrase, FormMain.PanelNumber15Value);
-  placeColorPanel(stateNumber[16].Bet, FormMain.PanelNumber6Phrase, FormMain.PanelNumber16Value);
-  placeColorPanel(stateNumber[17].Bet, FormMain.PanelNumber7Phrase, FormMain.PanelNumber17Value);
-  placeColorPanel(stateNumber[18].Bet, FormMain.PanelNumber8Phrase, FormMain.PanelNumber18Value);
-  placeColorPanel(stateNumber[19].Bet, FormMain.PanelNumber9Phrase, FormMain.PanelNumber19Value);
-  placeColorPanel(stateNumber[20].Bet, FormMain.PanelNumber0Phrase, FormMain.PanelNumber20Value);
-  placeColorPanel(stateNumber[21].Bet, FormMain.PanelNumber1Phrase, FormMain.PanelNumber21Value);
-  placeColorPanel(stateNumber[22].Bet, FormMain.PanelNumber2Phrase, FormMain.PanelNumber22Value);
-  placeColorPanel(stateNumber[23].Bet, FormMain.PanelNumber3Phrase, FormMain.PanelNumber23Value);
-  placeColorPanel(stateNumber[24].Bet, FormMain.PanelNumber4Phrase, FormMain.PanelNumber24Value);
-  placeColorPanel(stateNumber[25].Bet, FormMain.PanelNumber5Phrase, FormMain.PanelNumber25Value);
-  placeColorPanel(stateNumber[26].Bet, FormMain.PanelNumber6Phrase, FormMain.PanelNumber26Value);
-  placeColorPanel(stateNumber[27].Bet, FormMain.PanelNumber7Phrase, FormMain.PanelNumber27Value);
-  placeColorPanel(stateNumber[28].Bet, FormMain.PanelNumber8Phrase, FormMain.PanelNumber28Value);
-  placeColorPanel(stateNumber[29].Bet, FormMain.PanelNumber9Phrase, FormMain.PanelNumber29Value);
-  placeColorPanel(stateNumber[30].Bet, FormMain.PanelNumber0Phrase, FormMain.PanelNumber30Value);
-  placeColorPanel(stateNumber[31].Bet, FormMain.PanelNumber1Phrase, FormMain.PanelNumber31Value);
-  placeColorPanel(stateNumber[32].Bet, FormMain.PanelNumber2Phrase, FormMain.PanelNumber32Value);
-  placeColorPanel(stateNumber[33].Bet, FormMain.PanelNumber3Phrase, FormMain.PanelNumber33Value);
-  placeColorPanel(stateNumber[34].Bet, FormMain.PanelNumber4Phrase, FormMain.PanelNumber34Value);
-  placeColorPanel(stateNumber[35].Bet, FormMain.PanelNumber5Phrase, FormMain.PanelNumber35Value);
-  placeColorPanel(stateNumber[36].Bet, FormMain.PanelNumber6Phrase, FormMain.PanelNumber36Value);
+  placeColorPanel(stateNumber[10].Bet, FormMain.PanelNumber10Phrase, FormMain.PanelNumber10Value);
+  placeColorPanel(stateNumber[11].Bet, FormMain.PanelNumber11Phrase, FormMain.PanelNumber11Value);
+  placeColorPanel(stateNumber[12].Bet, FormMain.PanelNumber12Phrase, FormMain.PanelNumber12Value);
+  placeColorPanel(stateNumber[13].Bet, FormMain.PanelNumber13Phrase, FormMain.PanelNumber13Value);
+  placeColorPanel(stateNumber[14].Bet, FormMain.PanelNumber14Phrase, FormMain.PanelNumber14Value);
+  placeColorPanel(stateNumber[15].Bet, FormMain.PanelNumber15Phrase, FormMain.PanelNumber15Value);
+  placeColorPanel(stateNumber[16].Bet, FormMain.PanelNumber16Phrase, FormMain.PanelNumber16Value);
+  placeColorPanel(stateNumber[17].Bet, FormMain.PanelNumber17Phrase, FormMain.PanelNumber17Value);
+  placeColorPanel(stateNumber[18].Bet, FormMain.PanelNumber18Phrase, FormMain.PanelNumber18Value);
+  placeColorPanel(stateNumber[19].Bet, FormMain.PanelNumber19Phrase, FormMain.PanelNumber19Value);
+  placeColorPanel(stateNumber[20].Bet, FormMain.PanelNumber20Phrase, FormMain.PanelNumber20Value);
+  placeColorPanel(stateNumber[21].Bet, FormMain.PanelNumber21Phrase, FormMain.PanelNumber21Value);
+  placeColorPanel(stateNumber[22].Bet, FormMain.PanelNumber22Phrase, FormMain.PanelNumber22Value);
+  placeColorPanel(stateNumber[23].Bet, FormMain.PanelNumber23Phrase, FormMain.PanelNumber23Value);
+  placeColorPanel(stateNumber[24].Bet, FormMain.PanelNumber24Phrase, FormMain.PanelNumber24Value);
+  placeColorPanel(stateNumber[25].Bet, FormMain.PanelNumber25Phrase, FormMain.PanelNumber25Value);
+  placeColorPanel(stateNumber[26].Bet, FormMain.PanelNumber26Phrase, FormMain.PanelNumber26Value);
+  placeColorPanel(stateNumber[27].Bet, FormMain.PanelNumber27Phrase, FormMain.PanelNumber27Value);
+  placeColorPanel(stateNumber[28].Bet, FormMain.PanelNumber28Phrase, FormMain.PanelNumber28Value);
+  placeColorPanel(stateNumber[29].Bet, FormMain.PanelNumber29Phrase, FormMain.PanelNumber29Value);
+  placeColorPanel(stateNumber[30].Bet, FormMain.PanelNumber30Phrase, FormMain.PanelNumber30Value);
+  placeColorPanel(stateNumber[31].Bet, FormMain.PanelNumber31Phrase, FormMain.PanelNumber31Value);
+  placeColorPanel(stateNumber[32].Bet, FormMain.PanelNumber32Phrase, FormMain.PanelNumber32Value);
+  placeColorPanel(stateNumber[33].Bet, FormMain.PanelNumber33Phrase, FormMain.PanelNumber33Value);
+  placeColorPanel(stateNumber[34].Bet, FormMain.PanelNumber34Phrase, FormMain.PanelNumber34Value);
+  placeColorPanel(stateNumber[35].Bet, FormMain.PanelNumber35Phrase, FormMain.PanelNumber35Value);
+  placeColorPanel(stateNumber[36].Bet, FormMain.PanelNumber36Phrase, FormMain.PanelNumber36Value);
 
   placeColorPanelsFromState := True;
 end;

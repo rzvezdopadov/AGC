@@ -1,0 +1,18 @@
+unit SettingsGeneralFinancialBL;
+
+interface
+
+uses Windows;
+
+function getPriceCheck():Double;
+
+implementation
+
+uses Settings, SysUtils;
+
+function getPriceCheck():Double;
+begin
+  getPriceCheck := StrToFloat(FormSettings.EditPriceCheck.Text);
+end;
+
+end.

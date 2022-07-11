@@ -27,7 +27,11 @@ uses
   StatisticsSixlineBL in 'StatisticsSixlineBL.pas',
   StatisticsAngleBL in 'StatisticsAngleBL.pas',
   StatisticsStreetBL in 'StatisticsStreetBL.pas',
-  TesterBL in 'TesterBL.pas';
+  TesterBL in 'TesterBL.pas',
+  BetsBL in 'BetsBL.pas',
+  BetsNumberBL in 'BetsNumberBL.pas',
+  SettingsNumberBL in 'SettingsNumberBL.pas',
+  SettingsGeneralFinancialBL in 'SettingsGeneralFinancialBL.pas';
 
 {$R *.res}
 

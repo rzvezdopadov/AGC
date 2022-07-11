@@ -97,11 +97,11 @@ end;
 function displayStatisticsPair():BOOL;
 begin
 //////////////////// Low / High
-  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statLowHigh, 1, 2);
+  displayStatisticsFromArray(FormStatisticsPair.StringGrid, stateLowHigh, 1, 2);
 //////////////////// Odd / Even
-  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statOddEven, 3, 2);
+  displayStatisticsFromArray(FormStatisticsPair.StringGrid, stateOddEven, 3, 2);
 //////////////////// Red / Black
-  displayStatisticsFromArray(FormStatisticsPair.StringGrid, statRedBlack, 5, 2);
+  displayStatisticsFromArray(FormStatisticsPair.StringGrid, stateRedBlack, 5, 2);
 
   displayStatisticsPair := True;
 end;

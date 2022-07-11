@@ -1,6 +1,6 @@
 object FormSettings: TFormSettings
-  Left = 1155
-  Top = 384
+  Left = 1218
+  Top = 348
   Width = 681
   Height = 628
   AutoSize = True
@@ -295,7 +295,7 @@ object FormSettings: TFormSettings
         Top = 0
         Width = 657
         Height = 545
-        ActivePage = TabPair
+        ActivePage = TabNumber
         TabOrder = 0
         object TabAlghotitmGlobal: TTabSheet
           Caption = 'Global'
@@ -1424,6 +1424,8 @@ object FormSettings: TFormSettings
               Width = 41
               Height = 17
               Caption = 'x2'
+              Checked = True
+              State = cbChecked
               TabOrder = 1
               OnClick = CheckNumberMulX2Click
             end
@@ -1482,7 +1484,7 @@ object FormSettings: TFormSettings
               Height = 21
               MaxLength = 3
               TabOrder = 0
-              Text = '1'
+              Text = '6'
               OnKeyPress = EditKeyPressNumber
             end
             object PanelNumberClass: TPanel
@@ -1498,6 +1500,8 @@ object FormSettings: TFormSettings
                 Width = 65
                 Height = 17
                 Caption = 'Classic'
+                Checked = True
+                State = cbChecked
                 TabOrder = 0
               end
             end

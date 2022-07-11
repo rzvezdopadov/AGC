@@ -45,9 +45,16 @@ var
 
 implementation
 
-uses WindowUserLib, Main, KeyFilter;
+uses WindowUserLib, Main, State, KeyFilter;
 
 {$R *.dfm}
+
+function getBalanceFromTester():Double;
+begin
+  ballance := StrToFloat(FormTester.EditBallance.Text);
+
+  getBalanceFromTester := ballance;
+end;
 
 procedure TFormTester.FormCreate(Sender: TObject);
 begin

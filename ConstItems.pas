@@ -88,6 +88,7 @@ const
   PHRASE_LONG = 'Long';
 
   clNoneBet = $0091DBEE;
+
   
 implementation
 
