@@ -1,0 +1,77 @@
+unit SettingsStreetBL;
+
+interface
+
+uses Windows;
+
+function getSettStreetEnable(position: Integer):BOOL;
+function getSettStreetAmountMin():Integer;
+function getSettStreetAmountMax():Integer;
+function getSettStreetRuleDouble():BOOL;
+function getSettStreetMul():Double;
+function getSettStreetSkipMul():Integer;
+function getSettStreetSpace():Integer;
+function getSettStreetEnMartinClassic():BOOL;
+
+implementation
+
+uses Settings, SysUtils, StdCtrls;
+
+function getSettStreetEnable(position: Integer):BOOL;
+begin
+  getSettStreetEnable := false;
+
+  if (FormSettings.CheckStreetEnabledST0.Checked and (position = 0)) then getSettStreetEnable := true;
+  if (FormSettings.CheckStreetEnabledST1.Checked and (position = 1)) then getSettStreetEnable := true;
+  if (FormSettings.CheckStreetEnabledST2.Checked and (position = 2)) then getSettStreetEnable := true;
+  if (FormSettings.CheckStreetEnabledST3.Checked and (position = 3)) then getSettStreetEnable := true;
+  if (FormSettings.CheckStreetEnabledST4.Checked and (position = 4)) then getSettStreetEnable := true;
+  if (FormSettings.CheckStreetEnabledST5.Checked and (position = 5)) then getSettStreetEnable := true;
+  if (FormSettings.CheckStreetEnabledST6.Checked and (position = 6)) then getSettStreetEnable := true;
+  if (FormSettings.CheckStreetEnabledST7.Checked and (position = 7)) then getSettStreetEnable := true;
+  if (FormSettings.CheckStreetEnabledST8.Checked and (position = 8)) then getSettStreetEnable := true;
+  if (FormSettings.CheckStreetEnabledST9.Checked and (position = 9)) then getSettStreetEnable := true;
+  if (FormSettings.CheckStreetEnabledST10.Checked and (position = 10)) then getSettStreetEnable := true;
+  if (FormSettings.CheckStreetEnabledST11.Checked and (position = 11)) then getSettStreetEnable := true;
+end;
+
+function getSettStreetAmountMin():Integer;
+begin
+  getSettStreetAmountMin := StrToInt(FormSettings.EditStreetAmountCheckMin.Text);
+end;
+
+function getSettStreetAmountMax():Integer;
+begin
+  getSettStreetAmountMax := StrToInt(FormSettings.EditStreetAmountCheckMax.Text);
+end;
+
+function getSettStreetRuleDouble():BOOL;
+begin
+  getSettStreetRuleDouble := FormSettings.CheckStreetRuleDouble.Checked;
+end;
+
+function getSettStreetMul():Double;
+begin
+  getSettStreetMul := 1;
+
+  if FormSettings.CheckStreetMulX2.Checked then getSettStreetMul := 2;
+  if FormSettings.CheckStreetMulX3.Checked then getSettStreetMul := 3;
+  if FormSettings.CheckStreetMulX4.Checked then getSettStreetMul := 4;
+end;
+
+function getSettStreetSkipMul():Integer;
+begin
+  getSettStreetSkipMul := StrToInt(FormSettings.EditStreetMulSkipMul.Text);
+end;
+
+function getSettStreetSpace():Integer;
+begin
+  getSettStreetSpace := StrToInt(FormSettings.EditStreetSpace.Text);
+end;
+
+function getSettStreetEnMartinClassic():BOOL;
+begin
+  getSettStreetEnMartinClassic := FormSettings.CheckStreetClass.Checked;
+end;
+
+end.

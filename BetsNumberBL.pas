@@ -22,20 +22,29 @@ begin
         // Если есть ставка и мы выиграли
         stateNumber[i].Bet.Enabled := False;
         ballance := ballance + stateNumber[i].Bet.Amount * 36;
+        stateNumber[i].Bet.MulLossCount := 0;
         stateNumber[i].Bet.Count := 0;
         stateNumber[i].Bet.Amount := 0;
       end else if (stateNumber[i].Bet.Enabled) and (stateNumber[i].Last <> 0) then begin
         // Если есть ставка и мы проиграли
-        stateNumber[i].Bet.Count :=  Round(getSettNumberMul * stateNumber[i].Bet.Count);
+        stateNumber[i].Bet.MulLossCount := stateNumber[i].Bet.MulLossCount + 1;
+        if (stateNumber[i].Bet.MulLossCount > getSettNumberSkipMul) then begin
+          // Если удлинение ставки достигло переполнения, умножаем 
+          stateNumber[i].Bet.MulLossCount := 0;
+          stateNumber[i].Bet.Count :=  Round(getSettNumberMul * stateNumber[i].Bet.Count);
+        end;
+
         if (stateNumber[i].Bet.Count > getSettNumberAmountMax) then begin
           // Если больше максимальной ставки
           if (getSettNumberRuleDouble) then begin
             // Если правило Double, выставляем минимальную ставку
             stateNumber[i].Bet.Count := getSettNumberAmountMin;
+            stateNumber[i].Bet.MulLossCount := 0;
           end else begin
             // Если нет правила Double, сбрасываем ставку и блокируем до следующего выпадения
             stateNumber[i].Bet.Enabled := False;
             stateNumber[i].Bet.Blocked := True;
+            stateNumber[i].Bet.MulLossCount := 0;
             stateNumber[i].Bet.Count := 0;
             stateNumber[i].Bet.Amount := 0;
           end;

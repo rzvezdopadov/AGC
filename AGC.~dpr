@@ -30,7 +30,19 @@ uses
   TesterBL in 'TesterBL.pas',
   BetsBL in 'BetsBL.pas',
   BetsNumberBL in 'BetsNumberBL.pas',
-  SettingsNumberBL in 'SettingsNumberBL.pas';
+  SettingsNumberBL in 'SettingsNumberBL.pas',
+  SettingsGeneralFinancialBL in 'SettingsGeneralFinancialBL.pas',
+  BetsSixlineBL in 'BetsSixlineBL.pas',
+  SettingsSixlineBL in 'SettingsSixlineBL.pas',
+  SettingsStreetBL in 'SettingsStreetBL.pas',
+  BetsStreetBL in 'BetsStreetBL.pas',
+  SettingsAngleBL in 'SettingsAngleBL.pas',
+  BetsAngleBL in 'BetsAngleBL.pas',
+  SettingsDozenBL in 'SettingsDozenBL.pas',
+  BetsDozenBL in 'BetsDozenBL.pas',
+  SettingsColumnBL in 'SettingsColumnBL.pas',
+  BetsColumnBL in 'BetsColumnBL.pas',
+  SettingsPairBL in 'SettingsPairBL.pas';
 
 {$R *.res}
 

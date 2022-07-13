@@ -346,9 +346,11 @@ type
     LabelStreetMulSkipMul: TLabel;
     EditAngleMulSkipMul: TEdit;
     LabelAngleMulSkipMul: TLabel;
-    Panel1: TPanel;
+    PanelRules: TPanel;
     Label1: TLabel;
     CheckBox1: TCheckBox;
+    CheckStreetEnabledST13: TCheckBox;
+    CheckStreetEnabledST12: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure EditSettingStatisticsCountKeyUp(Sender: TObject;
       var Key: Word; Shift: TShiftState);

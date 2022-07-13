@@ -73,7 +73,7 @@ begin
     stat[i].Bet.Enabled := False;
     stat[i].Bet.Blocked := False;
     stat[i].Bet.Count := 0;
-    stat[i].Bet.Amount := 0;
+    stat[i].Bet.MulLossCount := 0;
     stat[i].Bet.Amount := 0;
   end;
 

@@ -1,6 +1,6 @@
 object FormSettings: TFormSettings
-  Left = 1218
-  Top = 348
+  Left = 1201
+  Top = 326
   Width = 681
   Height = 628
   AutoSize = True
@@ -13,6 +13,7 @@ object FormSettings: TFormSettings
   Font.Style = [fsBold]
   Menu = MenuSetting
   OldCreateOrder = False
+  Visible = True
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -261,7 +262,7 @@ object FormSettings: TFormSettings
               OnKeyPress = EditKeyPressNumber
             end
           end
-          object Panel1: TPanel
+          object PanelRules: TPanel
             Left = 240
             Top = 80
             Width = 121
@@ -295,7 +296,7 @@ object FormSettings: TFormSettings
         Top = 0
         Width = 657
         Height = 545
-        ActivePage = TabNumber
+        ActivePage = TabAngle
         TabOrder = 0
         object TabAlghotitmGlobal: TTabSheet
           Caption = 'Global'
@@ -525,7 +526,7 @@ object FormSettings: TFormSettings
                 Top = 40
                 Width = 81
                 Height = 17
-                Caption = 'Black/Red'
+                Caption = 'Red/Black'
                 TabOrder = 1
                 OnClick = CheckPairMartinClassBRClick
               end
@@ -567,7 +568,7 @@ object FormSettings: TFormSettings
                 Top = 40
                 Width = 81
                 Height = 17
-                Caption = 'Black/Red'
+                Caption = 'Red/Black'
                 TabOrder = 1
                 OnClick = CheckPairMartinRandBRClick
               end
@@ -609,7 +610,7 @@ object FormSettings: TFormSettings
                 Top = 52
                 Width = 81
                 Height = 17
-                Caption = 'Black/Red'
+                Caption = 'Red/Black'
                 TabOrder = 1
                 OnClick = CheckPairMartinSeqBRClick
               end
@@ -785,7 +786,7 @@ object FormSettings: TFormSettings
               Width = 41
               Height = 21
               TabOrder = 4
-              Text = '1'
+              Text = '0'
             end
           end
         end
@@ -1015,7 +1016,7 @@ object FormSettings: TFormSettings
               Width = 49
               Height = 21
               TabOrder = 4
-              Text = '1'
+              Text = '0'
             end
           end
           object PanelColumnEnabled: TPanel
@@ -1178,7 +1179,7 @@ object FormSettings: TFormSettings
               Width = 49
               Height = 21
               TabOrder = 4
-              Text = '1'
+              Text = '0'
             end
           end
           object PanelDozenMartin: TPanel
@@ -1424,8 +1425,6 @@ object FormSettings: TFormSettings
               Width = 41
               Height = 17
               Caption = 'x2'
-              Checked = True
-              State = cbChecked
               TabOrder = 1
               OnClick = CheckNumberMulX2Click
             end
@@ -1453,7 +1452,7 @@ object FormSettings: TFormSettings
               Width = 49
               Height = 21
               TabOrder = 4
-              Text = '1'
+              Text = '0'
             end
           end
           object PanelNumberMartin: TPanel
@@ -1500,8 +1499,6 @@ object FormSettings: TFormSettings
                 Width = 65
                 Height = 17
                 Caption = 'Classic'
-                Checked = True
-                State = cbChecked
                 TabOrder = 0
               end
             end
@@ -2006,7 +2003,7 @@ object FormSettings: TFormSettings
               Width = 49
               Height = 21
               TabOrder = 4
-              Text = '1'
+              Text = '0'
             end
           end
           object PanelSixlineMartin: TPanel
@@ -2274,7 +2271,7 @@ object FormSettings: TFormSettings
               OnClick = CheckStreetMulX2Click
             end
             object CheckStreetMulX3: TCheckBox
-              Left = 72
+              Left = 80
               Top = 48
               Width = 33
               Height = 17
@@ -2297,7 +2294,7 @@ object FormSettings: TFormSettings
               Width = 49
               Height = 21
               TabOrder = 4
-              Text = '1'
+              Text = '0'
             end
           end
           object PanelStreetMartin: TPanel
@@ -2352,7 +2349,7 @@ object FormSettings: TFormSettings
             Left = 8
             Top = 104
             Width = 105
-            Height = 225
+            Height = 257
             Color = 6487945
             TabOrder = 3
             object Label6: TLabel
@@ -2481,6 +2478,26 @@ object FormSettings: TFormSettings
               Checked = True
               State = cbChecked
               TabOrder = 11
+            end
+            object CheckStreetEnabledST13: TCheckBox
+              Left = 24
+              Top = 236
+              Width = 57
+              Height = 17
+              Caption = 'ST13'
+              Checked = True
+              State = cbChecked
+              TabOrder = 12
+            end
+            object CheckStreetEnabledST12: TCheckBox
+              Left = 24
+              Top = 220
+              Width = 57
+              Height = 17
+              Caption = 'ST12'
+              Checked = True
+              State = cbChecked
+              TabOrder = 13
             end
           end
         end
@@ -2623,7 +2640,7 @@ object FormSettings: TFormSettings
               OnClick = CheckAngleMulX2Click
             end
             object CheckAngleMulX3: TCheckBox
-              Left = 72
+              Left = 80
               Top = 48
               Width = 33
               Height = 17
@@ -2646,7 +2663,7 @@ object FormSettings: TFormSettings
               Width = 49
               Height = 21
               TabOrder = 4
-              Text = '1'
+              Text = '0'
             end
           end
           object PanelAngleEnabled: TPanel
