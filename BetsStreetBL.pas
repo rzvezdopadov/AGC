@@ -21,7 +21,7 @@ begin
       if (stateStreet[i].Bet.Enabled) and (stateStreet[i].Last = 0) then begin
         // Если есть ставка и мы выиграли
         stateStreet[i].Bet.Enabled := False;
-        ballance := ballance + stateStreet[i].Bet.Amount * 36;
+        ballance := ballance + stateStreet[i].Bet.Amount * 12;
         stateStreet[i].Bet.MulLossCount := 0;
         stateStreet[i].Bet.Count := 0;
         stateStreet[i].Bet.Amount := 0;

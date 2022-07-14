@@ -21,7 +21,7 @@ begin
       if (stateSixline[i].Bet.Enabled) and (stateSixline[i].Last = 0) then begin
         // Если есть ставка и мы выиграли
         stateSixline[i].Bet.Enabled := False;
-        ballance := ballance + stateSixline[i].Bet.Amount * 36;
+        ballance := ballance + stateSixline[i].Bet.Amount * 6;
         stateSixline[i].Bet.MulLossCount := 0;
         stateSixline[i].Bet.Count := 0;
         stateSixline[i].Bet.Amount := 0;

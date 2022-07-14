@@ -258,9 +258,9 @@ function calcStatisticsAngle():BOOL;
 begin
   calcStatisticsAngleLast(stateAngle);
 
-  calcPercAngle(statAnglePercFirst, PERC_FIRST, getFirstPercCount);
-  calcPercAngle(statAnglePercSecond, PERC_SECOND, getSecondPercCount);
-  calcPercAngle(statAnglePercThird, PERC_THIRD, getThirdPercCount);
+  calcPercAngle(stateAngle, PERC_FIRST, getFirstPercCount);
+  calcPercAngle(stateAngle, PERC_SECOND, getSecondPercCount);
+  calcPercAngle(stateAngle, PERC_THIRD, getThirdPercCount);
 
   calcStatisticsAngle := true;
 end;

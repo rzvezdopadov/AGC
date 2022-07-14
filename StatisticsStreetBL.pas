@@ -159,6 +159,7 @@ begin
       end;
     end;
 
+    if (Divide = 0) then Divide := 1;
     stat[ConstNum].Perc[percPos] := (Count * 100) / Divide;
   end else begin
     for i := 0 to PercCount-1 do begin
@@ -167,6 +168,7 @@ begin
       end;
     end;
 
+    if (Divide = 0) then Divide := 1;
     stat[ConstNum].Perc[percPos] := (Count * 100) / Divide;
   end;
 ////////////////

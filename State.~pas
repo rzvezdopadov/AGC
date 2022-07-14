@@ -123,12 +123,7 @@ begin
   numberSetUser := True;
 end;
 
-function numberSetTester(Value: Integer): BOOL;
-begin
-  addNewNumberToRichEdit(Value, FormMain.RichEditNumber);
 
-  numberSetTester := True;
-end;
 
 function clearState(): BOOL;
 begin

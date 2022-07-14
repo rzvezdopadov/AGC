@@ -226,6 +226,7 @@ begin
       end;
     end;
 
+    if (Divide = 0) then Divide := 1;
     stat[ConstNum].Perc[percPos] := (Count * 100) / Divide;
   end;
 ////////////////

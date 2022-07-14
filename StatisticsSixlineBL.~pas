@@ -183,9 +183,9 @@ function calcStatisticsSixline():BOOL;
 begin
   calcStatisticsSixlineLast(stateSixline);
 
-  calcPercSixline(stateSixline, PERC_FIRST, percPos, getFirstPercCount);
-  calcPercSixline(stateSixline, PERC_SECOND, percPos, getSecondPercCount);
-  calcPercSixline(stateSixline, PERC_THIRD, percPos, getThirdPercCount);
+  calcPercSixline(stateSixline, PERC_FIRST, getFirstPercCount);
+  calcPercSixline(stateSixline, PERC_SECOND, getSecondPercCount);
+  calcPercSixline(stateSixline, PERC_THIRD, getThirdPercCount);
 
   calcStatisticsSixline := true;
 end;

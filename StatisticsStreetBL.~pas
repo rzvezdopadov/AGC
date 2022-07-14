@@ -159,7 +159,8 @@ begin
       end;
     end;
 
-    statStreetPerc[ConstNum] := (Count * 100) / Divide;
+    if (Divide = 0) then Divide := 1;
+    stat[ConstNum].Perc[percPos] := (Count * 100) / Divide;
   end else begin
     for i := 0 to PercCount-1 do begin
       if isClassStreetFromArr(ConstNum, longNumberArray - i) then  begin
@@ -167,7 +168,7 @@ begin
       end;
     end;
 
-    statStreetPerc[ConstNum] := (Count * 100) / Divide;
+    stat[ConstNum].Perc[percPos] := (Count * 100) / Divide;
   end;
 ////////////////
   calcPercStreetLocal := True;

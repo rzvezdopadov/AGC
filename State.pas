@@ -11,8 +11,6 @@ uses
   function clearState(): BOOL;
   function addSeqNum(Value: Integer):BOOL;
   function numberSetUser(Value: Integer): BOOL;
-  function numberSetTester(Value: Integer): BOOL;
-
 type
   TBet = record
     Enabled: BOOL;
@@ -123,12 +121,7 @@ begin
   numberSetUser := True;
 end;
 
-function numberSetTester(Value: Integer): BOOL;
-begin
-  addNewNumberToRichEdit(Value, FormMain.RichEditNumber);
 
-  numberSetTester := True;
-end;
 
 function clearState(): BOOL;
 begin

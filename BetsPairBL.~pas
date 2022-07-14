@@ -4,7 +4,7 @@ interface
 
 uses Windows, Dialogs;
 
-function BetsColumn():BOOL;
+function BetsPair():BOOL;
 
 implementation
 
@@ -21,7 +21,7 @@ begin
       if (stateLowHigh[i].Bet.Enabled) and (stateLowHigh[i].Last = 0) then begin
         // Если есть ставка и мы выиграли
         stateLowHigh[i].Bet.Enabled := False;
-        ballance := ballance + stateLowHigh[i].Bet.Amount * 36;
+        ballance := ballance + stateLowHigh[i].Bet.Amount * 2;
         stateLowHigh[i].Bet.MulLossCount := 0;
         stateLowHigh[i].Bet.Count := 0;
         stateLowHigh[i].Bet.Amount := 0;

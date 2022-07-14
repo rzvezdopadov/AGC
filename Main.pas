@@ -958,7 +958,8 @@ end;
 
 procedure TFormMain.MenuMainClearStatisticsClick(Sender: TObject);
 begin
-  clearState;  
+  clearState;
+  replaceColorPanels;
 end;
 
 procedure TFormMain.EditKeyPressNumber(Sender: TObject; var Key: Char);

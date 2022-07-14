@@ -7,6 +7,9 @@ uses
   Dialogs, Menus, StdCtrls, ComCtrls, ExtCtrls, TeeProcs, TeEngine, Chart,
   Series;
 
+  function addDotToChart():BOOL;
+  function getBalanceFromTester():Double;
+
 type
   TFormTester = class(TForm)
     MainMenu: TMainMenu;
@@ -34,6 +37,7 @@ type
     procedure MenuSaveSampleClick(Sender: TObject);
     procedure EditKeyPressNumber(Sender: TObject; var Key: Char);
     procedure RichEditNumberKeyPress(Sender: TObject; var Key: Char);
+    procedure PanelNumberCalcClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,16 +49,9 @@ var
 
 implementation
 
-uses WindowUserLib, Main, State, KeyFilter;
+uses WindowUserLib, Main, State, KeyFilter, TesterBL;
 
 {$R *.dfm}
-
-function getBalanceFromTester():Double;
-begin
-  ballance := StrToFloat(FormTester.EditBallance.Text);
-
-  getBalanceFromTester := ballance;
-end;
 
 procedure TFormTester.FormCreate(Sender: TObject);
 begin
@@ -116,6 +113,25 @@ procedure TFormTester.RichEditNumberKeyPress(Sender: TObject;
   var Key: Char);
 begin
   Key := testKeyOnNumberForMemo(Key);
+end;
+
+procedure TFormTester.PanelNumberCalcClick(Sender: TObject);
+begin
+  runTester;
+end;
+
+function addDotToChart():BOOL;
+begin
+  FormTester.Chart.Series[0].Add(ballance);
+
+  addDotToChart := True;
+end;
+
+function getBalanceFromTester():Double;
+begin
+  ballance := StrToFloat(FormTester.EditBallance.Text);
+
+  getBalanceFromTester := ballance;
 end;
 
 end.

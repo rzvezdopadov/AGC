@@ -21,7 +21,7 @@ begin
       if (stateSixline[i].Bet.Enabled) and (stateSixline[i].Last = 0) then begin
         // Если есть ставка и мы выиграли
         stateSixline[i].Bet.Enabled := False;
-        ballance := ballance + stateSixline[i].Bet.Amount * 36;
+        ballance := ballance + stateSixline[i].Bet.Amount * 10;
         stateSixline[i].Bet.MulLossCount := 0;
         stateSixline[i].Bet.Count := 0;
         stateSixline[i].Bet.Amount := 0;
@@ -57,7 +57,7 @@ begin
         if (getSettSixlineEnable(i) and (stateSixline[i].Last > getSettSixlineSpace)) then begin
           // Если ставка на это число разрешена и больше установленного параметра
           stateSixline[i].Bet.Enabled := True;
-          stateSixline[i].Bet.Count := getSettNumberAmountMin;
+          stateSixline[i].Bet.Count := getSettSixlineAmountMin;
           stateSixline[i].Bet.Amount := stateSixline[i].Bet.Count * getPriceCheck;
           ballance := ballance - stateSixline[i].Bet.Amount;
         end;

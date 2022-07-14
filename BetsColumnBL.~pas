@@ -4,75 +4,75 @@ interface
 
 uses Windows, Dialogs;
 
-function BetsDozen():BOOL;
+function BetsColumn():BOOL;
 
 implementation
 
-uses ConstItems, State, SettingsDozenBL, SettingsGeneralFinancialBL;
+uses ConstItems, State, SettingsColumnBL, SettingsGeneralFinancialBL;
 
-function BetsDozenMartingeil():BOOL;
+function BetsColumnMartingeil():BOOL;
 var
   i: integer;
 begin
   for i := 0 to 2 do begin
-    if (stateDozen[i].Bet.Blocked) then begin
-      if (stateDozen[i].Last = 0) then stateDozen[i].Bet.Blocked := False;
+    if (stateColumn[i].Bet.Blocked) then begin
+      if (stateColumn[i].Last = 0) then stateColumn[i].Bet.Blocked := False;
     end else begin
-      if (stateDozen[i].Bet.Enabled) and (stateDozen[i].Last = 0) then begin
+      if (stateColumn[i].Bet.Enabled) and (stateColumn[i].Last = 0) then begin
         // ≈сли есть ставка и мы выиграли
-        stateDozen[i].Bet.Enabled := False;
-        ballance := ballance + stateDozen[i].Bet.Amount * 36;
-        stateDozen[i].Bet.MulLossCount := 0;
-        stateDozen[i].Bet.Count := 0;
-        stateDozen[i].Bet.Amount := 0;
-      end else if (stateDozen[i].Bet.Enabled) and (stateDozen[i].Last <> 0) then begin
+        stateColumn[i].Bet.Enabled := False;
+        ballance := ballance + stateColumn[i].Bet.Amount * 36;
+        stateColumn[i].Bet.MulLossCount := 0;
+        stateColumn[i].Bet.Count := 0;
+        stateColumn[i].Bet.Amount := 0;
+      end else if (stateColumn[i].Bet.Enabled) and (stateColumn[i].Last <> 0) then begin
         // ≈сли есть ставка и мы проиграли
-        stateDozen[i].Bet.MulLossCount := stateDozen[i].Bet.MulLossCount + 1;
-        if (stateDozen[i].Bet.MulLossCount > getSettDozenSkipMul) then begin
+        stateColumn[i].Bet.MulLossCount := stateColumn[i].Bet.MulLossCount + 1;
+        if (stateColumn[i].Bet.MulLossCount > getSettColumnSkipMul) then begin
           // ≈сли удлинение ставки достигло переполнени€, умножаем 
-          stateDozen[i].Bet.MulLossCount := 0;
-          stateDozen[i].Bet.Count :=  Round(getSettDozenMul * stateDozen[i].Bet.Count);
+          stateColumn[i].Bet.MulLossCount := 0;
+          stateColumn[i].Bet.Count :=  Round(getSettColumnMul * stateColumn[i].Bet.Count);
         end;
 
-        if (stateDozen[i].Bet.Count > getSettDozenAmountMax) then begin
+        if (stateColumn[i].Bet.Count > getSettColumnAmountMax) then begin
           // ≈сли больше максимальной ставки
-          if (getSettDozenRuleDouble) then begin
+          if (getSettColumnRuleDouble) then begin
             // ≈сли правило Double, выставл€ем минимальную ставку
-            stateDozen[i].Bet.Count := getSettDozenAmountMin;
-            stateDozen[i].Bet.MulLossCount := 0;
+            stateColumn[i].Bet.Count := getSettColumnAmountMin;
+            stateColumn[i].Bet.MulLossCount := 0;
           end else begin
             // ≈сли нет правила Double, сбрасываем ставку и блокируем до следующего выпадени€
-            stateDozen[i].Bet.Enabled := False;
-            stateDozen[i].Bet.Blocked := True;
-            stateDozen[i].Bet.MulLossCount := 0;
-            stateDozen[i].Bet.Count := 0;
-            stateDozen[i].Bet.Amount := 0;
+            stateColumn[i].Bet.Enabled := False;
+            stateColumn[i].Bet.Blocked := True;
+            stateColumn[i].Bet.MulLossCount := 0;
+            stateColumn[i].Bet.Count := 0;
+            stateColumn[i].Bet.Amount := 0;
           end;
         end;
 
-        stateDozen[i].Bet.Amount := stateDozen[i].Bet.Count * getPriceCheck;
-        ballance := ballance - stateDozen[i].Bet.Amount;
+        stateColumn[i].Bet.Amount := stateColumn[i].Bet.Count * getPriceCheck;
+        ballance := ballance - stateColumn[i].Bet.Amount;
       end else begin
         // ≈сли ставок не было
-        if (getSettDozenEnable(i) and (stateDozen[i].Last > getSettDozenSpace)) then begin
+        if (getSettColumnEnable(i) and (stateColumn[i].Last > getSettColumnSpace)) then begin
           // ≈сли ставка на это число разрешена и больше установленного параметра
-          stateDozen[i].Bet.Enabled := True;
-          stateDozen[i].Bet.Count := getSettDozenAmountMin;
-          stateDozen[i].Bet.Amount := stateDozen[i].Bet.Count * getPriceCheck;
-          ballance := ballance - stateDozen[i].Bet.Amount;
+          stateColumn[i].Bet.Enabled := True;
+          stateColumn[i].Bet.Count := getSettColumnAmountMin;
+          stateColumn[i].Bet.Amount := stateColumn[i].Bet.Count * getPriceCheck;
+          ballance := ballance - stateColumn[i].Bet.Amount;
         end;
       end;
     end;
   end;
 
-  BetsDozenMartingeil := True;
+  BetsColumnMartingeil := True;
 end;
 
-function BetsDozen():BOOL;
+function BetsColumn():BOOL;
 begin
-  if getSettDozenEnMartinClassic then BetsDozenMartingeil;
+  if getSettColumnEnMartinClassic then BetsColumnMartingeil;
 
-  BetsDozen := True;
+  BetsColumn := True;
 end;
 
 end.

@@ -1,6 +1,6 @@
 object FormTester: TFormTester
-  Left = 1036
-  Top = 162
+  Left = 1123
+  Top = 186
   Width = 762
   Height = 697
   Caption = 'Tester'
@@ -14,6 +14,7 @@ object FormTester: TFormTester
   Font.Style = [fsBold]
   Menu = MainMenu
   OldCreateOrder = False
+  Visible = True
   OnCreate = FormCreate
   OnResize = FormResize
   PixelsPerInch = 96
@@ -61,6 +62,44 @@ object FormTester: TFormTester
       Height = 465
       Color = clMoneyGreen
       HideScrollBars = False
+      Lines.Strings = (
+        '0'
+        '1'
+        '2'
+        '3'
+        '4'
+        '5'
+        '6'
+        '7'
+        '8'
+        '9'
+        '10'
+        '11'
+        '12'
+        '13'
+        '14'
+        '15'
+        '16'
+        '17'
+        '18'
+        '19'
+        '20'
+        '21'
+        '22'
+        '23'
+        '24'
+        '25'
+        '26'
+        '27'
+        '28'
+        '29'
+        '30'
+        '31'
+        '32'
+        '33'
+        '34'
+        '35'
+        '36')
       ScrollBars = ssVertical
       TabOrder = 0
       OnKeyPress = RichEditNumberKeyPress
@@ -73,6 +112,7 @@ object FormTester: TFormTester
       Caption = 'Calculate'
       Color = 3644415
       TabOrder = 1
+      OnClick = PanelNumberCalcClick
     end
     object EditBallance: TEdit
       Left = 8

@@ -21,7 +21,7 @@ begin
       if (stateLowHigh[i].Bet.Enabled) and (stateLowHigh[i].Last = 0) then begin
         // Если есть ставка и мы выиграли
         stateLowHigh[i].Bet.Enabled := False;
-        ballance := ballance + stateLowHigh[i].Bet.Amount * 36;
+        ballance := ballance + stateLowHigh[i].Bet.Amount * 2;
         stateLowHigh[i].Bet.MulLossCount := 0;
         stateLowHigh[i].Bet.Count := 0;
         stateLowHigh[i].Bet.Amount := 0;
@@ -79,7 +79,7 @@ begin
       if (stateOddEven[i].Bet.Enabled) and (stateOddEven[i].Last = 0) then begin
         // Если есть ставка и мы выиграли
         stateOddEven[i].Bet.Enabled := False;
-        ballance := ballance + stateOddEven[i].Bet.Amount * 36;
+        ballance := ballance + stateOddEven[i].Bet.Amount * 2;
         stateOddEven[i].Bet.MulLossCount := 0;
         stateOddEven[i].Bet.Count := 0;
         stateOddEven[i].Bet.Amount := 0;
@@ -137,7 +137,7 @@ begin
       if (stateRedBlack[i].Bet.Enabled) and (stateRedBlack[i].Last = 0) then begin
         // Если есть ставка и мы выиграли
         stateRedBlack[i].Bet.Enabled := False;
-        ballance := ballance + stateRedBlack[i].Bet.Amount * 36;
+        ballance := ballance + stateRedBlack[i].Bet.Amount * 2;
         stateRedBlack[i].Bet.MulLossCount := 0;
         stateRedBlack[i].Bet.Count := 0;
         stateRedBlack[i].Bet.Amount := 0;
