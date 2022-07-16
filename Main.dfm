@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 213
-  Top = 319
+  Left = 223
+  Top = 329
   Width = 617
   Height = 668
   AlphaBlend = True
@@ -2039,6 +2039,10 @@ object FormMain: TFormMain
       object MenuMainSaveSample: TMenuItem
         Caption = 'Save sample'
         OnClick = MenuMainSaveSampleClick
+      end
+      object Configurator1: TMenuItem
+        Caption = 'Configurator'
+        OnClick = Configurator1Click
       end
       object MenuMainExit: TMenuItem
         Caption = 'Exit'

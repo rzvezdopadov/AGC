@@ -1,6 +1,6 @@
 object FormSettings: TFormSettings
-  Left = 1201
-  Top = 326
+  Left = 1196
+  Top = 292
   Width = 681
   Height = 628
   AutoSize = True
@@ -296,7 +296,7 @@ object FormSettings: TFormSettings
         Top = 0
         Width = 657
         Height = 545
-        ActivePage = TabPair
+        ActivePage = TabNumber
         TabOrder = 0
         object TabAlghotitmGlobal: TTabSheet
           Caption = 'Global'

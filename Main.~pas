@@ -248,6 +248,7 @@ type
     PanelStartAutoGame: TPanel;
     MenuMainClearStatistics: TMenuItem;
     SaveSampleDialog: TSaveDialog;
+    Configurator1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure CheckBoxASSTClick(Sender: TObject);
     procedure MenuFileSettingsClick(Sender: TObject);
@@ -298,6 +299,7 @@ type
     procedure EditKeyPressNumber(Sender: TObject; var Key: Char);
     procedure RichEditNumberKeyPress(Sender: TObject; var Key: Char);
     procedure MenuMainSaveSampleClick(Sender: TObject);
+    procedure Configurator1Click(Sender: TObject);
 
   private
 
@@ -314,7 +316,7 @@ implementation
 
 uses WindowUserLib, Settings, Statistics, Tester, ConstItems, State, KeyFilter,
   StatisticsPairBL
-;
+, Configurator;
 
 {$R *.dfm}
 
@@ -958,7 +960,8 @@ end;
 
 procedure TFormMain.MenuMainClearStatisticsClick(Sender: TObject);
 begin
-  clearState;  
+  clearState;
+  replaceColorPanels;
 end;
 
 procedure TFormMain.EditKeyPressNumber(Sender: TObject; var Key: Char);
@@ -1098,6 +1101,11 @@ begin
   placeColorPanel(stateNumber[36].Bet, FormMain.PanelNumber36Phrase, FormMain.PanelNumber36Value);
 
   placeColorPanelsFromState := True;
+end;
+
+procedure TFormMain.Configurator1Click(Sender: TObject);
+begin
+  FormConfigurator.Visible := True;
 end;
 
 end.

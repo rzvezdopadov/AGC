@@ -42,7 +42,8 @@ uses
   BetsDozenBL in 'BetsDozenBL.pas',
   SettingsColumnBL in 'SettingsColumnBL.pas',
   BetsColumnBL in 'BetsColumnBL.pas',
-  SettingsPairBL in 'SettingsPairBL.pas';
+  SettingsPairBL in 'SettingsPairBL.pas',
+  BetsPairBL in 'BetsPairBL.pas';
 
 {$R *.res}
 

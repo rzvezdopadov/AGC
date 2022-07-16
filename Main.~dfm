@@ -2040,6 +2040,10 @@ object FormMain: TFormMain
         Caption = 'Save sample'
         OnClick = MenuMainSaveSampleClick
       end
+      object Configurator1: TMenuItem
+        Caption = 'Configurator'
+        OnClick = Configurator1Click
+      end
       object MenuMainExit: TMenuItem
         Caption = 'Exit'
         OnClick = MenuMainExitClick

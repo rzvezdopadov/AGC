@@ -43,7 +43,8 @@ uses
   SettingsColumnBL in 'SettingsColumnBL.pas',
   BetsColumnBL in 'BetsColumnBL.pas',
   SettingsPairBL in 'SettingsPairBL.pas',
-  BetsPairBL in 'BetsPairBL.pas';
+  BetsPairBL in 'BetsPairBL.pas',
+  Configurator in 'Configurator.pas' {FormConfigurator};
 
 {$R *.res}
 
@@ -61,5 +62,6 @@ begin
   Application.CreateForm(TFormStatisticsPair, FormStatisticsPair);
   Application.CreateForm(TFormStatisticsDozen, FormStatisticsDozen);
   Application.CreateForm(TFormStatisticsColumn, FormStatisticsColumn);
+  Application.CreateForm(TFormConfigurator, FormConfigurator);
   Application.Run;
 end.
