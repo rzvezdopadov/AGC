@@ -13,7 +13,6 @@ object FormSettings: TFormSettings
   Font.Style = [fsBold]
   Menu = MenuSetting
   OldCreateOrder = False
-  Visible = True
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13

@@ -14,7 +14,6 @@ object FormTester: TFormTester
   Font.Style = [fsBold]
   Menu = MainMenu
   OldCreateOrder = False
-  Visible = True
   OnCreate = FormCreate
   OnResize = FormResize
   PixelsPerInch = 96

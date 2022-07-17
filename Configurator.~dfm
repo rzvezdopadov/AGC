@@ -1,6 +1,6 @@
 object FormConfigurator: TFormConfigurator
-  Left = 282
-  Top = 262
+  Left = 221
+  Top = 268
   Width = 757
   Height = 726
   Caption = 'Configurator'
@@ -10,8 +10,11 @@ object FormConfigurator: TFormConfigurator
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
+  KeyPreview = True
   Menu = MenuSetting
   OldCreateOrder = False
+  Visible = True
+  OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
   object PanelWindowRuleteName: TPanel
@@ -58,11 +61,33 @@ object FormConfigurator: TFormConfigurator
         'After clicking "Scan" hover over the roulette window and press "' +
         '+"'
     end
+    object LabelMousePos: TLabel
+      Left = 416
+      Top = 8
+      Width = 90
+      Height = 13
+      Caption = 'Mouse position:'
+    end
+    object LabelMousePosX: TLabel
+      Left = 520
+      Top = 8
+      Width = 13
+      Height = 13
+      Caption = 'X:'
+    end
+    object LabelMousePosY: TLabel
+      Left = 576
+      Top = 8
+      Width = 13
+      Height = 13
+      Caption = 'Y:'
+    end
     object EditWindowRuleteName: TEdit
       Left = 56
       Top = 24
       Width = 609
       Height = 21
+      Enabled = False
       TabOrder = 0
     end
     object EditWindowRuleteNameSizeX: TEdit
@@ -70,6 +95,7 @@ object FormConfigurator: TFormConfigurator
       Top = 48
       Width = 49
       Height = 21
+      Enabled = False
       TabOrder = 1
     end
     object EditWindowRuleteNameSizeY: TEdit
@@ -77,6 +103,7 @@ object FormConfigurator: TFormConfigurator
       Top = 48
       Width = 49
       Height = 21
+      Enabled = False
       TabOrder = 2
     end
     object PanelWindowRuleteNameScan: TPanel
@@ -87,6 +114,7 @@ object FormConfigurator: TFormConfigurator
       Caption = 'Scan'
       Color = 3644415
       TabOrder = 3
+      OnClick = PanelWindowRuleteNameScanClick
     end
   end
   object PageControlConfigurator: TPageControl
@@ -103,7 +131,7 @@ object FormConfigurator: TFormConfigurator
         Top = 0
         Width = 689
         Height = 521
-        ActivePage = TabSheetNumber
+        ActivePage = TabSheetAngle
         TabOrder = 0
         object TabSheetGlobal: TTabSheet
           Caption = 'Global'
@@ -135,11 +163,19 @@ object FormConfigurator: TFormConfigurator
             Height = 13
             Caption = 'Search Img:'
           end
+          object LabelBtnSpinHash: TLabel
+            Left = 296
+            Top = 80
+            Width = 58
+            Height = 13
+            Caption = 'Hash Img:'
+          end
           object EditBtnSpinPozX: TEdit
             Left = 56
             Top = 40
             Width = 49
             Height = 21
+            Enabled = False
             TabOrder = 0
           end
           object EditBtnSpinPozY: TEdit
@@ -147,6 +183,7 @@ object FormConfigurator: TFormConfigurator
             Top = 40
             Width = 49
             Height = 21
+            Enabled = False
             TabOrder = 1
           end
           object PanelBtnSpinScan: TPanel
@@ -180,6 +217,23 @@ object FormConfigurator: TFormConfigurator
               Width = 41
               Height = 41
             end
+          end
+          object EditBtnSpinHash: TEdit
+            Left = 360
+            Top = 72
+            Width = 121
+            Height = 21
+            Enabled = False
+            TabOrder = 5
+          end
+          object PanelBtnSpinHashScan: TPanel
+            Left = 488
+            Top = 72
+            Width = 57
+            Height = 21
+            Caption = 'Scan'
+            Color = 3644415
+            TabOrder = 6
           end
         end
         object TabSheetCloseWindows: TTabSheet
@@ -246,6 +300,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 305
               Height = 21
+              Enabled = False
               TabOrder = 0
             end
             object EditCloseWindows1SizeX: TEdit
@@ -253,6 +308,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 1
             end
             object EditCloseWindows1SizeY: TEdit
@@ -260,6 +316,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 2
             end
             object PanelCloseWindows1SizeScan: TPanel
@@ -276,6 +333,7 @@ object FormConfigurator: TFormConfigurator
               Top = 32
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 4
             end
             object EditCloseWindows1PosY: TEdit
@@ -283,6 +341,7 @@ object FormConfigurator: TFormConfigurator
               Top = 32
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 5
             end
             object PanelCloseWindows1PosScan: TPanel
@@ -317,7 +376,7 @@ object FormConfigurator: TFormConfigurator
               Height = 13
               Caption = 'Name:'
             end
-            object Label341: TLabel
+            object LabelCloseWindows2SizeX: TLabel
               Left = 372
               Top = 16
               Width = 41
@@ -357,6 +416,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 305
               Height = 21
+              Enabled = False
               TabOrder = 0
             end
             object EditCloseWindows2SizeX: TEdit
@@ -364,6 +424,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 1
             end
             object EditCloseWindows2SizeY: TEdit
@@ -371,6 +432,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 2
             end
             object PanelCloseWindows2SizeScan: TPanel
@@ -387,6 +449,7 @@ object FormConfigurator: TFormConfigurator
               Top = 32
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 4
             end
             object EditCloseWindows2PosY: TEdit
@@ -394,6 +457,7 @@ object FormConfigurator: TFormConfigurator
               Top = 32
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 5
             end
             object PanelCloseWindows2PosScan: TPanel
@@ -428,7 +492,7 @@ object FormConfigurator: TFormConfigurator
               Height = 13
               Caption = 'Name:'
             end
-            object Label353: TLabel
+            object LabelCloseWindows3SizeX: TLabel
               Left = 372
               Top = 16
               Width = 41
@@ -468,6 +532,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 305
               Height = 21
+              Enabled = False
               TabOrder = 0
             end
             object EditCloseWindows3SizeX: TEdit
@@ -475,6 +540,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 1
             end
             object EditCloseWindows3SizeY: TEdit
@@ -482,6 +548,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 2
             end
             object PanelCloseWindows3SizeScan: TPanel
@@ -498,6 +565,7 @@ object FormConfigurator: TFormConfigurator
               Top = 32
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 4
             end
             object EditCloseWindows3PosY: TEdit
@@ -505,6 +573,7 @@ object FormConfigurator: TFormConfigurator
               Top = 32
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 5
             end
             object PanelCloseWindows3PosScan: TPanel
@@ -539,7 +608,7 @@ object FormConfigurator: TFormConfigurator
               Height = 13
               Caption = 'Name:'
             end
-            object Label359: TLabel
+            object LabelCloseWindows4SizeX: TLabel
               Left = 372
               Top = 16
               Width = 41
@@ -579,6 +648,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 305
               Height = 21
+              Enabled = False
               TabOrder = 0
             end
             object EditCloseWindows4SizeX: TEdit
@@ -586,6 +656,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 1
             end
             object EditCloseWindows4SizeY: TEdit
@@ -593,6 +664,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 2
             end
             object PanelCloseWindows4SizeScan: TPanel
@@ -609,6 +681,7 @@ object FormConfigurator: TFormConfigurator
               Top = 32
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 4
             end
             object EditCloseWindows4PosY: TEdit
@@ -616,6 +689,7 @@ object FormConfigurator: TFormConfigurator
               Top = 32
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 5
             end
             object PanelCloseWindows4PosScan: TPanel
@@ -650,7 +724,7 @@ object FormConfigurator: TFormConfigurator
               Height = 13
               Caption = 'Name:'
             end
-            object Label365: TLabel
+            object LabelCloseWindows5SizeX: TLabel
               Left = 372
               Top = 16
               Width = 41
@@ -690,6 +764,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 305
               Height = 21
+              Enabled = False
               TabOrder = 0
             end
             object EditCloseWindows5SizeX: TEdit
@@ -697,6 +772,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 1
             end
             object EditCloseWindows5SizeY: TEdit
@@ -704,6 +780,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 2
             end
             object PanelCloseWindows5SizeScan: TPanel
@@ -720,6 +797,7 @@ object FormConfigurator: TFormConfigurator
               Top = 32
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 4
             end
             object EditCloseWindows5PosY: TEdit
@@ -727,6 +805,7 @@ object FormConfigurator: TFormConfigurator
               Top = 32
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 5
             end
             object PanelCloseWindows5PosScan: TPanel
@@ -761,7 +840,7 @@ object FormConfigurator: TFormConfigurator
               Height = 13
               Caption = 'Name:'
             end
-            object Label371: TLabel
+            object LabelCloseWindows6SizeX: TLabel
               Left = 372
               Top = 16
               Width = 41
@@ -801,6 +880,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 305
               Height = 21
+              Enabled = False
               TabOrder = 0
             end
             object EditCloseWindows6SizeX: TEdit
@@ -808,6 +888,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 1
             end
             object EditCloseWindows6SizeY: TEdit
@@ -815,6 +896,7 @@ object FormConfigurator: TFormConfigurator
               Top = 8
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 2
             end
             object PanelCloseWindows6SizeScan: TPanel
@@ -831,6 +913,7 @@ object FormConfigurator: TFormConfigurator
               Top = 32
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 4
             end
             object EditCloseWindows6PosY: TEdit
@@ -838,9 +921,10 @@ object FormConfigurator: TFormConfigurator
               Top = 32
               Width = 49
               Height = 21
+              Enabled = False
               TabOrder = 5
             end
-            object Panel156: TPanel
+            object PanelCloseWindows6PosScan: TPanel
               Left = 576
               Top = 32
               Width = 57
@@ -1161,6 +1245,7 @@ object FormConfigurator: TFormConfigurator
             Top = 40
             Width = 49
             Height = 21
+            Enabled = False
             TabOrder = 0
           end
           object EditHashNumberPosY: TEdit
@@ -1168,6 +1253,7 @@ object FormConfigurator: TFormConfigurator
             Top = 40
             Width = 49
             Height = 21
+            Enabled = False
             TabOrder = 1
           end
           object PanelHashNumberPosScan: TPanel
@@ -1966,6 +2052,7 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 0
           end
           object EditPairLowPosY: TEdit
@@ -1973,6 +2060,7 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 1
           end
           object PanelPairLowPosScan: TPanel
@@ -1989,6 +2077,7 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 3
           end
           object EditPairHighPosY: TEdit
@@ -1996,6 +2085,7 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 4
           end
           object PanelPairHighPosScan: TPanel
@@ -2012,6 +2102,7 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 6
           end
           object EditPairOddPosY: TEdit
@@ -2019,6 +2110,7 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 7
           end
           object PanelPairOddPosScan: TPanel
@@ -2035,6 +2127,7 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 9
           end
           object EditPairEvenPosY: TEdit
@@ -2042,6 +2135,7 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 10
           end
           object PanelPairEvenPosScan: TPanel
@@ -2058,6 +2152,7 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 12
           end
           object EditPairRedPosY: TEdit
@@ -2065,6 +2160,7 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 13
           end
           object PanelPairRedPosScan: TPanel
@@ -2081,6 +2177,7 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 15
           end
           object EditPairBlackPosY: TEdit
@@ -2088,6 +2185,7 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 16
           end
           object PanelPairBlackPosScan: TPanel
@@ -2171,6 +2269,7 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 0
           end
           object EditColumn2To11PosY: TEdit
@@ -2178,6 +2277,7 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 1
           end
           object PanelColumn2To11PosScan: TPanel
@@ -2194,6 +2294,7 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 3
           end
           object EditColumn2To12PosY: TEdit
@@ -2201,6 +2302,7 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 4
           end
           object PanelColumn2To12PosScan: TPanel
@@ -2217,6 +2319,7 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 6
           end
           object EditColumn2To13PosY: TEdit
@@ -2224,6 +2327,7 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 7
           end
           object PanelColumn2To13PosScan: TPanel
@@ -2307,6 +2411,7 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 0
           end
           object EditDozen1st12PosY: TEdit
@@ -2314,6 +2419,7 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 1
           end
           object PanelDozen1st12PosScan: TPanel
@@ -2330,6 +2436,7 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 3
           end
           object EditDozen2st12PosY: TEdit
@@ -2337,6 +2444,7 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 4
           end
           object PanelDozen2st12PosScan: TPanel
@@ -2353,6 +2461,7 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 6
           end
           object EditDozen3st12PosY: TEdit
@@ -2360,6 +2469,7 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 7
           end
           object PanelDozen3st12PosScan: TPanel
@@ -3110,7 +3220,7 @@ object FormConfigurator: TFormConfigurator
             Height = 13
             Caption = '35:'
           end
-          object Label147: TLabel
+          object LabelNumber36PosX: TLabel
             Left = 344
             Top = 422
             Width = 38
@@ -3157,6 +3267,7 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 0
           end
           object EditNumber1PosY: TEdit
@@ -3164,6 +3275,7 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 1
           end
           object EditNumber1PosScan: TPanel
@@ -3180,6 +3292,7 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 3
           end
           object EditNumber2PosY: TEdit
@@ -3187,6 +3300,7 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 4
           end
           object EditNumber2PosScan: TPanel
@@ -3203,6 +3317,7 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 6
           end
           object EditNumber3PosY: TEdit
@@ -3210,6 +3325,7 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 7
           end
           object EditNumber3PosScan: TPanel
@@ -3226,6 +3342,7 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 9
           end
           object EditNumber4PosY: TEdit
@@ -3233,6 +3350,7 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 10
           end
           object EditNumber4PosScan: TPanel
@@ -3249,6 +3367,7 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 12
           end
           object EditNumber5PosY: TEdit
@@ -3256,6 +3375,7 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 13
           end
           object EditNumber5PosScan: TPanel
@@ -3272,6 +3392,7 @@ object FormConfigurator: TFormConfigurator
             Top = 152
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 15
           end
           object EditNumber6PosY: TEdit
@@ -3279,6 +3400,7 @@ object FormConfigurator: TFormConfigurator
             Top = 152
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 16
           end
           object EditNumber6PosScan: TPanel
@@ -3295,6 +3417,7 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 18
           end
           object EditNumber0PosY: TEdit
@@ -3302,6 +3425,7 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 19
           end
           object EditNumber0PosScan: TPanel
@@ -3318,6 +3442,7 @@ object FormConfigurator: TFormConfigurator
             Top = 176
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 21
           end
           object EditNumber7PosY: TEdit
@@ -3325,6 +3450,7 @@ object FormConfigurator: TFormConfigurator
             Top = 176
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 22
           end
           object EditNumber7PosScan: TPanel
@@ -3341,6 +3467,7 @@ object FormConfigurator: TFormConfigurator
             Top = 200
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 24
           end
           object EditNumber8PosY: TEdit
@@ -3348,6 +3475,7 @@ object FormConfigurator: TFormConfigurator
             Top = 200
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 25
           end
           object EditNumber8PosScan: TPanel
@@ -3364,6 +3492,7 @@ object FormConfigurator: TFormConfigurator
             Top = 224
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 27
           end
           object EditNumber9PosY: TEdit
@@ -3371,6 +3500,7 @@ object FormConfigurator: TFormConfigurator
             Top = 224
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 28
           end
           object EditNumber9PosScan: TPanel
@@ -3387,6 +3517,7 @@ object FormConfigurator: TFormConfigurator
             Top = 272
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 30
           end
           object EditNumber11PosY: TEdit
@@ -3394,6 +3525,7 @@ object FormConfigurator: TFormConfigurator
             Top = 272
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 31
           end
           object EditNumber11PosScan: TPanel
@@ -3410,6 +3542,7 @@ object FormConfigurator: TFormConfigurator
             Top = 296
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 33
           end
           object EditNumber12PosY: TEdit
@@ -3417,6 +3550,7 @@ object FormConfigurator: TFormConfigurator
             Top = 296
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 34
           end
           object EditNumber12PosScan: TPanel
@@ -3433,6 +3567,7 @@ object FormConfigurator: TFormConfigurator
             Top = 320
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 36
           end
           object EditNumber13PosY: TEdit
@@ -3440,6 +3575,7 @@ object FormConfigurator: TFormConfigurator
             Top = 320
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 37
           end
           object EditNumber13PosScan: TPanel
@@ -3456,6 +3592,7 @@ object FormConfigurator: TFormConfigurator
             Top = 344
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 39
           end
           object EditNumber14PosY: TEdit
@@ -3463,6 +3600,7 @@ object FormConfigurator: TFormConfigurator
             Top = 344
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 40
           end
           object EditNumber14PosScan: TPanel
@@ -3479,6 +3617,7 @@ object FormConfigurator: TFormConfigurator
             Top = 368
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 42
           end
           object EditNumber15PosY: TEdit
@@ -3486,6 +3625,7 @@ object FormConfigurator: TFormConfigurator
             Top = 368
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 43
           end
           object EditNumber15PosScan: TPanel
@@ -3502,6 +3642,7 @@ object FormConfigurator: TFormConfigurator
             Top = 392
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 45
           end
           object EditNumber16PosY: TEdit
@@ -3509,6 +3650,7 @@ object FormConfigurator: TFormConfigurator
             Top = 392
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 46
           end
           object EditNumber16PosScan: TPanel
@@ -3525,6 +3667,7 @@ object FormConfigurator: TFormConfigurator
             Top = 248
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 48
           end
           object EditNumber10PosY: TEdit
@@ -3532,6 +3675,7 @@ object FormConfigurator: TFormConfigurator
             Top = 248
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 49
           end
           object EditNumber10PosScan: TPanel
@@ -3548,6 +3692,7 @@ object FormConfigurator: TFormConfigurator
             Top = 416
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 51
           end
           object EditNumber17PosY: TEdit
@@ -3555,6 +3700,7 @@ object FormConfigurator: TFormConfigurator
             Top = 416
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 52
           end
           object EditNumber17PosScan: TPanel
@@ -3571,6 +3717,7 @@ object FormConfigurator: TFormConfigurator
             Top = 440
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 54
           end
           object EditNumber18PosY: TEdit
@@ -3578,6 +3725,7 @@ object FormConfigurator: TFormConfigurator
             Top = 440
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 55
           end
           object EditNumber18PosScan: TPanel
@@ -3594,6 +3742,7 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 57
           end
           object EditNumber19PosY: TEdit
@@ -3601,6 +3750,7 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 58
           end
           object EditNumber19PosScan: TPanel
@@ -3617,6 +3767,7 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 60
           end
           object EditNumber21PosY: TEdit
@@ -3624,6 +3775,7 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 61
           end
           object EditNumber21PosScan: TPanel
@@ -3640,6 +3792,7 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 63
           end
           object EditNumber22PosY: TEdit
@@ -3647,6 +3800,7 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 64
           end
           object EditNumber22PosScan: TPanel
@@ -3663,6 +3817,7 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 66
           end
           object EditNumber23PosY: TEdit
@@ -3670,6 +3825,7 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 67
           end
           object EditNumber23PosScan: TPanel
@@ -3686,6 +3842,7 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 69
           end
           object EditNumber24PosY: TEdit
@@ -3693,6 +3850,7 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 70
           end
           object EditNumber24PosScan: TPanel
@@ -3709,6 +3867,7 @@ object FormConfigurator: TFormConfigurator
             Top = 152
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 72
           end
           object EditNumber25PosY: TEdit
@@ -3716,6 +3875,7 @@ object FormConfigurator: TFormConfigurator
             Top = 152
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 73
           end
           object EditNumber25PosScan: TPanel
@@ -3732,6 +3892,7 @@ object FormConfigurator: TFormConfigurator
             Top = 176
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 75
           end
           object EditNumber26PosY: TEdit
@@ -3739,6 +3900,7 @@ object FormConfigurator: TFormConfigurator
             Top = 176
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 76
           end
           object EditNumber26PosScan: TPanel
@@ -3755,6 +3917,7 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 78
           end
           object EditNumber20PosY: TEdit
@@ -3762,6 +3925,7 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 79
           end
           object EditNumber20PosScan: TPanel
@@ -3778,6 +3942,7 @@ object FormConfigurator: TFormConfigurator
             Top = 200
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 81
           end
           object EditNumber27PosY: TEdit
@@ -3785,6 +3950,7 @@ object FormConfigurator: TFormConfigurator
             Top = 200
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 82
           end
           object EditNumber27PosScan: TPanel
@@ -3801,6 +3967,7 @@ object FormConfigurator: TFormConfigurator
             Top = 224
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 84
           end
           object EditNumber28PosY: TEdit
@@ -3808,6 +3975,7 @@ object FormConfigurator: TFormConfigurator
             Top = 224
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 85
           end
           object EditNumber28PosScan: TPanel
@@ -3824,6 +3992,7 @@ object FormConfigurator: TFormConfigurator
             Top = 248
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 87
           end
           object EditNumber29PosY: TEdit
@@ -3831,6 +4000,7 @@ object FormConfigurator: TFormConfigurator
             Top = 248
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 88
           end
           object EditNumber29PosScan: TPanel
@@ -3847,6 +4017,7 @@ object FormConfigurator: TFormConfigurator
             Top = 296
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 90
           end
           object EditNumber31PosY: TEdit
@@ -3854,6 +4025,7 @@ object FormConfigurator: TFormConfigurator
             Top = 296
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 91
           end
           object EditNumber31PosScan: TPanel
@@ -3870,6 +4042,7 @@ object FormConfigurator: TFormConfigurator
             Top = 320
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 93
           end
           object EditNumber32PosY: TEdit
@@ -3877,6 +4050,7 @@ object FormConfigurator: TFormConfigurator
             Top = 320
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 94
           end
           object EditNumber32PosScan: TPanel
@@ -3893,6 +4067,7 @@ object FormConfigurator: TFormConfigurator
             Top = 344
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 96
           end
           object EditNumber33PosY: TEdit
@@ -3900,6 +4075,7 @@ object FormConfigurator: TFormConfigurator
             Top = 344
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 97
           end
           object EditNumber33PosScan: TPanel
@@ -3916,6 +4092,7 @@ object FormConfigurator: TFormConfigurator
             Top = 368
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 99
           end
           object EditNumber34PosY: TEdit
@@ -3923,6 +4100,7 @@ object FormConfigurator: TFormConfigurator
             Top = 368
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 100
           end
           object EditNumber34PosScan: TPanel
@@ -3939,6 +4117,7 @@ object FormConfigurator: TFormConfigurator
             Top = 392
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 102
           end
           object EditNumber35PosY: TEdit
@@ -3946,6 +4125,7 @@ object FormConfigurator: TFormConfigurator
             Top = 392
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 103
           end
           object EditNumber35PosScan: TPanel
@@ -3962,6 +4142,7 @@ object FormConfigurator: TFormConfigurator
             Top = 416
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 105
           end
           object EditNumber36PosY: TEdit
@@ -3969,6 +4150,7 @@ object FormConfigurator: TFormConfigurator
             Top = 416
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 106
           end
           object EditNumber36PosScan: TPanel
@@ -3980,11 +4162,12 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 107
           end
-          object Edit100: TEdit
+          object EditNumber30PosX: TEdit
             Left = 384
             Top = 272
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 108
           end
           object EditNumber30PosY: TEdit
@@ -3992,6 +4175,7 @@ object FormConfigurator: TFormConfigurator
             Top = 272
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 109
           end
           object EditNumber30PosScan: TPanel
@@ -4007,252 +4191,254 @@ object FormConfigurator: TFormConfigurator
         object TabSheetSixline: TTabSheet
           Caption = 'Sixline'
           ImageIndex = 7
-          object Label153: TLabel
+          object LabelSixline1: TLabel
             Left = 8
             Top = 14
             Width = 20
             Height = 13
             Caption = 'S1:'
           end
-          object Label154: TLabel
+          object LabelSixline1PosX: TLabel
             Left = 48
             Top = 14
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label155: TLabel
+          object LabelSixline1PosY: TLabel
             Left = 152
             Top = 14
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label156: TLabel
+          object LabelSixline2PosX: TLabel
             Left = 48
             Top = 38
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label157: TLabel
+          object LabelSixline2PosY: TLabel
             Left = 152
             Top = 38
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label158: TLabel
+          object LabelSixline2: TLabel
             Left = 8
             Top = 38
             Width = 20
             Height = 13
             Caption = 'S2:'
           end
-          object Label159: TLabel
+          object LabelSixline3PosX: TLabel
             Left = 48
             Top = 62
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label160: TLabel
+          object LabelSixline3PosY: TLabel
             Left = 152
             Top = 62
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label161: TLabel
+          object LabelSixline3: TLabel
             Left = 8
             Top = 62
             Width = 20
             Height = 13
             Caption = 'S3:'
           end
-          object Label162: TLabel
+          object LabelSixline4: TLabel
             Left = 8
             Top = 86
             Width = 20
             Height = 13
             Caption = 'S4:'
           end
-          object Label163: TLabel
+          object LabelSixline4PosX: TLabel
             Left = 48
             Top = 86
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label164: TLabel
+          object LabelSixline4PosY: TLabel
             Left = 152
             Top = 86
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label165: TLabel
+          object LabelSixline5PosX: TLabel
             Left = 48
             Top = 110
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label166: TLabel
+          object LabelSixline5PosY: TLabel
             Left = 152
             Top = 110
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label167: TLabel
+          object LabelSixline5: TLabel
             Left = 8
             Top = 110
             Width = 20
             Height = 13
             Caption = 'S5:'
           end
-          object Label168: TLabel
+          object LabelSixline6PosX: TLabel
             Left = 48
             Top = 134
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label169: TLabel
+          object LabelSixline6PosY: TLabel
             Left = 152
             Top = 134
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label170: TLabel
+          object LabelSixline6: TLabel
             Left = 8
             Top = 134
             Width = 20
             Height = 13
             Caption = 'S6:'
           end
-          object Label171: TLabel
+          object LabelSixline7: TLabel
             Left = 8
             Top = 158
             Width = 20
             Height = 13
             Caption = 'S7:'
           end
-          object Label172: TLabel
+          object LabelSixline7PosX: TLabel
             Left = 48
             Top = 158
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label173: TLabel
+          object LabelSixline7PosY: TLabel
             Left = 152
             Top = 158
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label174: TLabel
+          object LabelSixline8PosX: TLabel
             Left = 48
             Top = 182
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label175: TLabel
+          object LabelSixline8PosY: TLabel
             Left = 152
             Top = 182
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label176: TLabel
+          object LabelSixline8: TLabel
             Left = 8
             Top = 182
             Width = 20
             Height = 13
             Caption = 'S8:'
           end
-          object Label177: TLabel
+          object LabelSixline9PosX: TLabel
             Left = 48
             Top = 206
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label178: TLabel
+          object LabelSixline9PosY: TLabel
             Left = 152
             Top = 206
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label179: TLabel
+          object LabelSixline9: TLabel
             Left = 8
             Top = 206
             Width = 20
             Height = 13
             Caption = 'S9:'
           end
-          object Label180: TLabel
+          object LabelSixline11: TLabel
             Left = 8
             Top = 254
             Width = 27
             Height = 13
             Caption = 'S11:'
           end
-          object Label181: TLabel
+          object LabelSixline11PosX: TLabel
             Left = 48
             Top = 254
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label182: TLabel
+          object LabelSixline11PosY: TLabel
             Left = 152
             Top = 254
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label183: TLabel
+          object LabelSixline10: TLabel
             Left = 8
             Top = 230
             Width = 27
             Height = 13
             Caption = 'S10:'
           end
-          object Label184: TLabel
+          object LabelSixline10PosX: TLabel
             Left = 48
             Top = 230
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label185: TLabel
+          object LabelSixline10PosY: TLabel
             Left = 152
             Top = 230
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Edit102: TEdit
+          object EditSixline1PosX: TEdit
             Left = 88
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 0
           end
-          object Edit103: TEdit
+          object EditSixline1PosY: TEdit
             Left = 192
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 1
           end
-          object Panel52: TPanel
+          object PanelSixline1PosScan: TPanel
             Left = 256
             Top = 8
             Width = 57
@@ -4261,21 +4447,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 2
           end
-          object Edit104: TEdit
+          object EditSixline2PosX: TEdit
             Left = 88
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 3
           end
-          object Edit105: TEdit
+          object EditSixline2PosY: TEdit
             Left = 192
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 4
           end
-          object Panel53: TPanel
+          object PanelSixline2PosScan: TPanel
             Left = 256
             Top = 32
             Width = 57
@@ -4284,21 +4472,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 5
           end
-          object Edit106: TEdit
+          object EditSixline3PosX: TEdit
             Left = 88
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 6
           end
-          object Edit107: TEdit
+          object EditSixline3PosY: TEdit
             Left = 192
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 7
           end
-          object Panel54: TPanel
+          object PanelSixline3PosScan: TPanel
             Left = 256
             Top = 56
             Width = 57
@@ -4307,21 +4497,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 8
           end
-          object Edit108: TEdit
+          object EditSixline4PosX: TEdit
             Left = 88
             Top = 80
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 9
           end
-          object Edit109: TEdit
+          object EditSixline4PosY: TEdit
             Left = 192
             Top = 80
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 10
           end
-          object Panel55: TPanel
+          object PanelSixline4PosScan: TPanel
             Left = 256
             Top = 80
             Width = 57
@@ -4330,21 +4522,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 11
           end
-          object Edit110: TEdit
+          object EditSixline5PosX: TEdit
             Left = 88
             Top = 104
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 12
           end
-          object Edit111: TEdit
+          object EditSixline5PosY: TEdit
             Left = 192
             Top = 104
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 13
           end
-          object Panel56: TPanel
+          object PanelSixline5PosScan: TPanel
             Left = 256
             Top = 104
             Width = 57
@@ -4353,21 +4547,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 14
           end
-          object Edit112: TEdit
+          object EditSixline6PosX: TEdit
             Left = 88
             Top = 128
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 15
           end
-          object Edit113: TEdit
+          object EditSixline6PosY: TEdit
             Left = 192
             Top = 128
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 16
           end
-          object Panel57: TPanel
+          object PanelSixline6PosScan: TPanel
             Left = 256
             Top = 128
             Width = 57
@@ -4376,21 +4572,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 17
           end
-          object Edit114: TEdit
+          object EditSixline7PosX: TEdit
             Left = 88
             Top = 152
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 18
           end
-          object Edit115: TEdit
+          object EditSixline7PosY: TEdit
             Left = 192
             Top = 152
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 19
           end
-          object Panel58: TPanel
+          object PanelSixline7PosScan: TPanel
             Left = 256
             Top = 152
             Width = 57
@@ -4399,21 +4597,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 20
           end
-          object Edit116: TEdit
+          object EditSixline8PosX: TEdit
             Left = 88
             Top = 176
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 21
           end
-          object Edit117: TEdit
+          object EditSixline8PosY: TEdit
             Left = 192
             Top = 176
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 22
           end
-          object Panel59: TPanel
+          object PanelSixline8PosScan: TPanel
             Left = 256
             Top = 176
             Width = 57
@@ -4422,21 +4622,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 23
           end
-          object Edit118: TEdit
+          object EditSixline9PosX: TEdit
             Left = 88
             Top = 200
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 24
           end
-          object Edit119: TEdit
+          object EditSixline9PosY: TEdit
             Left = 192
             Top = 200
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 25
           end
-          object Panel60: TPanel
+          object PanelSixline9PosScan: TPanel
             Left = 256
             Top = 200
             Width = 57
@@ -4445,21 +4647,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 26
           end
-          object Edit120: TEdit
+          object EditSixline11PosX: TEdit
             Left = 88
             Top = 248
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 27
           end
-          object Edit121: TEdit
+          object EditSixline11PosY: TEdit
             Left = 192
             Top = 248
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 28
           end
-          object Panel61: TPanel
+          object PanelSixline11PosScan: TPanel
             Left = 256
             Top = 248
             Width = 57
@@ -4468,21 +4672,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 29
           end
-          object Edit122: TEdit
+          object EditSixline10PosX: TEdit
             Left = 88
             Top = 224
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 30
           end
-          object Edit123: TEdit
+          object EditSixline10PosY: TEdit
             Left = 192
             Top = 224
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 31
           end
-          object Panel62: TPanel
+          object PanelSixline10PosScan: TPanel
             Left = 256
             Top = 224
             Width = 57
@@ -4495,315 +4701,317 @@ object FormConfigurator: TFormConfigurator
         object TabSheetStreet: TTabSheet
           Caption = 'Street'
           ImageIndex = 8
-          object Label186: TLabel
+          object LabelStreet1: TLabel
             Left = 8
             Top = 38
             Width = 28
             Height = 13
             Caption = 'ST1:'
           end
-          object Label187: TLabel
+          object LabelStreet1PosX: TLabel
             Left = 56
             Top = 38
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label188: TLabel
+          object LabelStreet1PosY: TLabel
             Left = 160
             Top = 38
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label189: TLabel
+          object LabelStreet2PosX: TLabel
             Left = 56
             Top = 62
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label190: TLabel
+          object LabelStreet2PosY: TLabel
             Left = 160
             Top = 62
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label191: TLabel
+          object LabelStreet2: TLabel
             Left = 8
             Top = 62
             Width = 28
             Height = 13
             Caption = 'ST2:'
           end
-          object Label192: TLabel
+          object LabelStreet3PosX: TLabel
             Left = 56
             Top = 86
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label193: TLabel
+          object LabelStreet3PosY: TLabel
             Left = 160
             Top = 86
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label194: TLabel
+          object LabelStreet3: TLabel
             Left = 8
             Top = 86
             Width = 28
             Height = 13
             Caption = 'ST3:'
           end
-          object Label195: TLabel
+          object LabelStreet4: TLabel
             Left = 8
             Top = 110
             Width = 28
             Height = 13
             Caption = 'ST4:'
           end
-          object Label196: TLabel
+          object LabelStreet4PosX: TLabel
             Left = 56
             Top = 110
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label197: TLabel
+          object LabelStreet4PosY: TLabel
             Left = 160
             Top = 110
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label198: TLabel
+          object LabelStreet5PosX: TLabel
             Left = 56
             Top = 134
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label199: TLabel
+          object LabelStreet5PosY: TLabel
             Left = 160
             Top = 134
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label200: TLabel
+          object LabelStreet5: TLabel
             Left = 8
             Top = 134
             Width = 28
             Height = 13
             Caption = 'ST5:'
           end
-          object Label201: TLabel
+          object LabelStreet6PosX: TLabel
             Left = 56
             Top = 158
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label202: TLabel
+          object LabelStreet6PosY: TLabel
             Left = 160
             Top = 158
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label203: TLabel
+          object LabelStreet6: TLabel
             Left = 8
             Top = 158
             Width = 28
             Height = 13
             Caption = 'ST6:'
           end
-          object Label204: TLabel
+          object LabelStreet0: TLabel
             Left = 8
             Top = 14
             Width = 28
             Height = 13
             Caption = 'ST0:'
           end
-          object Label205: TLabel
+          object LabelStreet0PosX: TLabel
             Left = 56
             Top = 14
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label206: TLabel
+          object LabelStreet0PosY: TLabel
             Left = 160
             Top = 14
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label207: TLabel
+          object LabelStreet7: TLabel
             Left = 8
             Top = 182
             Width = 28
             Height = 13
             Caption = 'ST7:'
           end
-          object Label208: TLabel
+          object LabelStreet7PosX: TLabel
             Left = 56
             Top = 182
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label209: TLabel
+          object LabelStreet7PosY: TLabel
             Left = 160
             Top = 182
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label210: TLabel
+          object LabelStreet8PosX: TLabel
             Left = 56
             Top = 206
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label211: TLabel
+          object LabelStreet8PosY: TLabel
             Left = 160
             Top = 206
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label212: TLabel
+          object LabelStreet8: TLabel
             Left = 8
             Top = 206
             Width = 28
             Height = 13
             Caption = 'ST8:'
           end
-          object Label213: TLabel
+          object LabelStreet9PosX: TLabel
             Left = 56
             Top = 230
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label214: TLabel
+          object LabelStreet9PosY: TLabel
             Left = 160
             Top = 230
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label215: TLabel
+          object LabelStreet9: TLabel
             Left = 8
             Top = 230
             Width = 28
             Height = 13
             Caption = 'ST9:'
           end
-          object Label216: TLabel
+          object LabelStreet11: TLabel
             Left = 8
             Top = 278
             Width = 35
             Height = 13
             Caption = 'ST11:'
           end
-          object Label217: TLabel
+          object LabelStreet11PosX: TLabel
             Left = 56
             Top = 278
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label218: TLabel
+          object LabelStreet11PosY: TLabel
             Left = 160
             Top = 278
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label219: TLabel
+          object LabelStreet12PosX: TLabel
             Left = 56
             Top = 302
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label220: TLabel
+          object LabelStreet12PosY: TLabel
             Left = 160
             Top = 302
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label221: TLabel
+          object LabelStreet12: TLabel
             Left = 8
             Top = 302
             Width = 35
             Height = 13
             Caption = 'ST12:'
           end
-          object Label222: TLabel
+          object LabelStreet13PosX: TLabel
             Left = 56
             Top = 326
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label223: TLabel
+          object LabelStreet13PosY: TLabel
             Left = 160
             Top = 326
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label224: TLabel
+          object LabelStreet13: TLabel
             Left = 8
             Top = 326
             Width = 35
             Height = 13
             Caption = 'ST13:'
           end
-          object Label225: TLabel
+          object LabelStreet10: TLabel
             Left = 8
             Top = 254
             Width = 35
             Height = 13
             Caption = 'ST10:'
           end
-          object Label226: TLabel
+          object LabelStreet10PosX: TLabel
             Left = 56
             Top = 254
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label227: TLabel
+          object LabelStreet10PosY: TLabel
             Left = 160
             Top = 254
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Edit124: TEdit
+          object EditStreet1PosX: TEdit
             Left = 96
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 0
           end
-          object Edit125: TEdit
+          object EditStreet1PosY: TEdit
             Left = 200
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 1
           end
-          object Panel63: TPanel
+          object PanelStreet1PosScan: TPanel
             Left = 264
             Top = 32
             Width = 57
@@ -4812,21 +5020,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 2
           end
-          object Edit126: TEdit
+          object EditStreet2PosX: TEdit
             Left = 96
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 3
           end
-          object Edit127: TEdit
+          object EditStreet2PosY: TEdit
             Left = 200
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 4
           end
-          object Panel64: TPanel
+          object PanelStreet2PosScan: TPanel
             Left = 264
             Top = 56
             Width = 57
@@ -4835,21 +5045,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 5
           end
-          object Edit128: TEdit
+          object EditStreet3PosX: TEdit
             Left = 96
             Top = 80
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 6
           end
-          object Edit129: TEdit
+          object EditStreet3PosY: TEdit
             Left = 200
             Top = 80
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 7
           end
-          object Panel65: TPanel
+          object PanelStreet3PosScan: TPanel
             Left = 264
             Top = 80
             Width = 57
@@ -4858,21 +5070,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 8
           end
-          object Edit130: TEdit
+          object EditStreet4PosX: TEdit
             Left = 96
             Top = 104
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 9
           end
-          object Edit131: TEdit
+          object EditStreet4PosY: TEdit
             Left = 200
             Top = 104
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 10
           end
-          object Panel66: TPanel
+          object PanelStreet4PosScan: TPanel
             Left = 264
             Top = 104
             Width = 57
@@ -4881,21 +5095,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 11
           end
-          object Edit132: TEdit
+          object EditStreet5PosX: TEdit
             Left = 96
             Top = 128
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 12
           end
-          object Edit133: TEdit
+          object EditStreet5PosY: TEdit
             Left = 200
             Top = 128
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 13
           end
-          object Panel67: TPanel
+          object PanelStreet5PosScan: TPanel
             Left = 264
             Top = 128
             Width = 57
@@ -4904,21 +5120,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 14
           end
-          object Edit134: TEdit
+          object EditStreet6PosX: TEdit
             Left = 96
             Top = 152
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 15
           end
-          object Edit135: TEdit
+          object EditStreet6PosY: TEdit
             Left = 200
             Top = 152
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 16
           end
-          object Panel68: TPanel
+          object PanelStreet6PosScan: TPanel
             Left = 264
             Top = 152
             Width = 57
@@ -4927,21 +5145,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 17
           end
-          object Edit136: TEdit
+          object EditStreet0PosX: TEdit
             Left = 96
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 18
           end
-          object Edit137: TEdit
+          object EditStreet0PosY: TEdit
             Left = 200
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 19
           end
-          object Panel69: TPanel
+          object PanelStreet0PosScan: TPanel
             Left = 264
             Top = 8
             Width = 57
@@ -4950,21 +5170,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 20
           end
-          object Edit138: TEdit
+          object EditStreet7PosX: TEdit
             Left = 96
             Top = 176
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 21
           end
-          object Edit139: TEdit
+          object EditStreet7PosY: TEdit
             Left = 200
             Top = 176
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 22
           end
-          object Panel70: TPanel
+          object PanelStreet7PosScan: TPanel
             Left = 264
             Top = 176
             Width = 57
@@ -4973,21 +5195,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 23
           end
-          object Edit140: TEdit
+          object EditStreet8PosX: TEdit
             Left = 96
             Top = 200
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 24
           end
-          object Edit141: TEdit
+          object EditStreet8PosY: TEdit
             Left = 200
             Top = 200
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 25
           end
-          object Panel71: TPanel
+          object PanelStreet8PosScan: TPanel
             Left = 264
             Top = 200
             Width = 57
@@ -4996,21 +5220,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 26
           end
-          object Edit142: TEdit
+          object EditStreet9PosX: TEdit
             Left = 96
             Top = 224
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 27
           end
-          object Edit143: TEdit
+          object EditStreet9PosY: TEdit
             Left = 200
             Top = 224
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 28
           end
-          object Panel72: TPanel
+          object PanelStreet9PosScan: TPanel
             Left = 264
             Top = 224
             Width = 57
@@ -5019,21 +5245,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 29
           end
-          object Edit144: TEdit
+          object EditStreet11PosX: TEdit
             Left = 96
             Top = 272
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 30
           end
-          object Edit145: TEdit
+          object EditStreet11PosY: TEdit
             Left = 200
             Top = 272
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 31
           end
-          object Panel73: TPanel
+          object PanelStreet11PosScan: TPanel
             Left = 264
             Top = 272
             Width = 57
@@ -5042,21 +5270,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 32
           end
-          object Edit146: TEdit
+          object EditStreet12PosX: TEdit
             Left = 96
             Top = 296
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 33
           end
-          object Edit147: TEdit
+          object EditStreet12PosY: TEdit
             Left = 200
             Top = 296
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 34
           end
-          object Panel74: TPanel
+          object PanelStreet12PosScan: TPanel
             Left = 264
             Top = 296
             Width = 57
@@ -5065,21 +5295,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 35
           end
-          object Edit148: TEdit
+          object EditStreet13PosX: TEdit
             Left = 96
             Top = 320
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 36
           end
-          object Edit149: TEdit
+          object EditStreet13PosY: TEdit
             Left = 200
             Top = 320
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 37
           end
-          object Panel75: TPanel
+          object PanelStreet13PosScan: TPanel
             Left = 264
             Top = 320
             Width = 57
@@ -5088,21 +5320,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 38
           end
-          object Edit150: TEdit
+          object EditStreet10PosX: TEdit
             Left = 96
             Top = 248
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 39
           end
-          object Edit151: TEdit
+          object EditStreet10PosY: TEdit
             Left = 200
             Top = 248
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 40
           end
-          object Panel76: TPanel
+          object PanelStreet10PosScan: TPanel
             Left = 264
             Top = 248
             Width = 57
@@ -5115,504 +5349,506 @@ object FormConfigurator: TFormConfigurator
         object TabSheetAngle: TTabSheet
           Caption = 'Angle'
           ImageIndex = 9
-          object Label228: TLabel
+          object LabelAngle1: TLabel
             Left = 8
             Top = 38
             Width = 20
             Height = 13
             Caption = 'A1:'
           end
-          object Label229: TLabel
+          object LabelAngle1PosX: TLabel
             Left = 40
             Top = 38
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label230: TLabel
+          object LabelAngle1PosY: TLabel
             Left = 144
             Top = 38
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label231: TLabel
+          object LabelAngle2PosX: TLabel
             Left = 40
             Top = 62
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label232: TLabel
+          object LabelAngle2PosY: TLabel
             Left = 144
             Top = 62
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label233: TLabel
+          object LabelAngle2: TLabel
             Left = 8
             Top = 62
             Width = 20
             Height = 13
             Caption = 'A2:'
           end
-          object Label234: TLabel
+          object LabelAngle3PosX: TLabel
             Left = 40
             Top = 86
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label235: TLabel
+          object LabelAngle3PosY: TLabel
             Left = 144
             Top = 86
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label236: TLabel
+          object LabelAngle3: TLabel
             Left = 8
             Top = 86
             Width = 20
             Height = 13
             Caption = 'A3:'
           end
-          object Label237: TLabel
+          object LabelAngle4: TLabel
             Left = 8
             Top = 110
             Width = 20
             Height = 13
             Caption = 'A4:'
           end
-          object Label238: TLabel
+          object LabelAngle4PosX: TLabel
             Left = 40
             Top = 110
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label239: TLabel
+          object LabelAngle4PosY: TLabel
             Left = 144
             Top = 110
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label240: TLabel
+          object LabelAngle5PosX: TLabel
             Left = 40
             Top = 134
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label241: TLabel
+          object LabelAngle5PosY: TLabel
             Left = 144
             Top = 134
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label242: TLabel
+          object LabelAngle5: TLabel
             Left = 8
             Top = 134
             Width = 20
             Height = 13
             Caption = 'A5:'
           end
-          object Label243: TLabel
+          object LabelAngle6PosX: TLabel
             Left = 40
             Top = 158
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label244: TLabel
+          object LabelAngle6PosY: TLabel
             Left = 144
             Top = 158
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label245: TLabel
+          object LabelAngle6: TLabel
             Left = 8
             Top = 158
             Width = 20
             Height = 13
             Caption = 'A6:'
           end
-          object Label246: TLabel
+          object LabelAngle0: TLabel
             Left = 8
             Top = 14
             Width = 20
             Height = 13
             Caption = 'A0:'
           end
-          object Label247: TLabel
+          object LabelAngle0PosX: TLabel
             Left = 40
             Top = 14
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label248: TLabel
+          object LabelAngle0PosY: TLabel
             Left = 144
             Top = 14
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label249: TLabel
+          object LabelAngle7: TLabel
             Left = 8
             Top = 182
             Width = 20
             Height = 13
             Caption = 'A7:'
           end
-          object Label250: TLabel
+          object LabelAngle7PosX: TLabel
             Left = 40
             Top = 182
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label251: TLabel
+          object LabelAngle7PosY: TLabel
             Left = 144
             Top = 182
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label252: TLabel
+          object LabelAngle8PosX: TLabel
             Left = 40
             Top = 206
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label253: TLabel
+          object LabelAngle8PosY: TLabel
             Left = 144
             Top = 206
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label254: TLabel
+          object LabelAngle8: TLabel
             Left = 8
             Top = 206
             Width = 20
             Height = 13
             Caption = 'A8:'
           end
-          object Label255: TLabel
+          object LabelAngle9PosX: TLabel
             Left = 40
             Top = 230
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label256: TLabel
+          object LabelAngle9PosY: TLabel
             Left = 144
             Top = 230
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label257: TLabel
+          object LabelAngle9: TLabel
             Left = 8
             Top = 230
             Width = 20
             Height = 13
             Caption = 'A9:'
           end
-          object Label258: TLabel
+          object LabelAngle11: TLabel
             Left = 8
             Top = 278
             Width = 27
             Height = 13
             Caption = 'A11:'
           end
-          object Label259: TLabel
+          object LabelAngle11PosX: TLabel
             Left = 40
             Top = 278
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label260: TLabel
+          object LabelAngle11PosY: TLabel
             Left = 144
             Top = 278
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label261: TLabel
+          object LabelAngle12PosX: TLabel
             Left = 360
             Top = 14
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label262: TLabel
+          object LabelAngle12PosY: TLabel
             Left = 464
             Top = 14
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label263: TLabel
+          object LabelAngle12: TLabel
             Left = 328
             Top = 14
             Width = 27
             Height = 13
             Caption = 'A12:'
           end
-          object Label264: TLabel
+          object LabelAngle13PosX: TLabel
             Left = 360
             Top = 38
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label265: TLabel
+          object LabelAngle13PosY: TLabel
             Left = 464
             Top = 38
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label266: TLabel
+          object LabelAngle13: TLabel
             Left = 328
             Top = 38
             Width = 27
             Height = 13
             Caption = 'A13:'
           end
-          object Label267: TLabel
+          object LabelAngle14: TLabel
             Left = 328
             Top = 62
             Width = 27
             Height = 13
             Caption = 'A14:'
           end
-          object Label268: TLabel
+          object LabelAngle14PosX: TLabel
             Left = 360
             Top = 62
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label269: TLabel
+          object LabelAngle14PosY: TLabel
             Left = 464
             Top = 62
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label270: TLabel
+          object LabelAngle15PosX: TLabel
             Left = 360
             Top = 86
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label271: TLabel
+          object LabelAngle15PosY: TLabel
             Left = 464
             Top = 86
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label272: TLabel
+          object LabelAngle15: TLabel
             Left = 328
             Top = 86
             Width = 27
             Height = 13
             Caption = 'A15:'
           end
-          object Label273: TLabel
+          object LabelAngle16PosX: TLabel
             Left = 360
             Top = 110
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label274: TLabel
+          object LabelAngle16PosY: TLabel
             Left = 464
             Top = 110
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label275: TLabel
+          object LabelAngle16: TLabel
             Left = 328
             Top = 110
             Width = 27
             Height = 13
             Caption = 'A16:'
           end
-          object Label276: TLabel
+          object LabelAngle10: TLabel
             Left = 8
             Top = 254
             Width = 27
             Height = 13
             Caption = 'A10:'
           end
-          object Label277: TLabel
+          object LabelAngle10PosX: TLabel
             Left = 40
             Top = 254
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label278: TLabel
+          object LabelAngle10PosY: TLabel
             Left = 144
             Top = 254
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label279: TLabel
+          object LabelAngle17: TLabel
             Left = 328
             Top = 134
             Width = 27
             Height = 13
             Caption = 'A17:'
           end
-          object Label280: TLabel
+          object LabelAngle17PosX: TLabel
             Left = 360
             Top = 134
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label281: TLabel
+          object LabelAngle17PosY: TLabel
             Left = 464
             Top = 134
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label282: TLabel
+          object LabelAngle18PosX: TLabel
             Left = 360
             Top = 158
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label283: TLabel
+          object LabelAngle18PosY: TLabel
             Left = 464
             Top = 158
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label284: TLabel
+          object LabelAngle18: TLabel
             Left = 328
             Top = 158
             Width = 27
             Height = 13
             Caption = 'A18:'
           end
-          object Label285: TLabel
+          object LabelAngle19PosX: TLabel
             Left = 360
             Top = 182
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label286: TLabel
+          object LabelAngle19PosY: TLabel
             Left = 464
             Top = 182
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label287: TLabel
+          object LabelAngle19: TLabel
             Left = 328
             Top = 182
             Width = 27
             Height = 13
             Caption = 'A19:'
           end
-          object Label288: TLabel
+          object LabelAngle21: TLabel
             Left = 328
             Top = 230
             Width = 27
             Height = 13
             Caption = 'A21:'
           end
-          object Label289: TLabel
+          object LabelAngle21PosX: TLabel
             Left = 360
             Top = 230
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label290: TLabel
+          object LabelAngle21PosY: TLabel
             Left = 464
             Top = 230
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label291: TLabel
+          object LabelAngle22PosX: TLabel
             Left = 360
             Top = 254
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label292: TLabel
+          object LabelAngle22PosY: TLabel
             Left = 464
             Top = 254
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Label293: TLabel
+          object LabelAngle22: TLabel
             Left = 328
             Top = 254
             Width = 27
             Height = 13
             Caption = 'A22:'
           end
-          object Label294: TLabel
+          object LabelAngle20: TLabel
             Left = 328
             Top = 206
             Width = 27
             Height = 13
             Caption = 'A20:'
           end
-          object Label295: TLabel
+          object LabelAngle20PosX: TLabel
             Left = 360
             Top = 206
             Width = 38
             Height = 13
             Caption = 'Pos X:'
           end
-          object Label296: TLabel
+          object LabelAngle20PosY: TLabel
             Left = 464
             Top = 206
             Width = 38
             Height = 13
             Caption = 'Pos Y:'
           end
-          object Edit152: TEdit
+          object EditAngle1PosX: TEdit
             Left = 80
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 0
           end
-          object Edit153: TEdit
+          object EditAngle1PosY: TEdit
             Left = 184
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 1
           end
-          object Panel77: TPanel
+          object PanelAngle1PosScan: TPanel
             Left = 248
             Top = 32
             Width = 57
@@ -5621,21 +5857,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 2
           end
-          object Edit154: TEdit
+          object EditAngle2PosX: TEdit
             Left = 80
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 3
           end
-          object Edit155: TEdit
+          object EditAngle2PosY: TEdit
             Left = 184
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 4
           end
-          object Panel78: TPanel
+          object PanelAngle2PosScan: TPanel
             Left = 248
             Top = 56
             Width = 57
@@ -5644,21 +5882,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 5
           end
-          object Edit156: TEdit
+          object EditAngle3PosX: TEdit
             Left = 80
             Top = 80
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 6
           end
-          object Edit157: TEdit
+          object EditAngle3PosY: TEdit
             Left = 184
             Top = 80
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 7
           end
-          object Panel79: TPanel
+          object PanelAngle3PosScan: TPanel
             Left = 248
             Top = 80
             Width = 57
@@ -5667,21 +5907,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 8
           end
-          object Edit158: TEdit
+          object EditAngle4PosX: TEdit
             Left = 80
             Top = 104
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 9
           end
-          object Edit159: TEdit
+          object EditAngle4PosY: TEdit
             Left = 184
             Top = 104
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 10
           end
-          object Panel80: TPanel
+          object PanelAngle4PosScan: TPanel
             Left = 248
             Top = 104
             Width = 57
@@ -5690,21 +5932,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 11
           end
-          object Edit160: TEdit
+          object EditAngle5PosX: TEdit
             Left = 80
             Top = 128
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 12
           end
-          object Edit161: TEdit
+          object EditAngle5PosY: TEdit
             Left = 184
             Top = 128
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 13
           end
-          object Panel81: TPanel
+          object PanelAngle5PosScan: TPanel
             Left = 248
             Top = 128
             Width = 57
@@ -5713,21 +5957,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 14
           end
-          object Edit162: TEdit
+          object EditAngle6PosX: TEdit
             Left = 80
             Top = 152
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 15
           end
-          object Edit163: TEdit
+          object EditAngle6PosY: TEdit
             Left = 184
             Top = 152
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 16
           end
-          object Panel82: TPanel
+          object PanelAngle6PosScan: TPanel
             Left = 248
             Top = 152
             Width = 57
@@ -5736,21 +5982,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 17
           end
-          object Edit164: TEdit
+          object EditAngle0PosX: TEdit
             Left = 80
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 18
           end
-          object Edit165: TEdit
+          object EditAngle0PosY: TEdit
             Left = 184
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 19
           end
-          object Panel83: TPanel
+          object PanelAngle0PosScan: TPanel
             Left = 248
             Top = 8
             Width = 57
@@ -5759,21 +6007,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 20
           end
-          object Edit166: TEdit
+          object EditAngle7PosX: TEdit
             Left = 80
             Top = 176
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 21
           end
-          object Edit167: TEdit
+          object EditAngle7PosY: TEdit
             Left = 184
             Top = 176
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 22
           end
-          object Panel84: TPanel
+          object PanelAngle7PosScan: TPanel
             Left = 248
             Top = 176
             Width = 57
@@ -5782,21 +6032,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 23
           end
-          object Edit168: TEdit
+          object EditAngle8PosX: TEdit
             Left = 80
             Top = 200
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 24
           end
-          object Edit169: TEdit
+          object EditAngle8PosY: TEdit
             Left = 184
             Top = 200
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 25
           end
-          object Panel85: TPanel
+          object PanelAngle8PosScan: TPanel
             Left = 248
             Top = 200
             Width = 57
@@ -5805,21 +6057,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 26
           end
-          object Edit170: TEdit
+          object EditAngle9PosX: TEdit
             Left = 80
             Top = 224
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 27
           end
-          object Edit171: TEdit
+          object EditAngle9PosY: TEdit
             Left = 184
             Top = 224
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 28
           end
-          object Panel86: TPanel
+          object PanelAngle9PosScan: TPanel
             Left = 248
             Top = 224
             Width = 57
@@ -5828,21 +6082,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 29
           end
-          object Edit172: TEdit
+          object EditAngle11PosX: TEdit
             Left = 80
             Top = 272
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 30
           end
-          object Edit173: TEdit
+          object EditAngle11PosY: TEdit
             Left = 184
             Top = 272
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 31
           end
-          object Panel87: TPanel
+          object PanelAngle11PosScan: TPanel
             Left = 248
             Top = 272
             Width = 57
@@ -5851,21 +6107,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 32
           end
-          object Edit174: TEdit
+          object EditAngle12PosX: TEdit
             Left = 400
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 33
           end
-          object Edit175: TEdit
+          object EditAngle12PosY: TEdit
             Left = 504
             Top = 8
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 34
           end
-          object Panel88: TPanel
+          object PanelAngle12PosScan: TPanel
             Left = 568
             Top = 8
             Width = 57
@@ -5874,21 +6132,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 35
           end
-          object Edit176: TEdit
+          object EditAngle13PosX: TEdit
             Left = 400
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 36
           end
-          object Edit177: TEdit
+          object EditAngle13PosY: TEdit
             Left = 504
             Top = 32
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 37
           end
-          object Panel89: TPanel
+          object PanelAngle13PosScan: TPanel
             Left = 568
             Top = 32
             Width = 57
@@ -5897,21 +6157,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 38
           end
-          object Edit178: TEdit
+          object EditAngle14PosX: TEdit
             Left = 400
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 39
           end
-          object Edit179: TEdit
+          object EditAngle14PosY: TEdit
             Left = 504
             Top = 56
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 40
           end
-          object Panel90: TPanel
+          object PanelAngle14PosScan: TPanel
             Left = 568
             Top = 56
             Width = 57
@@ -5920,21 +6182,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 41
           end
-          object Edit180: TEdit
+          object EditAngle15PosX: TEdit
             Left = 400
             Top = 80
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 42
           end
-          object Edit181: TEdit
+          object EditAngle15PosY: TEdit
             Left = 504
             Top = 80
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 43
           end
-          object Panel91: TPanel
+          object PanelAngle15PosScan: TPanel
             Left = 568
             Top = 80
             Width = 57
@@ -5943,21 +6207,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 44
           end
-          object Edit182: TEdit
+          object EditAngle16PosX: TEdit
             Left = 400
             Top = 104
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 45
           end
-          object Edit183: TEdit
+          object EditAngle16PosY: TEdit
             Left = 504
             Top = 104
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 46
           end
-          object Panel92: TPanel
+          object PanelAngle16PosScan: TPanel
             Left = 568
             Top = 104
             Width = 57
@@ -5966,21 +6232,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 47
           end
-          object Edit184: TEdit
+          object EditAngle10PosX: TEdit
             Left = 80
             Top = 248
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 48
           end
-          object Edit185: TEdit
+          object EditAngle10PosY: TEdit
             Left = 184
             Top = 248
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 49
           end
-          object Panel93: TPanel
+          object PanelAngle10PosScan: TPanel
             Left = 248
             Top = 248
             Width = 57
@@ -5989,21 +6257,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 50
           end
-          object Edit186: TEdit
+          object EditAngle17PosX: TEdit
             Left = 400
             Top = 128
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 51
           end
-          object Edit187: TEdit
+          object EditAngle17PosY: TEdit
             Left = 504
             Top = 128
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 52
           end
-          object Panel94: TPanel
+          object PanelAngle17PosScan: TPanel
             Left = 568
             Top = 128
             Width = 57
@@ -6012,21 +6282,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 53
           end
-          object Edit188: TEdit
+          object EditAngle18PosX: TEdit
             Left = 400
             Top = 152
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 54
           end
-          object Edit189: TEdit
+          object EditAngle18PosY: TEdit
             Left = 504
             Top = 152
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 55
           end
-          object Panel95: TPanel
+          object PanelAngle18PosScan: TPanel
             Left = 568
             Top = 152
             Width = 57
@@ -6035,21 +6307,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 56
           end
-          object Edit190: TEdit
+          object EditAngle19PosX: TEdit
             Left = 400
             Top = 176
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 57
           end
-          object Edit191: TEdit
+          object EditAngle19PosY: TEdit
             Left = 504
             Top = 176
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 58
           end
-          object Panel96: TPanel
+          object PanelAngle19PosScan: TPanel
             Left = 568
             Top = 176
             Width = 57
@@ -6058,21 +6332,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 59
           end
-          object Edit192: TEdit
+          object EditAngle21PosX: TEdit
             Left = 400
             Top = 224
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 60
           end
-          object Edit193: TEdit
+          object EditAngle21PosY: TEdit
             Left = 504
             Top = 224
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 61
           end
-          object Panel97: TPanel
+          object PanelAngle21PosScan: TPanel
             Left = 568
             Top = 224
             Width = 57
@@ -6081,21 +6357,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 62
           end
-          object Edit194: TEdit
+          object EditAngle22PosX: TEdit
             Left = 400
             Top = 248
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 63
           end
-          object Edit195: TEdit
+          object EditAngle22PosY: TEdit
             Left = 504
             Top = 248
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 64
           end
-          object Panel98: TPanel
+          object PanelAngle22PosScan: TPanel
             Left = 568
             Top = 248
             Width = 57
@@ -6104,21 +6382,23 @@ object FormConfigurator: TFormConfigurator
             Color = 3644415
             TabOrder = 65
           end
-          object Edit196: TEdit
+          object EditAngle20PosX: TEdit
             Left = 400
             Top = 200
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 66
           end
-          object Edit197: TEdit
+          object EditAngle20PosY: TEdit
             Left = 504
             Top = 200
             Width = 57
             Height = 21
+            Enabled = False
             TabOrder = 67
           end
-          object Panel99: TPanel
+          object PanelAngle20PosScan: TPanel
             Left = 568
             Top = 200
             Width = 57
@@ -6134,14 +6414,31 @@ object FormConfigurator: TFormConfigurator
   object MenuSetting: TMainMenu
     object MenuFile: TMenuItem
       Caption = 'File'
-      object MenuSaveSetting: TMenuItem
-        Caption = 'Save settings'
+      object MenuSaveConfiguration: TMenuItem
+        Caption = 'Save configuration'
         ShortCut = 49235
+        OnClick = MenuSaveConfigurationClick
       end
       object MenuLoadSettings: TMenuItem
-        Caption = 'Load settings'
+        Caption = 'Load configuration'
         ShortCut = 49228
+        OnClick = MenuLoadSettingsClick
       end
     end
+  end
+  object TimerPosMouse: TTimer
+    Interval = 500
+    OnTimer = TimerPosMouseTimer
+    Left = 32
+  end
+  object SaveConfigurationDialog: TSaveDialog
+    DefaultExt = 'agcconf'
+    Filter = '*.agcconf|*.agcconf'
+    Left = 96
+  end
+  object OpenConfigurationDialog: TOpenDialog
+    DefaultExt = 'agcconf'
+    Filter = '*.agcconf|*.agcconf'
+    Left = 64
   end
 end

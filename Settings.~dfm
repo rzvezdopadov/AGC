@@ -296,7 +296,7 @@ object FormSettings: TFormSettings
         Top = 0
         Width = 657
         Height = 545
-        ActivePage = TabColumn
+        ActivePage = TabDozen
         TabOrder = 0
         object TabAlghotitmGlobal: TTabSheet
           Caption = 'Global'
