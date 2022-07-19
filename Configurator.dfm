@@ -1,6 +1,6 @@
 object FormConfigurator: TFormConfigurator
-  Left = 221
-  Top = 268
+  Left = 211
+  Top = 274
   Width = 757
   Height = 726
   Caption = 'Configurator'
@@ -131,7 +131,7 @@ object FormConfigurator: TFormConfigurator
         Top = 0
         Width = 689
         Height = 521
-        ActivePage = TabSheetAngle
+        ActivePage = TabSheetStreet
         TabOrder = 0
         object TabSheetGlobal: TTabSheet
           Caption = 'Global'
@@ -194,15 +194,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 2
-          end
-          object PanelBtnSpinImgScan: TPanel
-            Left = 488
-            Top = 44
-            Width = 57
-            Height = 21
-            Caption = 'Scan'
-            Color = 3644415
-            TabOrder = 3
+            OnClick = PanelBtnSpinScanClick
           end
           object PanelBtnSpinImg: TPanel
             Left = 416
@@ -210,7 +202,7 @@ object FormConfigurator: TFormConfigurator
             Width = 57
             Height = 57
             Color = 15970471
-            TabOrder = 4
+            TabOrder = 3
             object ImageBtnSpinImg: TImage
               Left = 8
               Top = 8
@@ -224,16 +216,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 5
-          end
-          object PanelBtnSpinHashScan: TPanel
-            Left = 488
-            Top = 72
-            Width = 57
-            Height = 21
-            Caption = 'Scan'
-            Color = 3644415
-            TabOrder = 6
+            TabOrder = 4
           end
         end
         object TabSheetCloseWindows: TTabSheet
@@ -327,6 +310,7 @@ object FormConfigurator: TFormConfigurator
               Caption = 'Scan'
               Color = 3644415
               TabOrder = 3
+              OnClick = PanelCloseWindows1SizeScanClick
             end
             object EditCloseWindows1PosX: TEdit
               Left = 416
@@ -352,6 +336,7 @@ object FormConfigurator: TFormConfigurator
               Caption = 'Scan'
               Color = 3644415
               TabOrder = 6
+              OnClick = PanelCloseWindows1PosScanClick
             end
             object CheckCloseWindows1Enable: TCheckBox
               Left = 8
@@ -443,6 +428,7 @@ object FormConfigurator: TFormConfigurator
               Caption = 'Scan'
               Color = 3644415
               TabOrder = 3
+              OnClick = PanelCloseWindows2SizeScanClick
             end
             object EditCloseWindows2PosX: TEdit
               Left = 416
@@ -468,6 +454,7 @@ object FormConfigurator: TFormConfigurator
               Caption = 'Scan'
               Color = 3644415
               TabOrder = 6
+              OnClick = PanelCloseWindows2PosScanClick
             end
             object CheckCloseWindows2Enable: TCheckBox
               Left = 8
@@ -559,6 +546,7 @@ object FormConfigurator: TFormConfigurator
               Caption = 'Scan'
               Color = 3644415
               TabOrder = 3
+              OnClick = PanelCloseWindows3SizeScanClick
             end
             object EditCloseWindows3PosX: TEdit
               Left = 416
@@ -584,6 +572,7 @@ object FormConfigurator: TFormConfigurator
               Caption = 'Scan'
               Color = 3644415
               TabOrder = 6
+              OnClick = PanelCloseWindows3PosScanClick
             end
             object CheckCloseWindows3Enable: TCheckBox
               Left = 8
@@ -675,6 +664,7 @@ object FormConfigurator: TFormConfigurator
               Caption = 'Scan'
               Color = 3644415
               TabOrder = 3
+              OnClick = PanelCloseWindows4SizeScanClick
             end
             object EditCloseWindows4PosX: TEdit
               Left = 416
@@ -700,6 +690,7 @@ object FormConfigurator: TFormConfigurator
               Caption = 'Scan'
               Color = 3644415
               TabOrder = 6
+              OnClick = PanelCloseWindows4PosScanClick
             end
             object CheckCloseWindows4Enable: TCheckBox
               Left = 8
@@ -791,6 +782,7 @@ object FormConfigurator: TFormConfigurator
               Caption = 'Scan'
               Color = 3644415
               TabOrder = 3
+              OnClick = PanelCloseWindows5SizeScanClick
             end
             object EditCloseWindows5PosX: TEdit
               Left = 416
@@ -816,6 +808,7 @@ object FormConfigurator: TFormConfigurator
               Caption = 'Scan'
               Color = 3644415
               TabOrder = 6
+              OnClick = PanelCloseWindows5PosScanClick
             end
             object CheckCloseWindows5Enable: TCheckBox
               Left = 8
@@ -907,6 +900,7 @@ object FormConfigurator: TFormConfigurator
               Caption = 'Scan'
               Color = 3644415
               TabOrder = 3
+              OnClick = PanelCloseWindows6SizeScanClick
             end
             object EditCloseWindows6PosX: TEdit
               Left = 416
@@ -932,6 +926,7 @@ object FormConfigurator: TFormConfigurator
               Caption = 'Scan'
               Color = 3644415
               TabOrder = 6
+              OnClick = PanelCloseWindows6PosScanClick
             end
             object CheckCloseWindows6Enable: TCheckBox
               Left = 8
@@ -1264,15 +1259,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 2
-          end
-          object PanelHashNumberImgScan: TPanel
-            Left = 488
-            Top = 44
-            Width = 57
-            Height = 21
-            Caption = 'Scan'
-            Color = 3644415
-            TabOrder = 3
+            OnClick = PanelHashNumberPosScanClick
           end
           object PanelHashNumberImg: TPanel
             Left = 416
@@ -1280,7 +1267,7 @@ object FormConfigurator: TFormConfigurator
             Width = 57
             Height = 57
             Color = 15970471
-            TabOrder = 4
+            TabOrder = 3
             object ImageHashNumberImg: TImage
               Left = 8
               Top = 8
@@ -1295,7 +1282,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 5
+            TabOrder = 4
+            OnClick = PanelHashNumber0ScanClick
           end
           object EditHashNumber0: TEdit
             Left = 32
@@ -1303,7 +1291,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 6
+            TabOrder = 5
           end
           object PanelHashNumber1Scan: TPanel
             Left = 160
@@ -1312,7 +1300,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 7
+            TabOrder = 6
+            OnClick = PanelHashNumber1ScanClick
           end
           object EditHashNumber1: TEdit
             Left = 32
@@ -1320,7 +1309,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 8
+            TabOrder = 7
           end
           object PanelHashNumber2Scan: TPanel
             Left = 160
@@ -1329,7 +1318,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 9
+            TabOrder = 8
+            OnClick = PanelHashNumber2ScanClick
           end
           object EditHashNumber2: TEdit
             Left = 32
@@ -1337,7 +1327,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 10
+            TabOrder = 9
           end
           object PanelHashNumber3Scan: TPanel
             Left = 160
@@ -1346,7 +1336,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 11
+            TabOrder = 10
+            OnClick = PanelHashNumber3ScanClick
           end
           object EditHashNumber3: TEdit
             Left = 32
@@ -1354,7 +1345,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 12
+            TabOrder = 11
           end
           object PanelHashNumber4Scan: TPanel
             Left = 160
@@ -1363,7 +1354,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 13
+            TabOrder = 12
+            OnClick = PanelHashNumber4ScanClick
           end
           object EditHashNumber4: TEdit
             Left = 32
@@ -1371,7 +1363,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 14
+            TabOrder = 13
           end
           object PanelHashNumber5Scan: TPanel
             Left = 160
@@ -1380,7 +1372,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 15
+            TabOrder = 14
+            OnClick = PanelHashNumber5ScanClick
           end
           object EditHashNumber5: TEdit
             Left = 32
@@ -1388,7 +1381,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 16
+            TabOrder = 15
           end
           object PanelHashNumber6Scan: TPanel
             Left = 160
@@ -1397,7 +1390,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 17
+            TabOrder = 16
+            OnClick = PanelHashNumber6ScanClick
           end
           object EditHashNumber6: TEdit
             Left = 32
@@ -1405,7 +1399,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 18
+            TabOrder = 17
           end
           object PanelHashNumber7Scan: TPanel
             Left = 160
@@ -1414,7 +1408,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 19
+            TabOrder = 18
+            OnClick = PanelHashNumber7ScanClick
           end
           object EditHashNumber7: TEdit
             Left = 32
@@ -1422,7 +1417,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 20
+            TabOrder = 19
           end
           object PanelHashNumber8Scan: TPanel
             Left = 160
@@ -1431,7 +1426,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 21
+            TabOrder = 20
+            OnClick = PanelHashNumber8ScanClick
           end
           object EditHashNumber8: TEdit
             Left = 32
@@ -1439,7 +1435,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 22
+            TabOrder = 21
           end
           object PanelHashNumber9Scan: TPanel
             Left = 160
@@ -1448,7 +1444,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 23
+            TabOrder = 22
+            OnClick = PanelHashNumber9ScanClick
           end
           object EditHashNumber9: TEdit
             Left = 32
@@ -1456,7 +1453,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 24
+            TabOrder = 23
           end
           object PanelHashNumber10Scan: TPanel
             Left = 160
@@ -1465,7 +1462,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 25
+            TabOrder = 24
+            OnClick = PanelHashNumber10ScanClick
           end
           object EditHashNumber10: TEdit
             Left = 32
@@ -1473,7 +1471,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 26
+            TabOrder = 25
           end
           object PanelHashNumber11Scan: TPanel
             Left = 160
@@ -1482,7 +1480,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 27
+            TabOrder = 26
+            OnClick = PanelHashNumber11ScanClick
           end
           object EditHashNumber11: TEdit
             Left = 32
@@ -1490,7 +1489,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 28
+            TabOrder = 27
           end
           object PanelHashNumber12Scan: TPanel
             Left = 160
@@ -1499,7 +1498,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 29
+            TabOrder = 28
+            OnClick = PanelHashNumber12ScanClick
           end
           object EditHashNumber12: TEdit
             Left = 32
@@ -1507,7 +1507,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 30
+            TabOrder = 29
           end
           object PanelHashNumber13Scan: TPanel
             Left = 384
@@ -1516,7 +1516,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 31
+            TabOrder = 30
+            OnClick = PanelHashNumber13ScanClick
           end
           object EditHashNumber13: TEdit
             Left = 256
@@ -1524,7 +1525,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 32
+            TabOrder = 31
           end
           object PanelHashNumber14Scan: TPanel
             Left = 384
@@ -1533,7 +1534,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 33
+            TabOrder = 32
+            OnClick = PanelHashNumber14ScanClick
           end
           object EditHashNumber14: TEdit
             Left = 256
@@ -1541,7 +1543,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 34
+            TabOrder = 33
           end
           object PanelHashNumber15Scan: TPanel
             Left = 384
@@ -1550,7 +1552,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 35
+            TabOrder = 34
+            OnClick = PanelHashNumber15ScanClick
           end
           object EditHashNumber15: TEdit
             Left = 256
@@ -1558,7 +1561,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 36
+            TabOrder = 35
           end
           object PanelHashNumber16Scan: TPanel
             Left = 384
@@ -1567,7 +1570,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 37
+            TabOrder = 36
+            OnClick = PanelHashNumber16ScanClick
           end
           object EditHashNumber16: TEdit
             Left = 256
@@ -1575,7 +1579,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 38
+            TabOrder = 37
           end
           object PanelHashNumber17Scan: TPanel
             Left = 384
@@ -1584,7 +1588,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 39
+            TabOrder = 38
+            OnClick = PanelHashNumber17ScanClick
           end
           object EditHashNumber17: TEdit
             Left = 256
@@ -1592,7 +1597,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 40
+            TabOrder = 39
           end
           object PanelHashNumber18Scan: TPanel
             Left = 384
@@ -1601,7 +1606,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 41
+            TabOrder = 40
+            OnClick = PanelHashNumber18ScanClick
           end
           object EditHashNumber18: TEdit
             Left = 256
@@ -1609,7 +1615,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 42
+            TabOrder = 41
           end
           object PanelHashNumber19Scan: TPanel
             Left = 384
@@ -1618,7 +1624,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 43
+            TabOrder = 42
+            OnClick = PanelHashNumber19ScanClick
           end
           object EditHashNumber19: TEdit
             Left = 256
@@ -1626,7 +1633,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 44
+            TabOrder = 43
           end
           object PanelHashNumber20Scan: TPanel
             Left = 384
@@ -1635,7 +1642,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 45
+            TabOrder = 44
+            OnClick = PanelHashNumber20ScanClick
           end
           object EditHashNumber20: TEdit
             Left = 256
@@ -1643,7 +1651,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 46
+            TabOrder = 45
           end
           object PanelHashNumber21Scan: TPanel
             Left = 384
@@ -1652,7 +1660,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 47
+            TabOrder = 46
+            OnClick = PanelHashNumber21ScanClick
           end
           object EditHashNumber21: TEdit
             Left = 256
@@ -1660,7 +1669,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 48
+            TabOrder = 47
           end
           object PanelHashNumber22Scan: TPanel
             Left = 384
@@ -1669,7 +1678,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 49
+            TabOrder = 48
+            OnClick = PanelHashNumber22ScanClick
           end
           object EditHashNumber22: TEdit
             Left = 256
@@ -1677,7 +1687,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 50
+            TabOrder = 49
           end
           object PanelHashNumber23Scan: TPanel
             Left = 384
@@ -1686,7 +1696,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 51
+            TabOrder = 50
+            OnClick = PanelHashNumber23ScanClick
           end
           object EditHashNumber23: TEdit
             Left = 256
@@ -1694,7 +1705,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 52
+            TabOrder = 51
           end
           object PanelHashNumber24Scan: TPanel
             Left = 384
@@ -1703,7 +1714,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 53
+            TabOrder = 52
+            OnClick = PanelHashNumber24ScanClick
           end
           object EditHashNumber24: TEdit
             Left = 256
@@ -1711,7 +1723,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 54
+            TabOrder = 53
           end
           object PanelHashNumber25Scan: TPanel
             Left = 384
@@ -1720,7 +1732,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 55
+            TabOrder = 54
+            OnClick = PanelHashNumber25ScanClick
           end
           object EditHashNumber25: TEdit
             Left = 256
@@ -1728,7 +1741,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 56
+            TabOrder = 55
           end
           object PanelHashNumber26Scan: TPanel
             Left = 608
@@ -1737,7 +1750,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 57
+            TabOrder = 56
+            OnClick = PanelHashNumber26ScanClick
           end
           object EditHashNumber26: TEdit
             Left = 480
@@ -1745,7 +1759,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 58
+            TabOrder = 57
           end
           object PanelHashNumber27Scan: TPanel
             Left = 608
@@ -1754,7 +1768,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 59
+            TabOrder = 58
+            OnClick = PanelHashNumber27ScanClick
           end
           object EditHashNumber27: TEdit
             Left = 480
@@ -1762,7 +1777,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 60
+            TabOrder = 59
           end
           object PanelHashNumber28Scan: TPanel
             Left = 608
@@ -1771,7 +1786,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 61
+            TabOrder = 60
+            OnClick = PanelHashNumber28ScanClick
           end
           object EditHashNumber28: TEdit
             Left = 480
@@ -1779,7 +1795,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 62
+            TabOrder = 61
           end
           object PanelHashNumber29Scan: TPanel
             Left = 608
@@ -1788,7 +1804,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 63
+            TabOrder = 62
+            OnClick = PanelHashNumber29ScanClick
           end
           object EditHashNumber29: TEdit
             Left = 480
@@ -1796,7 +1813,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 64
+            TabOrder = 63
           end
           object PanelHashNumber30Scan: TPanel
             Left = 608
@@ -1805,7 +1822,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 65
+            TabOrder = 64
+            OnClick = PanelHashNumber30ScanClick
           end
           object EditHashNumber30: TEdit
             Left = 480
@@ -1813,7 +1831,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 66
+            TabOrder = 65
           end
           object PanelHashNumber31Scan: TPanel
             Left = 608
@@ -1822,7 +1840,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 67
+            TabOrder = 66
+            OnClick = PanelHashNumber31ScanClick
           end
           object EditHashNumber31: TEdit
             Left = 480
@@ -1830,7 +1849,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 68
+            TabOrder = 67
           end
           object PanelHashNumber32Scan: TPanel
             Left = 608
@@ -1839,7 +1858,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 69
+            TabOrder = 68
+            OnClick = PanelHashNumber32ScanClick
           end
           object EditHashNumber32: TEdit
             Left = 480
@@ -1847,7 +1867,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 70
+            TabOrder = 69
           end
           object PanelHashNumber33Scan: TPanel
             Left = 608
@@ -1856,7 +1876,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 71
+            TabOrder = 70
+            OnClick = PanelHashNumber33ScanClick
           end
           object EditHashNumber33: TEdit
             Left = 480
@@ -1864,7 +1885,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 72
+            TabOrder = 71
           end
           object PanelHashNumber34Scan: TPanel
             Left = 608
@@ -1873,7 +1894,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 73
+            TabOrder = 72
+            OnClick = PanelHashNumber34ScanClick
           end
           object EditHashNumber34: TEdit
             Left = 480
@@ -1881,7 +1903,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 74
+            TabOrder = 73
           end
           object PanelHashNumber35Scan: TPanel
             Left = 608
@@ -1890,7 +1912,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 75
+            TabOrder = 74
+            OnClick = PanelHashNumber35ScanClick
           end
           object EditHashNumber35: TEdit
             Left = 480
@@ -1898,7 +1921,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 76
+            TabOrder = 75
           end
           object PanelHashNumber36Scan: TPanel
             Left = 608
@@ -1907,7 +1930,8 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Caption = 'Scan'
             Color = 3644415
-            TabOrder = 77
+            TabOrder = 76
+            OnClick = PanelHashNumber36ScanClick
           end
           object EditHashNumber36: TEdit
             Left = 480
@@ -1915,7 +1939,7 @@ object FormConfigurator: TFormConfigurator
             Width = 121
             Height = 21
             Enabled = False
-            TabOrder = 78
+            TabOrder = 77
           end
         end
         object TabSheetPair: TTabSheet
@@ -2071,6 +2095,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 2
+            OnClick = PanelPairLowPosScanClick
           end
           object EditPairHighPosX: TEdit
             Left = 96
@@ -2096,6 +2121,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 5
+            OnClick = PanelPairHighPosScanClick
           end
           object EditPairOddPosX: TEdit
             Left = 96
@@ -2121,6 +2147,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 8
+            OnClick = PanelPairOddPosScanClick
           end
           object EditPairEvenPosX: TEdit
             Left = 96
@@ -2146,6 +2173,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 11
+            OnClick = PanelPairEvenPosScanClick
           end
           object EditPairRedPosX: TEdit
             Left = 96
@@ -2171,6 +2199,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 14
+            OnClick = PanelPairRedPosScanClick
           end
           object EditPairBlackPosX: TEdit
             Left = 96
@@ -2196,6 +2225,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 17
+            OnClick = PanelPairBlackPosScanClick
           end
         end
         object TabSheetColumn: TTabSheet
@@ -2288,6 +2318,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 2
+            OnClick = PanelColumn2To11PosScanClick
           end
           object EditColumn2To12PosX: TEdit
             Left = 104
@@ -2313,6 +2344,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 5
+            OnClick = PanelColumn2To12PosScanClick
           end
           object EditColumn2To13PosX: TEdit
             Left = 104
@@ -2338,6 +2370,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 8
+            OnClick = PanelColumn2To13PosScanClick
           end
         end
         object TabSheetDozen: TTabSheet
@@ -2430,6 +2463,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 2
+            OnClick = PanelDozen1st12PosScanClick
           end
           object EditDozen2st12PosX: TEdit
             Left = 96
@@ -2455,6 +2489,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 5
+            OnClick = PanelDozen2st12PosScanClick
           end
           object EditDozen3st12PosX: TEdit
             Left = 96
@@ -2480,6 +2515,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 8
+            OnClick = PanelDozen3st12PosScanClick
           end
         end
         object TabSheetNumber: TTabSheet
@@ -3286,6 +3322,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 2
+            OnClick = EditNumber1PosScanClick
           end
           object EditNumber2PosX: TEdit
             Left = 72
@@ -3311,6 +3348,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 5
+            OnClick = EditNumber2PosScanClick
           end
           object EditNumber3PosX: TEdit
             Left = 72
@@ -3336,6 +3374,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 8
+            OnClick = EditNumber3PosScanClick
           end
           object EditNumber4PosX: TEdit
             Left = 72
@@ -3361,6 +3400,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 11
+            OnClick = EditNumber4PosScanClick
           end
           object EditNumber5PosX: TEdit
             Left = 72
@@ -3386,6 +3426,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 14
+            OnClick = EditNumber5PosScanClick
           end
           object EditNumber6PosX: TEdit
             Left = 72
@@ -3411,6 +3452,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 17
+            OnClick = EditNumber6PosScanClick
           end
           object EditNumber0PosX: TEdit
             Left = 72
@@ -3436,6 +3478,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 20
+            OnClick = EditNumber0PosScanClick
           end
           object EditNumber7PosX: TEdit
             Left = 72
@@ -3461,6 +3504,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 23
+            OnClick = EditNumber7PosScanClick
           end
           object EditNumber8PosX: TEdit
             Left = 72
@@ -3486,6 +3530,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 26
+            OnClick = EditNumber8PosScanClick
           end
           object EditNumber9PosX: TEdit
             Left = 72
@@ -3511,6 +3556,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 29
+            OnClick = EditNumber9PosScanClick
           end
           object EditNumber11PosX: TEdit
             Left = 72
@@ -3536,6 +3582,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 32
+            OnClick = EditNumber11PosScanClick
           end
           object EditNumber12PosX: TEdit
             Left = 72
@@ -3561,6 +3608,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 35
+            OnClick = EditNumber12PosScanClick
           end
           object EditNumber13PosX: TEdit
             Left = 72
@@ -3586,6 +3634,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 38
+            OnClick = EditNumber13PosScanClick
           end
           object EditNumber14PosX: TEdit
             Left = 72
@@ -3611,6 +3660,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 41
+            OnClick = EditNumber14PosScanClick
           end
           object EditNumber15PosX: TEdit
             Left = 72
@@ -3636,6 +3686,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 44
+            OnClick = EditNumber15PosScanClick
           end
           object EditNumber16PosX: TEdit
             Left = 72
@@ -3661,6 +3712,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 47
+            OnClick = EditNumber16PosScanClick
           end
           object EditNumber10PosX: TEdit
             Left = 72
@@ -3686,6 +3738,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 50
+            OnClick = EditNumber10PosScanClick
           end
           object EditNumber17PosX: TEdit
             Left = 72
@@ -3711,6 +3764,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 53
+            OnClick = EditNumber17PosScanClick
           end
           object EditNumber18PosX: TEdit
             Left = 72
@@ -3736,6 +3790,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 56
+            OnClick = EditNumber18PosScanClick
           end
           object EditNumber19PosX: TEdit
             Left = 384
@@ -3761,6 +3816,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 59
+            OnClick = EditNumber19PosScanClick
           end
           object EditNumber21PosX: TEdit
             Left = 384
@@ -3786,6 +3842,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 62
+            OnClick = EditNumber21PosScanClick
           end
           object EditNumber22PosX: TEdit
             Left = 384
@@ -3811,6 +3868,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 65
+            OnClick = EditNumber22PosScanClick
           end
           object EditNumber23PosX: TEdit
             Left = 384
@@ -3836,6 +3894,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 68
+            OnClick = EditNumber23PosScanClick
           end
           object EditNumber24PosX: TEdit
             Left = 384
@@ -3861,6 +3920,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 71
+            OnClick = EditNumber24PosScanClick
           end
           object EditNumber25PosX: TEdit
             Left = 384
@@ -3886,6 +3946,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 74
+            OnClick = EditNumber25PosScanClick
           end
           object EditNumber26PosX: TEdit
             Left = 384
@@ -3911,6 +3972,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 77
+            OnClick = EditNumber26PosScanClick
           end
           object EditNumber20PosX: TEdit
             Left = 384
@@ -3936,6 +3998,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 80
+            OnClick = EditNumber20PosScanClick
           end
           object EditNumber27PosX: TEdit
             Left = 384
@@ -3961,6 +4024,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 83
+            OnClick = EditNumber27PosScanClick
           end
           object EditNumber28PosX: TEdit
             Left = 384
@@ -3986,6 +4050,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 86
+            OnClick = EditNumber28PosScanClick
           end
           object EditNumber29PosX: TEdit
             Left = 384
@@ -4011,6 +4076,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 89
+            OnClick = EditNumber29PosScanClick
           end
           object EditNumber31PosX: TEdit
             Left = 384
@@ -4036,6 +4102,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 92
+            OnClick = EditNumber31PosScanClick
           end
           object EditNumber32PosX: TEdit
             Left = 384
@@ -4061,6 +4128,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 95
+            OnClick = EditNumber32PosScanClick
           end
           object EditNumber33PosX: TEdit
             Left = 384
@@ -4086,6 +4154,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 98
+            OnClick = EditNumber33PosScanClick
           end
           object EditNumber34PosX: TEdit
             Left = 384
@@ -4111,6 +4180,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 101
+            OnClick = EditNumber34PosScanClick
           end
           object EditNumber35PosX: TEdit
             Left = 384
@@ -4136,6 +4206,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 104
+            OnClick = EditNumber35PosScanClick
           end
           object EditNumber36PosX: TEdit
             Left = 384
@@ -4161,6 +4232,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 107
+            OnClick = EditNumber36PosScanClick
           end
           object EditNumber30PosX: TEdit
             Left = 384
@@ -4186,6 +4258,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 110
+            OnClick = EditNumber30PosScanClick
           end
         end
         object TabSheetSixline: TTabSheet
@@ -4446,6 +4519,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 2
+            OnClick = PanelSixline1PosScanClick
           end
           object EditSixline2PosX: TEdit
             Left = 88
@@ -4471,6 +4545,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 5
+            OnClick = PanelSixline2PosScanClick
           end
           object EditSixline3PosX: TEdit
             Left = 88
@@ -4496,6 +4571,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 8
+            OnClick = PanelSixline3PosScanClick
           end
           object EditSixline4PosX: TEdit
             Left = 88
@@ -4521,6 +4597,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 11
+            OnClick = PanelSixline4PosScanClick
           end
           object EditSixline5PosX: TEdit
             Left = 88
@@ -4546,6 +4623,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 14
+            OnClick = PanelSixline5PosScanClick
           end
           object EditSixline6PosX: TEdit
             Left = 88
@@ -4571,6 +4649,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 17
+            OnClick = PanelSixline6PosScanClick
           end
           object EditSixline7PosX: TEdit
             Left = 88
@@ -4596,6 +4675,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 20
+            OnClick = PanelSixline7PosScanClick
           end
           object EditSixline8PosX: TEdit
             Left = 88
@@ -4621,6 +4701,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 23
+            OnClick = PanelSixline8PosScanClick
           end
           object EditSixline9PosX: TEdit
             Left = 88
@@ -4646,6 +4727,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 26
+            OnClick = PanelSixline9PosScanClick
           end
           object EditSixline11PosX: TEdit
             Left = 88
@@ -4671,6 +4753,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 29
+            OnClick = PanelSixline11PosScanClick
           end
           object EditSixline10PosX: TEdit
             Left = 88
@@ -4696,6 +4779,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 32
+            OnClick = PanelSixline10PosScanClick
           end
         end
         object TabSheetStreet: TTabSheet
@@ -5019,6 +5103,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 2
+            OnClick = PanelStreet1PosScanClick
           end
           object EditStreet2PosX: TEdit
             Left = 96
@@ -5044,6 +5129,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 5
+            OnClick = PanelStreet2PosScanClick
           end
           object EditStreet3PosX: TEdit
             Left = 96
@@ -5069,6 +5155,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 8
+            OnClick = PanelStreet3PosScanClick
           end
           object EditStreet4PosX: TEdit
             Left = 96
@@ -5094,6 +5181,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 11
+            OnClick = PanelStreet4PosScanClick
           end
           object EditStreet5PosX: TEdit
             Left = 96
@@ -5119,6 +5207,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 14
+            OnClick = PanelStreet5PosScanClick
           end
           object EditStreet6PosX: TEdit
             Left = 96
@@ -5144,6 +5233,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 17
+            OnClick = PanelStreet6PosScanClick
           end
           object EditStreet0PosX: TEdit
             Left = 96
@@ -5169,6 +5259,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 20
+            OnClick = PanelStreet0PosScanClick
           end
           object EditStreet7PosX: TEdit
             Left = 96
@@ -5194,6 +5285,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 23
+            OnClick = PanelStreet7PosScanClick
           end
           object EditStreet8PosX: TEdit
             Left = 96
@@ -5219,6 +5311,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 26
+            OnClick = PanelStreet8PosScanClick
           end
           object EditStreet9PosX: TEdit
             Left = 96
@@ -5244,6 +5337,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 29
+            OnClick = PanelStreet9PosScanClick
           end
           object EditStreet11PosX: TEdit
             Left = 96
@@ -5269,6 +5363,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 32
+            OnClick = PanelStreet11PosScanClick
           end
           object EditStreet12PosX: TEdit
             Left = 96
@@ -5294,6 +5389,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 35
+            OnClick = PanelStreet12PosScanClick
           end
           object EditStreet13PosX: TEdit
             Left = 96
@@ -5319,6 +5415,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 38
+            OnClick = PanelStreet13PosScanClick
           end
           object EditStreet10PosX: TEdit
             Left = 96
@@ -5344,6 +5441,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 41
+            OnClick = PanelStreet10PosScanClick
           end
         end
         object TabSheetAngle: TTabSheet
@@ -5856,6 +5954,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 2
+            OnClick = PanelAngle1PosScanClick
           end
           object EditAngle2PosX: TEdit
             Left = 80
@@ -5881,6 +5980,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 5
+            OnClick = PanelAngle2PosScanClick
           end
           object EditAngle3PosX: TEdit
             Left = 80
@@ -5906,6 +6006,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 8
+            OnClick = PanelAngle3PosScanClick
           end
           object EditAngle4PosX: TEdit
             Left = 80
@@ -5931,6 +6032,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 11
+            OnClick = PanelAngle4PosScanClick
           end
           object EditAngle5PosX: TEdit
             Left = 80
@@ -5956,6 +6058,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 14
+            OnClick = PanelAngle5PosScanClick
           end
           object EditAngle6PosX: TEdit
             Left = 80
@@ -5981,6 +6084,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 17
+            OnClick = PanelAngle6PosScanClick
           end
           object EditAngle0PosX: TEdit
             Left = 80
@@ -6006,6 +6110,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 20
+            OnClick = PanelAngle0PosScanClick
           end
           object EditAngle7PosX: TEdit
             Left = 80
@@ -6031,6 +6136,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 23
+            OnClick = PanelAngle7PosScanClick
           end
           object EditAngle8PosX: TEdit
             Left = 80
@@ -6056,6 +6162,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 26
+            OnClick = PanelAngle8PosScanClick
           end
           object EditAngle9PosX: TEdit
             Left = 80
@@ -6081,6 +6188,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 29
+            OnClick = PanelAngle9PosScanClick
           end
           object EditAngle11PosX: TEdit
             Left = 80
@@ -6106,6 +6214,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 32
+            OnClick = PanelAngle11PosScanClick
           end
           object EditAngle12PosX: TEdit
             Left = 400
@@ -6131,6 +6240,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 35
+            OnClick = PanelAngle12PosScanClick
           end
           object EditAngle13PosX: TEdit
             Left = 400
@@ -6156,6 +6266,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 38
+            OnClick = PanelAngle13PosScanClick
           end
           object EditAngle14PosX: TEdit
             Left = 400
@@ -6181,6 +6292,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 41
+            OnClick = PanelAngle14PosScanClick
           end
           object EditAngle15PosX: TEdit
             Left = 400
@@ -6206,6 +6318,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 44
+            OnClick = PanelAngle15PosScanClick
           end
           object EditAngle16PosX: TEdit
             Left = 400
@@ -6231,6 +6344,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 47
+            OnClick = PanelAngle16PosScanClick
           end
           object EditAngle10PosX: TEdit
             Left = 80
@@ -6256,6 +6370,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 50
+            OnClick = PanelAngle10PosScanClick
           end
           object EditAngle17PosX: TEdit
             Left = 400
@@ -6281,6 +6396,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 53
+            OnClick = PanelAngle17PosScanClick
           end
           object EditAngle18PosX: TEdit
             Left = 400
@@ -6306,6 +6422,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 56
+            OnClick = PanelAngle18PosScanClick
           end
           object EditAngle19PosX: TEdit
             Left = 400
@@ -6331,6 +6448,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 59
+            OnClick = PanelAngle19PosScanClick
           end
           object EditAngle21PosX: TEdit
             Left = 400
@@ -6356,6 +6474,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 62
+            OnClick = PanelAngle21PosScanClick
           end
           object EditAngle22PosX: TEdit
             Left = 400
@@ -6381,6 +6500,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 65
+            OnClick = PanelAngle22PosScanClick
           end
           object EditAngle20PosX: TEdit
             Left = 400
@@ -6406,6 +6526,7 @@ object FormConfigurator: TFormConfigurator
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 68
+            OnClick = PanelAngle20PosScanClick
           end
         end
       end
@@ -6427,7 +6548,7 @@ object FormConfigurator: TFormConfigurator
     end
   end
   object TimerPosMouse: TTimer
-    Interval = 500
+    Interval = 300
     OnTimer = TimerPosMouseTimer
     Left = 32
   end

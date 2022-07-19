@@ -64,4 +64,4 @@ begin
   Application.CreateForm(TFormStatisticsColumn, FormStatisticsColumn);
   Application.CreateForm(TFormConfigurator, FormConfigurator);
   Application.Run;
-end.
+  end.
