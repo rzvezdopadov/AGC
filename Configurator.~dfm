@@ -1,6 +1,6 @@
 object FormConfigurator: TFormConfigurator
-  Left = 211
-  Top = 274
+  Left = 1007
+  Top = 174
   Width = 757
   Height = 726
   Caption = 'Configurator'
@@ -131,7 +131,7 @@ object FormConfigurator: TFormConfigurator
         Top = 0
         Width = 689
         Height = 521
-        ActivePage = TabSheetStreet
+        ActivePage = TabSheetCloseWindows
         TabOrder = 0
         object TabSheetGlobal: TTabSheet
           Caption = 'Global'
@@ -6531,6 +6531,14 @@ object FormConfigurator: TFormConfigurator
         end
       end
     end
+  end
+  object Memo1: TMemo
+    Left = 32
+    Top = 208
+    Width = 457
+    Height = 449
+    ScrollBars = ssBoth
+    TabOrder = 2
   end
   object MenuSetting: TMainMenu
     object MenuFile: TMenuItem

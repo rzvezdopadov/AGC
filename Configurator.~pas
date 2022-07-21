@@ -846,6 +846,7 @@ type
     LabelBtnSpinHash: TLabel;
     SaveConfigurationDialog: TSaveDialog;
     OpenConfigurationDialog: TOpenDialog;
+    Memo1: TMemo;
     procedure TimerPosMouseTimer(Sender: TObject);
     procedure PanelWindowRuleteNameScanClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
@@ -1122,12 +1123,91 @@ begin
   N := GetWindowTextLength(HWnd);
   tmpStr := StrAlloc(N + 1);
   GetWindowText(HWnd, tmpStr, N + 1);
-  FormConfigurator.EditWindowRuleteName.Text := tmpStr;
+  FormConfigurator.EditWindowRuleteName.Text := StrPas(tmpStr);
   GetWindowREct(HWnd,R);
   FormConfigurator.EditWindowRuleteNameSizeX.Text := IntToStr(R.Right - R.Left);
   FormConfigurator.EditWindowRuleteNameSizeY.Text := IntToStr(R.Bottom - R.Top);
 
   getWindowRuletFromMouse := HWnd;
+end;
+
+function getWindowFromMouse(EditName, EditSizeX, EditSizeY: TEdit):THandle;
+var
+  R: TRect;
+  HWnd: THandle;
+  buff: array [0..255] of char;
+  SizeX, SizeY: Integer;
+begin
+  HWnd := WindowFromPoint(Mouse.CursorPos);
+  GetWindowREct(HWnd,R);
+  SizeX := R.Right - R.Left;
+  SizeY := R.Bottom - R.Top;
+  EditSizeX.Text := IntToStr(SizeX);
+  EditSizeY.Text := IntToStr(SizeY);
+  HWnd := GetWindow(HWnd, gw_hwndfirst);
+  
+  while HWnd <> 0 do begin
+    if (HWnd <> Application.Handle) and (GetWindowText(HWnd, buff, SizeOf(buff)) <> 0) then begin
+      GetWindowText(HWnd, buff, SizeOf(buff));
+      GetWindowREct(HWnd, R);
+      if (SizeX = R.Right - R.Left) and (SizeY = R.Bottom - R.Top) then begin
+        EditName.Text := StrPas(buff);
+        getWindowFromMouse := HWnd;
+        Exit;
+      end;
+    end;
+    HWnd := GetWindow(HWnd, gw_hwndnext);
+  end;
+  
+  getWindowFromMouse := HWnd;
+end;
+
+function getWindowModalFromEdit(EditName, EditX, EditY: TEdit):THandle;
+var
+  R: TRect;
+  HWnd: THandle;
+  buff: array [0..255] of char;
+begin
+  FormConfigurator.Memo1.Clear;
+  HWnd := FindWindow(nil, PChar(FormConfigurator.EditWindowRuleteName.Text)); //HWnd := GetWindow(HWnd, gw_hwndfirst);
+
+  while HWnd <> 0 do begin
+    if (HWnd <> Application.Handle) and (GetWindowText(HWnd, buff, SizeOf(buff)) <> 0) then begin
+      GetWindowText(HWnd, buff, SizeOf(buff));
+      GetWindowREct(HWnd, R);
+      if (StrToInt(EditX.Text) = R.Right - R.Left) and
+          (StrToInt(EditY.Text) = R.Bottom - R.Top)  then begin
+        getWindowModalFromEdit := HWnd;
+        Exit;
+      end;
+      FormConfigurator.Memo1.Lines.Add(
+        'Width: ' + IntToStr(R.Right - R.Left) +
+        ', Height: ' + IntToStr(R.Bottom - R.Top) +
+         ', Name: ' + StrPas(buff)
+      );
+    end;
+    
+    strTypeBtnScan := '';
+    HWnd := GetWindow(HWnd, gw_hwndnext);
+  end;
+  
+  getWindowModalFromEdit := HWnd;
+end;
+
+function getCoordCloseWindowBtnAndSetEdit(EditName, EditX, EditY, setEditX, setEditY: TEdit):BOOL;
+var
+  HWnd: THandle;
+  PosInputWnd: TPoint;
+begin
+  HWnd := getWindowModalFromEdit(EditName, EditX, EditY);
+  
+  if HWnd <> 0 then begin
+    PosInputWnd := getSubCoordinates(HWnd);
+    setEditX.Text := IntToStr(PosInputWnd.X);
+    setEditY.Text := IntToStr(PosInputWnd.Y);
+  end;
+
+  getCoordCloseWindowBtnAndSetEdit := True;
 end;
 
 function addImageFromWindow(HWnd: THandle; Img:TImage; X, Y: Integer):BOOL;
@@ -1146,11 +1226,27 @@ begin
   finally
     ReleaseDC(HWnd, DC);
   end;
-  
+
   Img.Picture.Assign(BMP);
   BMP.Free;
 
   addImageFromWindow := True;
+end;
+
+function setCoordBetFromMouse(EditX, EditY: TEdit):BOOL;
+var
+  HWnd: THandle;
+  PosInputWnd: TPoint;
+begin
+  HWnd := getWindowRuletFromEdit();
+  
+  if HWnd <> 0 then begin
+    PosInputWnd := getSubCoordinates(HWnd);
+    EditX.Text := IntToStr(PosInputWnd.X);
+    EditY.Text := IntToStr(PosInputWnd.Y);
+  end;
+
+  setCoordBetFromMouse := True;
 end;
 
 function getHashFromImage(Image: TImage):Integer;
@@ -1168,6 +1264,22 @@ begin
   getHashFromImage := Hash;
 end;
 
+function searchAndSetHashNumber(EditHashNumber: TEdit):BOOL;
+var
+  HWnd: THandle;
+begin
+  HWnd := getWindowRuletFromEdit();
+  if HWnd <> 0 then begin
+    addImageFromWindow(HWnd, FormConfigurator.ImageHashNumberImg,
+      StrToInt(FormConfigurator.EditHashNumberPosX.Text),
+        StrToInt(FormConfigurator.EditHashNumberPosY.Text));
+    EditHashNumber.Text := IntToStr(getHashFromImage(FormConfigurator.ImageHashNumberImg));
+    strTypeBtnScan := '';
+  end;
+
+  searchAndSetHashNumber := True;
+end;
+
 procedure TFormConfigurator.TimerPosMouseTimer(Sender: TObject);
 var
   HWnd: THandle;
@@ -1177,7 +1289,7 @@ begin
   LabelMousePosY.Caption := 'Y: ' + IntToStr(Mouse.CursorPos.Y);
 
   if strTypeBtnScan = 'ScanWindowRulet' then begin
-    getWindowRuletFromMouse();
+    getWindowFromMouse(EditWindowRuleteName, EditWindowRuleteNameSizeX, EditWindowRuleteNameSizeY);
   end else if strTypeBtnScan = 'ScanSpinBtn' then begin
     HWnd := getWindowRuletFromEdit();
     if HWnd <> 0 then begin
@@ -1195,944 +1307,309 @@ begin
       EditHashNumberPosY.Text := IntToStr(PosInputWnd.Y);
       addImageFromWindow(HWnd, ImageHashNumberImg, PosInputWnd.X, PosInputWnd.Y);
     end;
+  end else if strTypeBtnScan = 'CloseWindows1SizeScan' then begin
+    getWindowFromMouse(EditCloseWindows1Name, EditCloseWindows1SizeX, EditCloseWindows1SizeY);
+  end else if strTypeBtnScan = 'CloseWindows1SizeCloseBtnScan' then begin
+    getCoordCloseWindowBtnAndSetEdit(EditCloseWindows1Name, EditCloseWindows1SizeX,
+      EditCloseWindows1SizeY, EditCloseWindows1PosX, EditCloseWindows1PosY);
+  end else if strTypeBtnScan = 'CloseWindows2SizeScan' then begin
+
+
+  end else if strTypeBtnScan = 'CloseWindows2SizeCloseBtnScan' then begin
+
+
+  end else if strTypeBtnScan = 'CloseWindows3SizeScan' then begin
+
+
+  end else if strTypeBtnScan = 'CloseWindows3SizeCloseBtnScan' then begin
+
+
+  end else if strTypeBtnScan = 'CloseWindows4SizeScan' then begin
+
+
+  end else if strTypeBtnScan = 'CloseWindows4SizeCloseBtnScan' then begin
+
+
+  end else if strTypeBtnScan = 'CloseWindows5SizeScan' then begin
+
+
+  end else if strTypeBtnScan = 'CloseWindows5SizeCloseBtnScan' then begin
+
+
+  end else if strTypeBtnScan = 'CloseWindows6SizeScan' then begin
+
+
+  end else if strTypeBtnScan = 'CloseWindows6SizeCloseBtnScan' then begin
+
+
   end else if strTypeBtnScan = 'ScanHashNumber0' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber0.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber0);
   end else if strTypeBtnScan = 'ScanHashNumber1' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber1.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber1);
   end else if strTypeBtnScan = 'ScanHashNumber2' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber2.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber2);
   end else if strTypeBtnScan = 'ScanHashNumber3' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber3.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber3);
   end else if strTypeBtnScan = 'ScanHashNumber4' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber4.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber4);
   end else if strTypeBtnScan = 'ScanHashNumber5' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber5.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber5);
   end else if strTypeBtnScan = 'ScanHashNumber6' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber6.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber6);
   end else if strTypeBtnScan = 'ScanHashNumber7' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber7.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber7);
   end else if strTypeBtnScan = 'ScanHashNumber8' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber8.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber8);
   end else if strTypeBtnScan = 'ScanHashNumber9' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber9.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber9);
   end else if strTypeBtnScan = 'ScanHashNumber10' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber10.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber10);
   end else if strTypeBtnScan = 'ScanHashNumber11' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber11.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber11);
   end else if strTypeBtnScan = 'ScanHashNumber12' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber12.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber12);
   end else if strTypeBtnScan = 'ScanHashNumber13' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber13.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber13);
   end else if strTypeBtnScan = 'ScanHashNumber14' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber14.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber14);
   end else if strTypeBtnScan = 'ScanHashNumber15' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber15.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber15);
   end else if strTypeBtnScan = 'ScanHashNumber16' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber16.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber16);
   end else if strTypeBtnScan = 'ScanHashNumber17' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber17.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber17);
   end else if strTypeBtnScan = 'ScanHashNumber18' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber18.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber18);
   end else if strTypeBtnScan = 'ScanHashNumber19' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber19.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber19);
   end else if strTypeBtnScan = 'ScanHashNumber20' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber20.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber20);
   end else if strTypeBtnScan = 'ScanHashNumber21' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber21.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber21);
   end else if strTypeBtnScan = 'ScanHashNumber22' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber22.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber22);
   end else if strTypeBtnScan = 'ScanHashNumber23' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber23.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber23);
   end else if strTypeBtnScan = 'ScanHashNumber24' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber24.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber24);
   end else if strTypeBtnScan = 'ScanHashNumber25' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber25.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber25);
   end else if strTypeBtnScan = 'ScanHashNumber26' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber26.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber26);
   end else if strTypeBtnScan = 'ScanHashNumber27' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber27.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber27);
   end else if strTypeBtnScan = 'ScanHashNumber28' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber28.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber28);
   end else if strTypeBtnScan = 'ScanHashNumber29' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber29.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber29);
   end else if strTypeBtnScan = 'ScanHashNumber30' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber30.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber30);
   end else if strTypeBtnScan = 'ScanHashNumber31' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber31.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber31);
   end else if strTypeBtnScan = 'ScanHashNumber32' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber32.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber32);
   end else if strTypeBtnScan = 'ScanHashNumber33' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber33.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber33);
   end else if strTypeBtnScan = 'ScanHashNumber34' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber34.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber34);
   end else if strTypeBtnScan = 'ScanHashNumber35' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber35.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber35);
   end else if strTypeBtnScan = 'ScanHashNumber36' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageHashNumberImg, StrToInt(EditHashNumberPosX.Text), StrToInt(EditHashNumberPosY.Text));
-      EditHashNumber36.Text := IntToStr(getHashFromImage(ImageHashNumberImg));
-      strTypeBtnScan := '';
-    end;
+    searchAndSetHashNumber(EditHashNumber36);
   end else if strTypeBtnScan = 'ScanBetPairLow' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditPairLowPosX.Text := IntToStr(PosInputWnd.X);
-      EditPairLowPosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditPairLowPosX, EditPairLowPosY);
   end else if strTypeBtnScan = 'ScanBetPairHigh' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditPairHighPosX.Text := IntToStr(PosInputWnd.X);
-      EditPairHighPosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditPairHighPosX, EditPairHighPosY);
   end else if strTypeBtnScan = 'ScanBetPairOdd' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditPairOddPosX.Text := IntToStr(PosInputWnd.X);
-      EditPairOddPosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditPairOddPosX, EditPairOddPosY);
   end else if strTypeBtnScan = 'ScanBetPairEven' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditPairEvenPosX.Text := IntToStr(PosInputWnd.X);
-      EditPairEvenPosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditPairEvenPosX, EditPairEvenPosY);
   end else if strTypeBtnScan = 'ScanBetPairRed' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditPairRedPosX.Text := IntToStr(PosInputWnd.X);
-      EditPairRedPosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditPairRedPosX, EditPairRedPosY);
   end else if strTypeBtnScan = 'ScanBetPairBlack' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditPairBlackPosX.Text := IntToStr(PosInputWnd.X);
-      EditPairBlackPosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditPairBlackPosX, EditPairBlackPosY);
   end else if strTypeBtnScan = 'ScanBetColumn2to11' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditColumn2To11PosX.Text := IntToStr(PosInputWnd.X);
-      EditColumn2To11PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditColumn2To11PosX, EditColumn2To11PosY);
   end else if strTypeBtnScan = 'ScanBetColumn2to12' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditColumn2To12PosX.Text := IntToStr(PosInputWnd.X);
-      EditColumn2To12PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditColumn2To12PosX, EditColumn2To12PosY);
   end else if strTypeBtnScan = 'ScanBetColumn2to13' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditColumn2To13PosX.Text := IntToStr(PosInputWnd.X);
-      EditColumn2To13PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditColumn2To13PosX, EditColumn2To13PosY);
   end else if strTypeBtnScan = 'ScanBetDozen1st12' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditDozen1st12PosX.Text := IntToStr(PosInputWnd.X);
-      EditDozen1st12PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditDozen1st12PosX, EditDozen1st12PosY);
   end else if strTypeBtnScan = 'ScanBetDozen2st12' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditDozen2st12PosX.Text := IntToStr(PosInputWnd.X);
-      EditDozen2st12PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditDozen2st12PosX, EditDozen2st12PosY);
   end else if strTypeBtnScan = 'ScanBetDozen3st12' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditDozen3st12PosX.Text := IntToStr(PosInputWnd.X);
-      EditDozen3st12PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditDozen3st12PosX, EditDozen3st12PosY);
   end else if strTypeBtnScan = 'ScanBetNumber0' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber0PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber0PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber0PosX, EditNumber0PosY);
   end else if strTypeBtnScan = 'ScanBetNumber1' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber1PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber1PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber1PosX, EditNumber1PosY);
   end else if strTypeBtnScan = 'ScanBetNumber2' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber2PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber2PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber2PosX, EditNumber2PosY);
   end else if strTypeBtnScan = 'ScanBetNumber3' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber3PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber3PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber3PosX, EditNumber3PosY);
   end else if strTypeBtnScan = 'ScanBetNumber4' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber4PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber4PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber4PosX, EditNumber4PosY);
   end else if strTypeBtnScan = 'ScanBetNumber5' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber5PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber5PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber5PosX, EditNumber5PosY);
   end else if strTypeBtnScan = 'ScanBetNumber6' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber6PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber6PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber6PosX, EditNumber6PosY);
   end else if strTypeBtnScan = 'ScanBetNumber7' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber7PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber7PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber7PosX, EditNumber7PosY);
   end else if strTypeBtnScan = 'ScanBetNumber8' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber8PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber8PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber8PosX, EditNumber8PosY);
   end else if strTypeBtnScan = 'ScanBetNumber9' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber9PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber9PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber9PosX, EditNumber9PosY);
   end else if strTypeBtnScan = 'ScanBetNumber10' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber10PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber10PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber10PosX, EditNumber10PosY);
   end else if strTypeBtnScan = 'ScanBetNumber11' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber11PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber11PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber11PosX, EditNumber11PosY);
   end else if strTypeBtnScan = 'ScanBetNumber12' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber12PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber12PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber12PosX, EditNumber12PosY);
   end else if strTypeBtnScan = 'ScanBetNumber13' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber13PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber13PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber13PosX, EditNumber13PosY);
   end else if strTypeBtnScan = 'ScanBetNumber14' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber14PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber14PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber14PosX, EditNumber14PosY);
   end else if strTypeBtnScan = 'ScanBetNumber15' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber15PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber15PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber15PosX, EditNumber15PosY);
   end else if strTypeBtnScan = 'ScanBetNumber16' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber16PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber16PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber16PosX, EditNumber16PosY);
   end else if strTypeBtnScan = 'ScanBetNumber17' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber17PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber17PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber17PosX, EditNumber17PosY);
   end else if strTypeBtnScan = 'ScanBetNumber18' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber18PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber18PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber18PosX, EditNumber18PosY);
   end else if strTypeBtnScan = 'ScanBetNumber19' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber19PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber19PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber19PosX, EditNumber19PosY);
   end else if strTypeBtnScan = 'ScanBetNumber20' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber20PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber20PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber20PosX, EditNumber20PosY);
   end else if strTypeBtnScan = 'ScanBetNumber21' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber21PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber21PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber21PosX, EditNumber21PosY);
   end else if strTypeBtnScan = 'ScanBetNumber22' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber22PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber22PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber22PosX, EditNumber22PosY);
   end else if strTypeBtnScan = 'ScanBetNumber23' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber23PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber23PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber23PosX, EditNumber23PosY);
   end else if strTypeBtnScan = 'ScanBetNumber24' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber24PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber24PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber24PosX, EditNumber24PosY);
   end else if strTypeBtnScan = 'ScanBetNumber25' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber25PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber25PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber25PosX, EditNumber25PosY);
   end else if strTypeBtnScan = 'ScanBetNumber26' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber26PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber26PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber26PosX, EditNumber26PosY);
   end else if strTypeBtnScan = 'ScanBetNumber27' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber27PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber27PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber27PosX, EditNumber27PosY);
   end else if strTypeBtnScan = 'ScanBetNumber28' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber28PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber28PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber28PosX, EditNumber28PosY);
   end else if strTypeBtnScan = 'ScanBetNumber29' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber29PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber29PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber29PosX, EditNumber29PosY);
   end else if strTypeBtnScan = 'ScanBetNumber30' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber30PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber30PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber30PosX, EditNumber30PosY);
   end else if strTypeBtnScan = 'ScanBetNumber31' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber31PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber31PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber31PosX, EditNumber31PosY);
   end else if strTypeBtnScan = 'ScanBetNumber32' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber32PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber32PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber32PosX, EditNumber32PosY);
   end else if strTypeBtnScan = 'ScanBetNumber33' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber33PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber33PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber33PosX, EditNumber33PosY);
   end else if strTypeBtnScan = 'ScanBetNumber34' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber34PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber34PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber34PosX, EditNumber34PosY);
   end else if strTypeBtnScan = 'ScanBetNumber35' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber35PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber35PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber35PosX, EditNumber35PosY);
   end else if strTypeBtnScan = 'ScanBetNumber36' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditNumber36PosX.Text := IntToStr(PosInputWnd.X);
-      EditNumber36PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditNumber36PosX, EditNumber36PosY);
   end else if strTypeBtnScan = 'ScanBetSixline1' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditSixline1PosX.Text := IntToStr(PosInputWnd.X);
-      EditSixline1PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditSixline1PosX, EditSixline1PosY);
   end else if strTypeBtnScan = 'ScanBetSixline2' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditSixline2PosX.Text := IntToStr(PosInputWnd.X);
-      EditSixline2PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditSixline2PosX, EditSixline2PosY);
   end else if strTypeBtnScan = 'ScanBetSixline3' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditSixline3PosX.Text := IntToStr(PosInputWnd.X);
-      EditSixline3PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditSixline3PosX, EditSixline3PosY);
   end else if strTypeBtnScan = 'ScanBetSixline4' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditSixline4PosX.Text := IntToStr(PosInputWnd.X);
-      EditSixline4PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditSixline4PosX, EditSixline4PosY);
   end else if strTypeBtnScan = 'ScanBetSixline5' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditSixline5PosX.Text := IntToStr(PosInputWnd.X);
-      EditSixline5PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditSixline5PosX, EditSixline5PosY);
   end else if strTypeBtnScan = 'ScanBetSixline6' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditSixline6PosX.Text := IntToStr(PosInputWnd.X);
-      EditSixline6PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditSixline6PosX, EditSixline6PosY);
   end else if strTypeBtnScan = 'ScanBetSixline7' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditSixline7PosX.Text := IntToStr(PosInputWnd.X);
-      EditSixline7PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditSixline7PosX, EditSixline7PosY);
   end else if strTypeBtnScan = 'ScanBetSixline8' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditSixline8PosX.Text := IntToStr(PosInputWnd.X);
-      EditSixline8PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditSixline8PosX, EditSixline8PosY);
   end else if strTypeBtnScan = 'ScanBetSixline9' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditSixline9PosX.Text := IntToStr(PosInputWnd.X);
-      EditSixline9PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditSixline9PosX, EditSixline9PosY);
   end else if strTypeBtnScan = 'ScanBetSixline10' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditSixline10PosX.Text := IntToStr(PosInputWnd.X);
-      EditSixline10PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditSixline10PosX, EditSixline10PosY);
   end else if strTypeBtnScan = 'ScanBetSixline11' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditSixline11PosX.Text := IntToStr(PosInputWnd.X);
-      EditSixline11PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditSixline11PosX, EditSixline11PosY);
   end else if strTypeBtnScan = 'ScanBetStreet0' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditStreet0PosX.Text := IntToStr(PosInputWnd.X);
-      EditStreet0PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditStreet0PosX, EditStreet0PosY);
   end else if strTypeBtnScan = 'ScanBetStreet1' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditStreet1PosX.Text := IntToStr(PosInputWnd.X);
-      EditStreet1PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditStreet1PosX, EditStreet1PosY);
   end else if strTypeBtnScan = 'ScanBetStreet2' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditStreet2PosX.Text := IntToStr(PosInputWnd.X);
-      EditStreet2PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditStreet2PosX, EditStreet2PosY);
   end else if strTypeBtnScan = 'ScanBetStreet3' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditStreet3PosX.Text := IntToStr(PosInputWnd.X);
-      EditStreet3PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditStreet3PosX, EditStreet3PosY);
   end else if strTypeBtnScan = 'ScanBetStreet4' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditStreet4PosX.Text := IntToStr(PosInputWnd.X);
-      EditStreet4PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditStreet4PosX, EditStreet4PosY);
   end else if strTypeBtnScan = 'ScanBetStreet5' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditStreet5PosX.Text := IntToStr(PosInputWnd.X);
-      EditStreet5PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditStreet5PosX, EditStreet5PosY);
   end else if strTypeBtnScan = 'ScanBetStreet6' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditStreet6PosX.Text := IntToStr(PosInputWnd.X);
-      EditStreet6PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditStreet6PosX, EditStreet6PosY);
   end else if strTypeBtnScan = 'ScanBetStreet7' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditStreet7PosX.Text := IntToStr(PosInputWnd.X);
-      EditStreet7PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditStreet7PosX, EditStreet7PosY);
   end else if strTypeBtnScan = 'ScanBetStreet8' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditStreet8PosX.Text := IntToStr(PosInputWnd.X);
-      EditStreet8PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditStreet8PosX, EditStreet8PosY);
   end else if strTypeBtnScan = 'ScanBetStreet9' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditStreet9PosX.Text := IntToStr(PosInputWnd.X);
-      EditStreet9PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditStreet9PosX, EditStreet9PosY);
   end else if strTypeBtnScan = 'ScanBetStreet10' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditStreet10PosX.Text := IntToStr(PosInputWnd.X);
-      EditStreet10PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditStreet10PosX, EditStreet10PosY);
   end else if strTypeBtnScan = 'ScanBetStreet11' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditStreet11PosX.Text := IntToStr(PosInputWnd.X);
-      EditStreet11PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditStreet11PosX, EditStreet11PosY);
   end else if strTypeBtnScan = 'ScanBetStreet12' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditStreet12PosX.Text := IntToStr(PosInputWnd.X);
-      EditStreet12PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditStreet12PosX, EditStreet12PosY);
   end else if strTypeBtnScan = 'ScanBetStreet13' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditStreet13PosX.Text := IntToStr(PosInputWnd.X);
-      EditStreet13PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditStreet13PosX, EditStreet13PosY);
   end else if strTypeBtnScan = 'ScanBetAngle0' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle0PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle0PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle0PosX, EditAngle0PosY);
   end else if strTypeBtnScan = 'ScanBetAngle1' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle1PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle1PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle1PosX, EditAngle1PosY);
   end else if strTypeBtnScan = 'ScanBetAngle2' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle2PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle2PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle2PosX, EditAngle2PosY);
   end else if strTypeBtnScan = 'ScanBetAngle3' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle3PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle3PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle3PosX, EditAngle3PosY);
   end else if strTypeBtnScan = 'ScanBetAngle4' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle4PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle4PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle4PosX, EditAngle4PosY);
   end else if strTypeBtnScan = 'ScanBetAngle5' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle5PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle5PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle5PosX, EditAngle5PosY);
   end else if strTypeBtnScan = 'ScanBetAngle6' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle6PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle6PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle6PosX, EditAngle6PosY);
   end else if strTypeBtnScan = 'ScanBetAngle7' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle7PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle7PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle7PosX, EditAngle7PosY);
   end else if strTypeBtnScan = 'ScanBetAngle8' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle8PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle8PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle8PosX, EditAngle8PosY);
   end else if strTypeBtnScan = 'ScanBetAngle9' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle9PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle9PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle9PosX, EditAngle9PosY);
   end else if strTypeBtnScan = 'ScanBetAngle10' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle10PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle10PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle10PosX, EditAngle10PosY);
   end else if strTypeBtnScan = 'ScanBetAngle11' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle11PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle11PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle11PosX, EditAngle11PosY);
   end else if strTypeBtnScan = 'ScanBetAngle12' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle12PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle12PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle12PosX, EditAngle12PosY);
   end else if strTypeBtnScan = 'ScanBetAngle13' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle13PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle13PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle13PosX, EditAngle13PosY);
   end else if strTypeBtnScan = 'ScanBetAngle14' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle14PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle14PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle14PosX, EditAngle14PosY);
   end else if strTypeBtnScan = 'ScanBetAngle15' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAngle15PosX.Text := IntToStr(PosInputWnd.X);
-      EditAngle15PosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle15PosX, EditAngle15PosY);
   end else if strTypeBtnScan = 'ScanBetAngle16' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAnglePosX.Text := IntToStr(PosInputWnd.X);
-      EditAnglePosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle16PosX, EditAngle16PosY);
   end else if strTypeBtnScan = 'ScanBetAngle17' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAnglePosX.Text := IntToStr(PosInputWnd.X);
-      EditAnglePosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle17PosX, EditAngle17PosY);
   end else if strTypeBtnScan = 'ScanBetAngle18' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAnglePosX.Text := IntToStr(PosInputWnd.X);
-      EditAnglePosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle18PosX, EditAngle18PosY);
   end else if strTypeBtnScan = 'ScanBetAngle19' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAnglePosX.Text := IntToStr(PosInputWnd.X);
-      EditAnglePosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle19PosX, EditAngle19PosY);
   end else if strTypeBtnScan = 'ScanBetAngle20' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAnglePosX.Text := IntToStr(PosInputWnd.X);
-      EditAnglePosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle20PosX, EditAngle20PosY);
   end else if strTypeBtnScan = 'ScanBetAngle21' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAnglePosX.Text := IntToStr(PosInputWnd.X);
-      EditAnglePosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle21PosX, EditAngle21PosY);
   end else if strTypeBtnScan = 'ScanBetAngle22' then begin
-    HWnd := getWindowRuletFromEdit();
-    if HWnd <> 0 then begin
-      PosInputWnd := getSubCoordinates(HWnd);
-      EditAnglePosX.Text := IntToStr(PosInputWnd.X);
-      EditAnglePosY.Text := IntToStr(PosInputWnd.Y);
-    end;
+    setCoordBetFromMouse(EditAngle22PosX, EditAngle22PosY);
   end;
 end;
 
@@ -2778,73 +2255,73 @@ end;
 procedure TFormConfigurator.PanelCloseWindows1SizeScanClick(
   Sender: TObject);
 begin
-  strTypeBtnScan := '';
+  strTypeBtnScan := 'CloseWindows1SizeScan';
 end;
 
 procedure TFormConfigurator.PanelCloseWindows1PosScanClick(
   Sender: TObject);
 begin
-  strTypeBtnScan := '';
+  strTypeBtnScan := 'CloseWindows1SizeCloseBtnScan';
 end;
 
 procedure TFormConfigurator.PanelCloseWindows2SizeScanClick(
   Sender: TObject);
 begin
-  strTypeBtnScan := '';
+  strTypeBtnScan := 'CloseWindows2SizeScan';
 end;
 
 procedure TFormConfigurator.PanelCloseWindows2PosScanClick(
   Sender: TObject);
 begin
-  strTypeBtnScan := '';
+  strTypeBtnScan := 'CloseWindows2SizeCloseBtnScan';
 end;
 
 procedure TFormConfigurator.PanelCloseWindows3SizeScanClick(
   Sender: TObject);
 begin
-  strTypeBtnScan := '';
+  strTypeBtnScan := 'CloseWindows3SizeScan';
 end;
 
 procedure TFormConfigurator.PanelCloseWindows3PosScanClick(
   Sender: TObject);
 begin
-  strTypeBtnScan := '';
+  strTypeBtnScan := 'CloseWindows3SizeCloseBtnScan';
 end;
 
 procedure TFormConfigurator.PanelCloseWindows4SizeScanClick(
   Sender: TObject);
 begin
-  strTypeBtnScan := '';
+  strTypeBtnScan := 'CloseWindows4SizeScan';
 end;
 
 procedure TFormConfigurator.PanelCloseWindows4PosScanClick(
   Sender: TObject);
 begin
-  strTypeBtnScan := '';
+  strTypeBtnScan := 'CloseWindows4SizeCloseBtnScan';
 end;
 
 procedure TFormConfigurator.PanelCloseWindows5SizeScanClick(
   Sender: TObject);
 begin
-  strTypeBtnScan := '';
+  strTypeBtnScan := 'CloseWindows5SizeScan';
 end;
 
 procedure TFormConfigurator.PanelCloseWindows5PosScanClick(
   Sender: TObject);
 begin
-  strTypeBtnScan := '';
+  strTypeBtnScan := 'CloseWindows5SizeCloseBtnScan';
 end;
 
 procedure TFormConfigurator.PanelCloseWindows6SizeScanClick(
   Sender: TObject);
 begin
-  strTypeBtnScan := '';
+  strTypeBtnScan := 'CloseWindows6SizeScan';
 end;
 
 procedure TFormConfigurator.PanelCloseWindows6PosScanClick(
   Sender: TObject);
 begin
-  strTypeBtnScan := '';
+  strTypeBtnScan := 'CloseWindows6SizeCloseBtnScan';
 end;
 
 procedure TFormConfigurator.PanelHashNumberPosScanClick(Sender: TObject);
@@ -3409,7 +2886,7 @@ end;
 
 procedure TFormConfigurator.PanelAngle0PosScanClick(Sender: TObject);
 begin
-  strTypeBtnScan := 'ScanBetAngle14';
+  strTypeBtnScan := 'ScanBetAngle0';
 end;
 
 procedure TFormConfigurator.PanelAngle1PosScanClick(Sender: TObject);
