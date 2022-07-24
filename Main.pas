@@ -562,7 +562,7 @@ begin
   FormMain.PanelAngleA18Value.Caption := IntToStr(0);
   FormMain.PanelAngleA19Phrase.Color := clNoneBet;
   FormMain.PanelAngleA19Value.Color := clNoneBet;
-  FormMain.PanelAngleA19Phrase.Caption := IntToStr(0);
+  FormMain.PanelAngleA19Value.Caption := IntToStr(0);
   FormMain.PanelAngleA20Phrase.Color := clNoneBet;
   FormMain.PanelAngleA20Value.Color := clNoneBet;
   FormMain.PanelAngleA20Value.Caption := IntToStr(0);

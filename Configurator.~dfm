@@ -6532,14 +6532,6 @@ object FormConfigurator: TFormConfigurator
       end
     end
   end
-  object Memo1: TMemo
-    Left = 32
-    Top = 208
-    Width = 457
-    Height = 449
-    ScrollBars = ssBoth
-    TabOrder = 2
-  end
   object MenuSetting: TMainMenu
     object MenuFile: TMenuItem
       Caption = 'File'

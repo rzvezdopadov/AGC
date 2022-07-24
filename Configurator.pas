@@ -846,7 +846,6 @@ type
     LabelBtnSpinHash: TLabel;
     SaveConfigurationDialog: TSaveDialog;
     OpenConfigurationDialog: TOpenDialog;
-    Memo1: TMemo;
     procedure TimerPosMouseTimer(Sender: TObject);
     procedure PanelWindowRuleteNameScanClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
@@ -1168,26 +1167,21 @@ var
   HWnd: THandle;
   buff: array [0..255] of char;
 begin
-  FormConfigurator.Memo1.Clear;
-  HWnd := FindWindow(nil, PChar(FormConfigurator.EditWindowRuleteName.Text)); //HWnd := GetWindow(HWnd, gw_hwndfirst);
+  HWnd := FindWindow(nil, nil);
 
   while HWnd <> 0 do begin
-    if (HWnd <> Application.Handle) and (GetWindowText(HWnd, buff, SizeOf(buff)) <> 0) then begin
+    if (HWnd <> Application.Handle) then begin
       GetWindowText(HWnd, buff, SizeOf(buff));
       GetWindowREct(HWnd, R);
+
       if (StrToInt(EditX.Text) = R.Right - R.Left) and
           (StrToInt(EditY.Text) = R.Bottom - R.Top)  then begin
         getWindowModalFromEdit := HWnd;
         Exit;
       end;
-      FormConfigurator.Memo1.Lines.Add(
-        'Width: ' + IntToStr(R.Right - R.Left) +
-        ', Height: ' + IntToStr(R.Bottom - R.Top) +
-         ', Name: ' + StrPas(buff)
-      );
+
     end;
-    
-    strTypeBtnScan := '';
+
     HWnd := GetWindow(HWnd, gw_hwndnext);
   end;
   

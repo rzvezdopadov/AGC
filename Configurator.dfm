@@ -25,7 +25,7 @@ object FormConfigurator: TFormConfigurator
     Color = 15970471
     TabOrder = 0
     object LabelWindowRulete: TLabel
-      Left = 296
+      Left = 304
       Top = 8
       Width = 86
       Height = 13
@@ -6531,14 +6531,6 @@ object FormConfigurator: TFormConfigurator
         end
       end
     end
-  end
-  object Memo1: TMemo
-    Left = 32
-    Top = 208
-    Width = 457
-    Height = 449
-    ScrollBars = ssBoth
-    TabOrder = 2
   end
   object MenuSetting: TMainMenu
     object MenuFile: TMenuItem
