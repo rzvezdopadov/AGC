@@ -6,6 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, ExtCtrls, StdCtrls, ComCtrls;
 
+  function addImageFromWindow(HWnd: THandle; Img:TImage; X, Y: Integer):BOOL;
+  function getHashFromImage(Image: TImage):Integer;
 type
   TFormConfigurator = class(TForm)
     MenuSetting: TMainMenu;
@@ -846,6 +848,7 @@ type
     LabelBtnSpinHash: TLabel;
     SaveConfigurationDialog: TSaveDialog;
     OpenConfigurationDialog: TOpenDialog;
+    PanelBtnSpinScanHash: TPanel;
     procedure TimerPosMouseTimer(Sender: TObject);
     procedure PanelWindowRuleteNameScanClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
@@ -999,6 +1002,7 @@ type
     procedure PanelAngle20PosScanClick(Sender: TObject);
     procedure PanelAngle21PosScanClick(Sender: TObject);
     procedure PanelAngle22PosScanClick(Sender: TObject);
+    procedure PanelBtnSpinScanHashClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -1044,7 +1048,7 @@ type
 end;
 
 type
-  TFileConfiguration = record
+  TConfiguration = record
     WindowRulete: TWindowRulete;
     BtnSpin: TBtnSpin;
     CloseWindows: array [0..9] of TCloseWindow;
@@ -1060,12 +1064,9 @@ type
     Angle: array [0..22] of TPos;
 end;
 
-
-
 var
   strTypeBtnScan: string;
   FormConfigurator: TFormConfigurator;
-
 
 implementation
 
@@ -1146,7 +1147,7 @@ begin
   HWnd := GetWindow(HWnd, gw_hwndfirst);
   
   while HWnd <> 0 do begin
-    if (HWnd <> Application.Handle) then begin //  and (GetWindowText(HWnd, buff, SizeOf(buff)) <> 0)
+    if (HWnd <> Application.Handle) then begin
       GetWindowText(HWnd, buff, SizeOf(buff));
       GetWindowREct(HWnd, R);
       if (SizeX = R.Right - R.Left) and (SizeY = R.Bottom - R.Top) then begin
@@ -1290,7 +1291,11 @@ begin
       PosInputWnd := getSubCoordinates(HWnd);
       EditBtnSpinPozX.Text := IntToStr(PosInputWnd.X);
       EditBtnSpinPozY.Text := IntToStr(PosInputWnd.Y);
-      addImageFromWindow(HWnd, ImageBtnSpinImg, PosInputWnd.X, PosInputWnd.Y);
+    end;
+  end else if strTypeBtnScan = 'ScanSpinBtnHash' then begin
+    HWnd := getWindowRuletFromEdit();
+    if HWnd <> 0 then begin
+      addImageFromWindow(HWnd, ImageBtnSpinImg, EditBtnSpinPozX.Text, PosInputWnd.Y);
       EditBtnSpinHash.Text := IntToStr(getHashFromImage(ImageBtnSpinImg));
     end;
   end else if strTypeBtnScan = 'ScanHashNumberPos' then begin
@@ -1620,8 +1625,8 @@ end;
 
 procedure TFormConfigurator.MenuSaveConfigurationClick(Sender: TObject);
 var
-  FConfigFile: File of TFileConfiguration;
-  FConfig: TFileConfiguration;
+  FConfigFile: File of TConfiguration;
+  FConfig: TConfiguration;
 begin
   if SaveConfigurationDialog.Execute then begin
     AssignFile(FConfigFile, SaveConfigurationDialog.FileName);
@@ -1925,10 +1930,14 @@ begin
   end;
 end;
 
+
+
+
+
 procedure TFormConfigurator.MenuLoadSettingsClick(Sender: TObject);
 var
-  FConfigFile: File of TFileConfiguration;
-  FConfig: TFileConfiguration;
+  FConfigFile: File of TConfiguration;
+  FConfig: TConfiguration;
 begin
   if OpenConfigurationDialog.Execute then begin
     AssignFile(FConfigFile, OpenConfigurationDialog.FileName);
@@ -2244,6 +2253,11 @@ end;
 procedure TFormConfigurator.PanelBtnSpinScanClick(Sender: TObject);
 begin
   strTypeBtnScan := 'ScanSpinBtn';
+end;
+
+procedure TFormConfigurator.PanelBtnSpinScanHashClick(Sender: TObject);
+begin
+  strTypeBtnScan := 'ScanSpinBtnHash';
 end;
 
 procedure TFormConfigurator.PanelCloseWindows1SizeScanClick(
@@ -2992,5 +3006,6 @@ procedure TFormConfigurator.PanelAngle22PosScanClick(Sender: TObject);
 begin
   strTypeBtnScan := 'ScanBetAngle22';
 end;
+
 
 end.

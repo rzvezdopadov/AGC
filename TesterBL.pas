@@ -21,11 +21,11 @@ begin
 
   for i := 0 to FormTester.RichEditNumber.Lines.Count - 1 do begin
     Value := StrToInt(FormTester.RichEditNumber.Lines[i]);
-    addNewNumberToRichEdit(Value, FormMain.RichEditNumber);
     addSeqNum(Value);
     calcStatistics();
     Bets();
     addDotToChart;
+    FormTester.GaugeProgress.Progress := Round(100 * i / (FormTester.RichEditNumber.Lines.Count - 1)); 
   end;
 
   runTester := True;

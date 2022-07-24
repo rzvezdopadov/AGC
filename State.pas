@@ -4,7 +4,7 @@ interface
 
 uses
   Main, Classes, SysUtils, Windows, ComCtrls, Graphics, ExtCtrls, Grids,
-  StdCtrls
+  StdCtrls, Configurator
   ;
 
   function clearSeqNum():BOOL;
@@ -45,6 +45,7 @@ var
   stateAngle: array [0..22] of TStat;
   stateStreet: array [0..13] of TStat;
   ballance: Double;
+  configuration: TConfiguration;
 
 implementation
 
@@ -110,6 +111,7 @@ end;
 function numberSetUser(Value: Integer): BOOL;
 begin
   addNewNumberToRichEdit(Value, FormMain.RichEditNumber);
+  FormMain.PanelCountSequenced.Caption := IntToStr(FormMain.RichEditNumber.Lines.Count);
   addSeqNum(Value);
   calcStatistics();
   getBalanceFromMain();

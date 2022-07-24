@@ -244,11 +244,13 @@ type
     LabelNumberSeq: TLabel;
     PanelNumber0Phrase: TPanel;
     PanelNumber0Value: TPanel;
-    Timer1: TTimer;
+    TimerAutoGame: TTimer;
     PanelStartAutoGame: TPanel;
     MenuMainClearStatistics: TMenuItem;
     SaveSampleDialog: TSaveDialog;
     Configurator1: TMenuItem;
+    Image1: TImage;
+    PanelCountSequenced: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure CheckBoxASSTClick(Sender: TObject);
     procedure MenuFileSettingsClick(Sender: TObject);
@@ -300,6 +302,7 @@ type
     procedure RichEditNumberKeyPress(Sender: TObject; var Key: Char);
     procedure MenuMainSaveSampleClick(Sender: TObject);
     procedure Configurator1Click(Sender: TObject);
+    procedure TimerAutoGameTimer(Sender: TObject);
 
   private
 
@@ -311,12 +314,11 @@ type
 
 var
   FormMain: TFormMain;
-
+  AutoGamePos: Integer;
 implementation
 
 uses WindowUserLib, Settings, Statistics, Tester, ConstItems, State, KeyFilter,
-  StatisticsPairBL
-, Configurator;
+  StatisticsPairBL, Configurator;
 
 {$R *.dfm}
 
@@ -699,12 +701,16 @@ end;
 procedure TFormMain.PanelStartAutoGameClick(Sender: TObject);
 begin
   if FormMain.PanelStartAutoGame.Color = clLime then begin
-    FormMain.PanelStartAutoGame.Color := $007689F5;  
+    FormMain.PanelStartAutoGame.Color := $007689F5;
+    FormMain.TimerAutoGame.Enabled := False;
   end else begin
     if FormMain.MenuMainAutogame.Checked then begin
       FormMain.PanelStartAutoGame.Color := clLime;
+      AutoGamePos := AUTOGAME_CHECKSPIN;
+      FormMain.TimerAutoGame.Enabled := True;
     end else begin
       FormMain.PanelStartAutoGame.Color := $007689F5;
+      FormMain.TimerAutoGame.Enabled := False;
       ShowMessage('Autogame not allowed, press check "File -> Autogame"');
     end;
   end;
@@ -733,7 +739,7 @@ end;
 procedure TFormMain.PanelNumberClearClick(Sender: TObject);
 begin
   RichEditNumber.Clear;
-  
+  FormMain.PanelCountSequenced.Caption := IntToStr(FormMain.RichEditNumber.Lines.Count);
 end;
 
 procedure TFormMain.MenuMainAutogameClick(Sender: TObject);
@@ -955,6 +961,8 @@ begin
 
   RichEdit.Lines.Add(IntToStr(Value));
 
+  SendMessage(RichEdit.Handle, EM_SCROLLCARET,0,0);
+
   addNewNumberToRichEdit  := True;
 end;
 
@@ -1106,6 +1114,138 @@ end;
 procedure TFormMain.Configurator1Click(Sender: TObject);
 begin
   FormConfigurator.Visible := True;
+end;
+
+function clickToPosWindow(HWnd: THandle; X, Y: Integer):BOOL;
+begin
+  PostMessage(HWnd, WM_LBUTTONDOWN, MK_LBUTTON, MakeLParam(X, Y));
+  Sleep(200);
+  PostMessage(HWnd, WM_LBUTTONUP, MK_LBUTTON, MakeLParam(X, Y));
+  Sleep(200);
+
+  clickToPosWindow := True;
+end;
+
+function getWindowFromPos(SizeX, SizeY: Integer):THandle;
+var
+  R: TRect;
+  HWnd: THandle;
+  buff: array [0..255] of char;
+begin
+  HWnd := FindWindow(nil, nil);
+
+  while HWnd <> 0 do begin
+    if (HWnd <> Application.Handle) then begin
+      GetWindowText(HWnd, buff, SizeOf(buff));
+      GetWindowREct(HWnd, R);
+
+      if (SizeX = R.Right - R.Left) and
+          (SizeY = R.Bottom - R.Top)  then begin
+        getWindowFromPos := HWnd;
+        Exit;
+      end;
+
+    end;
+
+    HWnd := GetWindow(HWnd, gw_hwndnext);
+  end;
+  
+  getWindowFromPos := HWnd;
+end;
+
+function getWindowFromPosAndString(Name: string; SizeX, SizeY: Integer):THandle;
+var
+  R: TRect;
+  HWnd: THandle;
+begin
+  HWnd := FindWindow(nil, PChar(Name));
+  GetWindowREct(HWnd,R);
+  
+  if (SizeX <> (R.Right - R.Left))
+    or (SizeY <> (R.Bottom - R.Top)) then begin
+      getWindowFromPosAndString := 0;
+      Exit;
+  end;
+
+  getWindowFromPosAndString := HWnd;
+end;
+
+function searchHashImage(HWnd: THandle; PosX, PosY, Size: Integer):Integer;
+var
+  Image: TImage;
+begin
+  if HWnd <> 0 then begin
+    Image := TImage.Create(Nil);
+    Image.Width := 41;
+    Image.Height := 41;
+    addImageFromWindow(HWnd, Image, PosX, PosY);
+    searchHashImage := getHashFromImage(Image);
+
+    addImageFromWindow(HWnd, FormMain.Image1, PosX, PosY);
+
+    Image.Free;
+    Exit;
+  end;
+
+  searchHashImage := 0;
+end;
+
+procedure TFormMain.TimerAutoGameTimer(Sender: TObject);
+var
+  HWnd: THandle;
+  i, HashSpinBtn, HashNumber, PosNumber: Integer;
+begin
+  if (FormMain.PanelStartAutoGame.Color <> $007689F5) then begin
+    HWnd := getWindowFromPosAndString(configuration.WindowRulete.Name,
+      configuration.WindowRulete.Size.X, configuration.WindowRulete.Size.Y);
+
+    if (HWnd <> 0) and
+        (configuration.WindowRulete.Size.X <> 0) and
+          (configuration.WindowRulete.Size.Y <> 0)then begin
+      if (AutoGamePos = AUTOGAME_CHECKSPIN) then begin
+        clickToPosWindow(HWnd, configuration.BtnSpin.Pos.X, configuration.BtnSpin.Pos.Y);
+
+        AutoGamePos := AUTOGAME_GETNUMBER;
+      end else if (AutoGamePos = AUTOGAME_GETNUMBER) then begin
+        HashSpinBtn := searchHashImage(HWnd, configuration.BtnSpin.Pos.X, configuration.BtnSpin.Pos.Y, 41);
+
+        if (configuration.BtnSpin.Hash = HashSpinBtn) then begin
+          HashNumber := searchHashImage(HWnd, configuration.HashNumber.Pos.X, configuration.HashNumber.Pos.Y, 41);
+          PosNumber := -1;
+
+          for i := 0 to 36 do begin
+            if (HashNumber = configuration.HashNumber.Hash[i]) then PosNumber := i; 
+          end;
+
+          if (PosNumber = -1) then Exit;
+
+          addNewNumberToRichEdit(PosNumber, FormMain.RichEditNumber);
+          FormMain.PanelCountSequenced.Caption := IntToStr(FormMain.RichEditNumber.Lines.Count);
+          addSeqNum(PosNumber);
+
+          AutoGamePos := AUTOGAME_SETBETS;
+        end;
+      end else if (AutoGamePos = AUTOGAME_SETBETS) then begin
+
+        AutoGamePos := AUTOGAME_CHECKSPIN;
+      end;
+    end else begin
+      FormMain.PanelStartAutoGame.Color := $007689F5;
+      FormMain.TimerAutoGame.Enabled := False;
+    end;
+  end;
+
+
+{
+  addNewNumberToRichEdit(Value, FormMain.RichEditNumber);
+  addSeqNum(Value);
+  calcStatistics();
+  getBalanceFromMain();
+  Bets();
+  setBalanceToMain;
+  displayStatistics();
+  placeColorPanelsFromState();
+}  
 end;
 
 end.

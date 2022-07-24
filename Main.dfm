@@ -18,6 +18,12 @@ object FormMain: TFormMain
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Image1: TImage
+    Left = 232
+    Top = 28
+    Width = 41
+    Height = 41
+  end
   object PanelDozen: TPanel
     Left = 56
     Top = 56
@@ -1975,7 +1981,7 @@ object FormMain: TFormMain
       Left = 8
       Top = 24
       Width = 73
-      Height = 529
+      Height = 505
       Color = clMoneyGreen
       HideScrollBars = False
       ScrollBars = ssVertical
@@ -1983,9 +1989,9 @@ object FormMain: TFormMain
       OnKeyPress = RichEditNumberKeyPress
     end
     object PanelNumberClear: TPanel
-      Left = 16
+      Left = 8
       Top = 560
-      Width = 57
+      Width = 73
       Height = 17
       Caption = 'Clear'
       Color = 3644415
@@ -2000,6 +2006,15 @@ object FormMain: TFormMain
       Caption = 'ASST'
       TabOrder = 2
       OnClick = CheckBoxASSTClick
+    end
+    object PanelCountSequenced: TPanel
+      Left = 8
+      Top = 536
+      Width = 73
+      Height = 17
+      Caption = '0'
+      Color = 9559022
+      TabOrder = 3
     end
   end
   object PanelStartAutoGame: TPanel
@@ -2034,6 +2049,7 @@ object FormMain: TFormMain
       end
       object MenuMainAutogame: TMenuItem
         Caption = 'Autogame'
+        Checked = True
         OnClick = MenuMainAutogameClick
       end
       object MenuMainSaveSample: TMenuItem
@@ -2059,7 +2075,9 @@ object FormMain: TFormMain
       end
     end
   end
-  object Timer1: TTimer
+  object TimerAutoGame: TTimer
+    Interval = 100
+    OnTimer = TimerAutoGameTimer
     Left = 48
   end
   object SaveSampleDialog: TSaveDialog

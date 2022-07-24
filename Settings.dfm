@@ -1,6 +1,6 @@
 object FormSettings: TFormSettings
-  Left = 1196
-  Top = 292
+  Left = 901
+  Top = 289
   Width = 681
   Height = 628
   AutoSize = True
@@ -21,7 +21,7 @@ object FormSettings: TFormSettings
     Top = 0
     Width = 665
     Height = 569
-    ActivePage = TabAlghoritm
+    ActivePage = TabGeneral
     TabOrder = 0
     object TabGeneral: TTabSheet
       Caption = 'General'
@@ -30,7 +30,7 @@ object FormSettings: TFormSettings
         Top = 0
         Width = 657
         Height = 545
-        ActivePage = TabFinancial
+        ActivePage = TabMain
         TabOrder = 0
         object TabMain: TTabSheet
           Caption = 'Main'
@@ -48,17 +48,13 @@ object FormSettings: TFormSettings
               Height = 13
               Caption = 'Change casino:'
             end
-            object ComboChangeCasino: TComboBox
+            object EditNameCasino: TEdit
               Left = 104
-              Top = 10
-              Width = 521
+              Top = 8
+              Width = 513
               Height = 21
-              Style = csDropDownList
-              ItemHeight = 13
+              Enabled = False
               TabOrder = 0
-              Items.Strings = (
-                'Europa Casino - Roulette Pro'
-                'Europa Casino - French Roulette')
             end
           end
           object PanelSettingStatisticsCount: TPanel
@@ -295,7 +291,7 @@ object FormSettings: TFormSettings
         Top = 0
         Width = 657
         Height = 545
-        ActivePage = TabDozen
+        ActivePage = TabAlghotitmGlobal
         TabOrder = 0
         object TabAlghotitmGlobal: TTabSheet
           Caption = 'Global'
@@ -2918,6 +2914,10 @@ object FormSettings: TFormSettings
     Left = 632
     object MenuFile: TMenuItem
       Caption = 'File'
+      object MenuLoadConfigurations: TMenuItem
+        Caption = 'Load configurations'
+        OnClick = MenuLoadConfigurationsClick
+      end
       object MenuSaveSetting: TMenuItem
         Caption = 'Save settings'
         ShortCut = 49235
@@ -2927,5 +2927,10 @@ object FormSettings: TFormSettings
         ShortCut = 49228
       end
     end
+  end
+  object OpenDialogConfiguration: TOpenDialog
+    DefaultExt = 'agcconf'
+    Filter = '*.agcconf|*.agcconf'
+    Left = 604
   end
 end

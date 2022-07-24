@@ -1,7 +1,7 @@
 object FormTester: TFormTester
   Left = 1123
   Top = 186
-  Width = 762
+  Width = 768
   Height = 697
   Caption = 'Tester'
   Color = 14732732
@@ -14,7 +14,6 @@ object FormTester: TFormTester
   Font.Style = [fsBold]
   Menu = MainMenu
   OldCreateOrder = False
-  Visible = True
   OnCreate = FormCreate
   OnResize = FormResize
   PixelsPerInch = 96
@@ -172,6 +171,17 @@ object FormTester: TFormTester
     Legend.Visible = False
     View3D = False
     TabOrder = 1
+    object GaugeProgress: TGauge
+      Left = 8
+      Top = 8
+      Width = 169
+      Height = 17
+      BackColor = 8421631
+      Color = clBackground
+      ForeColor = 6487945
+      ParentColor = False
+      Progress = 20
+    end
     object Series1: TLineSeries
       Marks.ArrowLength = 8
       Marks.Visible = False
@@ -193,7 +203,7 @@ object FormTester: TFormTester
     end
   end
   object MainMenu: TMainMenu
-    Left = 96
+    Left = 640
     object N1: TMenuItem
       Caption = 'File'
       object MenuLoadSample: TMenuItem
@@ -209,11 +219,11 @@ object FormTester: TFormTester
   object OpenSampleDialog: TOpenDialog
     DefaultExt = 'rtf'
     Filter = '*.rtf|*.rtf'
-    Left = 128
+    Left = 672
   end
   object SaveSampleDialog: TSaveDialog
     DefaultExt = 'rtf'
     Filter = '*.rtf|*.rtf'
-    Left = 160
+    Left = 704
   end
 end

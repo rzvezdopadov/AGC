@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, StdCtrls, ComCtrls, ExtCtrls, TeeProcs, TeEngine, Chart,
-  Series;
+  Series, Gauges;
 
   function addDotToChart():BOOL;
   function getBalanceFromTester():Double;
@@ -29,6 +29,7 @@ type
     LabelTimeCalcValue: TLabel;
     OpenSampleDialog: TOpenDialog;
     SaveSampleDialog: TSaveDialog;
+    GaugeProgress: TGauge;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure PanelNumberResize(Sender: TObject);

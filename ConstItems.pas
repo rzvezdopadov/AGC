@@ -89,6 +89,9 @@ const
 
   clNoneBet = $0091DBEE;
 
+  AUTOGAME_CHECKSPIN = 0;
+  AUTOGAME_GETNUMBER = 1;
+  AUTOGAME_SETBETS = 2;
   
 implementation
 

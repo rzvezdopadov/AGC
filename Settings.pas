@@ -18,7 +18,6 @@ type
     PageControlGeneral: TPageControl;
     TabMain: TTabSheet;
     PanelChangeCasino: TPanel;
-    ComboChangeCasino: TComboBox;
     LabelChangeCasino: TLabel;
     PanelSettingStatisticsCount: TPanel;
     LabelSettingStatistics: TLabel;
@@ -351,6 +350,9 @@ type
     CheckBox1: TCheckBox;
     CheckStreetEnabledST13: TCheckBox;
     CheckStreetEnabledST12: TCheckBox;
+    EditNameCasino: TEdit;
+    OpenDialogConfiguration: TOpenDialog;
+    MenuLoadConfigurations: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure EditSettingStatisticsCountKeyUp(Sender: TObject;
       var Key: Word; Shift: TShiftState);
@@ -392,6 +394,7 @@ type
     procedure CheckAngleMulX2Click(Sender: TObject);
     procedure CheckAngleMulX3Click(Sender: TObject);
     procedure CheckAngleMulX4Click(Sender: TObject);
+    procedure MenuLoadConfigurationsClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -403,7 +406,7 @@ var
 
 implementation
 
-uses WindowUserLib, Main, State, Statistics, KeyFilter;
+uses WindowUserLib, Main, State, Statistics, KeyFilter, Configurator;
 
 {$R *.dfm}
 
@@ -714,6 +717,85 @@ begin
   if CheckAngleMulX4.Checked = True then begin
     CheckAngleMulX2.Checked := False;
     CheckAngleMulX3.Checked := False;
+  end;
+end;
+
+procedure TFormSettings.MenuLoadConfigurationsClick(Sender: TObject);
+var
+  i: Integer;
+  FConfigFile: File of TConfiguration;
+  FConfig: TConfiguration;
+begin
+  if OpenDialogConfiguration.Execute then begin
+    AssignFile(FConfigFile, OpenDialogConfiguration.FileName);
+    Reset(FConfigFile);
+
+    while not Eof(FConfigFile) do begin
+      Read(FConfigFile, FConfig);
+    end;
+
+    configuration.WindowRulete.Name := FConfig.WindowRulete.Name;
+    EditNameCasino.Text := configuration.WindowRulete.Name;
+    configuration.WindowRulete.Size.X := FConfig.WindowRulete.Size.X;
+    configuration.WindowRulete.Size.Y := FConfig.WindowRulete.Size.Y;
+
+    configuration.BtnSpin.Pos.X := FConfig.BtnSpin.Pos.X;
+    configuration.BtnSpin.Pos.Y := FConfig.BtnSpin.Pos.Y;
+    configuration.BtnSpin.Hash := FConfig.BtnSpin.Hash;
+
+    for i := 0 to 9 do begin
+      configuration.CloseWindows[i].Enable := FConfig.CloseWindows[i].Enable;
+      configuration.CloseWindows[i].Name := FConfig.CloseWindows[i].Name;
+      configuration.CloseWindows[i].Size.X := FConfig.CloseWindows[i].Size.X;
+      configuration.CloseWindows[i].Size.Y := FConfig.CloseWindows[i].Size.Y;
+      configuration.CloseWindows[i].Pos.X := FConfig.CloseWindows[i].Pos.X;
+      configuration.CloseWindows[i].Pos.Y := FConfig.CloseWindows[i].Pos.Y;
+    end;
+
+
+    configuration.HashNumber.Pos.X := FConfig.HashNumber.Pos.X;
+    configuration.HashNumber.Pos.Y := FConfig.HashNumber.Pos.Y;
+    for i := 0 to 36 do begin
+      configuration.HashNumber.Hash[i] := FConfig.HashNumber.Hash[i];
+    end;
+
+    for i := 0 to 1 do begin
+      configuration.PairLowHighPos[i].X := FConfig.PairLowHighPos[i].X;
+      configuration.PairLowHighPos[i].Y := FConfig.PairLowHighPos[i].Y;
+      configuration.PairOddEvenPos[i].X := FConfig.PairOddEvenPos[i].X;
+      configuration.PairOddEvenPos[i].Y := FConfig.PairOddEvenPos[i].Y;
+      configuration.PairRedBlackPos[i].X := FConfig.PairRedBlackPos[i].X;
+      configuration.PairRedBlackPos[i].Y := FConfig.PairRedBlackPos[i].Y;
+    end;
+
+    for i := 0 to 2 do begin
+      configuration.Column[i].X := FConfig.Column[i].X;
+      configuration.Column[i].Y := FConfig.Column[i].Y;
+      configuration.Dozen[i].X := FConfig.Dozen[i].X;
+      configuration.Dozen[i].Y := FConfig.Dozen[i].Y;
+    end;
+
+    for i := 0 to 36 do begin
+      configuration.Number[i].X := FConfig.Number[i].X;
+      configuration.Number[i].Y := FConfig.Number[i].Y;
+    end;
+
+    for i := 0 to 10 do begin
+      configuration.Sixline[i].X := FConfig.Sixline[i].X;
+      configuration.Sixline[i].Y := FConfig.Sixline[i].Y;
+    end;
+
+    for i := 0 to 13 do begin
+      configuration.Street[i].X := FConfig.Street[i].X;
+      configuration.Street[i].Y := FConfig.Street[i].Y;
+    end;
+
+    for i := 0 to 22 do begin
+      configuration.Angle[i].X := FConfig.Angle[i].X;
+      configuration.Angle[i].Y := FConfig.Angle[i].Y;
+    end;
+
+    CloseFile(FConfigFile);    
   end;
 end;
 

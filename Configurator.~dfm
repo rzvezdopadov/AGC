@@ -1,8 +1,8 @@
 object FormConfigurator: TFormConfigurator
   Left = 1007
   Top = 174
-  Width = 757
-  Height = 726
+  Width = 733
+  Height = 707
   Caption = 'Configurator'
   Color = 14732732
   Font.Charset = DEFAULT_CHARSET
@@ -13,7 +13,6 @@ object FormConfigurator: TFormConfigurator
   KeyPreview = True
   Menu = MenuSetting
   OldCreateOrder = False
-  Visible = True
   OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
@@ -25,7 +24,7 @@ object FormConfigurator: TFormConfigurator
     Color = 15970471
     TabOrder = 0
     object LabelWindowRulete: TLabel
-      Left = 296
+      Left = 304
       Top = 8
       Width = 86
       Height = 13
@@ -131,7 +130,7 @@ object FormConfigurator: TFormConfigurator
         Top = 0
         Width = 689
         Height = 521
-        ActivePage = TabSheetCloseWindows
+        ActivePage = TabSheetGlobal
         TabOrder = 0
         object TabSheetGlobal: TTabSheet
           Caption = 'Global'
@@ -217,6 +216,16 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Enabled = False
             TabOrder = 4
+          end
+          object PanelBtnSpinScanHash: TPanel
+            Left = 488
+            Top = 72
+            Width = 57
+            Height = 21
+            Caption = 'Scan'
+            Color = 3644415
+            TabOrder = 5
+            OnClick = PanelBtnSpinScanHashClick
           end
         end
         object TabSheetCloseWindows: TTabSheet
