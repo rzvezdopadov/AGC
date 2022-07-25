@@ -21,7 +21,7 @@ begin
       if (stateAngle[i].Bet.Enabled) and (stateAngle[i].Last = 0) then begin
         // Если есть ставка и мы выиграли
         stateAngle[i].Bet.Enabled := False;
-        ballance := ballance + stateAngle[i].Bet.Amount * 22;
+        ballance := ballance + stateAngle[i].Bet.Amount * 9;
         stateAngle[i].Bet.MulLossCount := 0;
         stateAngle[i].Bet.Count := 0;
         stateAngle[i].Bet.Amount := 0;

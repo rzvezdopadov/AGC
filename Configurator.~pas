@@ -849,6 +849,7 @@ type
     SaveConfigurationDialog: TSaveDialog;
     OpenConfigurationDialog: TOpenDialog;
     PanelBtnSpinScanHash: TPanel;
+    PanelHashClear: TPanel;
     procedure TimerPosMouseTimer(Sender: TObject);
     procedure PanelWindowRuleteNameScanClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
@@ -1003,6 +1004,7 @@ type
     procedure PanelAngle21PosScanClick(Sender: TObject);
     procedure PanelAngle22PosScanClick(Sender: TObject);
     procedure PanelBtnSpinScanHashClick(Sender: TObject);
+    procedure PanelHashClearClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -1295,7 +1297,7 @@ begin
   end else if strTypeBtnScan = 'ScanSpinBtnHash' then begin
     HWnd := getWindowRuletFromEdit();
     if HWnd <> 0 then begin
-      addImageFromWindow(HWnd, ImageBtnSpinImg, EditBtnSpinPozX.Text, PosInputWnd.Y);
+      addImageFromWindow(HWnd, ImageBtnSpinImg, StrToInt(EditBtnSpinPozX.Text), StrToInt(EditBtnSpinPozY.Text));
       EditBtnSpinHash.Text := IntToStr(getHashFromImage(ImageBtnSpinImg));
     end;
   end else if strTypeBtnScan = 'ScanHashNumberPos' then begin
@@ -3007,5 +3009,45 @@ begin
   strTypeBtnScan := 'ScanBetAngle22';
 end;
 
+procedure TFormConfigurator.PanelHashClearClick(Sender: TObject);
+begin
+  EditHashNumber0.Text := '0';
+  EditHashNumber1.Text := '1';
+  EditHashNumber2.Text := '2';
+  EditHashNumber3.Text := '3';
+  EditHashNumber4.Text := '4';
+  EditHashNumber5.Text := '5';
+  EditHashNumber6.Text := '6';
+  EditHashNumber7.Text := '7';
+  EditHashNumber8.Text := '8';
+  EditHashNumber9.Text := '9';
+  EditHashNumber0.Text := '0';
+  EditHashNumber1.Text := '1';
+  EditHashNumber2.Text := '2';
+  EditHashNumber3.Text := '3';
+  EditHashNumber4.Text := '4';
+  EditHashNumber5.Text := '5';
+  EditHashNumber6.Text := '6';
+  EditHashNumber7.Text := '7';
+  EditHashNumber8.Text := '8';
+  EditHashNumber9.Text := '9';
+  EditHashNumber0.Text := '0';
+  EditHashNumber1.Text := '1';
+  EditHashNumber2.Text := '2';
+  EditHashNumber3.Text := '3';
+  EditHashNumber4.Text := '4';
+  EditHashNumber5.Text := '5';
+  EditHashNumber6.Text := '6';
+  EditHashNumber7.Text := '7';
+  EditHashNumber8.Text := '8';
+  EditHashNumber9.Text := '9';
+  EditHashNumber0.Text := '0';
+  EditHashNumber1.Text := '1';
+  EditHashNumber2.Text := '2';
+  EditHashNumber3.Text := '3';
+  EditHashNumber4.Text := '4';
+  EditHashNumber5.Text := '5';
+  EditHashNumber6.Text := '6';
+end;
 
 end.

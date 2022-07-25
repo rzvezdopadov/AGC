@@ -25,6 +25,7 @@ begin
         stateSixline[i].Bet.MulLossCount := 0;
         stateSixline[i].Bet.Count := 0;
         stateSixline[i].Bet.Amount := 0;
+        betWin := 1;
       end else if (stateSixline[i].Bet.Enabled) and (stateSixline[i].Last <> 0) then begin
         // Если есть ставка и мы проиграли
         stateSixline[i].Bet.MulLossCount := stateSixline[i].Bet.MulLossCount + 1;

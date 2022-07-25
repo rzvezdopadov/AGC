@@ -8,11 +8,12 @@ function Bets():BOOL;
 
 implementation
 
-uses BetsColumnBL, BetsDozenBL,
+uses BetsPairBL, BetsColumnBL, BetsDozenBL,
       BetsNumberBL, BetsSixlineBL, BetsStreetBL, BetsAngleBL;
 
 function Bets():BOOL;
 begin
+  BetsPair;
   BetsColumn;
   BetsDozen;
   BetsNumber;

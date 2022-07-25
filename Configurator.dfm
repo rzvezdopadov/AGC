@@ -1,6 +1,6 @@
 object FormConfigurator: TFormConfigurator
-  Left = 1007
-  Top = 174
+  Left = 425
+  Top = 176
   Width = 733
   Height = 707
   Caption = 'Configurator'
@@ -130,7 +130,7 @@ object FormConfigurator: TFormConfigurator
         Top = 0
         Width = 689
         Height = 521
-        ActivePage = TabSheetGlobal
+        ActivePage = TabSheetHashNumber
         TabOrder = 0
         object TabSheetGlobal: TTabSheet
           Caption = 'Global'
@@ -1949,6 +1949,16 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Enabled = False
             TabOrder = 77
+          end
+          object PanelHashClear: TPanel
+            Left = 568
+            Top = 8
+            Width = 97
+            Height = 21
+            Caption = 'Clear all Hash'
+            Color = 3644415
+            TabOrder = 78
+            OnClick = PanelHashClearClick
           end
         end
         object TabSheetPair: TTabSheet

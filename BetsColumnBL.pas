@@ -25,6 +25,7 @@ begin
         stateColumn[i].Bet.MulLossCount := 0;
         stateColumn[i].Bet.Count := 0;
         stateColumn[i].Bet.Amount := 0;
+        betWin := 1;
       end else if (stateColumn[i].Bet.Enabled) and (stateColumn[i].Last <> 0) then begin
         // Если есть ставка и мы проиграли
         stateColumn[i].Bet.MulLossCount := stateColumn[i].Bet.MulLossCount + 1;

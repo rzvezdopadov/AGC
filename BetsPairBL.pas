@@ -25,6 +25,7 @@ begin
         stateLowHigh[i].Bet.MulLossCount := 0;
         stateLowHigh[i].Bet.Count := 0;
         stateLowHigh[i].Bet.Amount := 0;
+        betWin := 1;
       end else if (stateLowHigh[i].Bet.Enabled) and (stateLowHigh[i].Last <> 0) then begin
         // Если есть ставка и мы проиграли
         stateLowHigh[i].Bet.MulLossCount := stateLowHigh[i].Bet.MulLossCount + 1;
@@ -83,6 +84,7 @@ begin
         stateOddEven[i].Bet.MulLossCount := 0;
         stateOddEven[i].Bet.Count := 0;
         stateOddEven[i].Bet.Amount := 0;
+        betWin := 1;
       end else if (stateOddEven[i].Bet.Enabled) and (stateOddEven[i].Last <> 0) then begin
         // Если есть ставка и мы проиграли
         stateOddEven[i].Bet.MulLossCount := stateOddEven[i].Bet.MulLossCount + 1;
@@ -141,6 +143,7 @@ begin
         stateRedBlack[i].Bet.MulLossCount := 0;
         stateRedBlack[i].Bet.Count := 0;
         stateRedBlack[i].Bet.Amount := 0;
+        betWin := 1;
       end else if (stateRedBlack[i].Bet.Enabled) and (stateRedBlack[i].Last <> 0) then begin
         // Если есть ставка и мы проиграли
         stateRedBlack[i].Bet.MulLossCount := stateRedBlack[i].Bet.MulLossCount + 1;

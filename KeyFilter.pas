@@ -6,6 +6,7 @@ uses SysUtils, Classes, Windows;
 
 function testKeyOnNumberForMemo(Key: Char): Char;
 function testKeyOnNumber(Key: Char): Char;
+function testKeyOnDouble(Key: Char): Char;
 function testKeyOnLH(Key: Char): Char;
 function testKeyOnBR(Key: Char): Char;
 function testKeyOnOE(Key: Char): Char;
@@ -31,6 +32,16 @@ begin
   end;
 
   testKeyOnNumber := Key;
+end;
+
+function testKeyOnDouble(Key: Char): Char;
+begin
+  If not (Key in ['0'..'9',',',#08]) then begin
+    testKeyOnDouble := #0;
+    Exit;
+  end;
+
+  testKeyOnDouble := Key;
 end;
 
 function testKeyOnLH(Key: Char): Char;

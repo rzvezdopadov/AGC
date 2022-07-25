@@ -303,6 +303,7 @@ type
     procedure MenuMainSaveSampleClick(Sender: TObject);
     procedure Configurator1Click(Sender: TObject);
     procedure TimerAutoGameTimer(Sender: TObject);
+    procedure EditBallanceKeyPress(Sender: TObject; var Key: Char);
 
   private
 
@@ -315,10 +316,11 @@ type
 var
   FormMain: TFormMain;
   AutoGamePos: Integer;
+  StartTickCount: Cardinal;
 implementation
 
-uses WindowUserLib, Settings, Statistics, Tester, ConstItems, State, KeyFilter,
-  StatisticsPairBL, Configurator;
+uses WindowUserLib, Settings, Statistics, StatisticsBL, Tester, ConstItems,
+  State, KeyFilter, StatisticsPairBL, Configurator, BetsBL;
 
 {$R *.dfm}
 
@@ -977,6 +979,11 @@ begin
   Key := testKeyOnNumber(Key);
 end;
 
+procedure TFormMain.EditBallanceKeyPress(Sender: TObject; var Key: Char);
+begin
+  Key := testKeyOnDouble(Key);
+end;
+
 procedure TFormMain.RichEditNumberKeyPress(Sender: TObject; var Key: Char);
 begin
   Key := testKeyOnNumberForMemo(Key);
@@ -1116,13 +1123,19 @@ begin
   FormConfigurator.Visible := True;
 end;
 
-function clickToPosWindow(HWnd: THandle; X, Y: Integer):BOOL;
+function clickToPosWindow(HWnd: THandle; X, Y, Count: Integer):BOOL;
+var
+  i: Integer;
 begin
-  PostMessage(HWnd, WM_LBUTTONDOWN, MK_LBUTTON, MakeLParam(X, Y));
-  Sleep(200);
-  PostMessage(HWnd, WM_LBUTTONUP, MK_LBUTTON, MakeLParam(X, Y));
-  Sleep(200);
-
+  if (Count <> 0) then begin
+    for i := 1 to Count do begin
+      PostMessage(HWnd, WM_LBUTTONDOWN, MK_LBUTTON, MakeLParam(X, Y));
+      Sleep(20);
+      PostMessage(HWnd, WM_LBUTTONUP, MK_LBUTTON, MakeLParam(X, Y));
+      Sleep(20);
+    end;
+  end;
+  
   clickToPosWindow := True;
 end;
 
@@ -1190,6 +1203,76 @@ begin
   searchHashImage := 0;
 end;
 
+function setBetsToRulet(HWnd: THandle):BOOL;
+var
+  i: Integer;
+begin
+  for i := 0 to 1 do begin
+    clickToPosWindow(HWnd, configuration.PairLowHighPos[i].X,
+      configuration.PairLowHighPos[i].Y, stateLowHigh[i].Bet.Count);
+    clickToPosWindow(HWnd, configuration.PairOddEvenPos[i].X,
+      configuration.PairOddEvenPos[i].Y, stateOddEven[i].Bet.Count);
+    clickToPosWindow(HWnd, configuration.PairRedBlackPos[i].X,
+      configuration.PairRedBlackPos[i].Y, stateRedBlack[i].Bet.Count);
+  end;
+
+  for i := 0 to 2 do begin
+    clickToPosWindow(HWnd, configuration.Column[i].X,
+      configuration.Column[i].Y, stateColumn[i].Bet.Count);
+    clickToPosWindow(HWnd, configuration.Dozen[i].X,
+      configuration.Dozen[i].Y, stateDozen[i].Bet.Count);
+  end;
+
+  for i := 0 to 36 do begin
+    clickToPosWindow(HWnd, configuration.Number[i].X,
+      configuration.Number[i].Y, stateNumber[i].Bet.Count);
+  end;
+
+  for i := 0 to 10 do begin
+    clickToPosWindow(HWnd, configuration.Sixline[i].X,
+      configuration.Sixline[i].Y, stateSixline[i].Bet.Count);
+  end;
+
+  for i := 0 to 13 do begin
+    clickToPosWindow(HWnd, configuration.Street[i].X,
+      configuration.Street[i].Y, stateStreet[i].Bet.Count);
+  end;
+
+  for i := 0 to 22 do begin
+    clickToPosWindow(HWnd, configuration.Angle[i].X,
+      configuration.Angle[i].Y, stateAngle[i].Bet.Count);
+  end;
+
+  setBetsToRulet := True;
+end;
+
+function closeAllModal():BOOL;
+var
+  HWnd: THandle;
+  i: Integer;  
+begin
+  for i := 0 to 9 do begin
+    HWnd := getWindowFromPos(configuration.CloseWindows[i].Size.X,
+      configuration.CloseWindows[i].Size.Y);
+
+    if (HWnd <> 0) and (configuration.CloseWindows[i].Enable) then begin
+      clickToPosWindow(HWnd, configuration.CloseWindows[i].Pos.X,
+      configuration.CloseWindows[i].Pos.Y, 1);
+    end;
+  end; 
+
+  closeAllModal := True;
+end;
+
+function setIntervalTimerAutoGame(millisecond: Cardinal):BOOL;
+begin
+  FormMain.TimerAutoGame.Enabled := False;
+  FormMain.TimerAutoGame.Interval := millisecond;
+  FormMain.TimerAutoGame.Enabled := True;
+
+  setIntervalTimerAutoGame := True;
+end;
+
 procedure TFormMain.TimerAutoGameTimer(Sender: TObject);
 var
   HWnd: THandle;
@@ -1203,7 +1286,8 @@ begin
         (configuration.WindowRulete.Size.X <> 0) and
           (configuration.WindowRulete.Size.Y <> 0)then begin
       if (AutoGamePos = AUTOGAME_CHECKSPIN) then begin
-        clickToPosWindow(HWnd, configuration.BtnSpin.Pos.X, configuration.BtnSpin.Pos.Y);
+        clickToPosWindow(HWnd, configuration.BtnSpin.Pos.X, configuration.BtnSpin.Pos.Y, 1);
+        setIntervalTimerAutoGame(100);
 
         AutoGamePos := AUTOGAME_GETNUMBER;
       end else if (AutoGamePos = AUTOGAME_GETNUMBER) then begin
@@ -1222,10 +1306,33 @@ begin
           addNewNumberToRichEdit(PosNumber, FormMain.RichEditNumber);
           FormMain.PanelCountSequenced.Caption := IntToStr(FormMain.RichEditNumber.Lines.Count);
           addSeqNum(PosNumber);
+          calcStatistics();
+          setIntervalTimerAutoGame(100);
 
           AutoGamePos := AUTOGAME_SETBETS;
         end;
       end else if (AutoGamePos = AUTOGAME_SETBETS) then begin
+        getBalanceFromMain();
+        Bets();
+        setBalanceToMain;
+        displayStatistics();
+        placeColorPanelsFromState();
+
+        if (betWin <> 1) then begin
+          setIntervalTimerAutoGame(100);
+          setBetsToRulet(HWnd);
+
+          AutoGamePos := AUTOGAME_CHECKSPIN;
+        end else begin
+          setIntervalTimerAutoGame(5000);
+          StartTickCount := GetTickCount;
+
+          AutoGamePos := AUTOGAME_CLOSEMODAL;
+        end;
+      end else if (AutoGamePos = AUTOGAME_CLOSEMODAL) then begin
+        closeAllModal;
+        setBetsToRulet(HWnd);
+        setIntervalTimerAutoGame(500);
 
         AutoGamePos := AUTOGAME_CHECKSPIN;
       end;
@@ -1234,18 +1341,7 @@ begin
       FormMain.TimerAutoGame.Enabled := False;
     end;
   end;
-
-
-{
-  addNewNumberToRichEdit(Value, FormMain.RichEditNumber);
-  addSeqNum(Value);
-  calcStatistics();
-  getBalanceFromMain();
-  Bets();
-  setBalanceToMain;
-  displayStatistics();
-  placeColorPanelsFromState();
-}  
 end;
+
 
 end.

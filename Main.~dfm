@@ -237,7 +237,7 @@ object FormMain: TFormMain
       Height = 21
       TabOrder = 0
       Text = '1000'
-      OnKeyPress = EditKeyPressNumber
+      OnKeyPress = EditBallanceKeyPress
     end
   end
   object PanelSixline: TPanel
@@ -1989,9 +1989,9 @@ object FormMain: TFormMain
       OnKeyPress = RichEditNumberKeyPress
     end
     object PanelNumberClear: TPanel
-      Left = 16
+      Left = 8
       Top = 560
-      Width = 57
+      Width = 73
       Height = 17
       Caption = 'Clear'
       Color = 3644415

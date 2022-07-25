@@ -237,7 +237,7 @@ object FormMain: TFormMain
       Height = 21
       TabOrder = 0
       Text = '1000'
-      OnKeyPress = EditKeyPressNumber
+      OnKeyPress = EditBallanceKeyPress
     end
   end
   object PanelSixline: TPanel

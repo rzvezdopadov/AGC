@@ -42,10 +42,11 @@ var
   stateDozen: array [0..2] of TStat;
   stateColumn: array [0..2] of TStat;
   stateSixline: array [0..10] of TStat;
-  stateAngle: array [0..22] of TStat;
   stateStreet: array [0..13] of TStat;
+  stateAngle: array [0..22] of TStat;
   ballance: Double;
   configuration: TConfiguration;
+  betWin: Integer;
 
 implementation
 

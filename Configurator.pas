@@ -849,6 +849,7 @@ type
     SaveConfigurationDialog: TSaveDialog;
     OpenConfigurationDialog: TOpenDialog;
     PanelBtnSpinScanHash: TPanel;
+    PanelHashClear: TPanel;
     procedure TimerPosMouseTimer(Sender: TObject);
     procedure PanelWindowRuleteNameScanClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
@@ -1003,6 +1004,7 @@ type
     procedure PanelAngle21PosScanClick(Sender: TObject);
     procedure PanelAngle22PosScanClick(Sender: TObject);
     procedure PanelBtnSpinScanHashClick(Sender: TObject);
+    procedure PanelHashClearClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -3007,5 +3009,45 @@ begin
   strTypeBtnScan := 'ScanBetAngle22';
 end;
 
+procedure TFormConfigurator.PanelHashClearClick(Sender: TObject);
+begin
+  EditHashNumber0.Text := '0';
+  EditHashNumber1.Text := '0';
+  EditHashNumber2.Text := '0';
+  EditHashNumber3.Text := '0';
+  EditHashNumber4.Text := '0';
+  EditHashNumber5.Text := '0';
+  EditHashNumber6.Text := '0';
+  EditHashNumber7.Text := '0';
+  EditHashNumber8.Text := '0';
+  EditHashNumber9.Text := '0';
+  EditHashNumber10.Text := '0';
+  EditHashNumber11.Text := '0';
+  EditHashNumber12.Text := '0';
+  EditHashNumber13.Text := '0';
+  EditHashNumber14.Text := '0';
+  EditHashNumber15.Text := '0';
+  EditHashNumber16.Text := '0';
+  EditHashNumber17.Text := '0';
+  EditHashNumber18.Text := '0';
+  EditHashNumber19.Text := '0';
+  EditHashNumber20.Text := '0';
+  EditHashNumber21.Text := '0';
+  EditHashNumber22.Text := '0';
+  EditHashNumber23.Text := '0';
+  EditHashNumber24.Text := '0';
+  EditHashNumber25.Text := '0';
+  EditHashNumber26.Text := '0';
+  EditHashNumber27.Text := '0';
+  EditHashNumber28.Text := '0';
+  EditHashNumber29.Text := '0';
+  EditHashNumber30.Text := '0';
+  EditHashNumber31.Text := '0';
+  EditHashNumber32.Text := '0';
+  EditHashNumber33.Text := '0';
+  EditHashNumber34.Text := '0';
+  EditHashNumber35.Text := '0';
+  EditHashNumber36.Text := '0';
+end;
 
 end.
