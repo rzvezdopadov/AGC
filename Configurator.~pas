@@ -850,6 +850,103 @@ type
     OpenConfigurationDialog: TOpenDialog;
     PanelBtnSpinScanHash: TPanel;
     PanelHashClear: TPanel;
+    PanelNumber0PosTest: TPanel;
+    PanelPairLowPosTest: TPanel;
+    PanelPairHighPosTest: TPanel;
+    PanelPairOddPosTest: TPanel;
+    PanelPairEvenPosTest: TPanel;
+    PanelPairRedPosTest: TPanel;
+    PanelPairBlackPosTest: TPanel;
+    PanelColumn2To11PosTest: TPanel;
+    PanelColumn2To12PosTest: TPanel;
+    PanelColumn2To13PosTest: TPanel;
+    PanelDozen1st12PosTest: TPanel;
+    PanelDozen2st12PosTest: TPanel;
+    PanelDozen3st12PosTest: TPanel;
+    PanelNumber1PosTest: TPanel;
+    PanelNumber2PosTest: TPanel;
+    PanelNumber3PosTest: TPanel;
+    PanelNumber4PosTest: TPanel;
+    PanelNumber5PosTest: TPanel;
+    PanelNumber6PosTest: TPanel;
+    PanelNumber7PosTest: TPanel;
+    PanelNumber8PosTest: TPanel;
+    PanelNumber9PosTest: TPanel;
+    PanelNumber10PosTest: TPanel;
+    PanelNumber11PosTest: TPanel;
+    PanelNumber12PosTest: TPanel;
+    PanelNumber13PosTest: TPanel;
+    PanelNumber14PosTest: TPanel;
+    PanelNumber15PosTest: TPanel;
+    PanelNumber16PosTest: TPanel;
+    PanelNumber17PosTest: TPanel;
+    PanelNumber18PosTest: TPanel;
+    PanelNumber19PosTest: TPanel;
+    PanelNumber20PosTest: TPanel;
+    PanelNumber21PosTest: TPanel;
+    PanelNumber22PosTest: TPanel;
+    PanelNumber23PosTest: TPanel;
+    PanelNumber24PosTest: TPanel;
+    PanelNumber25PosTest: TPanel;
+    PanelNumber26PosTest: TPanel;
+    PanelNumber27PosTest: TPanel;
+    PanelNumber28PosTest: TPanel;
+    PanelNumber29PosTest: TPanel;
+    PanelNumber30PosTest: TPanel;
+    PanelNumber31PosTest: TPanel;
+    PanelNumber32PosTest: TPanel;
+    PanelNumber33PosTest: TPanel;
+    PanelNumber34PosTest: TPanel;
+    PanelNumber35PosTest: TPanel;
+    PanelNumber36PosTest: TPanel;
+    PanelSixline1PosTest: TPanel;
+    PanelSixline2PosTest: TPanel;
+    PanelSixline3PosTest: TPanel;
+    PanelSixline4PosTest: TPanel;
+    PanelSixline5PosTest: TPanel;
+    PanelSixline6PosTest: TPanel;
+    PanelSixline7PosTest: TPanel;
+    PanelSixline8PosTest: TPanel;
+    PanelSixline9PosTest: TPanel;
+    PanelSixline10PosTest: TPanel;
+    PanelSixline11PosTest: TPanel;
+    PanelStreet0PosTest: TPanel;
+    PanelStreet1PosTest: TPanel;
+    PanelStreet2PosTest: TPanel;
+    PanelStreet3PosTest: TPanel;
+    PanelStreet4PosTest: TPanel;
+    PanelStreet5PosTest: TPanel;
+    PanelStreet6PosTest: TPanel;
+    PanelStreet7PosTest: TPanel;
+    PanelStreet8PosTest: TPanel;
+    PanelStreet9PosTest: TPanel;
+    PanelStreet10PosTest: TPanel;
+    PanelStreet11PosTest: TPanel;
+    PanelStreet12PosTest: TPanel;
+    PanelStreet13PosTest: TPanel;
+    PanelAngle0PosTest: TPanel;
+    PanelAngle1PosTest: TPanel;
+    PanelAngle2PosTest: TPanel;
+    PanelAngle3PosTest: TPanel;
+    PanelAngle4PosTest: TPanel;
+    PanelAngle5PosTest: TPanel;
+    PanelAngle6PosTest: TPanel;
+    PanelAngle7PosTest: TPanel;
+    PanelAngle8PosTest: TPanel;
+    PanelAngle9PosTest: TPanel;
+    PanelAngle10PosTest: TPanel;
+    PanelAngle11PosTest: TPanel;
+    PanelAngle12PosTest: TPanel;
+    PanelAngle13PosTest: TPanel;
+    PanelAngle14PosTest: TPanel;
+    PanelAngle15PosTest: TPanel;
+    PanelAngle16PosTest: TPanel;
+    PanelAngle17PosTest: TPanel;
+    PanelAngle18PosTest: TPanel;
+    PanelAngle19PosTest: TPanel;
+    PanelAngle20PosTest: TPanel;
+    PanelAngle21PosTest: TPanel;
+    PanelAngle22PosTest: TPanel;
     procedure TimerPosMouseTimer(Sender: TObject);
     procedure PanelWindowRuleteNameScanClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
@@ -1005,6 +1102,105 @@ type
     procedure PanelAngle22PosScanClick(Sender: TObject);
     procedure PanelBtnSpinScanHashClick(Sender: TObject);
     procedure PanelHashClearClick(Sender: TObject);
+    procedure PanelPairLowPosTestClick(Sender: TObject);
+    procedure PanelPairHighPosTestClick(Sender: TObject);
+    procedure PanelPairOddPosTestClick(Sender: TObject);
+    procedure PanelPairEvenPosTestClick(Sender: TObject);
+    procedure PanelPairRedPosTestClick(Sender: TObject);
+    procedure PanelPairBlackPosTestClick(Sender: TObject);
+    procedure PanelColumn2To11PosTestClick(Sender: TObject);
+    procedure PanelColumn2To12PosTestClick(Sender: TObject);
+    procedure PanelColumn2To13PosTestClick(Sender: TObject);
+    procedure PanelDozen1st12PosTestClick(Sender: TObject);
+    procedure PanelDozen2st12PosTestClick(Sender: TObject);
+    procedure PanelDozen3st12PosTestClick(Sender: TObject);
+    procedure PanelNumber0PosTestClick(Sender: TObject);
+    procedure PanelNumber1PosTestClick(Sender: TObject);
+    procedure PanelNumber2PosTestClick(Sender: TObject);
+    procedure PanelNumber3PosTestClick(Sender: TObject);
+    procedure PanelNumber4PosTestClick(Sender: TObject);
+    procedure PanelNumber5PosTestClick(Sender: TObject);
+    procedure PanelNumber6PosTestClick(Sender: TObject);
+    procedure PanelNumber7PosTestClick(Sender: TObject);
+    procedure PanelNumber8PosTestClick(Sender: TObject);
+    procedure PanelNumber9PosTestClick(Sender: TObject);
+    procedure PanelNumber10PosTestClick(Sender: TObject);
+    procedure PanelNumber11PosTestClick(Sender: TObject);
+    procedure PanelNumber12PosTestClick(Sender: TObject);
+    procedure PanelNumber13PosTestClick(Sender: TObject);
+    procedure PanelNumber14PosTestClick(Sender: TObject);
+    procedure PanelNumber15PosTestClick(Sender: TObject);
+    procedure PanelNumber16PosTestClick(Sender: TObject);
+    procedure PanelNumber17PosTestClick(Sender: TObject);
+    procedure PanelNumber18PosTestClick(Sender: TObject);
+    procedure PanelNumber19PosTestClick(Sender: TObject);
+    procedure PanelNumber20PosTestClick(Sender: TObject);
+    procedure PanelNumber21PosTestClick(Sender: TObject);
+    procedure PanelNumber22PosTestClick(Sender: TObject);
+    procedure PanelNumber23PosTestClick(Sender: TObject);
+    procedure PanelNumber24PosTestClick(Sender: TObject);
+    procedure PanelNumber25PosTestClick(Sender: TObject);
+    procedure PanelNumber26PosTestClick(Sender: TObject);
+    procedure PanelNumber27PosTestClick(Sender: TObject);
+    procedure PanelNumber28PosTestClick(Sender: TObject);
+    procedure PanelNumber29PosTestClick(Sender: TObject);
+    procedure PanelNumber30PosTestClick(Sender: TObject);
+    procedure PanelNumber31PosTestClick(Sender: TObject);
+    procedure PanelNumber32PosTestClick(Sender: TObject);
+    procedure PanelNumber33PosTestClick(Sender: TObject);
+    procedure PanelNumber34PosTestClick(Sender: TObject);
+    procedure PanelNumber35PosTestClick(Sender: TObject);
+    procedure PanelNumber36PosTestClick(Sender: TObject);
+    procedure PanelSixline1PosTestClick(Sender: TObject);
+    procedure PanelSixline2PosTestClick(Sender: TObject);
+    procedure PanelSixline3PosTestClick(Sender: TObject);
+    procedure PanelSixline4PosTestClick(Sender: TObject);
+    procedure PanelSixline5PosTestClick(Sender: TObject);
+    procedure PanelSixline6PosTestClick(Sender: TObject);
+    procedure PanelSixline7PosTestClick(Sender: TObject);
+    procedure PanelSixline8PosTestClick(Sender: TObject);
+    procedure PanelSixline9PosTestClick(Sender: TObject);
+    procedure PanelSixline10PosTestClick(Sender: TObject);
+    procedure PanelSixline11PosTestClick(Sender: TObject);
+    procedure PanelStreet0PosTestClick(Sender: TObject);
+    procedure PanelStreet1PosTestClick(Sender: TObject);
+    procedure PanelStreet2PosTestClick(Sender: TObject);
+    procedure PanelStreet3PosTestClick(Sender: TObject);
+    procedure PanelStreet4PosTestClick(Sender: TObject);
+    procedure PanelStreet5PosTestClick(Sender: TObject);
+    procedure PanelStreet6PosTestClick(Sender: TObject);
+    procedure PanelStreet7PosTestClick(Sender: TObject);
+    procedure PanelStreet8PosTestClick(Sender: TObject);
+    procedure PanelStreet9PosTestClick(Sender: TObject);
+    procedure PanelStreet10PosTestClick(Sender: TObject);
+    procedure PanelStreet11PosTestClick(Sender: TObject);
+    procedure PanelStreet12PosTestClick(Sender: TObject);
+    procedure PanelStreet13PosTestClick(Sender: TObject);
+    procedure PanelAngle0PosTestClick(Sender: TObject);
+    procedure PanelAngle1PosTestClick(Sender: TObject);
+    procedure PanelAngle2PosTestClick(Sender: TObject);
+    procedure PanelAngle3PosTestClick(Sender: TObject);
+    procedure PanelAngle4PosTestClick(Sender: TObject);
+    procedure PanelAngle5PosTestClick(Sender: TObject);
+    procedure PanelAngle6PosTestClick(Sender: TObject);
+    procedure PanelAngle7PosTestClick(Sender: TObject);
+    procedure PanelAngle8PosTestClick(Sender: TObject);
+    procedure PanelAngle9PosTestClick(Sender: TObject);
+    procedure PanelAngle10PosTestClick(Sender: TObject);
+    procedure PanelAngle11PosTestClick(Sender: TObject);
+    procedure PanelAngle12PosTestClick(Sender: TObject);
+    procedure PanelAngle13PosTestClick(Sender: TObject);
+    procedure PanelAngle14PosTestClick(Sender: TObject);
+    procedure PanelAngle15PosTestClick(Sender: TObject);
+    procedure PanelAngle16PosTestClick(Sender: TObject);
+    procedure PanelAngle17PosTestClick(Sender: TObject);
+    procedure PanelAngle18PosTestClick(Sender: TObject);
+    procedure PanelAngle19PosTestClick(Sender: TObject);
+    procedure PanelAngle20PosTestClick(Sender: TObject);
+    procedure PanelAngle21PosTestClick(Sender: TObject);
+    procedure PanelAngle22PosTestClick(Sender: TObject);
+    procedure EditKeyPressNumber(Sender: TObject; var Key: Char);
+
   private
     { Private declarations }
   public
@@ -1072,7 +1268,7 @@ var
 
 implementation
 
-uses Types;
+uses Types, Main, KeyFilter;
 
 {$R *.dfm}
 {
@@ -3012,42 +3208,631 @@ end;
 procedure TFormConfigurator.PanelHashClearClick(Sender: TObject);
 begin
   EditHashNumber0.Text := '0';
-  EditHashNumber1.Text := '1';
-  EditHashNumber2.Text := '2';
-  EditHashNumber3.Text := '3';
-  EditHashNumber4.Text := '4';
-  EditHashNumber5.Text := '5';
-  EditHashNumber6.Text := '6';
-  EditHashNumber7.Text := '7';
-  EditHashNumber8.Text := '8';
-  EditHashNumber9.Text := '9';
-  EditHashNumber0.Text := '0';
-  EditHashNumber1.Text := '1';
-  EditHashNumber2.Text := '2';
-  EditHashNumber3.Text := '3';
-  EditHashNumber4.Text := '4';
-  EditHashNumber5.Text := '5';
-  EditHashNumber6.Text := '6';
-  EditHashNumber7.Text := '7';
-  EditHashNumber8.Text := '8';
-  EditHashNumber9.Text := '9';
-  EditHashNumber0.Text := '0';
-  EditHashNumber1.Text := '1';
-  EditHashNumber2.Text := '2';
-  EditHashNumber3.Text := '3';
-  EditHashNumber4.Text := '4';
-  EditHashNumber5.Text := '5';
-  EditHashNumber6.Text := '6';
-  EditHashNumber7.Text := '7';
-  EditHashNumber8.Text := '8';
-  EditHashNumber9.Text := '9';
-  EditHashNumber0.Text := '0';
-  EditHashNumber1.Text := '1';
-  EditHashNumber2.Text := '2';
-  EditHashNumber3.Text := '3';
-  EditHashNumber4.Text := '4';
-  EditHashNumber5.Text := '5';
-  EditHashNumber6.Text := '6';
+  EditHashNumber1.Text := '0';
+  EditHashNumber2.Text := '0';
+  EditHashNumber3.Text := '0';
+  EditHashNumber4.Text := '0';
+  EditHashNumber5.Text := '0';
+  EditHashNumber6.Text := '0';
+  EditHashNumber7.Text := '0';
+  EditHashNumber8.Text := '0';
+  EditHashNumber9.Text := '0';
+  EditHashNumber10.Text := '0';
+  EditHashNumber11.Text := '0';
+  EditHashNumber12.Text := '0';
+  EditHashNumber13.Text := '0';
+  EditHashNumber14.Text := '0';
+  EditHashNumber15.Text := '0';
+  EditHashNumber16.Text := '0';
+  EditHashNumber17.Text := '0';
+  EditHashNumber18.Text := '0';
+  EditHashNumber19.Text := '0';
+  EditHashNumber20.Text := '0';
+  EditHashNumber21.Text := '0';
+  EditHashNumber22.Text := '0';
+  EditHashNumber23.Text := '0';
+  EditHashNumber24.Text := '0';
+  EditHashNumber25.Text := '0';
+  EditHashNumber26.Text := '0';
+  EditHashNumber27.Text := '0';
+  EditHashNumber28.Text := '0';
+  EditHashNumber29.Text := '0';
+  EditHashNumber30.Text := '0';
+  EditHashNumber31.Text := '0';
+  EditHashNumber32.Text := '0';
+  EditHashNumber33.Text := '0';
+  EditHashNumber34.Text := '0';
+  EditHashNumber35.Text := '0';
+  EditHashNumber36.Text := '0';
+end;
+
+procedure TFormConfigurator.PanelPairLowPosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditPairLowPosX.Text),
+     StrToInt(EditPairLowPosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelPairHighPosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditPairHighPosX.Text),
+     StrToInt(EditPairHighPosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelPairOddPosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditPairOddPosX.Text),
+     StrToInt(EditPairOddPosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelPairEvenPosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditPairEvenPosX.Text),
+     StrToInt(EditPairEvenPosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelPairRedPosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditPairRedPosX.Text),
+     StrToInt(EditPairRedPosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelPairBlackPosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditPairBlackPosX.Text),
+     StrToInt(EditPairBlackPosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelColumn2To11PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditColumn2To11PosX.Text),
+     StrToInt(EditColumn2To11PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelColumn2To12PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditColumn2To12PosX.Text),
+     StrToInt(EditColumn2To12PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelColumn2To13PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditColumn2To13PosX.Text),
+     StrToInt(EditColumn2To13PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelDozen1st12PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditDozen1st12PosX.Text),
+     StrToInt(EditDozen1st12PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelDozen2st12PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditDozen2st12PosX.Text),
+     StrToInt(EditDozen2st12PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelDozen3st12PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditDozen3st12PosX.Text),
+     StrToInt(EditDozen3st12PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber0PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber0PosX.Text),
+     StrToInt(EditNumber0PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber1PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber1PosX.Text),
+     StrToInt(EditNumber1PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber2PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber2PosX.Text),
+     StrToInt(EditNumber2PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber3PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber3PosX.Text),
+     StrToInt(EditNumber3PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber4PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber4PosX.Text),
+     StrToInt(EditNumber4PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber5PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber5PosX.Text),
+     StrToInt(EditNumber5PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber6PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber6PosX.Text),
+     StrToInt(EditNumber6PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber7PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber7PosX.Text),
+     StrToInt(EditNumber7PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber8PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber8PosX.Text),
+     StrToInt(EditNumber8PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber9PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber9PosX.Text),
+     StrToInt(EditNumber9PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber10PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber10PosX.Text),
+     StrToInt(EditNumber10PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber11PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber11PosX.Text),
+     StrToInt(EditNumber11PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber12PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber12PosX.Text),
+     StrToInt(EditNumber12PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber13PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber13PosX.Text),
+     StrToInt(EditNumber13PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber14PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber14PosX.Text),
+     StrToInt(EditNumber14PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber15PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber15PosX.Text),
+     StrToInt(EditNumber15PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber16PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber16PosX.Text),
+     StrToInt(EditNumber16PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber17PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber17PosX.Text),
+     StrToInt(EditNumber17PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber18PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber18PosX.Text),
+     StrToInt(EditNumber18PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber19PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber19PosX.Text),
+     StrToInt(EditNumber19PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber20PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber20PosX.Text),
+     StrToInt(EditNumber20PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber21PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber21PosX.Text),
+     StrToInt(EditNumber21PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber22PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber22PosX.Text),
+     StrToInt(EditNumber22PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber23PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber23PosX.Text),
+     StrToInt(EditNumber23PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber24PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber24PosX.Text),
+     StrToInt(EditNumber24PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber25PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber25PosX.Text),
+     StrToInt(EditNumber25PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber26PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber26PosX.Text),
+     StrToInt(EditNumber26PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber27PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber27PosX.Text),
+     StrToInt(EditNumber27PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber28PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber28PosX.Text),
+     StrToInt(EditNumber28PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber29PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber29PosX.Text),
+     StrToInt(EditNumber29PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber30PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber30PosX.Text),
+     StrToInt(EditNumber30PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber31PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber31PosX.Text),
+     StrToInt(EditNumber31PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber32PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber32PosX.Text),
+     StrToInt(EditNumber32PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber33PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber33PosX.Text),
+     StrToInt(EditNumber33PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber34PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber34PosX.Text),
+     StrToInt(EditNumber34PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber35PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber35PosX.Text),
+     StrToInt(EditNumber35PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelNumber36PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditNumber36PosX.Text),
+     StrToInt(EditNumber36PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelSixline1PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditSixline1PosX.Text),
+     StrToInt(EditSixline1PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelSixline2PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditSixline2PosX.Text),
+     StrToInt(EditSixline2PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelSixline3PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditSixline3PosX.Text),
+     StrToInt(EditSixline3PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelSixline4PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditSixline4PosX.Text),
+     StrToInt(EditSixline4PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelSixline5PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditSixline5PosX.Text),
+     StrToInt(EditSixline5PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelSixline6PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditSixline6PosX.Text),
+     StrToInt(EditSixline6PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelSixline7PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditSixline7PosX.Text),
+     StrToInt(EditSixline7PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelSixline8PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditSixline8PosX.Text),
+     StrToInt(EditSixline8PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelSixline9PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditSixline9PosX.Text),
+     StrToInt(EditSixline9PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelSixline10PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditSixline10PosX.Text),
+     StrToInt(EditSixline10PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelSixline11PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditSixline11PosX.Text),
+     StrToInt(EditSixline11PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelStreet0PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditStreet0PosX.Text),
+     StrToInt(EditStreet0PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelStreet1PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditStreet1PosX.Text),
+     StrToInt(EditStreet1PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelStreet2PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditStreet2PosX.Text),
+     StrToInt(EditStreet2PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelStreet3PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditStreet3PosX.Text),
+     StrToInt(EditStreet3PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelStreet4PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditStreet4PosX.Text),
+     StrToInt(EditStreet4PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelStreet5PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditStreet5PosX.Text),
+     StrToInt(EditStreet5PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelStreet6PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditStreet6PosX.Text),
+     StrToInt(EditStreet6PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelStreet7PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditStreet7PosX.Text),
+     StrToInt(EditStreet7PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelStreet8PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditStreet8PosX.Text),
+     StrToInt(EditStreet8PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelStreet9PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditStreet9PosX.Text),
+     StrToInt(EditStreet9PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelStreet10PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditStreet10PosX.Text),
+     StrToInt(EditStreet10PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelStreet11PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditStreet11PosX.Text),
+     StrToInt(EditStreet11PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelStreet12PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditStreet12PosX.Text),
+     StrToInt(EditStreet12PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelStreet13PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditStreet13PosX.Text),
+     StrToInt(EditStreet13PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle0PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle0PosX.Text),
+     StrToInt(EditAngle0PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle1PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle1PosX.Text),
+     StrToInt(EditAngle1PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle2PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle2PosX.Text),
+     StrToInt(EditAngle2PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle3PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle3PosX.Text),
+     StrToInt(EditAngle3PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle4PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle4PosX.Text),
+     StrToInt(EditAngle4PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle5PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle5PosX.Text),
+     StrToInt(EditAngle5PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle6PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle6PosX.Text),
+     StrToInt(EditAngle6PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle7PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle7PosX.Text),
+     StrToInt(EditAngle7PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle8PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle8PosX.Text),
+     StrToInt(EditAngle8PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle9PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle9PosX.Text),
+     StrToInt(EditAngle9PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle10PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle10PosX.Text),
+     StrToInt(EditAngle10PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle11PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle11PosX.Text),
+     StrToInt(EditAngle11PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle12PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle12PosX.Text),
+     StrToInt(EditAngle12PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle13PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle13PosX.Text),
+     StrToInt(EditAngle13PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle14PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle14PosX.Text),
+     StrToInt(EditAngle14PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle15PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle15PosX.Text),
+     StrToInt(EditAngle15PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle16PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle16PosX.Text),
+     StrToInt(EditAngle16PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle17PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle17PosX.Text),
+     StrToInt(EditAngle17PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle18PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle18PosX.Text),
+     StrToInt(EditAngle18PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle19PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle19PosX.Text),
+     StrToInt(EditAngle19PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle20PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle20PosX.Text),
+     StrToInt(EditAngle20PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle21PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle21PosX.Text),
+     StrToInt(EditAngle21PosY.Text), 1);
+end;
+
+procedure TFormConfigurator.PanelAngle22PosTestClick(Sender: TObject);
+begin
+  clickToPosWindow(getWindowRuletFromEdit, StrToInt(EditAngle22PosX.Text),
+     StrToInt(EditAngle22PosY.Text), 1);
+end;
+
+
+procedure TFormConfigurator.EditKeyPressNumber(Sender: TObject;
+  var Key: Char);
+begin
+  Key := testKeyOnNumber(Key);
 end;
 
 end.

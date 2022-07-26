@@ -11,6 +11,7 @@ uses
   function replaceColorPanelRedBlack(Value:Integer; Panel:TPanel):BOOL;
   function addNewNumberToRichEdit(Value: Integer; RichEdit: TRichEdit): BOOL;
   function placeColorPanelsFromState():BOOL;
+  function clickToPosWindow(HWnd: THandle; X, Y, Count: Integer):BOOL;
 
 type
   TFormMain = class(TForm)
@@ -1342,6 +1343,5 @@ begin
     end;
   end;
 end;
-
 
 end.

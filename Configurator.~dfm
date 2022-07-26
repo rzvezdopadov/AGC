@@ -1,6 +1,6 @@
 object FormConfigurator: TFormConfigurator
-  Left = 425
-  Top = 176
+  Left = 382
+  Top = 220
   Width = 733
   Height = 707
   Caption = 'Configurator'
@@ -96,6 +96,7 @@ object FormConfigurator: TFormConfigurator
       Height = 21
       Enabled = False
       TabOrder = 1
+      OnKeyPress = EditKeyPressNumber
     end
     object EditWindowRuleteNameSizeY: TEdit
       Left = 160
@@ -104,6 +105,7 @@ object FormConfigurator: TFormConfigurator
       Height = 21
       Enabled = False
       TabOrder = 2
+      OnKeyPress = EditKeyPressNumber
     end
     object PanelWindowRuleteNameScan: TPanel
       Left = 216
@@ -130,7 +132,7 @@ object FormConfigurator: TFormConfigurator
         Top = 0
         Width = 689
         Height = 521
-        ActivePage = TabSheetHashNumber
+        ActivePage = TabSheetStreet
         TabOrder = 0
         object TabSheetGlobal: TTabSheet
           Caption = 'Global'
@@ -176,6 +178,7 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Enabled = False
             TabOrder = 0
+            OnKeyPress = EditKeyPressNumber
           end
           object EditBtnSpinPozY: TEdit
             Left = 160
@@ -184,6 +187,7 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Enabled = False
             TabOrder = 1
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelBtnSpinScan: TPanel
             Left = 216
@@ -302,6 +306,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 1
+              OnKeyPress = EditKeyPressNumber
             end
             object EditCloseWindows1SizeY: TEdit
               Left = 520
@@ -310,6 +315,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 2
+              OnKeyPress = EditKeyPressNumber
             end
             object PanelCloseWindows1SizeScan: TPanel
               Left = 576
@@ -328,6 +334,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 4
+              OnKeyPress = EditKeyPressNumber
             end
             object EditCloseWindows1PosY: TEdit
               Left = 520
@@ -336,6 +343,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 5
+              OnKeyPress = EditKeyPressNumber
             end
             object PanelCloseWindows1PosScan: TPanel
               Left = 576
@@ -420,6 +428,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 1
+              OnKeyPress = EditKeyPressNumber
             end
             object EditCloseWindows2SizeY: TEdit
               Left = 520
@@ -428,6 +437,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 2
+              OnKeyPress = EditKeyPressNumber
             end
             object PanelCloseWindows2SizeScan: TPanel
               Left = 576
@@ -446,6 +456,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 4
+              OnKeyPress = EditKeyPressNumber
             end
             object EditCloseWindows2PosY: TEdit
               Left = 520
@@ -454,6 +465,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 5
+              OnKeyPress = EditKeyPressNumber
             end
             object PanelCloseWindows2PosScan: TPanel
               Left = 576
@@ -538,6 +550,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 1
+              OnKeyPress = EditKeyPressNumber
             end
             object EditCloseWindows3SizeY: TEdit
               Left = 520
@@ -546,6 +559,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 2
+              OnKeyPress = EditKeyPressNumber
             end
             object PanelCloseWindows3SizeScan: TPanel
               Left = 576
@@ -564,6 +578,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 4
+              OnKeyPress = EditKeyPressNumber
             end
             object EditCloseWindows3PosY: TEdit
               Left = 520
@@ -572,6 +587,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 5
+              OnKeyPress = EditKeyPressNumber
             end
             object PanelCloseWindows3PosScan: TPanel
               Left = 576
@@ -656,6 +672,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 1
+              OnKeyPress = EditKeyPressNumber
             end
             object EditCloseWindows4SizeY: TEdit
               Left = 520
@@ -664,6 +681,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 2
+              OnKeyPress = EditKeyPressNumber
             end
             object PanelCloseWindows4SizeScan: TPanel
               Left = 576
@@ -682,6 +700,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 4
+              OnKeyPress = EditKeyPressNumber
             end
             object EditCloseWindows4PosY: TEdit
               Left = 520
@@ -690,6 +709,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 5
+              OnKeyPress = EditKeyPressNumber
             end
             object PanelCloseWindows4PosScan: TPanel
               Left = 576
@@ -774,6 +794,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 1
+              OnKeyPress = EditKeyPressNumber
             end
             object EditCloseWindows5SizeY: TEdit
               Left = 520
@@ -782,6 +803,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 2
+              OnKeyPress = EditKeyPressNumber
             end
             object PanelCloseWindows5SizeScan: TPanel
               Left = 576
@@ -800,6 +822,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 4
+              OnKeyPress = EditKeyPressNumber
             end
             object EditCloseWindows5PosY: TEdit
               Left = 520
@@ -808,6 +831,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 5
+              OnKeyPress = EditKeyPressNumber
             end
             object PanelCloseWindows5PosScan: TPanel
               Left = 576
@@ -892,6 +916,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 1
+              OnKeyPress = EditKeyPressNumber
             end
             object EditCloseWindows6SizeY: TEdit
               Left = 520
@@ -900,6 +925,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 2
+              OnKeyPress = EditKeyPressNumber
             end
             object PanelCloseWindows6SizeScan: TPanel
               Left = 576
@@ -918,6 +944,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 4
+              OnKeyPress = EditKeyPressNumber
             end
             object EditCloseWindows6PosY: TEdit
               Left = 520
@@ -926,6 +953,7 @@ object FormConfigurator: TFormConfigurator
               Height = 21
               Enabled = False
               TabOrder = 5
+              OnKeyPress = EditKeyPressNumber
             end
             object PanelCloseWindows6PosScan: TPanel
               Left = 576
@@ -1251,6 +1279,7 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Enabled = False
             TabOrder = 0
+            OnKeyPress = EditKeyPressNumber
           end
           object EditHashNumberPosY: TEdit
             Left = 160
@@ -1259,6 +1288,7 @@ object FormConfigurator: TFormConfigurator
             Height = 21
             Enabled = False
             TabOrder = 1
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelHashNumberPosScan: TPanel
             Left = 216
@@ -2095,21 +2125,21 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 0
+            OnKeyPress = EditKeyPressNumber
           end
           object EditPairLowPosY: TEdit
             Left = 200
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 1
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelPairLowPosScan: TPanel
             Left = 264
             Top = 8
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -2121,21 +2151,21 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 3
+            OnKeyPress = EditKeyPressNumber
           end
           object EditPairHighPosY: TEdit
             Left = 200
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 4
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelPairHighPosScan: TPanel
             Left = 264
             Top = 32
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -2147,21 +2177,21 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 6
+            OnKeyPress = EditKeyPressNumber
           end
           object EditPairOddPosY: TEdit
             Left = 200
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 7
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelPairOddPosScan: TPanel
             Left = 264
             Top = 56
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -2173,21 +2203,21 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 9
+            OnKeyPress = EditKeyPressNumber
           end
           object EditPairEvenPosY: TEdit
             Left = 200
             Top = 80
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 10
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelPairEvenPosScan: TPanel
             Left = 264
             Top = 80
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -2199,21 +2229,21 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 12
+            OnKeyPress = EditKeyPressNumber
           end
           object EditPairRedPosY: TEdit
             Left = 200
             Top = 104
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 13
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelPairRedPosScan: TPanel
             Left = 264
             Top = 104
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -2225,26 +2255,86 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 15
+            OnKeyPress = EditKeyPressNumber
           end
           object EditPairBlackPosY: TEdit
             Left = 200
             Top = 128
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 16
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelPairBlackPosScan: TPanel
             Left = 264
             Top = 128
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 17
             OnClick = PanelPairBlackPosScanClick
+          end
+          object PanelPairLowPosTest: TPanel
+            Left = 320
+            Top = 8
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 18
+            OnClick = PanelPairLowPosTestClick
+          end
+          object PanelPairHighPosTest: TPanel
+            Left = 320
+            Top = 32
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 19
+            OnClick = PanelPairHighPosTestClick
+          end
+          object PanelPairOddPosTest: TPanel
+            Left = 320
+            Top = 56
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 20
+            OnClick = PanelPairOddPosTestClick
+          end
+          object PanelPairEvenPosTest: TPanel
+            Left = 320
+            Top = 80
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 21
+            OnClick = PanelPairEvenPosTestClick
+          end
+          object PanelPairRedPosTest: TPanel
+            Left = 320
+            Top = 104
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 22
+            OnClick = PanelPairRedPosTestClick
+          end
+          object PanelPairBlackPosTest: TPanel
+            Left = 320
+            Top = 128
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 23
+            OnClick = PanelPairBlackPosTestClick
           end
         end
         object TabSheetColumn: TTabSheet
@@ -2318,21 +2408,21 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 0
+            OnKeyPress = EditKeyPressNumber
           end
           object EditColumn2To11PosY: TEdit
             Left = 208
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 1
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelColumn2To11PosScan: TPanel
             Left = 272
             Top = 8
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -2344,21 +2434,21 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 3
+            OnKeyPress = EditKeyPressNumber
           end
           object EditColumn2To12PosY: TEdit
             Left = 208
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 4
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelColumn2To12PosScan: TPanel
             Left = 272
             Top = 32
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -2370,26 +2460,56 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 6
+            OnKeyPress = EditKeyPressNumber
           end
           object EditColumn2To13PosY: TEdit
             Left = 208
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 7
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelColumn2To13PosScan: TPanel
             Left = 272
             Top = 56
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 8
             OnClick = PanelColumn2To13PosScanClick
+          end
+          object PanelColumn2To11PosTest: TPanel
+            Left = 328
+            Top = 8
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 9
+            OnClick = PanelColumn2To11PosTestClick
+          end
+          object PanelColumn2To12PosTest: TPanel
+            Left = 328
+            Top = 32
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 10
+            OnClick = PanelColumn2To12PosTestClick
+          end
+          object PanelColumn2To13PosTest: TPanel
+            Left = 328
+            Top = 56
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 11
+            OnClick = PanelColumn2To13PosTestClick
           end
         end
         object TabSheetDozen: TTabSheet
@@ -2463,21 +2583,21 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 0
+            OnKeyPress = EditKeyPressNumber
           end
           object EditDozen1st12PosY: TEdit
             Left = 200
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 1
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelDozen1st12PosScan: TPanel
             Left = 264
             Top = 8
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -2489,21 +2609,21 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 3
+            OnKeyPress = EditKeyPressNumber
           end
           object EditDozen2st12PosY: TEdit
             Left = 200
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 4
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelDozen2st12PosScan: TPanel
             Left = 264
             Top = 32
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -2515,26 +2635,56 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 6
+            OnKeyPress = EditKeyPressNumber
           end
           object EditDozen3st12PosY: TEdit
             Left = 200
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 7
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelDozen3st12PosScan: TPanel
             Left = 264
             Top = 56
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 8
             OnClick = PanelDozen3st12PosScanClick
+          end
+          object PanelDozen1st12PosTest: TPanel
+            Left = 320
+            Top = 8
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 9
+            OnClick = PanelDozen1st12PosTestClick
+          end
+          object PanelDozen2st12PosTest: TPanel
+            Left = 320
+            Top = 32
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 10
+            OnClick = PanelDozen2st12PosTestClick
+          end
+          object PanelDozen3st12PosTest: TPanel
+            Left = 320
+            Top = 56
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 11
+            OnClick = PanelDozen3st12PosTestClick
           end
         end
         object TabSheetNumber: TTabSheet
@@ -3322,21 +3472,21 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 0
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber1PosY: TEdit
             Left = 176
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 1
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber1PosScan: TPanel
             Left = 240
             Top = 32
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3348,21 +3498,21 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 3
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber2PosY: TEdit
             Left = 176
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 4
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber2PosScan: TPanel
             Left = 240
             Top = 56
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3374,21 +3524,21 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 6
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber3PosY: TEdit
             Left = 176
             Top = 80
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 7
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber3PosScan: TPanel
             Left = 240
             Top = 80
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3400,21 +3550,21 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 9
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber4PosY: TEdit
             Left = 176
             Top = 104
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 10
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber4PosScan: TPanel
             Left = 240
             Top = 104
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3426,21 +3576,21 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 12
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber5PosY: TEdit
             Left = 176
             Top = 128
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 13
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber5PosScan: TPanel
             Left = 240
             Top = 128
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3452,21 +3602,21 @@ object FormConfigurator: TFormConfigurator
             Top = 152
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 15
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber6PosY: TEdit
             Left = 176
             Top = 152
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 16
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber6PosScan: TPanel
             Left = 240
             Top = 152
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3478,21 +3628,21 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 18
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber0PosY: TEdit
             Left = 176
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 19
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber0PosScan: TPanel
             Left = 240
             Top = 8
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3504,21 +3654,21 @@ object FormConfigurator: TFormConfigurator
             Top = 176
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 21
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber7PosY: TEdit
             Left = 176
             Top = 176
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 22
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber7PosScan: TPanel
             Left = 240
             Top = 176
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3530,21 +3680,21 @@ object FormConfigurator: TFormConfigurator
             Top = 200
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 24
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber8PosY: TEdit
             Left = 176
             Top = 200
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 25
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber8PosScan: TPanel
             Left = 240
             Top = 200
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3556,21 +3706,21 @@ object FormConfigurator: TFormConfigurator
             Top = 224
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 27
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber9PosY: TEdit
             Left = 176
             Top = 224
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 28
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber9PosScan: TPanel
             Left = 240
             Top = 224
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3582,21 +3732,21 @@ object FormConfigurator: TFormConfigurator
             Top = 272
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 30
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber11PosY: TEdit
             Left = 176
             Top = 272
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 31
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber11PosScan: TPanel
             Left = 240
             Top = 272
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3608,21 +3758,21 @@ object FormConfigurator: TFormConfigurator
             Top = 296
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 33
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber12PosY: TEdit
             Left = 176
             Top = 296
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 34
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber12PosScan: TPanel
             Left = 240
             Top = 296
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3634,21 +3784,21 @@ object FormConfigurator: TFormConfigurator
             Top = 320
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 36
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber13PosY: TEdit
             Left = 176
             Top = 320
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 37
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber13PosScan: TPanel
             Left = 240
             Top = 320
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3660,21 +3810,21 @@ object FormConfigurator: TFormConfigurator
             Top = 344
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 39
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber14PosY: TEdit
             Left = 176
             Top = 344
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 40
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber14PosScan: TPanel
             Left = 240
             Top = 344
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3686,21 +3836,21 @@ object FormConfigurator: TFormConfigurator
             Top = 368
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 42
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber15PosY: TEdit
             Left = 176
             Top = 368
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 43
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber15PosScan: TPanel
             Left = 240
             Top = 368
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3712,21 +3862,21 @@ object FormConfigurator: TFormConfigurator
             Top = 392
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 45
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber16PosY: TEdit
             Left = 176
             Top = 392
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 46
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber16PosScan: TPanel
             Left = 240
             Top = 392
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3738,21 +3888,21 @@ object FormConfigurator: TFormConfigurator
             Top = 248
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 48
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber10PosY: TEdit
             Left = 176
             Top = 248
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 49
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber10PosScan: TPanel
             Left = 240
             Top = 248
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3764,21 +3914,21 @@ object FormConfigurator: TFormConfigurator
             Top = 416
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 51
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber17PosY: TEdit
             Left = 176
             Top = 416
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 52
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber17PosScan: TPanel
             Left = 240
             Top = 416
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3790,21 +3940,21 @@ object FormConfigurator: TFormConfigurator
             Top = 440
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 54
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber18PosY: TEdit
             Left = 176
             Top = 440
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 55
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber18PosScan: TPanel
             Left = 240
             Top = 440
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3816,21 +3966,21 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 57
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber19PosY: TEdit
             Left = 488
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 58
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber19PosScan: TPanel
             Left = 552
             Top = 8
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3842,21 +3992,21 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 60
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber21PosY: TEdit
             Left = 488
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 61
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber21PosScan: TPanel
             Left = 552
             Top = 56
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3868,21 +4018,21 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 63
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber22PosY: TEdit
             Left = 488
             Top = 80
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 64
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber22PosScan: TPanel
             Left = 552
             Top = 80
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3894,21 +4044,21 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 66
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber23PosY: TEdit
             Left = 488
             Top = 104
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 67
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber23PosScan: TPanel
             Left = 552
             Top = 104
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3920,21 +4070,21 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 69
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber24PosY: TEdit
             Left = 488
             Top = 128
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 70
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber24PosScan: TPanel
             Left = 552
             Top = 128
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3946,21 +4096,21 @@ object FormConfigurator: TFormConfigurator
             Top = 152
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 72
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber25PosY: TEdit
             Left = 488
             Top = 152
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 73
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber25PosScan: TPanel
             Left = 552
             Top = 152
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3972,21 +4122,21 @@ object FormConfigurator: TFormConfigurator
             Top = 176
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 75
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber26PosY: TEdit
             Left = 488
             Top = 176
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 76
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber26PosScan: TPanel
             Left = 552
             Top = 176
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -3998,21 +4148,21 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 78
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber20PosY: TEdit
             Left = 488
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 79
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber20PosScan: TPanel
             Left = 552
             Top = 32
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4024,21 +4174,21 @@ object FormConfigurator: TFormConfigurator
             Top = 200
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 81
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber27PosY: TEdit
             Left = 488
             Top = 200
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 82
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber27PosScan: TPanel
             Left = 552
             Top = 200
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4050,21 +4200,21 @@ object FormConfigurator: TFormConfigurator
             Top = 224
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 84
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber28PosY: TEdit
             Left = 488
             Top = 224
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 85
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber28PosScan: TPanel
             Left = 552
             Top = 224
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4076,21 +4226,21 @@ object FormConfigurator: TFormConfigurator
             Top = 248
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 87
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber29PosY: TEdit
             Left = 488
             Top = 248
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 88
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber29PosScan: TPanel
             Left = 552
             Top = 248
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4102,21 +4252,21 @@ object FormConfigurator: TFormConfigurator
             Top = 296
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 90
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber31PosY: TEdit
             Left = 488
             Top = 296
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 91
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber31PosScan: TPanel
             Left = 552
             Top = 296
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4128,21 +4278,21 @@ object FormConfigurator: TFormConfigurator
             Top = 320
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 93
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber32PosY: TEdit
             Left = 488
             Top = 320
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 94
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber32PosScan: TPanel
             Left = 552
             Top = 320
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4154,21 +4304,21 @@ object FormConfigurator: TFormConfigurator
             Top = 344
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 96
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber33PosY: TEdit
             Left = 488
             Top = 344
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 97
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber33PosScan: TPanel
             Left = 552
             Top = 344
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4180,21 +4330,21 @@ object FormConfigurator: TFormConfigurator
             Top = 368
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 99
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber34PosY: TEdit
             Left = 488
             Top = 368
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 100
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber34PosScan: TPanel
             Left = 552
             Top = 368
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4206,21 +4356,21 @@ object FormConfigurator: TFormConfigurator
             Top = 392
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 102
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber35PosY: TEdit
             Left = 488
             Top = 392
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 103
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber35PosScan: TPanel
             Left = 552
             Top = 392
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4232,21 +4382,21 @@ object FormConfigurator: TFormConfigurator
             Top = 416
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 105
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber36PosY: TEdit
             Left = 488
             Top = 416
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 106
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber36PosScan: TPanel
             Left = 552
             Top = 416
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4258,26 +4408,396 @@ object FormConfigurator: TFormConfigurator
             Top = 272
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 108
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber30PosY: TEdit
             Left = 488
             Top = 272
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 109
+            OnKeyPress = EditKeyPressNumber
           end
           object EditNumber30PosScan: TPanel
             Left = 552
             Top = 272
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 110
             OnClick = EditNumber30PosScanClick
+          end
+          object PanelNumber0PosTest: TPanel
+            Left = 296
+            Top = 8
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 111
+            OnClick = PanelNumber0PosTestClick
+          end
+          object PanelNumber1PosTest: TPanel
+            Left = 296
+            Top = 32
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 112
+            OnClick = PanelNumber1PosTestClick
+          end
+          object PanelNumber2PosTest: TPanel
+            Left = 296
+            Top = 56
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 113
+            OnClick = PanelNumber2PosTestClick
+          end
+          object PanelNumber3PosTest: TPanel
+            Left = 296
+            Top = 80
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 114
+            OnClick = PanelNumber3PosTestClick
+          end
+          object PanelNumber4PosTest: TPanel
+            Left = 296
+            Top = 104
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 115
+            OnClick = PanelNumber4PosTestClick
+          end
+          object PanelNumber5PosTest: TPanel
+            Left = 296
+            Top = 128
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 116
+            OnClick = PanelNumber5PosTestClick
+          end
+          object PanelNumber6PosTest: TPanel
+            Left = 296
+            Top = 152
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 117
+            OnClick = PanelNumber6PosTestClick
+          end
+          object PanelNumber7PosTest: TPanel
+            Left = 296
+            Top = 176
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 118
+            OnClick = PanelNumber7PosTestClick
+          end
+          object PanelNumber8PosTest: TPanel
+            Left = 296
+            Top = 200
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 119
+            OnClick = PanelNumber8PosTestClick
+          end
+          object PanelNumber9PosTest: TPanel
+            Left = 296
+            Top = 224
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 120
+            OnClick = PanelNumber9PosTestClick
+          end
+          object PanelNumber10PosTest: TPanel
+            Left = 296
+            Top = 248
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 121
+            OnClick = PanelNumber10PosTestClick
+          end
+          object PanelNumber11PosTest: TPanel
+            Left = 296
+            Top = 272
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 122
+            OnClick = PanelNumber11PosTestClick
+          end
+          object PanelNumber12PosTest: TPanel
+            Left = 296
+            Top = 296
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 123
+            OnClick = PanelNumber12PosTestClick
+          end
+          object PanelNumber13PosTest: TPanel
+            Left = 296
+            Top = 320
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 124
+            OnClick = PanelNumber13PosTestClick
+          end
+          object PanelNumber14PosTest: TPanel
+            Left = 296
+            Top = 344
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 125
+            OnClick = PanelNumber14PosTestClick
+          end
+          object PanelNumber15PosTest: TPanel
+            Left = 296
+            Top = 368
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 126
+            OnClick = PanelNumber15PosTestClick
+          end
+          object PanelNumber16PosTest: TPanel
+            Left = 296
+            Top = 392
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 127
+            OnClick = PanelNumber16PosTestClick
+          end
+          object PanelNumber17PosTest: TPanel
+            Left = 296
+            Top = 416
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 128
+            OnClick = PanelNumber17PosTestClick
+          end
+          object PanelNumber18PosTest: TPanel
+            Left = 296
+            Top = 440
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 129
+            OnClick = PanelNumber18PosTestClick
+          end
+          object PanelNumber19PosTest: TPanel
+            Left = 608
+            Top = 8
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 130
+            OnClick = PanelNumber19PosTestClick
+          end
+          object PanelNumber20PosTest: TPanel
+            Left = 608
+            Top = 32
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 131
+            OnClick = PanelNumber20PosTestClick
+          end
+          object PanelNumber21PosTest: TPanel
+            Left = 608
+            Top = 56
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 132
+            OnClick = PanelNumber21PosTestClick
+          end
+          object PanelNumber22PosTest: TPanel
+            Left = 608
+            Top = 80
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 133
+            OnClick = PanelNumber22PosTestClick
+          end
+          object PanelNumber23PosTest: TPanel
+            Left = 608
+            Top = 104
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 134
+            OnClick = PanelNumber23PosTestClick
+          end
+          object PanelNumber24PosTest: TPanel
+            Left = 608
+            Top = 128
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 135
+            OnClick = PanelNumber24PosTestClick
+          end
+          object PanelNumber25PosTest: TPanel
+            Left = 608
+            Top = 152
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 136
+            OnClick = PanelNumber25PosTestClick
+          end
+          object PanelNumber26PosTest: TPanel
+            Left = 608
+            Top = 176
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 137
+            OnClick = PanelNumber26PosTestClick
+          end
+          object PanelNumber27PosTest: TPanel
+            Left = 608
+            Top = 200
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 138
+            OnClick = PanelNumber27PosTestClick
+          end
+          object PanelNumber28PosTest: TPanel
+            Left = 608
+            Top = 224
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 139
+            OnClick = PanelNumber28PosTestClick
+          end
+          object PanelNumber29PosTest: TPanel
+            Left = 608
+            Top = 248
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 140
+            OnClick = PanelNumber29PosTestClick
+          end
+          object PanelNumber30PosTest: TPanel
+            Left = 608
+            Top = 272
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 141
+            OnClick = PanelNumber30PosTestClick
+          end
+          object PanelNumber31PosTest: TPanel
+            Left = 608
+            Top = 296
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 142
+            OnClick = PanelNumber31PosTestClick
+          end
+          object PanelNumber32PosTest: TPanel
+            Left = 608
+            Top = 320
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 143
+            OnClick = PanelNumber32PosTestClick
+          end
+          object PanelNumber33PosTest: TPanel
+            Left = 608
+            Top = 344
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 144
+            OnClick = PanelNumber33PosTestClick
+          end
+          object PanelNumber34PosTest: TPanel
+            Left = 608
+            Top = 368
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 145
+            OnClick = PanelNumber34PosTestClick
+          end
+          object PanelNumber35PosTest: TPanel
+            Left = 608
+            Top = 392
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 146
+            OnClick = PanelNumber35PosTestClick
+          end
+          object PanelNumber36PosTest: TPanel
+            Left = 608
+            Top = 416
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 147
+            OnClick = PanelNumber36PosTestClick
           end
         end
         object TabSheetSixline: TTabSheet
@@ -4519,21 +5039,21 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 0
+            OnKeyPress = EditKeyPressNumber
           end
           object EditSixline1PosY: TEdit
             Left = 192
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 1
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelSixline1PosScan: TPanel
             Left = 256
             Top = 8
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4545,21 +5065,21 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 3
+            OnKeyPress = EditKeyPressNumber
           end
           object EditSixline2PosY: TEdit
             Left = 192
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 4
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelSixline2PosScan: TPanel
             Left = 256
             Top = 32
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4571,21 +5091,21 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 6
+            OnKeyPress = EditKeyPressNumber
           end
           object EditSixline3PosY: TEdit
             Left = 192
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 7
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelSixline3PosScan: TPanel
             Left = 256
             Top = 56
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4597,21 +5117,21 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 9
+            OnKeyPress = EditKeyPressNumber
           end
           object EditSixline4PosY: TEdit
             Left = 192
             Top = 80
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 10
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelSixline4PosScan: TPanel
             Left = 256
             Top = 80
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4623,21 +5143,21 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 12
+            OnKeyPress = EditKeyPressNumber
           end
           object EditSixline5PosY: TEdit
             Left = 192
             Top = 104
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 13
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelSixline5PosScan: TPanel
             Left = 256
             Top = 104
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4649,21 +5169,21 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 15
+            OnKeyPress = EditKeyPressNumber
           end
           object EditSixline6PosY: TEdit
             Left = 192
             Top = 128
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 16
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelSixline6PosScan: TPanel
             Left = 256
             Top = 128
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4675,21 +5195,21 @@ object FormConfigurator: TFormConfigurator
             Top = 152
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 18
+            OnKeyPress = EditKeyPressNumber
           end
           object EditSixline7PosY: TEdit
             Left = 192
             Top = 152
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 19
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelSixline7PosScan: TPanel
             Left = 256
             Top = 152
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4701,21 +5221,21 @@ object FormConfigurator: TFormConfigurator
             Top = 176
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 21
+            OnKeyPress = EditKeyPressNumber
           end
           object EditSixline8PosY: TEdit
             Left = 192
             Top = 176
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 22
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelSixline8PosScan: TPanel
             Left = 256
             Top = 176
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4727,21 +5247,21 @@ object FormConfigurator: TFormConfigurator
             Top = 200
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 24
+            OnKeyPress = EditKeyPressNumber
           end
           object EditSixline9PosY: TEdit
             Left = 192
             Top = 200
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 25
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelSixline9PosScan: TPanel
             Left = 256
             Top = 200
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4753,21 +5273,21 @@ object FormConfigurator: TFormConfigurator
             Top = 248
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 27
+            OnKeyPress = EditKeyPressNumber
           end
           object EditSixline11PosY: TEdit
             Left = 192
             Top = 248
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 28
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelSixline11PosScan: TPanel
             Left = 256
             Top = 248
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -4779,26 +5299,136 @@ object FormConfigurator: TFormConfigurator
             Top = 224
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 30
+            OnKeyPress = EditKeyPressNumber
           end
           object EditSixline10PosY: TEdit
             Left = 192
             Top = 224
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 31
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelSixline10PosScan: TPanel
             Left = 256
             Top = 224
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 32
             OnClick = PanelSixline10PosScanClick
+          end
+          object PanelSixline1PosTest: TPanel
+            Left = 312
+            Top = 8
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 33
+            OnClick = PanelSixline1PosTestClick
+          end
+          object PanelSixline2PosTest: TPanel
+            Left = 312
+            Top = 32
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 34
+            OnClick = PanelSixline2PosTestClick
+          end
+          object PanelSixline3PosTest: TPanel
+            Left = 312
+            Top = 56
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 35
+            OnClick = PanelSixline3PosTestClick
+          end
+          object PanelSixline4PosTest: TPanel
+            Left = 312
+            Top = 80
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 36
+            OnClick = PanelSixline4PosTestClick
+          end
+          object PanelSixline5PosTest: TPanel
+            Left = 312
+            Top = 104
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 37
+            OnClick = PanelSixline5PosTestClick
+          end
+          object PanelSixline6PosTest: TPanel
+            Left = 312
+            Top = 128
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 38
+            OnClick = PanelSixline6PosTestClick
+          end
+          object PanelSixline7PosTest: TPanel
+            Left = 312
+            Top = 152
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 39
+            OnClick = PanelSixline7PosTestClick
+          end
+          object PanelSixline8PosTest: TPanel
+            Left = 312
+            Top = 176
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 40
+            OnClick = PanelSixline8PosTestClick
+          end
+          object PanelSixline9PosTest: TPanel
+            Left = 312
+            Top = 200
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 41
+            OnClick = PanelSixline9PosTestClick
+          end
+          object PanelSixline10PosTest: TPanel
+            Left = 312
+            Top = 224
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 42
+            OnClick = PanelSixline10PosTestClick
+          end
+          object PanelSixline11PosTest: TPanel
+            Left = 312
+            Top = 248
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 43
+            OnClick = PanelSixline11PosTestClick
           end
         end
         object TabSheetStreet: TTabSheet
@@ -5103,21 +5733,21 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 0
+            OnKeyPress = EditKeyPressNumber
           end
           object EditStreet1PosY: TEdit
             Left = 200
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 1
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelStreet1PosScan: TPanel
             Left = 264
             Top = 32
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -5129,21 +5759,21 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 3
+            OnKeyPress = EditKeyPressNumber
           end
           object EditStreet2PosY: TEdit
             Left = 200
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 4
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelStreet2PosScan: TPanel
             Left = 264
             Top = 56
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -5155,21 +5785,21 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 6
+            OnKeyPress = EditKeyPressNumber
           end
           object EditStreet3PosY: TEdit
             Left = 200
             Top = 80
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 7
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelStreet3PosScan: TPanel
             Left = 264
             Top = 80
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -5181,21 +5811,21 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 9
+            OnKeyPress = EditKeyPressNumber
           end
           object EditStreet4PosY: TEdit
             Left = 200
             Top = 104
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 10
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelStreet4PosScan: TPanel
             Left = 264
             Top = 104
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -5207,21 +5837,21 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 12
+            OnKeyPress = EditKeyPressNumber
           end
           object EditStreet5PosY: TEdit
             Left = 200
             Top = 128
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 13
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelStreet5PosScan: TPanel
             Left = 264
             Top = 128
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -5233,21 +5863,21 @@ object FormConfigurator: TFormConfigurator
             Top = 152
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 15
+            OnKeyPress = EditKeyPressNumber
           end
           object EditStreet6PosY: TEdit
             Left = 200
             Top = 152
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 16
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelStreet6PosScan: TPanel
             Left = 264
             Top = 152
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -5259,21 +5889,21 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 18
+            OnKeyPress = EditKeyPressNumber
           end
           object EditStreet0PosY: TEdit
             Left = 200
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 19
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelStreet0PosScan: TPanel
             Left = 264
             Top = 8
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -5285,21 +5915,21 @@ object FormConfigurator: TFormConfigurator
             Top = 176
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 21
+            OnKeyPress = EditKeyPressNumber
           end
           object EditStreet7PosY: TEdit
             Left = 200
             Top = 176
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 22
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelStreet7PosScan: TPanel
             Left = 264
             Top = 176
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -5311,21 +5941,21 @@ object FormConfigurator: TFormConfigurator
             Top = 200
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 24
+            OnKeyPress = EditKeyPressNumber
           end
           object EditStreet8PosY: TEdit
             Left = 200
             Top = 200
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 25
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelStreet8PosScan: TPanel
             Left = 264
             Top = 200
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -5337,21 +5967,21 @@ object FormConfigurator: TFormConfigurator
             Top = 224
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 27
+            OnKeyPress = EditKeyPressNumber
           end
           object EditStreet9PosY: TEdit
             Left = 200
             Top = 224
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 28
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelStreet9PosScan: TPanel
             Left = 264
             Top = 224
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -5363,21 +5993,21 @@ object FormConfigurator: TFormConfigurator
             Top = 272
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 30
+            OnKeyPress = EditKeyPressNumber
           end
           object EditStreet11PosY: TEdit
             Left = 200
             Top = 272
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 31
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelStreet11PosScan: TPanel
             Left = 264
             Top = 272
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -5389,21 +6019,21 @@ object FormConfigurator: TFormConfigurator
             Top = 296
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 33
+            OnKeyPress = EditKeyPressNumber
           end
           object EditStreet12PosY: TEdit
             Left = 200
             Top = 296
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 34
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelStreet12PosScan: TPanel
             Left = 264
             Top = 296
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -5415,21 +6045,21 @@ object FormConfigurator: TFormConfigurator
             Top = 320
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 36
+            OnKeyPress = EditKeyPressNumber
           end
           object EditStreet13PosY: TEdit
             Left = 200
             Top = 320
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 37
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelStreet13PosScan: TPanel
             Left = 264
             Top = 320
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -5441,26 +6071,166 @@ object FormConfigurator: TFormConfigurator
             Top = 248
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 39
+            OnKeyPress = EditKeyPressNumber
           end
           object EditStreet10PosY: TEdit
             Left = 200
             Top = 248
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 40
+            OnKeyPress = EditKeyPressNumber
           end
           object PanelStreet10PosScan: TPanel
             Left = 264
             Top = 248
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 41
             OnClick = PanelStreet10PosScanClick
+          end
+          object PanelStreet0PosTest: TPanel
+            Left = 320
+            Top = 8
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 42
+            OnClick = PanelStreet0PosTestClick
+          end
+          object PanelStreet1PosTest: TPanel
+            Left = 320
+            Top = 32
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 43
+            OnClick = PanelStreet1PosTestClick
+          end
+          object PanelStreet2PosTest: TPanel
+            Left = 320
+            Top = 56
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 44
+            OnClick = PanelStreet2PosTestClick
+          end
+          object PanelStreet3PosTest: TPanel
+            Left = 320
+            Top = 80
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 45
+            OnClick = PanelStreet3PosTestClick
+          end
+          object PanelStreet4PosTest: TPanel
+            Left = 320
+            Top = 104
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 46
+            OnClick = PanelStreet4PosTestClick
+          end
+          object PanelStreet5PosTest: TPanel
+            Left = 320
+            Top = 128
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 47
+            OnClick = PanelStreet5PosTestClick
+          end
+          object PanelStreet6PosTest: TPanel
+            Left = 320
+            Top = 152
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 48
+            OnClick = PanelStreet6PosTestClick
+          end
+          object PanelStreet7PosTest: TPanel
+            Left = 320
+            Top = 176
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 49
+            OnClick = PanelStreet7PosTestClick
+          end
+          object PanelStreet8PosTest: TPanel
+            Left = 320
+            Top = 200
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 50
+            OnClick = PanelStreet8PosTestClick
+          end
+          object PanelStreet9PosTest: TPanel
+            Left = 320
+            Top = 224
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 51
+            OnClick = PanelStreet9PosTestClick
+          end
+          object PanelStreet10PosTest: TPanel
+            Left = 320
+            Top = 248
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 52
+            OnClick = PanelStreet10PosTestClick
+          end
+          object PanelStreet11PosTest: TPanel
+            Left = 320
+            Top = 272
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 53
+            OnClick = PanelStreet11PosTestClick
+          end
+          object PanelStreet12PosTest: TPanel
+            Left = 320
+            Top = 296
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 54
+            OnClick = PanelStreet12PosTestClick
+          end
+          object PanelStreet13PosTest: TPanel
+            Left = 320
+            Top = 320
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 55
+            OnClick = PanelStreet13PosTestClick
           end
         end
         object TabSheetAngle: TTabSheet
@@ -5954,7 +6724,6 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 0
           end
           object EditAngle1PosY: TEdit
@@ -5962,13 +6731,12 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 1
           end
           object PanelAngle1PosScan: TPanel
             Left = 248
             Top = 32
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -5980,7 +6748,6 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 3
           end
           object EditAngle2PosY: TEdit
@@ -5988,13 +6755,12 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 4
           end
           object PanelAngle2PosScan: TPanel
             Left = 248
             Top = 56
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6006,7 +6772,6 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 6
           end
           object EditAngle3PosY: TEdit
@@ -6014,13 +6779,12 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 7
           end
           object PanelAngle3PosScan: TPanel
             Left = 248
             Top = 80
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6032,7 +6796,6 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 9
           end
           object EditAngle4PosY: TEdit
@@ -6040,13 +6803,12 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 10
           end
           object PanelAngle4PosScan: TPanel
             Left = 248
             Top = 104
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6058,7 +6820,6 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 12
           end
           object EditAngle5PosY: TEdit
@@ -6066,13 +6827,12 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 13
           end
           object PanelAngle5PosScan: TPanel
             Left = 248
             Top = 128
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6084,7 +6844,6 @@ object FormConfigurator: TFormConfigurator
             Top = 152
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 15
           end
           object EditAngle6PosY: TEdit
@@ -6092,13 +6851,12 @@ object FormConfigurator: TFormConfigurator
             Top = 152
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 16
           end
           object PanelAngle6PosScan: TPanel
             Left = 248
             Top = 152
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6110,7 +6868,6 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 18
           end
           object EditAngle0PosY: TEdit
@@ -6118,13 +6875,12 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 19
           end
           object PanelAngle0PosScan: TPanel
             Left = 248
             Top = 8
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6136,7 +6892,6 @@ object FormConfigurator: TFormConfigurator
             Top = 176
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 21
           end
           object EditAngle7PosY: TEdit
@@ -6144,13 +6899,12 @@ object FormConfigurator: TFormConfigurator
             Top = 176
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 22
           end
           object PanelAngle7PosScan: TPanel
             Left = 248
             Top = 176
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6162,7 +6916,6 @@ object FormConfigurator: TFormConfigurator
             Top = 200
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 24
           end
           object EditAngle8PosY: TEdit
@@ -6170,13 +6923,12 @@ object FormConfigurator: TFormConfigurator
             Top = 200
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 25
           end
           object PanelAngle8PosScan: TPanel
             Left = 248
             Top = 200
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6188,7 +6940,6 @@ object FormConfigurator: TFormConfigurator
             Top = 224
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 27
           end
           object EditAngle9PosY: TEdit
@@ -6196,13 +6947,12 @@ object FormConfigurator: TFormConfigurator
             Top = 224
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 28
           end
           object PanelAngle9PosScan: TPanel
             Left = 248
             Top = 224
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6214,7 +6964,6 @@ object FormConfigurator: TFormConfigurator
             Top = 272
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 30
           end
           object EditAngle11PosY: TEdit
@@ -6222,13 +6971,12 @@ object FormConfigurator: TFormConfigurator
             Top = 272
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 31
           end
           object PanelAngle11PosScan: TPanel
             Left = 248
             Top = 272
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6240,7 +6988,6 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 33
           end
           object EditAngle12PosY: TEdit
@@ -6248,13 +6995,12 @@ object FormConfigurator: TFormConfigurator
             Top = 8
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 34
           end
           object PanelAngle12PosScan: TPanel
             Left = 568
             Top = 8
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6266,7 +7012,6 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 36
           end
           object EditAngle13PosY: TEdit
@@ -6274,13 +7019,12 @@ object FormConfigurator: TFormConfigurator
             Top = 32
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 37
           end
           object PanelAngle13PosScan: TPanel
             Left = 568
             Top = 32
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6292,7 +7036,6 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 39
           end
           object EditAngle14PosY: TEdit
@@ -6300,13 +7043,12 @@ object FormConfigurator: TFormConfigurator
             Top = 56
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 40
           end
           object PanelAngle14PosScan: TPanel
             Left = 568
             Top = 56
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6318,7 +7060,6 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 42
           end
           object EditAngle15PosY: TEdit
@@ -6326,13 +7067,12 @@ object FormConfigurator: TFormConfigurator
             Top = 80
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 43
           end
           object PanelAngle15PosScan: TPanel
             Left = 568
             Top = 80
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6344,7 +7084,6 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 45
           end
           object EditAngle16PosY: TEdit
@@ -6352,13 +7091,12 @@ object FormConfigurator: TFormConfigurator
             Top = 104
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 46
           end
           object PanelAngle16PosScan: TPanel
             Left = 568
             Top = 104
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6370,7 +7108,6 @@ object FormConfigurator: TFormConfigurator
             Top = 248
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 48
           end
           object EditAngle10PosY: TEdit
@@ -6378,13 +7115,12 @@ object FormConfigurator: TFormConfigurator
             Top = 248
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 49
           end
           object PanelAngle10PosScan: TPanel
             Left = 248
             Top = 248
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6396,7 +7132,6 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 51
           end
           object EditAngle17PosY: TEdit
@@ -6404,13 +7139,12 @@ object FormConfigurator: TFormConfigurator
             Top = 128
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 52
           end
           object PanelAngle17PosScan: TPanel
             Left = 568
             Top = 128
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6422,7 +7156,6 @@ object FormConfigurator: TFormConfigurator
             Top = 152
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 54
           end
           object EditAngle18PosY: TEdit
@@ -6430,13 +7163,12 @@ object FormConfigurator: TFormConfigurator
             Top = 152
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 55
           end
           object PanelAngle18PosScan: TPanel
             Left = 568
             Top = 152
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6448,7 +7180,6 @@ object FormConfigurator: TFormConfigurator
             Top = 176
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 57
           end
           object EditAngle19PosY: TEdit
@@ -6456,13 +7187,12 @@ object FormConfigurator: TFormConfigurator
             Top = 176
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 58
           end
           object PanelAngle19PosScan: TPanel
             Left = 568
             Top = 176
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6474,7 +7204,6 @@ object FormConfigurator: TFormConfigurator
             Top = 224
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 60
           end
           object EditAngle21PosY: TEdit
@@ -6482,13 +7211,12 @@ object FormConfigurator: TFormConfigurator
             Top = 224
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 61
           end
           object PanelAngle21PosScan: TPanel
             Left = 568
             Top = 224
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6500,7 +7228,6 @@ object FormConfigurator: TFormConfigurator
             Top = 248
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 63
           end
           object EditAngle22PosY: TEdit
@@ -6508,13 +7235,12 @@ object FormConfigurator: TFormConfigurator
             Top = 248
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 64
           end
           object PanelAngle22PosScan: TPanel
             Left = 568
             Top = 248
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
@@ -6526,7 +7252,6 @@ object FormConfigurator: TFormConfigurator
             Top = 200
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 66
           end
           object EditAngle20PosY: TEdit
@@ -6534,18 +7259,247 @@ object FormConfigurator: TFormConfigurator
             Top = 200
             Width = 57
             Height = 21
-            Enabled = False
             TabOrder = 67
           end
           object PanelAngle20PosScan: TPanel
             Left = 568
             Top = 200
-            Width = 57
+            Width = 49
             Height = 21
             Caption = 'Scan'
             Color = 3644415
             TabOrder = 68
             OnClick = PanelAngle20PosScanClick
+          end
+          object PanelAngle0PosTest: TPanel
+            Left = 304
+            Top = 8
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 69
+            OnClick = PanelAngle0PosTestClick
+          end
+          object PanelAngle1PosTest: TPanel
+            Left = 304
+            Top = 32
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 70
+            OnClick = PanelAngle1PosTestClick
+          end
+          object PanelAngle2PosTest: TPanel
+            Left = 304
+            Top = 56
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 71
+            OnClick = PanelAngle2PosTestClick
+          end
+          object PanelAngle3PosTest: TPanel
+            Left = 304
+            Top = 80
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 72
+            OnClick = PanelAngle3PosTestClick
+          end
+          object PanelAngle4PosTest: TPanel
+            Left = 304
+            Top = 104
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 73
+            OnClick = PanelAngle4PosTestClick
+          end
+          object PanelAngle5PosTest: TPanel
+            Left = 304
+            Top = 128
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 74
+            OnClick = PanelAngle5PosTestClick
+          end
+          object PanelAngle6PosTest: TPanel
+            Left = 304
+            Top = 152
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 75
+            OnClick = PanelAngle6PosTestClick
+          end
+          object PanelAngle7PosTest: TPanel
+            Left = 304
+            Top = 176
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 76
+            OnClick = PanelAngle7PosTestClick
+          end
+          object PanelAngle8PosTest: TPanel
+            Left = 304
+            Top = 200
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 77
+            OnClick = PanelAngle8PosTestClick
+          end
+          object PanelAngle9PosTest: TPanel
+            Left = 304
+            Top = 224
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 78
+            OnClick = PanelAngle9PosTestClick
+          end
+          object PanelAngle10PosTest: TPanel
+            Left = 304
+            Top = 248
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 79
+            OnClick = PanelAngle10PosTestClick
+          end
+          object PanelAngle11PosTest: TPanel
+            Left = 304
+            Top = 272
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 80
+            OnClick = PanelAngle11PosTestClick
+          end
+          object PanelAngle12PosTest: TPanel
+            Left = 624
+            Top = 8
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 81
+            OnClick = PanelAngle12PosTestClick
+          end
+          object PanelAngle13PosTest: TPanel
+            Left = 624
+            Top = 32
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 82
+            OnClick = PanelAngle13PosTestClick
+          end
+          object PanelAngle14PosTest: TPanel
+            Left = 624
+            Top = 56
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 83
+            OnClick = PanelAngle14PosTestClick
+          end
+          object PanelAngle15PosTest: TPanel
+            Left = 624
+            Top = 80
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 84
+            OnClick = PanelAngle15PosTestClick
+          end
+          object PanelAngle16PosTest: TPanel
+            Left = 624
+            Top = 104
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 85
+            OnClick = PanelAngle16PosTestClick
+          end
+          object PanelAngle17PosTest: TPanel
+            Left = 624
+            Top = 128
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 86
+            OnClick = PanelAngle17PosTestClick
+          end
+          object PanelAngle18PosTest: TPanel
+            Left = 624
+            Top = 152
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 87
+            OnClick = PanelAngle18PosTestClick
+          end
+          object PanelAngle19PosTest: TPanel
+            Left = 624
+            Top = 176
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 88
+            OnClick = PanelAngle19PosTestClick
+          end
+          object PanelAngle20PosTest: TPanel
+            Left = 624
+            Top = 200
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 89
+            OnClick = PanelAngle20PosTestClick
+          end
+          object PanelAngle21PosTest: TPanel
+            Left = 624
+            Top = 224
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 90
+            OnClick = PanelAngle21PosTestClick
+          end
+          object PanelAngle22PosTest: TPanel
+            Left = 624
+            Top = 248
+            Width = 17
+            Height = 21
+            Caption = 'T'
+            Color = 3644415
+            TabOrder = 91
+            OnClick = PanelAngle22PosTestClick
           end
         end
       end
