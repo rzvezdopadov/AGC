@@ -107,17 +107,17 @@ type
     PanelPairMartinClass: TPanel;
     LabelPairMartinClass: TLabel;
     CheckPairMartinClassLH: TCheckBox;
-    CheckPairMartinClassBR: TCheckBox;
+    CheckPairMartinClassRB: TCheckBox;
     CheckPairMartinClassOE: TCheckBox;
     PanelPairMartinRand: TPanel;
     LabelPairMartinRand: TLabel;
     CheckPairMartinRandLH: TCheckBox;
-    CheckPairMartinRandBR: TCheckBox;
+    CheckPairMartinRandRB: TCheckBox;
     CheckPairMartinRandOE: TCheckBox;
     PanelPairMartinSeq: TPanel;
     LabelPairMartinSeq: TLabel;
     CheckPairMartinSeqLH: TCheckBox;
-    CheckPairMartinSeqBR: TCheckBox;
+    CheckPairMartinSeqRB: TCheckBox;
     CheckPairMartinSeqOE: TCheckBox;
     EditPairMartinSeqLH: TEdit;
     EditPairMartinSeqBR: TEdit;
@@ -361,9 +361,9 @@ type
     procedure CheckPairMartinClassLHClick(Sender: TObject);
     procedure CheckPairMartinRandLHClick(Sender: TObject);
     procedure CheckPairMartinSeqLHClick(Sender: TObject);
-    procedure CheckPairMartinClassBRClick(Sender: TObject);
-    procedure CheckPairMartinRandBRClick(Sender: TObject);
-    procedure CheckPairMartinSeqBRClick(Sender: TObject);
+    procedure CheckPairMartinClassRBClick(Sender: TObject);
+    procedure CheckPairMartinRandRBClick(Sender: TObject);
+    procedure CheckPairMartinSeqRBClick(Sender: TObject);
     procedure CheckPairMartinClassOEClick(Sender: TObject);
     procedure CheckPairMartinRandOEClick(Sender: TObject);
     procedure CheckPairMartinSeqOEClick(Sender: TObject);
@@ -418,7 +418,6 @@ end;
 procedure TFormSettings.EditSettingStatisticsCountKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 begin
-
   updatePercentToHeaderGridAll();
 end;
 
@@ -428,124 +427,89 @@ begin
   Key := testKeyOnNumber(Key);
 end;
 
+function unCheckDontNeedIfCheck(CheckTest, CheckFirst, CheckSecond: TCheckBox): Boolean;
+begin
+  if CheckTest.Checked = True then begin
+    CheckFirst.Checked := False;
+    CheckSecond.Checked := False;
+  end;
+
+  unCheckDontNeedIfCheck := True;
+end;
+
 procedure TFormSettings.CheckPairMulX2Click(Sender: TObject);
 begin
-  if CheckPairMulX2.Checked = True then begin
-    CheckPairMulX3.Checked := False;
-    CheckPairMulX4.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckPairMulX2, CheckPairMulX3, CheckPairMulX4);
 end;
 
 procedure TFormSettings.CheckPairMulX3Click(Sender: TObject);
 begin
-  if CheckPairMulX3.Checked = True then begin
-    CheckPairMulX2.Checked := False;
-    CheckPairMulX4.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckPairMulX3, CheckPairMulX2, CheckPairMulX4);
 end;
 
 procedure TFormSettings.CheckPairMulX4Click(Sender: TObject);
 begin
-  if CheckPairMulX4.Checked = True then begin
-    CheckPairMulX2.Checked := False;
-    CheckPairMulX3.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckPairMulX4, CheckPairMulX2, CheckPairMulX3);
 end;
 
 procedure TFormSettings.CheckPairMartinClassLHClick(Sender: TObject);
 begin
-  if CheckPairMartinClassLH.Checked = True then begin
-    CheckPairMartinRandLH.Checked := False;
-    CheckPairMartinSeqLH.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckPairMartinClassLH, CheckPairMartinRandLH, CheckPairMartinSeqLH);
 end;
 
 procedure TFormSettings.CheckPairMartinRandLHClick(Sender: TObject);
 begin
-  if CheckPairMartinRandLH.Checked = True then begin
-    CheckPairMartinClassLH.Checked := False;
-    CheckPairMartinSeqLH.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckPairMartinRandLH, CheckPairMartinClassLH, CheckPairMartinSeqLH);
 end;
 
 procedure TFormSettings.CheckPairMartinSeqLHClick(Sender: TObject);
 begin
-  if CheckPairMartinSeqLH.Checked = True then begin
-    CheckPairMartinClassLH.Checked := False;
-    CheckPairMartinRandLH.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckPairMartinSeqLH, CheckPairMartinClassLH, CheckPairMartinRandLH);
 end;
 
-procedure TFormSettings.CheckPairMartinClassBRClick(Sender: TObject);
+procedure TFormSettings.CheckPairMartinClassRBClick(Sender: TObject);
 begin
-  if CheckPairMartinClassBR.Checked = True then begin
-    CheckPairMartinRandBR.Checked := False;
-    CheckPairMartinSeqBR.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckPairMartinClassRB, CheckPairMartinRandRB, CheckPairMartinSeqRB);
 end;
 
-procedure TFormSettings.CheckPairMartinRandBRClick(Sender: TObject);
+procedure TFormSettings.CheckPairMartinRandRBClick(Sender: TObject);
 begin
-  if CheckPairMartinRandBR.Checked = True then begin
-    CheckPairMartinClassBR.Checked := False;
-    CheckPairMartinSeqBR.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckPairMartinRandRB, CheckPairMartinClassRB, CheckPairMartinSeqRB);
 end;
 
-procedure TFormSettings.CheckPairMartinSeqBRClick(Sender: TObject);
+procedure TFormSettings.CheckPairMartinSeqRBClick(Sender: TObject);
 begin
-  if CheckPairMartinSeqBR.Checked = True then begin
-    CheckPairMartinClassBR.Checked := False;
-    CheckPairMartinRandBR.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckPairMartinSeqRB, CheckPairMartinClassRB, CheckPairMartinRandRB);
 end;
 
 procedure TFormSettings.CheckPairMartinClassOEClick(Sender: TObject);
 begin
-  if CheckPairMartinClassOE.Checked = True then begin
-    CheckPairMartinRandOE.Checked := False;
-    CheckPairMartinSeqOE.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckPairMartinClassOE, CheckPairMartinRandOE, CheckPairMartinSeqOE);
 end;
 
 procedure TFormSettings.CheckPairMartinRandOEClick(Sender: TObject);
 begin
-  if CheckPairMartinRandOE.Checked = True then begin
-    CheckPairMartinClassOE.Checked := False;
-    CheckPairMartinSeqOE.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckPairMartinRandOE, CheckPairMartinClassOE, CheckPairMartinSeqOE);
 end;
 
 procedure TFormSettings.CheckPairMartinSeqOEClick(Sender: TObject);
 begin
-  if CheckPairMartinSeqOE.Checked = True then begin
-    CheckPairMartinClassOE.Checked := False;
-    CheckPairMartinRandOE.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckPairMartinSeqOE, CheckPairMartinClassOE, CheckPairMartinRandOE);
 end;
 
 procedure TFormSettings.CheckColumnMulX16Click(Sender: TObject);
 begin
-  if CheckColumnMulX16.Checked = True then begin
-    CheckColumnMulX2.Checked := False;
-    CheckColumnMulX3.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckColumnMulX16, CheckColumnMulX2, CheckColumnMulX3);
 end;
 
 procedure TFormSettings.CheckColumnMulX2Click(Sender: TObject);
 begin
-  if CheckColumnMulX2.Checked = True then begin
-    CheckColumnMulX16.Checked := False;
-    CheckColumnMulX3.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckColumnMulX2, CheckColumnMulX16, CheckColumnMulX3);
 end;
 
 procedure TFormSettings.CheckColumnMulX3Click(Sender: TObject);
 begin
-  if CheckColumnMulX3.Checked = True then begin
-    CheckColumnMulX16.Checked := False;
-    CheckColumnMulX2.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckColumnMulX3, CheckColumnMulX16, CheckColumnMulX2);
 end;
 
 procedure TFormSettings.CheckColumnClassClick(Sender: TObject);
@@ -568,42 +532,27 @@ end;
 
 procedure TFormSettings.CheckColumnOverPercClick(Sender: TObject);
 begin
-  if CheckColumnOverPerc.Checked = True then begin
-    CheckColumnClass.Checked := False;
-    CheckColumnOnLast2.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckColumnOverPerc, CheckColumnClass, CheckColumnOnLast2);
 end;
 
 procedure TFormSettings.CheckColumnUnderPercClick(Sender: TObject);
 begin
-  if CheckColumnOverPerc.Checked = True then begin
-    CheckColumnClass.Checked := False;
-    CheckColumnOnLast2.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckColumnOverPerc, CheckColumnClass, CheckColumnOnLast2);
 end;
 
 procedure TFormSettings.CheckDozenMulX16Click(Sender: TObject);
 begin
-  if CheckDozenMulX16.Checked = True then begin
-    CheckDozenMulX2.Checked := False;
-    CheckDozenMulX3.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckDozenMulX16, CheckDozenMulX2, CheckDozenMulX3);
 end;
 
 procedure TFormSettings.CheckDozenMulX2Click(Sender: TObject);
 begin
-  if CheckDozenMulX2.Checked = True then begin
-    CheckDozenMulX16.Checked := False;
-    CheckDozenMulX3.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckDozenMulX2, CheckDozenMulX16, CheckDozenMulX3);
 end;
 
 procedure TFormSettings.CheckDozenMulX3Click(Sender: TObject);
 begin
-  if CheckDozenMulX3.Checked = True then begin
-    CheckDozenMulX16.Checked := False;
-    CheckDozenMulX2.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckDozenMulX3, CheckDozenMulX16, CheckDozenMulX2);
 end;
 
 procedure TFormSettings.CheckDozenClassClick(Sender: TObject);
@@ -626,98 +575,62 @@ end;
 
 procedure TFormSettings.CheckNumberMulX2Click(Sender: TObject);
 begin
-  if CheckNumberMulX2.Checked = True then begin
-    CheckNumberMulX3.Checked := False;
-    CheckNumberMulX4.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckNumberMulX2, CheckNumberMulX3, CheckNumberMulX4);
 end;
 
 procedure TFormSettings.CheckNumberMulX3Click(Sender: TObject);
 begin
-  if CheckNumberMulX3.Checked = True then begin
-    CheckNumberMulX2.Checked := False;
-    CheckNumberMulX4.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckNumberMulX3, CheckNumberMulX2, CheckNumberMulX4);
 end;
 
 procedure TFormSettings.CheckNumberMulX4Click(Sender: TObject);
 begin
-  if CheckNumberMulX4.Checked = True then begin
-    CheckNumberMulX2.Checked := False;
-    CheckNumberMulX3.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckNumberMulX4, CheckNumberMulX2, CheckNumberMulX3);
 end;
 
 procedure TFormSettings.CheckSixlineMulX2Click(Sender: TObject);
 begin
-  if CheckSixlineMulX2.Checked = True then begin
-    CheckSixlineMulX3.Checked := False;
-    CheckSixlineMulX4.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckSixlineMulX2, CheckSixlineMulX3, CheckSixlineMulX4);
 end;
 
 procedure TFormSettings.CheckSixlineMulX3Click(Sender: TObject);
 begin
-  if CheckSixlineMulX3.Checked = True then begin
-    CheckSixlineMulX2.Checked := False;
-    CheckSixlineMulX4.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckSixlineMulX3, CheckSixlineMulX2, CheckSixlineMulX4);
 end;
 
 procedure TFormSettings.CheckSixlineMulX4Click(Sender: TObject);
 begin
-  if CheckSixlineMulX4.Checked = True then begin
-    CheckSixlineMulX2.Checked := False;
-    CheckSixlineMulX3.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckSixlineMulX4, CheckSixlineMulX2, CheckSixlineMulX3);
 end;
 
 procedure TFormSettings.CheckStreetMulX2Click(Sender: TObject);
 begin
-  if CheckStreetMulX2.Checked = True then begin
-    CheckStreetMulX3.Checked := False;
-    CheckStreetMulX4.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckStreetMulX2, CheckStreetMulX3, CheckStreetMulX4);
 end;
 
 procedure TFormSettings.CheckStreetMulX3Click(Sender: TObject);
 begin
-  if CheckStreetMulX3.Checked = True then begin
-    CheckStreetMulX2.Checked := False;
-    CheckStreetMulX4.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckStreetMulX3, CheckStreetMulX2, CheckStreetMulX4);
 end;
 
 procedure TFormSettings.CheckStreetMulX4Click(Sender: TObject);
 begin
-  if CheckStreetMulX4.Checked = True then begin
-    CheckStreetMulX2.Checked := False;
-    CheckStreetMulX3.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckStreetMulX4, CheckStreetMulX2, CheckStreetMulX3);
 end;
 
 procedure TFormSettings.CheckAngleMulX2Click(Sender: TObject);
 begin
-  if CheckAngleMulX2.Checked = True then begin
-    CheckAngleMulX3.Checked := False;
-    CheckAngleMulX4.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckAngleMulX2, CheckAngleMulX3, CheckAngleMulX4);
 end;
 
 procedure TFormSettings.CheckAngleMulX3Click(Sender: TObject);
 begin
-  if CheckAngleMulX3.Checked = True then begin
-    CheckAngleMulX2.Checked := False;
-    CheckAngleMulX4.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckAngleMulX3, CheckAngleMulX2, CheckAngleMulX4);
 end;
 
 procedure TFormSettings.CheckAngleMulX4Click(Sender: TObject);
 begin
-  if CheckAngleMulX4.Checked = True then begin
-    CheckAngleMulX2.Checked := False;
-    CheckAngleMulX3.Checked := False;
-  end;
+  unCheckDontNeedIfCheck(CheckAngleMulX4, CheckAngleMulX2, CheckAngleMulX3);
 end;
 
 procedure TFormSettings.MenuLoadConfigurationsClick(Sender: TObject);
@@ -733,7 +646,6 @@ begin
     while not Eof(FConfigFile) do begin
       Read(FConfigFile, FConfig);
     end;
-
 
     configuration.WindowRulete.Name := FConfig.WindowRulete.Name;
     EditNameCasino.Text := configuration.WindowRulete.Name;

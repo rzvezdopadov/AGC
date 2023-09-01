@@ -4,13 +4,13 @@ interface
 
 uses Windows, SysUtils;
 
-function runTester(): BOOL;
+function runTester(): Boolean;
 
 implementation
 
 uses Settings, State, StatisticsBL, BetsBL, Tester, Main;
 
-function runTester(): BOOL;
+function runTester(): Boolean;
 var
   i, Value: integer;
 begin
@@ -25,7 +25,7 @@ begin
     calcStatistics();
     Bets();
     addDotToChart;
-    FormTester.GaugeProgress.Progress := Round(100 * i / FormTester.RichEditNumber.Lines.Count - 1); 
+    FormTester.GaugeProgress.Progress := Round(100 * i / (FormTester.RichEditNumber.Lines.Count - 1)); 
   end;
 
   runTester := True;

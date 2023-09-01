@@ -7,14 +7,14 @@ uses
   StdCtrls, Configurator
   ;
 
-  function clearSeqNum():BOOL;
-  function clearState(): BOOL;
-  function addSeqNum(Value: Integer):BOOL;
-  function numberSetUser(Value: Integer): BOOL;
+  function clearSeqNum(): Boolean;
+  function clearState(): Boolean;
+  function addSeqNum(Value: Integer): Boolean;
+  function numberSetUser(Value: Integer): Boolean;
 type
   TBet = record
-    Enabled: BOOL;
-    Blocked: BOOL;
+    Enabled: Boolean;
+    Blocked: Boolean;
     Count: Integer;
     MulLossCount: Integer;
     Amount: Double;
@@ -52,7 +52,7 @@ implementation
 
 uses ConstItems, Statistics, StatisticsBL, BetsBL;
 
-function clearSeqNum():BOOL;
+function clearSeqNum(): Boolean;
 var
   i: integer;
 begin
@@ -63,7 +63,7 @@ begin
   clearSeqNum := True;
 end;
 
-function clearArrayLast(var stat: array of TStat; Count: Integer):BOOL;
+function clearArrayLast(var stat: array of TStat; Count: Integer): Boolean;
 var
   i, j: integer;
 begin
@@ -80,7 +80,7 @@ begin
   clearArrayLast := True;
 end;
 
-function clearStatistics():BOOL;
+function clearStatistics(): Boolean;
 begin
   clearArrayLast(stateLowHigh, 2);
   clearArrayLast(stateOddEven, 2);
@@ -94,7 +94,7 @@ begin
   clearStatistics := True;
 end;
 
-function addSeqNum(Value: Integer):BOOL;
+function addSeqNum(Value: Integer): Boolean;
 var
   i: Integer;
 begin
@@ -109,24 +109,26 @@ begin
   addSeqNum := True;
 end;
 
-function numberSetUser(Value: Integer): BOOL;
+function numberSetUser(Value: Integer): Boolean;
 begin
-  addNewNumberToRichEdit(Value, FormMain.RichEditNumber);
-  FormMain.PanelCountSequenced.Caption := IntToStr(FormMain.RichEditNumber.Lines.Count);
-  addSeqNum(Value);
-  calcStatistics();
-  getBalanceFromMain();
-  Bets();
-  setBalanceToMain;
-  displayStatistics();
-  placeColorPanelsFromState();
+  with FormMain do begin
+    addNewNumberToRichEdit(RichEditNumber, Value);
+    PanelCountSequenced.Caption := IntToStr(RichEditNumber.Lines.Count);
+    addSeqNum(Value);
+    calcStatistics();
+    getBalanceFromMain();
+    Bets();
+    setBalanceToMain;
+    displayStatistics();
+    placeColorPanelsFromState();
+  end;
 
   numberSetUser := True;
 end;
 
 
 
-function clearState(): BOOL;
+function clearState(): Boolean;
 begin
   countNumber := 0;
   clearSeqNum();

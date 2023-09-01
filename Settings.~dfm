@@ -1,6 +1,6 @@
 object FormSettings: TFormSettings
-  Left = 901
-  Top = 289
+  Left = 248
+  Top = 321
   Width = 681
   Height = 628
   AutoSize = True
@@ -21,7 +21,7 @@ object FormSettings: TFormSettings
     Top = 0
     Width = 665
     Height = 569
-    ActivePage = TabGeneral
+    ActivePage = TabAlghoritm
     TabOrder = 0
     object TabGeneral: TTabSheet
       Caption = 'General'
@@ -291,7 +291,7 @@ object FormSettings: TFormSettings
         Top = 0
         Width = 657
         Height = 545
-        ActivePage = TabAlghotitmGlobal
+        ActivePage = TabPair
         TabOrder = 0
         object TabAlghotitmGlobal: TTabSheet
           Caption = 'Global'
@@ -516,14 +516,14 @@ object FormSettings: TFormSettings
                 TabOrder = 0
                 OnClick = CheckPairMartinClassLHClick
               end
-              object CheckPairMartinClassBR: TCheckBox
+              object CheckPairMartinClassRB: TCheckBox
                 Left = 8
                 Top = 40
                 Width = 81
                 Height = 17
                 Caption = 'Red/Black'
                 TabOrder = 1
-                OnClick = CheckPairMartinClassBRClick
+                OnClick = CheckPairMartinClassRBClick
               end
               object CheckPairMartinClassOE: TCheckBox
                 Left = 8
@@ -558,14 +558,14 @@ object FormSettings: TFormSettings
                 TabOrder = 0
                 OnClick = CheckPairMartinRandLHClick
               end
-              object CheckPairMartinRandBR: TCheckBox
+              object CheckPairMartinRandRB: TCheckBox
                 Left = 8
                 Top = 40
                 Width = 81
                 Height = 17
                 Caption = 'Red/Black'
                 TabOrder = 1
-                OnClick = CheckPairMartinRandBRClick
+                OnClick = CheckPairMartinRandRBClick
               end
               object CheckPairMartinRandOE: TCheckBox
                 Left = 8
@@ -600,14 +600,14 @@ object FormSettings: TFormSettings
                 TabOrder = 0
                 OnClick = CheckPairMartinSeqLHClick
               end
-              object CheckPairMartinSeqBR: TCheckBox
+              object CheckPairMartinSeqRB: TCheckBox
                 Left = 8
                 Top = 52
                 Width = 81
                 Height = 17
                 Caption = 'Red/Black'
                 TabOrder = 1
-                OnClick = CheckPairMartinSeqBRClick
+                OnClick = CheckPairMartinSeqRBClick
               end
               object CheckPairMartinSeqOE: TCheckBox
                 Left = 8

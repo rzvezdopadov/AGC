@@ -4,14 +4,14 @@ interface
 
 uses Windows;
 
-function Bets():BOOL;
+function Bets(): Boolean;
 
 implementation
 
 uses State, BetsPairBL, BetsColumnBL, BetsDozenBL,
       BetsNumberBL, BetsSixlineBL, BetsStreetBL, BetsAngleBL;
 
-function Bets():BOOL;
+function Bets(): Boolean;
 begin
   betWin := 0;
   BetsPair;

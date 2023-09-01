@@ -4,7 +4,7 @@ interface
 
 uses Windows;
 
-  function calcStatisticsNumber():BOOL;
+  function calcStatisticsNumber(): Boolean;
 
 implementation
 
@@ -21,19 +21,19 @@ begin
       if LastNumber = sequencedNumber[i] then inc(Count);
     end;
 
-    stat[LastNumber].Perc[0] := (Count * 100) / countNumber;
+    stat[LastNumber].Perc[percPos] := (Count * 100) / countNumber;
   end else begin
     for i := 0 to PercCount-1 do begin
       if LastNumber = sequencedNumber[i] then inc(Count);
     end;
 
-    stat[LastNumber].Perc.First := (Count * 100) / PercCount;
+    stat[LastNumber].Perc[percPos] := (Count * 100) / PercCount;
   end;
   
   calcPercNumber := True;
 end;
 
-function calcStatisticsNumber():BOOL;
+function calcStatisticsNumber(): Boolean;
 var
   i, j: Integer;
 begin

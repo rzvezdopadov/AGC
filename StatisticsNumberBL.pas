@@ -4,13 +4,13 @@ interface
 
 uses Windows;
 
-  function calcStatisticsNumber():BOOL;
+  function calcStatisticsNumber(): Boolean;
 
 implementation
 
 uses State, ConstItems, SettGeneralMain;
 
-function calcPercNumber(var stat: array of TStat; percPos, LastNumber, PercCount: Integer):BOOL;
+function calcPercNumber(var stat: array of TStat; percPos, LastNumber, PercCount: Integer): Boolean;
 var
   i, Count: Integer;
 begin
@@ -33,7 +33,7 @@ begin
   calcPercNumber := True;
 end;
 
-function calcStatisticsNumber():BOOL;
+function calcStatisticsNumber(): Boolean;
 var
   i, j: Integer;
 begin

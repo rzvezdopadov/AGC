@@ -4,13 +4,13 @@ interface
 
 uses Windows, SysUtils;
 
-function runTester(): BOOL;
+function runTester(): Boolean;
 
 implementation
 
 uses Settings, State, StatisticsBL, BetsBL, Tester, Main;
 
-function runTester(): BOOL;
+function runTester(): Boolean;
 var
   i, Value: integer;
 begin
@@ -20,12 +20,15 @@ begin
   FormMain.RichEditNumber.Clear;
 
   for i := 0 to FormTester.RichEditNumber.Lines.Count - 1 do begin
-    Value := StrToInt(FormTester.RichEditNumber.Lines[i]);
-    addSeqNum(Value);
-    calcStatistics();
-    Bets();
-    addDotToChart;
-    FormTester.GaugeProgress.Progress := Round(100 * i / (FormTester.RichEditNumber.Lines.Count - 1)); 
+    try
+      Value := StrToInt(FormTester.RichEditNumber.Lines[i]);
+      addSeqNum(Value);
+      calcStatistics();
+      Bets();
+      addDotToChart;
+      FormTester.GaugeProgress.Progress := Round(100 * i / (FormTester.RichEditNumber.Lines.Count - 1));
+    except
+    end;
   end;
 
   runTester := True;

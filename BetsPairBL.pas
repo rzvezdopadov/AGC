@@ -4,13 +4,13 @@ interface
 
 uses Windows, Dialogs;
 
-function BetsPair():BOOL;
+function BetsPair(): Boolean;
 
 implementation
 
 uses ConstItems, State, SettingsPairBL, SettingsGeneralFinancialBL;
 
-function BetsLowHighMartingeil():BOOL;
+function BetsLowHighMartingeil(): Boolean;
 var
   i: integer;
 begin
@@ -69,7 +69,7 @@ begin
   BetsLowHighMartingeil := True;
 end;
 
-function BetsOddEvenMartingeil():BOOL;
+function BetsOddEvenMartingeil(): Boolean;
 var
   i: integer;
 begin
@@ -128,7 +128,7 @@ begin
   BetsOddEvenMartingeil := True;
 end;
 
-function BetsRedBlackMartingeil():BOOL;
+function BetsRedBlackMartingeil(): Boolean;
 var
   i: integer;
 begin
@@ -187,7 +187,7 @@ begin
   BetsRedBlackMartingeil := True;
 end;
 
-function BetsPair():BOOL;
+function BetsPair(): Boolean;
 begin
   if getSettLowHighEnMartinClassic then BetsLowHighMartingeil;
   if getSettOddEvenEnMartinClassic then BetsOddEvenMartingeil;

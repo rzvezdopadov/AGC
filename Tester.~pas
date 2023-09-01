@@ -7,8 +7,8 @@ uses
   Dialogs, Menus, StdCtrls, ComCtrls, ExtCtrls, TeeProcs, TeEngine, Chart,
   Series, Gauges;
 
-  function addDotToChart():BOOL;
-  function getBalanceFromTester():Double;
+  function addDotToChart(): Boolean;
+  function getBalanceFromTester(): Double;
 
 type
   TFormTester = class(TForm)
@@ -121,14 +121,14 @@ begin
   runTester;
 end;
 
-function addDotToChart():BOOL;
+function addDotToChart(): Boolean;
 begin
   FormTester.Chart.Series[0].Add(ballance);
 
   addDotToChart := True;
 end;
 
-function getBalanceFromTester():Double;
+function getBalanceFromTester(): Double;
 begin
   ballance := StrToFloat(FormTester.EditBallance.Text);
 
